@@ -13,6 +13,7 @@
 #import "Transform.h"
 #import "Physics.h"
 #import "Renderer.h"
+#import "Input.h"
 
 @implementation AppDelegate
 
@@ -20,13 +21,20 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self setupGL];
-  
   player_           = [[Entity alloc] init];
   player_.transform = [[Transform alloc] initWithEntity:player_];
-  player_.physics   = [[Physics alloc] initWithEntity:player_];
-  player_.renderer  = [[Renderer alloc] initWithEntity:player_];
+  player_.physics   = [[Physics alloc]   initWithEntity:player_];
+  player_.renderer  = [[Renderer alloc]  initWithEntity:player_];
+  player_.renderer  = [[Renderer alloc]  initWithEntity:player_];
+  player_.input     = [[Input alloc]     initWithEntity:player_];
   
   return YES;
+}
+
+
+
+- (UIResponder *)nextResponder {
+  return player_.input;
 }
 
 

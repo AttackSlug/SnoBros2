@@ -14,6 +14,7 @@
 @synthesize transform = transform_;
 @synthesize renderer  = renderer_;
 @synthesize physics   = physics_;
+@synthesize input     = input_;
 
 
 - (id)init {

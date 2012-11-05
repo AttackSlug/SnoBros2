@@ -10,6 +10,7 @@
 		A30E838516471DB500030773 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30E838416471DB500030773 /* ViewController.m */; };
 		A30E838916472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
 		A30E838A16472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
+		A38A59A9164840F900106657 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = A38A59A8164840F900106657 /* Input.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -50,6 +51,8 @@
 		A30E838316471DB500030773 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A30E838416471DB500030773 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A30E838816472BBE00030773 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		A38A59A7164840F800106657 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		A38A59A8164840F900106657 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -215,6 +218,8 @@
 				A3BD0CE11643503C007AEB08 /* Physics.m */,
 				A3BD0CE31645EDC0007AEB08 /* Renderer.h */,
 				A3BD0CE41645EDC0007AEB08 /* Renderer.m */,
+				A38A59A7164840F800106657 /* Input.h */,
+				A38A59A8164840F900106657 /* Input.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				A3BD0CE51645EDC0007AEB08 /* Renderer.m in Sources */,
 				A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */,
 				A30E838516471DB500030773 /* ViewController.m in Sources */,
+				A38A59A9164840F900106657 /* Input.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
