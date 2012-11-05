@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Entity.h"
-#import "Message.h"
+
+@class Entity;
 
 @interface Component : NSObject {
   Entity *entity_;
 }
 
 - (id)initWithEntity:(Entity *)entity;
-
-- (void)receiveMessage:(Message *)message;
+- (void)update;
 
 @end

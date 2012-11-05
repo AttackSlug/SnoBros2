@@ -7,43 +7,32 @@
 //
 
 #import "Entity.h"
-#import "Component.h"
 
 @implementation Entity
+
+
+@synthesize transform = transform_;
+@synthesize renderer  = renderer_;
+@synthesize physics   = physics_;
 
 
 - (id)init {
   self = [super init];
   if (self) {
-    components_ = [[NSMutableDictionary alloc] init];
   }
   return self;
 }
 
 
 
-- (void)addComponent:(Component *)component name:(NSString *)name {
-  [components_ setValue:component forKey:name];
+- (void)update {
+  [physics_   update];
 }
 
 
 
-- (Component *)componentWithName:(NSString *)name {
-  return [components_ objectForKey:name];
-}
-
-
-
-- (void)removeComponent:(NSString *)name {
-  [components_ removeObjectForKey:name];
-}
-
-
-
-- (void)receiveMessage:(Message *)message {
-  for (id key in components_) {
-    [[components_ objectForKey:key] receiveMessage:message];
-  }
+- (void)render {
+  [renderer_  update];
 }
 
 

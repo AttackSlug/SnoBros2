@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Component.h"
 #import <GLKit/GLKit.h>
+#import "Component.h"
+
 
 @interface Transform : Component {
   GLKVector2 position_;

@@ -8,7 +8,6 @@
 
 #import "EntityTest.h"
 #import "Entity.h"
-#import "Message.h"
 
 @implementation EntityTest
 
@@ -28,9 +27,7 @@
 
 
 - (void)testShouldWork {
-  Entity  *entity      = [[Entity  alloc] init];
-  Message *testMessage = [[Message alloc] init];
-  [entity receiveMessage:testMessage];
+  //Entity  *entity = [[Entity  alloc] init];
 }
 
 @end

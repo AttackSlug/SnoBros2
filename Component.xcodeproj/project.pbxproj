@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30E838516471DB500030773 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30E838416471DB500030773 /* ViewController.m */; };
+		A30E838916472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
+		A30E838A16472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -23,7 +26,6 @@
 		A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */; };
 		A3BD0CD11642F21B007AEB08 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CD01642F21B007AEB08 /* Entity.m */; };
 		A3BD0CD41642F2B9007AEB08 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CD31642F2B9007AEB08 /* Component.m */; };
-		A3BD0CDB1642F4FE007AEB08 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CDA1642F4FE007AEB08 /* Message.m */; };
 		A3BD0CDF1642F9A3007AEB08 /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CDE1642F9A3007AEB08 /* Transform.m */; };
 		A3BD0CE21643503C007AEB08 /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CE11643503C007AEB08 /* Physics.m */; };
 		A3BD0CE51645EDC0007AEB08 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CE41645EDC0007AEB08 /* Renderer.m */; };
@@ -31,6 +33,7 @@
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
+		A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CF51646DDF0007AEB08 /* Sprite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30E838316471DB500030773 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A30E838416471DB500030773 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A30E838816472BBE00030773 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,8 +73,6 @@
 		A3BD0CD01642F21B007AEB08 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		A3BD0CD21642F2B9007AEB08 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		A3BD0CD31642F2B9007AEB08 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
-		A3BD0CD91642F4FE007AEB08 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		A3BD0CDA1642F4FE007AEB08 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A3BD0CDD1642F9A3007AEB08 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		A3BD0CDE1642F9A3007AEB08 /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
 		A3BD0CE01643503C007AEB08 /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		A3BD0CE41645EDC0007AEB08 /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3BD0CF41646DDF0007AEB08 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		A3BD0CF51646DDF0007AEB08 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A30E838716472B9600030773 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A30E838816472BBE00030773 /* player.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		A3BD0C881642EC8B007AEB08 = {
 			isa = PBXGroup;
 			children = (
@@ -142,13 +156,16 @@
 		A3BD0C9D1642EC8B007AEB08 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				A30E838716472B9600030773 /* Assets */,
 				A3BD0CDC1642F8D4007AEB08 /* Component */,
 				A3BD0CA61642EC8B007AEB08 /* AppDelegate.h */,
 				A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */,
 				A3BD0CCF1642F21B007AEB08 /* Entity.h */,
 				A3BD0CD01642F21B007AEB08 /* Entity.m */,
-				A3BD0CD91642F4FE007AEB08 /* Message.h */,
-				A3BD0CDA1642F4FE007AEB08 /* Message.m */,
+				A3BD0CF41646DDF0007AEB08 /* Sprite.h */,
+				A3BD0CF51646DDF0007AEB08 /* Sprite.m */,
+				A30E838316471DB500030773 /* ViewController.h */,
+				A30E838416471DB500030773 /* ViewController.m */,
 				A3BD0C9E1642EC8B007AEB08 /* Supporting Files */,
 			);
 			path = Component;
@@ -277,6 +294,7 @@
 				A3BD0CAA1642EC8B007AEB08 /* Default.png in Resources */,
 				A3BD0CAC1642EC8B007AEB08 /* Default@2x.png in Resources */,
 				A3BD0CAE1642EC8B007AEB08 /* Default-568h@2x.png in Resources */,
+				A30E838916472BBE00030773 /* player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */,
+				A30E838A16472BBE00030773 /* player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +334,11 @@
 				A3BD0CA81642EC8B007AEB08 /* AppDelegate.m in Sources */,
 				A3BD0CD11642F21B007AEB08 /* Entity.m in Sources */,
 				A3BD0CD41642F2B9007AEB08 /* Component.m in Sources */,
-				A3BD0CDB1642F4FE007AEB08 /* Message.m in Sources */,
 				A3BD0CDF1642F9A3007AEB08 /* Transform.m in Sources */,
 				A3BD0CE21643503C007AEB08 /* Physics.m in Sources */,
 				A3BD0CE51645EDC0007AEB08 /* Renderer.m in Sources */,
+				A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */,
+				A30E838516471DB500030773 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +509,7 @@
 				A3BD0CC81642EC8B007AEB08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "ComponentTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +518,7 @@
 				A3BD0CCB1642EC8B007AEB08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

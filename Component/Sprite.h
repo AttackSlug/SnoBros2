@@ -1,13 +1,13 @@
 //
-//  Message.h
+//  Sprite.h
 //  Component
 //
-//  Created by Cjab on 11/1/12.
+//  Created by Cjab on 11/4/12.
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Message : NSObject
+@interface Sprite : NSObject
 
 @end

@@ -7,21 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Message.h"
-
-@class Component;
+#import "Transform.h"
+#import "Renderer.h"
+#import "Physics.h"
 
 
 @interface Entity : NSObject {
-  NSMutableDictionary *components_;
+  Transform *transform_;
+  Renderer  *renderer_;
+  Physics   *physics_;
 }
 
+@property (nonatomic) Transform *transform;
+@property (nonatomic) Renderer  *renderer;
+@property (nonatomic) Physics   *physics;
+
 - (id)init;
-
-- (void)addComponent:(Component *)component name:(NSString *)name;
-- (Component *)componentWithName:(NSString *)name;
-- (void)removeComponent:(NSString *)name;
-
-- (void)receiveMessage:(Message *)message;
+- (void)update;
+- (void)render;
 
 @end

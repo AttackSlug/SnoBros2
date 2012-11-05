@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
+#import "Entity.h"
 #import "Physics.h"
 #import "Transform.h"
 
@@ -19,8 +20,7 @@
 
 
 - (void)update {
-  Transform *transform = (Transform *)[entity_ componentWithName:@"transform"];
-  [transform translate:velocity_];
+  [entity_.transform translate:velocity_];
 }
 
 @end

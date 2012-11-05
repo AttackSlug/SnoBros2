@@ -7,26 +7,69 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import "Entity.h"
 #import "Component.h"
+#import "Transform.h"
+#import "Physics.h"
+#import "Renderer.h"
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  // Override point for customization after application launch.
-  self.window.backgroundColor = [UIColor whiteColor];
-  [self.window makeKeyAndVisible];
+
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [self setupGL];
   
-  
-  Entity    *entity    = [[Entity    alloc] init];
-  Message   *message   = [[Message   alloc] init];
-  Component *component = [[Component alloc] init];
-  [entity addComponent:component name:@"testComponent"];
-  [entity receiveMessage:message];
-  
+  player_           = [[Entity alloc] init];
+  player_.transform = [[Transform alloc] initWithEntity:player_];
+  player_.physics   = [[Physics alloc] initWithEntity:player_];
+  player_.renderer  = [[Renderer alloc] initWithEntity:player_];
   
   return YES;
+}
+
+
+
+- (void)setupGL {
+  EAGLContext *context = [[EAGLContext alloc]
+                          initWithAPI:kEAGLRenderingAPIOpenGLES2];
+  [EAGLContext setCurrentContext:context];
+  glEnable(GL_DEPTH_TEST);
+
+  GLKView *view = [[GLKView alloc]
+                   initWithFrame:[[UIScreen mainScreen]bounds]
+                   context:context];
+  view.delegate = self;
+  view.context  = context;
+
+  ViewController *controller = [[ViewController alloc] init];
+  controller.delegate = self;
+  controller.view     = view;
+
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.rootViewController = controller;
+  [self.window makeKeyAndVisible];
+
+  glClearColor(0.7f, 0.7f, 0.7f, 1.0f);
+}
+
+
+
+- (void)glkViewControllerUpdate:(GLKViewController *)controller {
+  //NSTimeInterval elapsedTime = controller.timeSinceLastUpdate;
+  //if (elapsedTime > 0.001) {
+  //  [map_    update:elapsedTime];
+  //  [player_ update:elapsedTime];
+  //}
+  [player_ update];
+}
+
+
+
+- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  [player_ render];
 }
 
 

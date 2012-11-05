@@ -7,6 +7,7 @@
 //
 
 #import "Component.h"
+#import "Entity.h"
 
 @implementation Component
 
@@ -19,8 +20,9 @@
   return self;
 }
 
-- (void)receiveMessage:(Message *)message {
-  NSLog(@"Message received by Component!");
+
+
+- (void)update {
 }
 
 
