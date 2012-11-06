@@ -12,7 +12,7 @@
 @implementation Input
 
 
-- (id)initWithEntity:(Entity *)entity ai:(AI *)ai {
+- (id)initWithEntity:(Entity *)entity ai:(Behavior *)ai {
   self = [super init];
   if (self) {
     entity_ = entity;

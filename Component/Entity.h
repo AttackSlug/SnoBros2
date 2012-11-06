@@ -11,7 +11,7 @@
 #import "Renderer.h"
 #import "Physics.h"
 #import "Input.h"
-#import "AI.h"
+#import "Behavior.h"
 
 
 @interface Entity : NSObject {
@@ -20,7 +20,7 @@
   Physics   *physics_;
   Sprite    *sprite_;
   Input     *input_;
-  AI        *ai_;
+  Behavior        *ai_;
 }
 
 @property (nonatomic) Transform *transform;
@@ -28,7 +28,7 @@
 @property (nonatomic) Physics   *physics;
 @property (nonatomic) Sprite    *sprite;
 @property (nonatomic) Input     *input;
-@property (nonatomic) AI        *ai;
+@property (nonatomic) Behavior        *ai;
 
 - (id)init;
 - (void)update;

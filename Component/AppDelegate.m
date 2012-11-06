@@ -37,7 +37,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   player.renderer  = [[Renderer alloc]  initWithEntity:player
                                              transform:player.transform
                                                 sprite:player.sprite];
-  player.ai        = [[AI alloc]        initWithEntity:player
+  player.ai        = [[Behavior alloc]        initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics];
   player.input     = [[Input alloc]     initWithEntity:player

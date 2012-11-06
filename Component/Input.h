@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AI.h"
+#import "Behavior.h"
 
 @class Entity;
 
 @interface Input : UIResponder {
   Entity *entity_;
-  AI     *ai_;
+  Behavior     *ai_;
 }
 
-- (id)initWithEntity:(Entity *)entity ai:(AI *)ai;
+- (id)initWithEntity:(Entity *)entity ai:(Behavior *)ai;
 
 @end

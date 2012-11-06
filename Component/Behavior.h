@@ -11,7 +11,7 @@
 #import "Transform.h"
 #import "Physics.h"
 
-@interface AI : Component {
+@interface Behavior : Component {
   GLKVector2 target_;
   GLKVector2 direction_;
   Transform  *transform_;

@@ -7,9 +7,9 @@
 //
 
 #import "Entity.h"
-#import "AI.h"
+#import "Behavior.h"
 
-@implementation AI
+@implementation Behavior
 
 
 - (id)initWithEntity:(Entity *)entity
