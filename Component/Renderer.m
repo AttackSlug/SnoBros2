@@ -7,77 +7,48 @@
 //
 
 #import "Renderer.h"
+#import "Entity.h"
 
 @implementation Renderer
 
 
-+ (void)setup:(UIResponder *)delegate {
-  EAGLContext *context = [[EAGLContext alloc]
-                          initWithAPI:kEAGLRenderingAPIOpenGLES2];
-  [EAGLContext setCurrentContext:context];
-  glEnable(GL_DEPTH_TEST);
-}
-
-
-
-- (id)initWithEntity:(Entity *)entity {
+- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform {
   self = [super initWithEntity:entity];
   if (self) {
-    effect_ = [[GLKBaseEffect alloc] init];
+    transform_ = transform;
+    sprite_    = [[Sprite alloc] initWithFile:@"player.png"];
+    effect_    = [[GLKBaseEffect alloc] init];
+
     effect_.transform.projectionMatrix =
       GLKMatrix4MakeOrtho(0, 480, 320, 0, -1, 1);
-    
-    texture_  = [GLKTextureLoader
-                textureWithCGImage:[UIImage imageNamed:@"player.png"].CGImage
-                options:nil
-                error:nil];
-    
-    [self calculateVertices:GLKVector2Make(0.f, 0.f)
-                   withSize:CGSizeMake(76, 92)];
-    [self calculateTexture];
   }
   return self;
 }
 
 
 
-- (void)calculateVertices:(GLKVector2)position withSize:(CGSize)size {
-  vertices_[0] = GLKVector2Make(position.x,
-                                position.y + size.height);
-  vertices_[1] = GLKVector2Make(position.x,
-                                position.y);
-  vertices_[2] = GLKVector2Make(position.x + size.width,
-                                position.y);
-  vertices_[3] = GLKVector2Make(position.x + size.width,
-                                position.y + size.height);
-}
-
-
-
-- (void) calculateTexture {
-  uvMap_[0] = GLKVector2Make(0, 1); // ?
-  uvMap_[1] = GLKVector2Make(0, 0); // bottom left
-  uvMap_[2] = GLKVector2Make(1, 0); // ?
-  uvMap_[3] = GLKVector2Make(1, 1); // top right
-}
-
-
-
 - (void)update {
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect_.texture2d0.target  = GLKTextureTarget2D;
-  effect_.texture2d0.name    = texture_.name;
-  
+  effect_.texture2d0.name    = sprite_.texture.name;
+
+  GLKVector2 position  = transform_.position;
+  effect_.transform.modelviewMatrix =
+    GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
+
   [effect_ prepareToDraw];
-  
+
   glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
   glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT,
-                        GL_FALSE, 0, uvMap_);
-  
+                        GL_FALSE, 0, sprite_.uvMap);
+
   glEnableVertexAttribArray(GLKVertexAttribPosition);
   glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT,
-                        GL_FALSE, 0, vertices_);
-  
+                        GL_FALSE, 0, sprite_.vertices);
+
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);

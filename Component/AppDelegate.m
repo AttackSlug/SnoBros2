@@ -21,14 +21,24 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self setupGL];
+  [self setupWorld];
+  return YES;
+}
+
+
+
+- (void)setupWorld {
   player_           = [[Entity alloc] init];
   player_.transform = [[Transform alloc] initWithEntity:player_];
-  player_.physics   = [[Physics alloc]   initWithEntity:player_];
-  player_.renderer  = [[Renderer alloc]  initWithEntity:player_];
-  player_.renderer  = [[Renderer alloc]  initWithEntity:player_];
-  player_.input     = [[Input alloc]     initWithEntity:player_];
-  
-  return YES;
+  player_.physics   = [[Physics alloc]   initWithEntity:player_
+                                              transform:player_.transform];
+  player_.renderer  = [[Renderer alloc]  initWithEntity:player_
+                                              transform:player_.transform];
+  player_.ai        = [[AI alloc]        initWithEntity:player_
+                                              transform:player_.transform
+                                                physics:player_.physics];
+  player_.input     = [[Input alloc]     initWithEntity:player_
+                                                     ai:player_.ai];
 }
 
 

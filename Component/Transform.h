@@ -14,6 +14,9 @@
   GLKVector2 position_;
 }
 
+@property GLKVector2 position;
+
+
 - (id)initWithEntity:(Entity *)entity;
 
 - (void)translate:(GLKVector2)translation;

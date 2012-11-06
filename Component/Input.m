@@ -6,16 +6,17 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Entity.h"
 #import "Input.h"
+#import "Entity.h"
 
 @implementation Input
 
 
-- (id)initWithEntity:(Entity *)entity {
+- (id)initWithEntity:(Entity *)entity ai:(AI *)ai {
   self = [super init];
   if (self) {
     entity_ = entity;
+    ai_     = ai;
   }
   return self;
 }
@@ -25,8 +26,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   for (UITouch *touch in touches) {
     CGPoint pt =[touch locationInView:touch.view];
-    //[entity_ walkTo:GLKVector2Make(pt.x, pt.y)];
-    NSLog(@"Touched");
+    [ai_ walkTo:GLKVector2Make(pt.x, pt.y)];
   }
 }
 
@@ -35,8 +35,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   for (UITouch *touch in touches) {
     CGPoint pt =[touch locationInView:touch.view];
-    //[entity_ walkTo:GLKVector2Make(pt.x, pt.y)];
-    NSLog(@"Moved");
+    [ai_ walkTo:GLKVector2Make(pt.x, pt.y)];
   }
 }
 

@@ -6,14 +6,18 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Component.h"
 #import <GLKit/GLKit.h>
+#import "Component.h"
+#import "Transform.h"
 
 @interface Physics : Component {
   GLKVector2 velocity_;
+  Transform  *transform_;
 }
 
-- (id)initWithEntity:(Entity *)entity;
+@property GLKVector2 velocity;
+
+- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform;
 - (void)update;
 
 @end

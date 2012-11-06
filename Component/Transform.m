@@ -10,6 +10,8 @@
 
 @implementation Transform
 
+@synthesize position = position_;
+
 
 - (id)initWithEntity:(Entity *)entity {
   return [super initWithEntity:entity];

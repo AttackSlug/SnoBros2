@@ -13,14 +13,21 @@
 @implementation Physics
 
 
-- (id)initWithEntity:(Entity *)entity {
-  return [super initWithEntity:entity];
+@synthesize velocity = velocity_;
+
+
+- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform {
+  self = [super initWithEntity:entity];
+  if (self) {
+    transform_ = transform;
+  }
+  return self;
 }
 
 
 
 - (void)update {
-  [entity_.transform translate:velocity_];
+  [transform_ translate:velocity_];
 }
 
 @end

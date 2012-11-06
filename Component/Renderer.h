@@ -6,19 +6,18 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Component.h"
 #import <GLKit/GLKit.h>
+#import "Component.h"
+#import "Transform.h"
+#import "Sprite.h"
 
 @interface Renderer : Component {
   GLKBaseEffect  *effect_;
-  GLKVector2     vertices_[4];
-  GLKVector2     uvMap_[4];
-  GLKTextureInfo *texture_;
+  Sprite         *sprite_;
+  Transform      *transform_;
 }
 
-+ (void)setup:(UIResponder *)delegate;
-
-- (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform;
 - (void)update;
 
 @end

@@ -15,6 +15,7 @@
 @synthesize renderer  = renderer_;
 @synthesize physics   = physics_;
 @synthesize input     = input_;
+@synthesize ai        = ai_;
 
 
 - (id)init {
@@ -27,13 +28,14 @@
 
 
 - (void)update {
-  [physics_   update];
+  [ai_      update];
+  [physics_ update];
 }
 
 
 
 - (void)render {
-  [renderer_  update];
+  [renderer_ update];
 }
 
 
