@@ -21,48 +21,14 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self setupGL];
-  player_ = [self setupPlayer];
-  map_    = [self setupMap];
+  currentScene_ = [[Scene alloc] init];
   return YES;
 }
 
 
 
-- (Entity *)setupPlayer {
-  Entity *player   = [[Entity alloc]    init];
-  player.transform = [[Transform alloc] initWithEntity:player];
-  player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
-  player.physics   = [[Physics alloc]   initWithEntity:player
-                                             transform:player.transform];
-  player.renderer  = [[Renderer alloc]  initWithEntity:player
-                                             transform:player.transform
-                                                sprite:player.sprite];
-  player.ai        = [[Behavior alloc]        initWithEntity:player
-                                             transform:player.transform
-                                               physics:player.physics];
-  player.input     = [[Input alloc]     initWithEntity:player
-                                                    ai:player.ai];
-  return player;
-}
-
-
-
-- (Entity *)setupMap {
-  Entity *map   = [[Entity alloc] init];
-  map.transform = [[Transform alloc] initWithEntity:map];
-  map.sprite    = [[Sprite alloc]    initWithFile:@"map.png"];
-  map.renderer  = [[Renderer alloc]  initWithEntity:map
-                                          transform:map.transform
-                                             sprite:map.sprite];
-  map.transform.position = GLKVector2Make(map.renderer.width  / 2.f,
-                                          map.renderer.height / 2.f);
-  return map;
-}
-
-
-
 - (UIResponder *)nextResponder {
-  return player_.input;
+  return currentScene_;
 }
 
 
@@ -98,16 +64,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   //  [map_    update:elapsedTime];
   //  [player_ update:elapsedTime];
   //}
-  [map_    update];
-  [player_ update];
+  [currentScene_ update];
 }
 
 
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  [map_    render];
-  [player_ render];
+  [currentScene_ render];
 }
 
 

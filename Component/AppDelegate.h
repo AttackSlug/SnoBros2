@@ -8,11 +8,10 @@
 
 #import <GLKit/GLKit.h>
 #import <UIKit/UIKit.h>
-#import "Entity.h"
+#import "Scene.h"
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate, GLKViewControllerDelegate, GLKViewDelegate> {
-  Entity *player_;
-  Entity *map_;
+  Scene *currentScene_;
 }
 
 @property (strong, nonatomic) UIWindow *window;

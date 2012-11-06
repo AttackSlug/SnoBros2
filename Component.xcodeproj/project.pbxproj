@@ -38,6 +38,7 @@
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CF51646DDF0007AEB08 /* Sprite.m */; };
+		A3F1F9001649A622005CA0B7 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F8FF1649A622005CA0B7 /* Scene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3BD0CF41646DDF0007AEB08 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A3BD0CF51646DDF0007AEB08 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		A3F1F8FE1649A621005CA0B7 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		A3F1F8FF1649A622005CA0B7 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				A3BD0CD01642F21B007AEB08 /* Entity.m */,
 				A30E838316471DB500030773 /* ViewController.h */,
 				A30E838416471DB500030773 /* ViewController.m */,
+				A3F1F8FE1649A621005CA0B7 /* Scene.h */,
+				A3F1F8FF1649A622005CA0B7 /* Scene.m */,
 				A3BD0C9E1642EC8B007AEB08 /* Supporting Files */,
 			);
 			path = Component;
@@ -359,6 +364,7 @@
 				A30E838516471DB500030773 /* ViewController.m in Sources */,
 				A38A59A9164840F900106657 /* Input.m in Sources */,
 				A38A59AD16484DBD00106657 /* Behavior.m in Sources */,
+				A3F1F9001649A622005CA0B7 /* Scene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
