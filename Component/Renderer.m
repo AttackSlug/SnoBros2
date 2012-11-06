@@ -11,16 +11,24 @@
 
 @implementation Renderer
 
+@synthesize width  = width_;
+@synthesize height = height_;
 
-- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform {
+
+- (id)initWithEntity:(Entity *)entity
+           transform:(Transform *)transform
+              sprite:(Sprite *)sprite {
   self = [super initWithEntity:entity];
   if (self) {
     transform_ = transform;
-    sprite_    = [[Sprite alloc] initWithFile:@"player.png"];
+    sprite_    = sprite;
     effect_    = [[GLKBaseEffect alloc] init];
 
+    width_  = 480;
+    height_ = 320;
+
     effect_.transform.projectionMatrix =
-      GLKMatrix4MakeOrtho(0, 480, 320, 0, -1, 1);
+      GLKMatrix4MakeOrtho(0, width_, height_, 0, -1, 1);
   }
   return self;
 }

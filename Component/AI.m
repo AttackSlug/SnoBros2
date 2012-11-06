@@ -26,8 +26,8 @@
 
 
 - (void)update {
-  if (GLKVector2Distance(transform_.position, target_) > 5) {
-    physics_.velocity = GLKVector2MultiplyScalar(direction_, 5);
+  if (GLKVector2Distance(transform_.position, target_) > 10) {
+    physics_.velocity = GLKVector2MultiplyScalar(direction_, 10);
   } else {
     physics_.velocity = GLKVector2Make(0.f, 0.f);
   }

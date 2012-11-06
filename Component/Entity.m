@@ -14,6 +14,7 @@
 @synthesize transform = transform_;
 @synthesize renderer  = renderer_;
 @synthesize physics   = physics_;
+@synthesize sprite    = sprite_;
 @synthesize input     = input_;
 @synthesize ai        = ai_;
 

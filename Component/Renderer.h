@@ -15,9 +15,16 @@
   GLKBaseEffect  *effect_;
   Sprite         *sprite_;
   Transform      *transform_;
+  int            width_;
+  int            height_;
 }
 
-- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform;
+@property (readonly, nonatomic) int width;
+@property (readonly, nonatomic) int height;
+
+- (id)initWithEntity:(Entity *)entity
+           transform:(Transform *)transform
+              sprite:(Sprite *)sprite;
 - (void)update;
 
 @end

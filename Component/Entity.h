@@ -18,6 +18,7 @@
   Transform *transform_;
   Renderer  *renderer_;
   Physics   *physics_;
+  Sprite    *sprite_;
   Input     *input_;
   AI        *ai_;
 }
@@ -25,6 +26,7 @@
 @property (nonatomic) Transform *transform;
 @property (nonatomic) Renderer  *renderer;
 @property (nonatomic) Physics   *physics;
+@property (nonatomic) Sprite    *sprite;
 @property (nonatomic) Input     *input;
 @property (nonatomic) AI        *ai;
 

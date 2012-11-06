@@ -21,24 +21,42 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self setupGL];
-  [self setupWorld];
+  player_ = [self setupPlayer];
+  map_    = [self setupMap];
   return YES;
 }
 
 
 
-- (void)setupWorld {
-  player_           = [[Entity alloc] init];
-  player_.transform = [[Transform alloc] initWithEntity:player_];
-  player_.physics   = [[Physics alloc]   initWithEntity:player_
-                                              transform:player_.transform];
-  player_.renderer  = [[Renderer alloc]  initWithEntity:player_
-                                              transform:player_.transform];
-  player_.ai        = [[AI alloc]        initWithEntity:player_
-                                              transform:player_.transform
-                                                physics:player_.physics];
-  player_.input     = [[Input alloc]     initWithEntity:player_
-                                                     ai:player_.ai];
+- (Entity *)setupPlayer {
+  Entity *player   = [[Entity alloc]    init];
+  player.transform = [[Transform alloc] initWithEntity:player];
+  player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
+  player.physics   = [[Physics alloc]   initWithEntity:player
+                                             transform:player.transform];
+  player.renderer  = [[Renderer alloc]  initWithEntity:player
+                                             transform:player.transform
+                                                sprite:player.sprite];
+  player.ai        = [[AI alloc]        initWithEntity:player
+                                             transform:player.transform
+                                               physics:player.physics];
+  player.input     = [[Input alloc]     initWithEntity:player
+                                                    ai:player.ai];
+  return player;
+}
+
+
+
+- (Entity *)setupMap {
+  Entity *map   = [[Entity alloc] init];
+  map.transform = [[Transform alloc] initWithEntity:map];
+  map.sprite    = [[Sprite alloc]    initWithFile:@"map.png"];
+  map.renderer  = [[Renderer alloc]  initWithEntity:map
+                                          transform:map.transform
+                                             sprite:map.sprite];
+  map.transform.position = GLKVector2Make(map.renderer.width  / 2.f,
+                                          map.renderer.height / 2.f);
+  return map;
 }
 
 
@@ -80,6 +98,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   //  [map_    update:elapsedTime];
   //  [player_ update:elapsedTime];
   //}
+  [map_    update];
   [player_ update];
 }
 
@@ -87,6 +106,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  [map_    render];
   [player_ render];
 }
 

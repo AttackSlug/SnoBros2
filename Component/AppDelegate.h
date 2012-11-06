@@ -12,6 +12,7 @@
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate, GLKViewControllerDelegate, GLKViewDelegate> {
   Entity *player_;
+  Entity *map_;
 }
 
 @property (strong, nonatomic) UIWindow *window;

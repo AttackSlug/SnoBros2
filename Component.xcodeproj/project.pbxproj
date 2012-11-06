@@ -10,6 +10,8 @@
 		A30E838516471DB500030773 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30E838416471DB500030773 /* ViewController.m */; };
 		A30E838916472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
 		A30E838A16472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
+		A34297661649966500C9B94D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A34297651649966500C9B94D /* map.png */; };
+		A34297691649A11D00C9B94D /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = A34297681649A11D00C9B94D /* snowball.png */; };
 		A38A59A9164840F900106657 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = A38A59A8164840F900106657 /* Input.m */; };
 		A38A59AD16484DBD00106657 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = A38A59AC16484DBD00106657 /* AI.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
@@ -52,6 +54,8 @@
 		A30E838316471DB500030773 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A30E838416471DB500030773 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A30E838816472BBE00030773 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		A34297651649966500C9B94D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		A34297681649A11D00C9B94D /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
 		A38A59A7164840F800106657 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		A38A59A8164840F900106657 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		A38A59AB16484DBD00106657 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		A30E838716472B9600030773 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A34297681649A11D00C9B94D /* snowball.png */,
+				A34297651649966500C9B94D /* map.png */,
 				A30E838816472BBE00030773 /* player.png */,
 			);
 			name = Assets;
@@ -168,8 +174,6 @@
 				A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */,
 				A3BD0CCF1642F21B007AEB08 /* Entity.h */,
 				A3BD0CD01642F21B007AEB08 /* Entity.m */,
-				A3BD0CF41646DDF0007AEB08 /* Sprite.h */,
-				A3BD0CF51646DDF0007AEB08 /* Sprite.m */,
 				A30E838316471DB500030773 /* ViewController.h */,
 				A30E838416471DB500030773 /* ViewController.m */,
 				A3BD0C9E1642EC8B007AEB08 /* Supporting Files */,
@@ -213,6 +217,8 @@
 		A3BD0CDC1642F8D4007AEB08 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD0CF41646DDF0007AEB08 /* Sprite.h */,
+				A3BD0CF51646DDF0007AEB08 /* Sprite.m */,
 				A3BD0CD21642F2B9007AEB08 /* Component.h */,
 				A3BD0CD31642F2B9007AEB08 /* Component.m */,
 				A3BD0CDD1642F9A3007AEB08 /* Transform.h */,
@@ -305,6 +311,8 @@
 				A3BD0CAC1642EC8B007AEB08 /* Default@2x.png in Resources */,
 				A3BD0CAE1642EC8B007AEB08 /* Default-568h@2x.png in Resources */,
 				A30E838916472BBE00030773 /* player.png in Resources */,
+				A34297661649966500C9B94D /* map.png in Resources */,
+				A34297691649A11D00C9B94D /* snowball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
