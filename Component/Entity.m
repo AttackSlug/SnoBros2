@@ -16,7 +16,7 @@
 @synthesize physics   = physics_;
 @synthesize sprite    = sprite_;
 @synthesize input     = input_;
-@synthesize ai        = ai_;
+@synthesize behavior  = behavior_;
 
 
 - (id)init {
@@ -29,8 +29,8 @@
 
 
 - (void)update {
-  [ai_      update];
-  [physics_ update];
+  [behavior_ update];
+  [physics_  update];
 }
 
 

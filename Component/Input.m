@@ -12,11 +12,11 @@
 @implementation Input
 
 
-- (id)initWithEntity:(Entity *)entity ai:(Behavior *)ai {
+- (id)initWithEntity:(Entity *)entity behavior:(Behavior *)behavior {
   self = [super init];
   if (self) {
-    entity_ = entity;
-    ai_     = ai;
+    entity_   = entity;
+    behavior_ = behavior;
   }
   return self;
 }
@@ -26,7 +26,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   for (UITouch *touch in touches) {
     CGPoint pt =[touch locationInView:touch.view];
-    [ai_ walkTo:GLKVector2Make(pt.x, pt.y)];
+    [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
   }
 }
 
@@ -35,7 +35,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   for (UITouch *touch in touches) {
     CGPoint pt =[touch locationInView:touch.view];
-    [ai_ walkTo:GLKVector2Make(pt.x, pt.y)];
+    [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
   }
 }
 

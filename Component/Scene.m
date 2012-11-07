@@ -48,6 +48,18 @@
 
 
 
+- (void)addEntity:(Entity *)entity {
+  [entities_ addObject:entity];
+}
+
+
+
+- (void)removeEntity:(Entity *)entity {
+  [entities_ removeObject:entity];
+}
+
+
+
 - (Entity *)setupPlayer {
   Entity *player   = [[Entity alloc]    init];
   player.transform = [[Transform alloc] initWithEntity:player];
@@ -57,11 +69,11 @@
   player.renderer  = [[Renderer alloc]  initWithEntity:player
                                              transform:player.transform
                                                 sprite:player.sprite];
-  player.ai        = [[Behavior alloc]        initWithEntity:player
+  player.behavior  = [[Behavior alloc]        initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics];
   player.input     = [[Input alloc]     initWithEntity:player
-                                                    ai:player.ai];
+                                              behavior:player.behavior];
   return player;
 }
 

@@ -14,7 +14,11 @@
 }
 
 - (id)init;
+
 - (void)update;
 - (void)render;
+
+- (void)addEntity:(Entity *)entity;
+- (void)removeEntity:(Entity *)entity;
 
 @end

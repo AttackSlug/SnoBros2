@@ -12,10 +12,10 @@
 @class Entity;
 
 @interface Input : UIResponder {
-  Entity *entity_;
-  Behavior     *ai_;
+  Entity   *entity_;
+  Behavior *behavior_;
 }
 
-- (id)initWithEntity:(Entity *)entity ai:(Behavior *)ai;
+- (id)initWithEntity:(Entity *)entity behavior:(Behavior *)behavior;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  AI.m
+//  Behavior.m
 //  Component
 //
 //  Created by Cjab on 11/5/12.

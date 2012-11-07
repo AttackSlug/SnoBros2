@@ -20,7 +20,7 @@
   Physics   *physics_;
   Sprite    *sprite_;
   Input     *input_;
-  Behavior        *ai_;
+  Behavior  *behavior_;
 }
 
 @property (nonatomic) Transform *transform;
@@ -28,7 +28,7 @@
 @property (nonatomic) Physics   *physics;
 @property (nonatomic) Sprite    *sprite;
 @property (nonatomic) Input     *input;
-@property (nonatomic) Behavior        *ai;
+@property (nonatomic) Behavior  *behavior;
 
 - (id)init;
 - (void)update;
