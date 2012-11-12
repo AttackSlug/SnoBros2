@@ -1,0 +1,66 @@
+//
+//  Renderer.m
+//  Component
+//
+//  Created by Cjab on 11/3/12.
+//  Copyright (c) 2012 Cjab. All rights reserved.
+//
+
+#import "Renderer.h"
+#import "Entity.h"
+
+@implementation Renderer
+
+@synthesize width  = width_;
+@synthesize height = height_;
+
+
+- (id)initWithEntity:(Entity *)entity
+           transform:(Transform *)transform
+              sprite:(Sprite *)sprite {
+  self = [super initWithEntity:entity];
+  if (self) {
+    transform_ = transform;
+    sprite_    = sprite;
+    effect_    = [[GLKBaseEffect alloc] init];
+
+    width_  = 480;
+    height_ = 320;
+
+    effect_.transform.projectionMatrix =
+      GLKMatrix4MakeOrtho(0, width_, height_, 0, -1, 1);
+  }
+  return self;
+}
+
+
+
+- (void)update {
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+  effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
+  effect_.texture2d0.target  = GLKTextureTarget2D;
+  effect_.texture2d0.name    = sprite_.texture.name;
+
+  GLKVector2 position  = transform_.position;
+  effect_.transform.modelviewMatrix =
+    GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
+
+  [effect_ prepareToDraw];
+
+  glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+  glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT,
+                        GL_FALSE, 0, sprite_.uvMap);
+
+  glEnableVertexAttribArray(GLKVertexAttribPosition);
+  glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT,
+                        GL_FALSE, 0, sprite_.vertices);
+
+  glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+  glDisableVertexAttribArray(GLKVertexAttribPosition);
+  glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+}
+
+
+@end
