@@ -101,7 +101,7 @@
 - (Entity *)setupLeftPlayer {
   Entity *player   = [[Entity alloc]    initWithTag:@"player"];
   player.transform = [[Transform alloc] initWithEntity:player];
-  player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
+  player.sprite    = [[Sprite alloc]    initWithFile:@"sprite2.png"];
   player.physics   = [[Physics alloc]   initWithEntity:player
                                              transform:player.transform];
   player.renderer  = [[Renderer alloc]  initWithEntity:player
@@ -148,7 +148,7 @@
 - (Entity *)setupMap {
   Entity *map   = [[Entity alloc] initWithTag:@"map"];
   map.transform = [[Transform alloc] initWithEntity:map];
-  map.sprite    = [[Sprite alloc]    initWithFile:@"map2.png"];
+  map.sprite    = [[Sprite alloc]    initWithFile:@"wpaper.jpg"];
   map.renderer  = [[Renderer alloc]  initWithEntity:map
                                           transform:map.transform
                                              sprite:map.sprite];
