@@ -30,6 +30,14 @@
 
 
 - (void)update {
+  if (GLKVector2Length(physics_.velocity) < 1) {
+    NSMutableArray *players = [scene_ getEntitiesByTag:@"player"];
+    for (Entity *e in players) {
+      if (![e.uuid isEqualToString:entity_.uuid]) {
+        [self throwAt:e.transform.position];
+      }
+    }
+  }
   if (GLKVector2Distance(transform_.position, target_) > 10) {
     physics_.velocity = GLKVector2MultiplyScalar(direction_, 10);
   } else {
@@ -58,7 +66,7 @@
 
 
 - (Entity *)createSnowball {
-  Entity *snowball = [[Entity alloc] init];
+  Entity *snowball = [[Entity alloc] initWithTag:@"projectile"];
   snowball.transform = [[Transform alloc] initWithEntity:snowball];
   snowball.sprite    = [[Sprite alloc]    initWithFile:@"snowball.png"];
   snowball.physics   = [[Physics alloc]   initWithEntity:snowball

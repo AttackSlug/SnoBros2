@@ -17,10 +17,12 @@
   self = [super init];
   if (self) {
     entities_      = [[NSMutableDictionary alloc] init];
+    entityQueue_   = [[NSMutableDictionary alloc] init];
     inputHandlers_ = [[NSMutableArray alloc] init];
     [self addEntity:[self setupMap]];
     [self addEntity:[self setupLeftPlayer]];
     [self addEntity:[self setupRightPlayer]];
+    [self processEntityQueue];
   }
   return self;
 }
@@ -31,6 +33,7 @@
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
+  [self processEntityQueue];
 }
 
 
@@ -44,22 +47,33 @@
 
 
 - (void)addEntity:(Entity *)entity {
-  [entities_ setObject:entity forKey:entity.uuid];
+  [entityQueue_ setObject:entity forKey:entity.uuid];
 }
 
 
 
 - (void)removeEntity:(Entity *)entity {
-  [entities_ removeObjectForKey:entity.uuid];
+  [entityQueue_ setObject:entity forKey:entity.uuid];
 }
 
-
+- (void)processEntityQueue {
+  for (id key in entityQueue_) {
+    Entity *temp = [entityQueue_ objectForKey:key];
+    if ([entities_ objectForKey:key] == nil) {
+      [entities_ setObject:temp forKey:key];
+    } else {
+      [entities_ removeObjectForKey:key];
+    }
+  }
+  [entityQueue_ removeAllObjects];
+}
 
 -(NSMutableArray*)getEntitiesByTag:(NSString *)tag {
-  NSMutableArray *ret = [[NSMutableArray alloc] init];
-  for (Entity *e in entities_) {
-    if ([e.tag isEqualToString:tag]) {
-      [ret addObject:e];
+  NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:0];
+  for (id key in entities_) {
+    Entity *temp = [entities_ objectForKey:key];
+    if ([temp.tag isEqualToString:tag]) {
+      [ret addObject:temp];
     }
   }
   return ret;

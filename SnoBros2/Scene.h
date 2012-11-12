@@ -11,6 +11,7 @@
 
 @interface Scene : UIResponder {
   NSMutableDictionary *entities_;
+  NSMutableDictionary *entityQueue_;
   NSMutableArray *inputHandlers_;
 }
 
@@ -21,6 +22,7 @@
 
 - (void)addEntity:(Entity *)entity;
 - (void)removeEntity:(Entity *)entity;
+- (void)processEntityQueue;
 - (NSMutableArray*)getEntitiesByTag:(NSString*)tag;
 
 @end
