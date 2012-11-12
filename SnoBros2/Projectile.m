@@ -19,8 +19,6 @@
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
 }
 
-
-
 - (void)update {
   if (GLKVector2Distance(transform_.position, target_) > 10) {
     physics_.velocity = GLKVector2MultiplyScalar(direction_, 10);
