@@ -8,6 +8,8 @@
 
 #import "Behavior.h"
 
+@class Scene;
+
 @interface LeftPlayer : Behavior
 
 - (id)initWithEntity:(Entity *)entity

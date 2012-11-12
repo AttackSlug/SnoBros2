@@ -30,26 +30,26 @@
 
 
 - (void)update {
-  if (GLKVector2Length(physics_.velocity) < 1) {
-    NSMutableArray *players = [scene_ getEntitiesByTag:@"player"];
-    for (Entity *e in players) {
-      if (![e.uuid isEqualToString:entity_.uuid]) {
-        [self throwAt:e.transform.position];
-      }
-    }
-  }
   if (GLKVector2Distance(transform_.position, target_) > 10) {
     physics_.velocity = GLKVector2MultiplyScalar(direction_, 10);
   } else {
     physics_.velocity = GLKVector2Make(0.f, 0.f);
   }
+  float xclip = MIN(-(entity_.transform.position.x-scene_.camera.position.x-480),
+                    entity_.transform.position.x-scene_.camera.position.x);
+  float yclip = MIN(-(entity_.transform.position.y-scene_.camera.position.y-320),
+                    entity_.transform.position.y-scene_.camera.position.y);
+  if (xclip < 140 || yclip < 140) {
+    [scene_.camera moveCameraToTarget:entity_.transform.position];
+  }
+
 }
 
 
 
 - (void)walkTo:(GLKVector2)target {
   GLKVector2 position = transform_.position;
-  target_    = target;
+  target_    = target; 
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
 }
 

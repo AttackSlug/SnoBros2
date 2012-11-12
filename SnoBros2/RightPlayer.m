@@ -24,7 +24,6 @@
 
 
 - (void)walkTo:(GLKVector2)target {
-  if (target.x < 240) { return; }
   GLKVector2 position = transform_.position;
   target_    = target;
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));

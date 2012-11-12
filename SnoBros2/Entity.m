@@ -42,8 +42,8 @@
 
 
 
-- (void)render {
-  [renderer_ update];
+- (void)renderWithCamera:(Camera*) camera {
+  [renderer_ updateWithCamera:camera];
 }
 
 

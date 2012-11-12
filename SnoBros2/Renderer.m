@@ -9,6 +9,9 @@
 #import "Renderer.h"
 #import "Entity.h"
 
+#define VIEWPORT_X 480
+#define VIEWPORT_Y 320
+
 @implementation Renderer
 
 @synthesize width  = width_;
@@ -26,16 +29,13 @@
 
     width_  = 480;
     height_ = 320;
-
-    effect_.transform.projectionMatrix =
-      GLKMatrix4MakeOrtho(0, width_, height_, 0, -1, 1);
   }
   return self;
 }
 
 
 
-- (void)update {
+- (void)updateWithCamera:(Camera*)camera {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -46,6 +46,9 @@
   GLKVector2 position  = transform_.position;
   effect_.transform.modelviewMatrix =
     GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
+  
+  effect_.transform.projectionMatrix =
+    GLKMatrix4MakeOrtho(camera.position.x, VIEWPORT_X + camera.position.x, VIEWPORT_Y + camera.position.y, camera.position.y, -1, 1);
 
   [effect_ prepareToDraw];
 
