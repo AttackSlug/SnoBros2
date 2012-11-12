@@ -10,7 +10,7 @@
 #import "Entity.h"
 
 @interface Scene : UIResponder {
-  NSMutableArray *entities_;
+  NSMutableDictionary *entities_;
   NSMutableArray *inputHandlers_;
 }
 
@@ -21,5 +21,6 @@
 
 - (void)addEntity:(Entity *)entity;
 - (void)removeEntity:(Entity *)entity;
+- (NSMutableArray*)getEntitiesByTag:(NSString*)tag;
 
 @end

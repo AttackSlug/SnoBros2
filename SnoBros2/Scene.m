@@ -16,11 +16,11 @@
 - (id)init {
   self = [super init];
   if (self) {
-    entities_      = [[NSMutableArray alloc] init];
+    entities_      = [[NSMutableDictionary alloc] init];
     inputHandlers_ = [[NSMutableArray alloc] init];
-    [entities_ addObject:[self setupMap]];
-    [entities_ addObject:[self setupLeftPlayer]];
-    [entities_ addObject:[self setupRightPlayer]];
+    [self addEntity:[self setupMap]];
+    [self addEntity:[self setupLeftPlayer]];
+    [self addEntity:[self setupRightPlayer]];
   }
   return self;
 }
@@ -28,29 +28,41 @@
 
 
 - (void)update {
-  for (Entity *e in entities_) {
-    [e update];
+  for (id key in entities_) {
+    [[entities_ objectForKey:key] update];
   }
 }
 
 
 
 - (void)render {
-  for (Entity *e in entities_) {
-    [e render];
+  for (id key in entities_) {
+    [[entities_ objectForKey:key] render];
   }
 }
 
 
 
 - (void)addEntity:(Entity *)entity {
-  [entities_ addObject:entity];
+  [entities_ setObject:entity forKey:entity.uuid];
 }
 
 
 
 - (void)removeEntity:(Entity *)entity {
-  [entities_ removeObject:entity];
+  [entities_ removeObjectForKey:entity.uuid];
+}
+
+
+
+-(NSMutableArray*)getEntitiesByTag:(NSString *)tag {
+  NSMutableArray *ret = [[NSMutableArray alloc] init];
+  for (Entity *e in entities_) {
+    if ([e.tag isEqualToString:tag]) {
+      [ret addObject:e];
+    }
+  }
+  return ret;
 }
 
 
@@ -72,7 +84,7 @@
 
 
 - (Entity *)setupLeftPlayer {
-  Entity *player   = [[Entity alloc]    init];
+  Entity *player   = [[Entity alloc]    initWithTag:@"player"];
   player.transform = [[Transform alloc] initWithEntity:player];
   player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
   player.physics   = [[Physics alloc]   initWithEntity:player
@@ -94,7 +106,7 @@
 
 
 - (Entity *)setupRightPlayer {
-  Entity *player   = [[Entity alloc]    init];
+  Entity *player   = [[Entity alloc]    initWithTag:@"player"];
   player.transform = [[Transform alloc] initWithEntity:player];
   player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
   player.physics   = [[Physics alloc]   initWithEntity:player
@@ -119,7 +131,7 @@
 
 
 - (Entity *)setupMap {
-  Entity *map   = [[Entity alloc] init];
+  Entity *map   = [[Entity alloc] initWithTag:@"map"];
   map.transform = [[Transform alloc] initWithEntity:map];
   map.sprite    = [[Sprite alloc]    initWithFile:@"map.png"];
   map.renderer  = [[Renderer alloc]  initWithEntity:map
