@@ -26,7 +26,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   for (UITouch *touch in touches) {
     CGPoint pt =[touch locationInView:touch.view];
-    [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
+    [behavior_ throwAt:GLKVector2Make(pt.x, pt.y)];
   }
 }
 

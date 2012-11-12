@@ -39,6 +39,11 @@
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CF51646DDF0007AEB08 /* Sprite.m */; };
 		A3F1F9001649A622005CA0B7 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F8FF1649A622005CA0B7 /* Scene.m */; };
+		A3F1F905164AE3F6005CA0B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F904164AE3F6005CA0B7 /* Event.m */; };
+		A3F1F908164AE4DC005CA0B7 /* CreateEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */; };
+		A3F1F90F164B04E2005CA0B7 /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */; };
+		A3F1F912164B054B005CA0B7 /* RightPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F911164B054B005CA0B7 /* RightPlayer.m */; };
+		A3F1F915164C3CC7005CA0B7 /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F914164C3CC6005CA0B7 /* Projectile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,22 +66,22 @@
 		A38A59A8164840F900106657 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		A38A59AB16484DBD00106657 /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
 		A38A59AC16484DBD00106657 /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
-		A3BD0C931642EC8B007AEB08 /* Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A3BD0C9F1642EC8B007AEB08 /* Component-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Component-Info.plist"; sourceTree = "<group>"; };
+		A3BD0C9F1642EC8B007AEB08 /* SnoBros2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
 		A3BD0CA11642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3BD0CA31642EC8B007AEB08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A3BD0CA51642EC8B007AEB08 /* Component-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Component-Prefix.pch"; sourceTree = "<group>"; };
+		A3BD0CA51642EC8B007AEB08 /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
 		A3BD0CA61642EC8B007AEB08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A3BD0CA91642EC8B007AEB08 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3BD0CAB1642EC8B007AEB08 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3BD0CAD1642EC8B007AEB08 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A3BD0CB41642EC8B007AEB08 /* ComponentTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnoBros2Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		A3BD0CBD1642EC8B007AEB08 /* ComponentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ComponentTests-Info.plist"; sourceTree = "<group>"; };
+		A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2Tests-Info.plist"; sourceTree = "<group>"; };
 		A3BD0CBF1642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
 		A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
@@ -96,6 +101,16 @@
 		A3BD0CF51646DDF0007AEB08 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		A3F1F8FE1649A621005CA0B7 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		A3F1F8FF1649A622005CA0B7 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		A3F1F903164AE3F6005CA0B7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		A3F1F904164AE3F6005CA0B7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		A3F1F906164AE4DC005CA0B7 /* CreateEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntity.h; sourceTree = "<group>"; };
+		A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntity.m; sourceTree = "<group>"; };
+		A3F1F90D164B04E2005CA0B7 /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
+		A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
+		A3F1F910164B054B005CA0B7 /* RightPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightPlayer.h; sourceTree = "<group>"; };
+		A3F1F911164B054B005CA0B7 /* RightPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightPlayer.m; sourceTree = "<group>"; };
+		A3F1F913164C3CC6005CA0B7 /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		A3F1F914164C3CC6005CA0B7 /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +154,8 @@
 		A3BD0C881642EC8B007AEB08 = {
 			isa = PBXGroup;
 			children = (
-				A3BD0C9D1642EC8B007AEB08 /* Component */,
-				A3BD0CBB1642EC8B007AEB08 /* ComponentTests */,
+				A3BD0C9D1642EC8B007AEB08 /* SnoBros2 */,
+				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3BD0C941642EC8B007AEB08 /* Products */,
 			);
@@ -149,8 +164,8 @@
 		A3BD0C941642EC8B007AEB08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3BD0C931642EC8B007AEB08 /* Component.app */,
-				A3BD0CB41642EC8B007AEB08 /* ComponentTests.octest */,
+				A3BD0C931642EC8B007AEB08 /* SnoBros2.app */,
+				A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,10 +183,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A3BD0C9D1642EC8B007AEB08 /* Component */ = {
+		A3BD0C9D1642EC8B007AEB08 /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
 				A30E838716472B9600030773 /* Assets */,
+				A3F1F902164AE3D4005CA0B7 /* Event */,
 				A3BD0CDC1642F8D4007AEB08 /* Component */,
 				A3BD0CA61642EC8B007AEB08 /* AppDelegate.h */,
 				A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */,
@@ -183,16 +199,17 @@
 				A3F1F8FF1649A622005CA0B7 /* Scene.m */,
 				A3BD0C9E1642EC8B007AEB08 /* Supporting Files */,
 			);
+			name = SnoBros2;
 			path = Component;
 			sourceTree = "<group>";
 		};
 		A3BD0C9E1642EC8B007AEB08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A3BD0C9F1642EC8B007AEB08 /* Component-Info.plist */,
+				A3BD0C9F1642EC8B007AEB08 /* SnoBros2-Info.plist */,
 				A3BD0CA01642EC8B007AEB08 /* InfoPlist.strings */,
 				A3BD0CA31642EC8B007AEB08 /* main.m */,
-				A3BD0CA51642EC8B007AEB08 /* Component-Prefix.pch */,
+				A3BD0CA51642EC8B007AEB08 /* SnoBros2-Prefix.pch */,
 				A3BD0CA91642EC8B007AEB08 /* Default.png */,
 				A3BD0CAB1642EC8B007AEB08 /* Default@2x.png */,
 				A3BD0CAD1642EC8B007AEB08 /* Default-568h@2x.png */,
@@ -200,20 +217,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A3BD0CBB1642EC8B007AEB08 /* ComponentTests */ = {
+		A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */,
 				A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */,
 				A3BD0CBC1642EC8B007AEB08 /* Supporting Files */,
 			);
+			name = SnoBros2Tests;
 			path = ComponentTests;
 			sourceTree = "<group>";
 		};
 		A3BD0CBC1642EC8B007AEB08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A3BD0CBD1642EC8B007AEB08 /* ComponentTests-Info.plist */,
+				A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */,
 				A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -222,6 +240,7 @@
 		A3BD0CDC1642F8D4007AEB08 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				A3F1F909164AF3F6005CA0B7 /* Behavior */,
 				A3BD0CF41646DDF0007AEB08 /* Sprite.h */,
 				A3BD0CF51646DDF0007AEB08 /* Sprite.m */,
 				A3BD0CD21642F2B9007AEB08 /* Component.h */,
@@ -234,18 +253,42 @@
 				A3BD0CE41645EDC0007AEB08 /* Renderer.m */,
 				A38A59A7164840F800106657 /* Input.h */,
 				A38A59A8164840F900106657 /* Input.m */,
-				A38A59AB16484DBD00106657 /* Behavior.h */,
-				A38A59AC16484DBD00106657 /* Behavior.m */,
 			);
 			name = Component;
+			sourceTree = "<group>";
+		};
+		A3F1F902164AE3D4005CA0B7 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				A3F1F903164AE3F6005CA0B7 /* Event.h */,
+				A3F1F904164AE3F6005CA0B7 /* Event.m */,
+				A3F1F906164AE4DC005CA0B7 /* CreateEntity.h */,
+				A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		A3F1F909164AF3F6005CA0B7 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				A38A59AB16484DBD00106657 /* Behavior.h */,
+				A38A59AC16484DBD00106657 /* Behavior.m */,
+				A3F1F90D164B04E2005CA0B7 /* LeftPlayer.h */,
+				A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */,
+				A3F1F910164B054B005CA0B7 /* RightPlayer.h */,
+				A3F1F911164B054B005CA0B7 /* RightPlayer.m */,
+				A3F1F913164C3CC6005CA0B7 /* Projectile.h */,
+				A3F1F914164C3CC6005CA0B7 /* Projectile.m */,
+			);
+			name = Behavior;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A3BD0C921642EC8B007AEB08 /* Component */ = {
+		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3BD0CC61642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "Component" */;
+			buildConfigurationList = A3BD0CC61642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2" */;
 			buildPhases = (
 				A3BD0C8F1642EC8B007AEB08 /* Sources */,
 				A3BD0C901642EC8B007AEB08 /* Frameworks */,
@@ -255,14 +298,14 @@
 			);
 			dependencies = (
 			);
-			name = Component;
+			name = SnoBros2;
 			productName = Component;
-			productReference = A3BD0C931642EC8B007AEB08 /* Component.app */;
+			productReference = A3BD0C931642EC8B007AEB08 /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A3BD0CB31642EC8B007AEB08 /* ComponentTests */ = {
+		A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "ComponentTests" */;
+			buildConfigurationList = A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */;
 			buildPhases = (
 				A3BD0CAF1642EC8B007AEB08 /* Sources */,
 				A3BD0CB01642EC8B007AEB08 /* Frameworks */,
@@ -274,9 +317,9 @@
 			dependencies = (
 				A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */,
 			);
-			name = ComponentTests;
+			name = SnoBros2Tests;
 			productName = ComponentTests;
-			productReference = A3BD0CB41642EC8B007AEB08 /* ComponentTests.octest */;
+			productReference = A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -288,7 +331,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Cjab;
 			};
-			buildConfigurationList = A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "Component" */;
+			buildConfigurationList = A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "SnoBros2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -300,8 +343,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3BD0C921642EC8B007AEB08 /* Component */,
-				A3BD0CB31642EC8B007AEB08 /* ComponentTests */,
+				A3BD0C921642EC8B007AEB08 /* SnoBros2 */,
+				A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -365,6 +408,11 @@
 				A38A59A9164840F900106657 /* Input.m in Sources */,
 				A38A59AD16484DBD00106657 /* Behavior.m in Sources */,
 				A3F1F9001649A622005CA0B7 /* Scene.m in Sources */,
+				A3F1F905164AE3F6005CA0B7 /* Event.m in Sources */,
+				A3F1F908164AE4DC005CA0B7 /* CreateEntity.m in Sources */,
+				A3F1F90F164B04E2005CA0B7 /* LeftPlayer.m in Sources */,
+				A3F1F912164B054B005CA0B7 /* RightPlayer.m in Sources */,
+				A3F1F915164C3CC7005CA0B7 /* Projectile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +429,7 @@
 /* Begin PBXTargetDependency section */
 		A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A3BD0C921642EC8B007AEB08 /* Component */;
+			target = A3BD0C921642EC8B007AEB08 /* SnoBros2 */;
 			targetProxy = A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -462,10 +510,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "Component/Component-Info.plist";
+				GCC_PREFIX_HEADER = "Component/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "Component/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SnoBros2;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,10 +523,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "Component/Component-Info.plist";
+				GCC_PREFIX_HEADER = "Component/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "Component/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SnoBros2;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -494,8 +542,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "ComponentTests/ComponentTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ComponentTests/SnoBros2Tests-Info.plist";
+				PRODUCT_NAME = SnoBros2Tests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -511,8 +559,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "ComponentTests/ComponentTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ComponentTests/SnoBros2Tests-Info.plist";
+				PRODUCT_NAME = SnoBros2Tests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -521,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "Component" */ = {
+		A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "SnoBros2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3BD0CC41642EC8B007AEB08 /* Debug */,
@@ -530,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3BD0CC61642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "Component" */ = {
+		A3BD0CC61642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3BD0CC71642EC8B007AEB08 /* Debug */,
@@ -539,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "ComponentTests" */ = {
+		A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3BD0CCA1642EC8B007AEB08 /* Debug */,

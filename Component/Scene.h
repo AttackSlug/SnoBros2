@@ -11,6 +11,7 @@
 
 @interface Scene : UIResponder {
   NSMutableArray *entities_;
+  NSMutableArray *inputHandlers_;
 }
 
 - (id)init;
