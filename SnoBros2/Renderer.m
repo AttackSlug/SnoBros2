@@ -9,9 +9,6 @@
 #import "Renderer.h"
 #import "Entity.h"
 
-#define VIEWPORT_X 480
-#define VIEWPORT_Y 320
-
 @implementation Renderer
 
 @synthesize width  = width_;
@@ -47,8 +44,12 @@
   effect_.transform.modelviewMatrix =
     GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
   
-  effect_.transform.projectionMatrix =
-    GLKMatrix4MakeOrtho(camera.position.x, VIEWPORT_X + camera.position.x, VIEWPORT_Y + camera.position.y, camera.position.y, -1, 1);
+  effect_.transform.projectionMatrix = GLKMatrix4MakeOrtho(camera.position.x,
+                                                           camera.viewport.x + camera.position.x,
+                                                           camera.viewport.y + camera.position.y,
+                                                           camera.position.y,
+                                                           -1,
+                                                           1);
 
   [effect_ prepareToDraw];
 

@@ -35,12 +35,16 @@
   } else {
     physics_.velocity = GLKVector2Make(0.f, 0.f);
   }
-  float xclip = MIN(-(entity_.transform.position.x-scene_.camera.position.x-480),
+  float xclip = MIN(-(entity_.transform.position.x-scene_.camera.position.x-scene_.camera.viewport.x),
                     entity_.transform.position.x-scene_.camera.position.x);
-  float yclip = MIN(-(entity_.transform.position.y-scene_.camera.position.y-320),
+  float yclip = MIN(-(entity_.transform.position.y-scene_.camera.position.y-scene_.camera.viewport.y),
                     entity_.transform.position.y-scene_.camera.position.y);
-  if (xclip < 140 || yclip < 140) {
-    [scene_.camera moveCameraToTarget:entity_.transform.position];
+  if (xclip < 160 || yclip < 120) {
+    GLKVector2 target = GLKVector2Subtract(entity_.transform.position,
+                                           GLKVector2Make(scene_.camera.viewport.x/2,
+                                                          scene_.camera.viewport.y/2));
+    [scene_.camera panCameraWithHeading:GLKVector2Normalize(GLKVector2Subtract(target,
+                                                                               scene_.camera.position))];
   }
 
 }

@@ -12,6 +12,7 @@
 
 @synthesize position = position_;
 @synthesize target = target_;
+@synthesize viewport = viewport_;
 
 
 
@@ -20,26 +21,17 @@
   if (self) {
     position_ = GLKVector2Make(0, 0);
     target_ = GLKVector2Make(0, 0);
+    viewport_ = GLKVector2Make(480, 320);
     maxspeed_ = 10;
+    
   }
   return self;
 }
 
 
 
--(void)moveCameraToTarget:(GLKVector2)target {
-  target_ = GLKVector2Subtract(target, GLKVector2Make(240, 180));
-}
-
-
-
--(void)update {
-  if (GLKVector2Distance(target_, position_) < 1) {
-    target_ = position_;
-    return;
-  }
-  GLKVector2 unitHeading = GLKVector2Normalize(GLKVector2Subtract(target_, position_));
-  position_ = GLKVector2Add(position_, GLKVector2MultiplyScalar(unitHeading, maxspeed_));
+-(void)panCameraWithHeading:(GLKVector2)heading {
+  position_ = GLKVector2Add(position_, GLKVector2MultiplyScalar(heading, maxspeed_));
 }
 
 

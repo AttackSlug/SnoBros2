@@ -12,12 +12,13 @@
 @interface Camera : NSObject {
   GLKVector2  position_;
   GLKVector2  target_;
+  GLKVector2  viewport_;
   float       maxspeed_;
 }
 
 @property (readonly, nonatomic) GLKVector2 position;
 @property (readonly, nonatomic) GLKVector2 target;
+@property (readonly, nonatomic) GLKVector2 viewport;
 
--(void)moveCameraToTarget:(GLKVector2)target;
--(void)update;
+-(void)panCameraWithHeading:(GLKVector2)heading;
 @end

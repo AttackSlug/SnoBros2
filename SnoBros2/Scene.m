@@ -34,7 +34,6 @@
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
-  [camera_ update];
   [self processEntityQueue];
 }
 
