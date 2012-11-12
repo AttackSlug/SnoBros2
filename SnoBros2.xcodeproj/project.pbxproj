@@ -7,43 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A30E838516471DB500030773 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30E838416471DB500030773 /* ViewController.m */; };
-		A30E838916472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
-		A30E838A16472BBE00030773 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A30E838816472BBE00030773 /* player.png */; };
-		A34297661649966500C9B94D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A34297651649966500C9B94D /* map.png */; };
-		A34297691649A11D00C9B94D /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = A34297681649A11D00C9B94D /* snowball.png */; };
-		A38A59A9164840F900106657 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = A38A59A8164840F900106657 /* Input.m */; };
-		A38A59AD16484DBD00106657 /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = A38A59AC16484DBD00106657 /* Behavior.m */; };
+		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
+		87E49E1C16515A8200202CFB /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF316515A8200202CFB /* Behavior.m */; };
+		87E49E1D16515A8200202CFB /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF516515A8200202CFB /* Component.m */; };
+		87E49E1E16515A8200202CFB /* CreateEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF716515A8200202CFB /* CreateEntity.m */; };
+		87E49E1F16515A8200202CFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DF816515A8200202CFB /* Default-568h@2x.png */; };
+		87E49E2016515A8200202CFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DF916515A8200202CFB /* Default.png */; };
+		87E49E2116515A8200202CFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFA16515A8200202CFB /* Default@2x.png */; };
+		87E49E2216515A8200202CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFB16515A8200202CFB /* InfoPlist.strings */; };
+		87E49E2316515A8200202CFB /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DFE16515A8200202CFB /* Entity.m */; };
+		87E49E2416515A8200202CFB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0016515A8200202CFB /* Event.m */; };
+		87E49E2516515A8200202CFB /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0216515A8200202CFB /* Input.m */; };
+		87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0416515A8200202CFB /* LeftPlayer.m */; };
+		87E49E2716515A8200202CFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0516515A8200202CFB /* main.m */; };
+		87E49E2816515A8200202CFB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0616515A8200202CFB /* map.png */; };
+		87E49E2916515A8200202CFB /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0816515A8200202CFB /* Physics.m */; };
+		87E49E2A16515A8200202CFB /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0916515A8200202CFB /* player.png */; };
+		87E49E2B16515A8200202CFB /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0B16515A8200202CFB /* Projectile.m */; };
+		87E49E2C16515A8200202CFB /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0D16515A8200202CFB /* Renderer.m */; };
+		87E49E2D16515A8200202CFB /* RightPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0F16515A8200202CFB /* RightPlayer.m */; };
+		87E49E2E16515A8200202CFB /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1116515A8200202CFB /* Scene.m */; };
+		87E49E2F16515A8200202CFB /* SnoBros2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E1216515A8200202CFB /* SnoBros2-Info.plist */; };
+		87E49E3016515A8200202CFB /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E1416515A8200202CFB /* snowball.png */; };
+		87E49E3116515A8200202CFB /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1616515A8200202CFB /* Sprite.m */; };
+		87E49E3216515A8200202CFB /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1816515A8200202CFB /* Transform.m */; };
+		87E49E3316515A8200202CFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1A16515A8200202CFB /* ViewController.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
-		A3BD0CA21642EC8B007AEB08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CA01642EC8B007AEB08 /* InfoPlist.strings */; };
-		A3BD0CA41642EC8B007AEB08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CA31642EC8B007AEB08 /* main.m */; };
-		A3BD0CA81642EC8B007AEB08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */; };
-		A3BD0CAA1642EC8B007AEB08 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CA91642EC8B007AEB08 /* Default.png */; };
-		A3BD0CAC1642EC8B007AEB08 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CAB1642EC8B007AEB08 /* Default@2x.png */; };
-		A3BD0CAE1642EC8B007AEB08 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CAD1642EC8B007AEB08 /* Default-568h@2x.png */; };
 		A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */; };
 		A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */; };
-		A3BD0CD11642F21B007AEB08 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CD01642F21B007AEB08 /* Entity.m */; };
-		A3BD0CD41642F2B9007AEB08 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CD31642F2B9007AEB08 /* Component.m */; };
-		A3BD0CDF1642F9A3007AEB08 /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CDE1642F9A3007AEB08 /* Transform.m */; };
-		A3BD0CE21643503C007AEB08 /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CE11643503C007AEB08 /* Physics.m */; };
-		A3BD0CE51645EDC0007AEB08 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CE41645EDC0007AEB08 /* Renderer.m */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
-		A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CF51646DDF0007AEB08 /* Sprite.m */; };
-		A3F1F9001649A622005CA0B7 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F8FF1649A622005CA0B7 /* Scene.m */; };
-		A3F1F905164AE3F6005CA0B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F904164AE3F6005CA0B7 /* Event.m */; };
-		A3F1F908164AE4DC005CA0B7 /* CreateEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */; };
-		A3F1F90F164B04E2005CA0B7 /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */; };
-		A3F1F912164B054B005CA0B7 /* RightPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F911164B054B005CA0B7 /* RightPlayer.m */; };
-		A3F1F915164C3CC7005CA0B7 /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1F914164C3CC6005CA0B7 /* Projectile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,60 +57,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A30E838316471DB500030773 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A30E838416471DB500030773 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A30E838816472BBE00030773 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		A34297651649966500C9B94D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
-		A34297681649A11D00C9B94D /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
-		A38A59A7164840F800106657 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
-		A38A59A8164840F900106657 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
-		A38A59AB16484DBD00106657 /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
-		A38A59AC16484DBD00106657 /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
+		87E49DF016515A8200202CFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		87E49DF116515A8200202CFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		87E49DF216515A8200202CFB /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
+		87E49DF316515A8200202CFB /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
+		87E49DF416515A8200202CFB /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		87E49DF516515A8200202CFB /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		87E49DF616515A8200202CFB /* CreateEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntity.h; sourceTree = "<group>"; };
+		87E49DF716515A8200202CFB /* CreateEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntity.m; sourceTree = "<group>"; };
+		87E49DF816515A8200202CFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		87E49DF916515A8200202CFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		87E49DFA16515A8200202CFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		87E49DFC16515A8200202CFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		87E49DFD16515A8200202CFB /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		87E49DFE16515A8200202CFB /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		87E49DFF16515A8200202CFB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		87E49E0016515A8200202CFB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		87E49E0116515A8200202CFB /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		87E49E0216515A8200202CFB /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
+		87E49E0316515A8200202CFB /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
+		87E49E0416515A8200202CFB /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
+		87E49E0516515A8200202CFB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		87E49E0616515A8200202CFB /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		87E49E0716515A8200202CFB /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
+		87E49E0816515A8200202CFB /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
+		87E49E0916515A8200202CFB /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		87E49E0A16515A8200202CFB /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		87E49E0B16515A8200202CFB /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
+		87E49E0C16515A8200202CFB /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		87E49E0D16515A8200202CFB /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
+		87E49E0E16515A8200202CFB /* RightPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightPlayer.h; sourceTree = "<group>"; };
+		87E49E0F16515A8200202CFB /* RightPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightPlayer.m; sourceTree = "<group>"; };
+		87E49E1016515A8200202CFB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		87E49E1116515A8200202CFB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		87E49E1216515A8200202CFB /* SnoBros2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
+		87E49E1316515A8200202CFB /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
+		87E49E1416515A8200202CFB /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
+		87E49E1516515A8200202CFB /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		87E49E1616515A8200202CFB /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		87E49E1716515A8200202CFB /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		87E49E1816515A8200202CFB /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
+		87E49E1916515A8200202CFB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		87E49E1A16515A8200202CFB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A3BD0C9F1642EC8B007AEB08 /* SnoBros2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
-		A3BD0CA11642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A3BD0CA31642EC8B007AEB08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A3BD0CA51642EC8B007AEB08 /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
-		A3BD0CA61642EC8B007AEB08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A3BD0CA91642EC8B007AEB08 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A3BD0CAB1642EC8B007AEB08 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		A3BD0CAD1642EC8B007AEB08 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnoBros2Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2Tests-Info.plist"; sourceTree = "<group>"; };
 		A3BD0CBF1642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
 		A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
-		A3BD0CCF1642F21B007AEB08 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		A3BD0CD01642F21B007AEB08 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		A3BD0CD21642F2B9007AEB08 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
-		A3BD0CD31642F2B9007AEB08 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
-		A3BD0CDD1642F9A3007AEB08 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
-		A3BD0CDE1642F9A3007AEB08 /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
-		A3BD0CE01643503C007AEB08 /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
-		A3BD0CE11643503C007AEB08 /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
-		A3BD0CE31645EDC0007AEB08 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
-		A3BD0CE41645EDC0007AEB08 /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		A3BD0CF41646DDF0007AEB08 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
-		A3BD0CF51646DDF0007AEB08 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
-		A3F1F8FE1649A621005CA0B7 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
-		A3F1F8FF1649A622005CA0B7 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
-		A3F1F903164AE3F6005CA0B7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		A3F1F904164AE3F6005CA0B7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		A3F1F906164AE4DC005CA0B7 /* CreateEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntity.h; sourceTree = "<group>"; };
-		A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntity.m; sourceTree = "<group>"; };
-		A3F1F90D164B04E2005CA0B7 /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
-		A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
-		A3F1F910164B054B005CA0B7 /* RightPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightPlayer.h; sourceTree = "<group>"; };
-		A3F1F911164B054B005CA0B7 /* RightPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightPlayer.m; sourceTree = "<group>"; };
-		A3F1F913164C3CC6005CA0B7 /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
-		A3F1F914164C3CC6005CA0B7 /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,20 +141,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A30E838716472B9600030773 /* Assets */ = {
+		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
-				A34297681649A11D00C9B94D /* snowball.png */,
-				A34297651649966500C9B94D /* map.png */,
-				A30E838816472BBE00030773 /* player.png */,
+				87E49DF016515A8200202CFB /* AppDelegate.h */,
+				87E49DF116515A8200202CFB /* AppDelegate.m */,
+				87E49DF216515A8200202CFB /* Behavior.h */,
+				87E49DF316515A8200202CFB /* Behavior.m */,
+				87E49DF416515A8200202CFB /* Component.h */,
+				87E49DF516515A8200202CFB /* Component.m */,
+				87E49DF616515A8200202CFB /* CreateEntity.h */,
+				87E49DF716515A8200202CFB /* CreateEntity.m */,
+				87E49DF816515A8200202CFB /* Default-568h@2x.png */,
+				87E49DF916515A8200202CFB /* Default.png */,
+				87E49DFA16515A8200202CFB /* Default@2x.png */,
+				87E49DFB16515A8200202CFB /* InfoPlist.strings */,
+				87E49DFD16515A8200202CFB /* Entity.h */,
+				87E49DFE16515A8200202CFB /* Entity.m */,
+				87E49DFF16515A8200202CFB /* Event.h */,
+				87E49E0016515A8200202CFB /* Event.m */,
+				87E49E0116515A8200202CFB /* Input.h */,
+				87E49E0216515A8200202CFB /* Input.m */,
+				87E49E0316515A8200202CFB /* LeftPlayer.h */,
+				87E49E0416515A8200202CFB /* LeftPlayer.m */,
+				87E49E0516515A8200202CFB /* main.m */,
+				87E49E0616515A8200202CFB /* map.png */,
+				87E49E0716515A8200202CFB /* Physics.h */,
+				87E49E0816515A8200202CFB /* Physics.m */,
+				87E49E0916515A8200202CFB /* player.png */,
+				87E49E0A16515A8200202CFB /* Projectile.h */,
+				87E49E0B16515A8200202CFB /* Projectile.m */,
+				87E49E0C16515A8200202CFB /* Renderer.h */,
+				87E49E0D16515A8200202CFB /* Renderer.m */,
+				87E49E0E16515A8200202CFB /* RightPlayer.h */,
+				87E49E0F16515A8200202CFB /* RightPlayer.m */,
+				87E49E1016515A8200202CFB /* Scene.h */,
+				87E49E1116515A8200202CFB /* Scene.m */,
+				87E49E1216515A8200202CFB /* SnoBros2-Info.plist */,
+				87E49E1316515A8200202CFB /* SnoBros2-Prefix.pch */,
+				87E49E1416515A8200202CFB /* snowball.png */,
+				87E49E1516515A8200202CFB /* Sprite.h */,
+				87E49E1616515A8200202CFB /* Sprite.m */,
+				87E49E1716515A8200202CFB /* Transform.h */,
+				87E49E1816515A8200202CFB /* Transform.m */,
+				87E49E1916515A8200202CFB /* ViewController.h */,
+				87E49E1A16515A8200202CFB /* ViewController.m */,
 			);
-			name = Assets;
+			path = SnoBros2;
 			sourceTree = "<group>";
 		};
 		A3BD0C881642EC8B007AEB08 = {
 			isa = PBXGroup;
 			children = (
-				A3BD0C9D1642EC8B007AEB08 /* SnoBros2 */,
+				87E49DEF16515A8200202CFB /* SnoBros2 */,
 				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3BD0C941642EC8B007AEB08 /* Products */,
@@ -183,40 +222,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A3BD0C9D1642EC8B007AEB08 /* SnoBros2 */ = {
-			isa = PBXGroup;
-			children = (
-				A30E838716472B9600030773 /* Assets */,
-				A3F1F902164AE3D4005CA0B7 /* Event */,
-				A3BD0CDC1642F8D4007AEB08 /* Component */,
-				A3BD0CA61642EC8B007AEB08 /* AppDelegate.h */,
-				A3BD0CA71642EC8B007AEB08 /* AppDelegate.m */,
-				A3BD0CCF1642F21B007AEB08 /* Entity.h */,
-				A3BD0CD01642F21B007AEB08 /* Entity.m */,
-				A30E838316471DB500030773 /* ViewController.h */,
-				A30E838416471DB500030773 /* ViewController.m */,
-				A3F1F8FE1649A621005CA0B7 /* Scene.h */,
-				A3F1F8FF1649A622005CA0B7 /* Scene.m */,
-				A3BD0C9E1642EC8B007AEB08 /* Supporting Files */,
-			);
-			name = SnoBros2;
-			path = Component;
-			sourceTree = "<group>";
-		};
-		A3BD0C9E1642EC8B007AEB08 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A3BD0C9F1642EC8B007AEB08 /* SnoBros2-Info.plist */,
-				A3BD0CA01642EC8B007AEB08 /* InfoPlist.strings */,
-				A3BD0CA31642EC8B007AEB08 /* main.m */,
-				A3BD0CA51642EC8B007AEB08 /* SnoBros2-Prefix.pch */,
-				A3BD0CA91642EC8B007AEB08 /* Default.png */,
-				A3BD0CAB1642EC8B007AEB08 /* Default@2x.png */,
-				A3BD0CAD1642EC8B007AEB08 /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +230,7 @@
 				A3BD0CBC1642EC8B007AEB08 /* Supporting Files */,
 			);
 			name = SnoBros2Tests;
-			path = ComponentTests;
+			path = SnoBros2Tests;
 			sourceTree = "<group>";
 		};
 		A3BD0CBC1642EC8B007AEB08 /* Supporting Files */ = {
@@ -235,52 +240,6 @@
 				A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A3BD0CDC1642F8D4007AEB08 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				A3F1F909164AF3F6005CA0B7 /* Behavior */,
-				A3BD0CF41646DDF0007AEB08 /* Sprite.h */,
-				A3BD0CF51646DDF0007AEB08 /* Sprite.m */,
-				A3BD0CD21642F2B9007AEB08 /* Component.h */,
-				A3BD0CD31642F2B9007AEB08 /* Component.m */,
-				A3BD0CDD1642F9A3007AEB08 /* Transform.h */,
-				A3BD0CDE1642F9A3007AEB08 /* Transform.m */,
-				A3BD0CE01643503C007AEB08 /* Physics.h */,
-				A3BD0CE11643503C007AEB08 /* Physics.m */,
-				A3BD0CE31645EDC0007AEB08 /* Renderer.h */,
-				A3BD0CE41645EDC0007AEB08 /* Renderer.m */,
-				A38A59A7164840F800106657 /* Input.h */,
-				A38A59A8164840F900106657 /* Input.m */,
-			);
-			name = Component;
-			sourceTree = "<group>";
-		};
-		A3F1F902164AE3D4005CA0B7 /* Event */ = {
-			isa = PBXGroup;
-			children = (
-				A3F1F903164AE3F6005CA0B7 /* Event.h */,
-				A3F1F904164AE3F6005CA0B7 /* Event.m */,
-				A3F1F906164AE4DC005CA0B7 /* CreateEntity.h */,
-				A3F1F907164AE4DC005CA0B7 /* CreateEntity.m */,
-			);
-			name = Event;
-			sourceTree = "<group>";
-		};
-		A3F1F909164AF3F6005CA0B7 /* Behavior */ = {
-			isa = PBXGroup;
-			children = (
-				A38A59AB16484DBD00106657 /* Behavior.h */,
-				A38A59AC16484DBD00106657 /* Behavior.m */,
-				A3F1F90D164B04E2005CA0B7 /* LeftPlayer.h */,
-				A3F1F90E164B04E2005CA0B7 /* LeftPlayer.m */,
-				A3F1F910164B054B005CA0B7 /* RightPlayer.h */,
-				A3F1F911164B054B005CA0B7 /* RightPlayer.m */,
-				A3F1F913164C3CC6005CA0B7 /* Projectile.h */,
-				A3F1F914164C3CC6005CA0B7 /* Projectile.m */,
-			);
-			name = Behavior;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +258,7 @@
 			dependencies = (
 			);
 			name = SnoBros2;
-			productName = Component;
+			productName = SnoBros2;
 			productReference = A3BD0C931642EC8B007AEB08 /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -318,7 +277,7 @@
 				A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */,
 			);
 			name = SnoBros2Tests;
-			productName = ComponentTests;
+			productName = SnoBros2Tests;
 			productReference = A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -354,13 +313,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BD0CA21642EC8B007AEB08 /* InfoPlist.strings in Resources */,
-				A3BD0CAA1642EC8B007AEB08 /* Default.png in Resources */,
-				A3BD0CAC1642EC8B007AEB08 /* Default@2x.png in Resources */,
-				A3BD0CAE1642EC8B007AEB08 /* Default-568h@2x.png in Resources */,
-				A30E838916472BBE00030773 /* player.png in Resources */,
-				A34297661649966500C9B94D /* map.png in Resources */,
-				A34297691649A11D00C9B94D /* snowball.png in Resources */,
+				87E49E1F16515A8200202CFB /* Default-568h@2x.png in Resources */,
+				87E49E2016515A8200202CFB /* Default.png in Resources */,
+				87E49E2116515A8200202CFB /* Default@2x.png in Resources */,
+				87E49E2216515A8200202CFB /* InfoPlist.strings in Resources */,
+				87E49E2816515A8200202CFB /* map.png in Resources */,
+				87E49E2A16515A8200202CFB /* player.png in Resources */,
+				87E49E2F16515A8200202CFB /* SnoBros2-Info.plist in Resources */,
+				87E49E3016515A8200202CFB /* snowball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */,
-				A30E838A16472BBE00030773 /* player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,23 +355,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BD0CA41642EC8B007AEB08 /* main.m in Sources */,
-				A3BD0CA81642EC8B007AEB08 /* AppDelegate.m in Sources */,
-				A3BD0CD11642F21B007AEB08 /* Entity.m in Sources */,
-				A3BD0CD41642F2B9007AEB08 /* Component.m in Sources */,
-				A3BD0CDF1642F9A3007AEB08 /* Transform.m in Sources */,
-				A3BD0CE21643503C007AEB08 /* Physics.m in Sources */,
-				A3BD0CE51645EDC0007AEB08 /* Renderer.m in Sources */,
-				A3BD0CF61646DDF0007AEB08 /* Sprite.m in Sources */,
-				A30E838516471DB500030773 /* ViewController.m in Sources */,
-				A38A59A9164840F900106657 /* Input.m in Sources */,
-				A38A59AD16484DBD00106657 /* Behavior.m in Sources */,
-				A3F1F9001649A622005CA0B7 /* Scene.m in Sources */,
-				A3F1F905164AE3F6005CA0B7 /* Event.m in Sources */,
-				A3F1F908164AE4DC005CA0B7 /* CreateEntity.m in Sources */,
-				A3F1F90F164B04E2005CA0B7 /* LeftPlayer.m in Sources */,
-				A3F1F912164B054B005CA0B7 /* RightPlayer.m in Sources */,
-				A3F1F915164C3CC7005CA0B7 /* Projectile.m in Sources */,
+				87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */,
+				87E49E1C16515A8200202CFB /* Behavior.m in Sources */,
+				87E49E1D16515A8200202CFB /* Component.m in Sources */,
+				87E49E1E16515A8200202CFB /* CreateEntity.m in Sources */,
+				87E49E2316515A8200202CFB /* Entity.m in Sources */,
+				87E49E2416515A8200202CFB /* Event.m in Sources */,
+				87E49E2516515A8200202CFB /* Input.m in Sources */,
+				87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */,
+				87E49E2716515A8200202CFB /* main.m in Sources */,
+				87E49E2916515A8200202CFB /* Physics.m in Sources */,
+				87E49E2B16515A8200202CFB /* Projectile.m in Sources */,
+				87E49E2C16515A8200202CFB /* Renderer.m in Sources */,
+				87E49E2D16515A8200202CFB /* RightPlayer.m in Sources */,
+				87E49E2E16515A8200202CFB /* Scene.m in Sources */,
+				87E49E3116515A8200202CFB /* Sprite.m in Sources */,
+				87E49E3216515A8200202CFB /* Transform.m in Sources */,
+				87E49E3316515A8200202CFB /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,10 +394,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A3BD0CA01642EC8B007AEB08 /* InfoPlist.strings */ = {
+		87E49DFB16515A8200202CFB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A3BD0CA11642EC8B007AEB08 /* en */,
+				87E49DFC16515A8200202CFB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -510,8 +469,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "Component/SnoBros2-Info.plist";
+				GCC_PREFIX_HEADER = "SnoBros2/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "SnoBros2/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = SnoBros2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -523,8 +482,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "Component/SnoBros2-Info.plist";
+				GCC_PREFIX_HEADER = "SnoBros2/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "SnoBros2/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = SnoBros2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -535,14 +494,14 @@
 		A3BD0CCA1642EC8B007AEB08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Component.app/Component";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "ComponentTests/SnoBros2Tests-Info.plist";
+				GCC_PREFIX_HEADER = "SnoBros2/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "SnoBrosTests/SnoBros2Tests-Info.plist";
 				PRODUCT_NAME = SnoBros2Tests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -552,14 +511,14 @@
 		A3BD0CCB1642EC8B007AEB08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Component.app/Component";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Component/Component-Prefix.pch";
-				INFOPLIST_FILE = "ComponentTests/SnoBros2Tests-Info.plist";
+				GCC_PREFIX_HEADER = "SnoBros2/SnoBros2-Prefix.pch";
+				INFOPLIST_FILE = "SnoBros2Tests/SnoBros2Tests-Info.plist";
 				PRODUCT_NAME = SnoBros2Tests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
