@@ -21,6 +21,8 @@
   Sprite    *sprite_;
   Input     *input_;
   Behavior  *behavior_;
+  NSString  *tag_;
+  NSString  *uuid_;
 }
 
 @property (nonatomic) Transform *transform;
@@ -29,8 +31,11 @@
 @property (nonatomic) Sprite    *sprite;
 @property (nonatomic) Input     *input;
 @property (nonatomic) Behavior  *behavior;
+@property (nonatomic) NSString  *tag;
+@property (nonatomic) NSString  *uuid;
 
 - (id)init;
+- (id)initWithTag:(NSString*)tag;
 - (void)update;
 - (void)render;
 

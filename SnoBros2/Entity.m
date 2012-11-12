@@ -17,16 +17,23 @@
 @synthesize sprite    = sprite_;
 @synthesize input     = input_;
 @synthesize behavior  = behavior_;
-
+@synthesize tag       = tag_;
+@synthesize uuid      = uuid_;
 
 - (id)init {
+  return [self initWithTag:@"untagged"];
+}
+
+- (id)initWithTag:(NSString *)tag {
   self = [super init];
   if (self) {
+    tag_ = tag;
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    uuid_ = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
   }
   return self;
 }
-
-
 
 - (void)update {
   [behavior_ update];
