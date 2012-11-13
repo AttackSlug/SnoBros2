@@ -12,6 +12,7 @@
 #import "Physics.h"
 #import "Input.h"
 #import "Behavior.h"
+#import "Camera.h"
 
 
 @interface Entity : NSObject {
@@ -37,6 +38,6 @@
 - (id)init;
 - (id)initWithTag:(NSString*)tag;
 - (void)update;
-- (void)render;
+- (void)renderWithCamera:(Camera*)camera;
 
 @end

@@ -10,6 +10,7 @@
 #import "Component.h"
 #import "Transform.h"
 #import "Sprite.h"
+#import "Camera.h"
 
 @interface Renderer : Component {
   GLKBaseEffect  *effect_;
@@ -25,6 +26,6 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
               sprite:(Sprite *)sprite;
-- (void)update;
+- (void)updateWithCamera:(Camera*)camera;
 
 @end
