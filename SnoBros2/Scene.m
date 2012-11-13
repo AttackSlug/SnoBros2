@@ -9,10 +9,14 @@
 #import "Scene.h"
 #import "LeftPlayer.h"
 #import "RightPlayer.h"
+#import "Sphere.h"
 
 @implementation Scene
 
-@synthesize camera = camera_;
+@synthesize camera   = camera_;
+@synthesize entities = entities_;
+@synthesize quadtree = quadtree_;
+
 
 - (id)init {
   self = [super init];
@@ -23,6 +27,24 @@
     camera_        = [[Camera alloc] init];
     [self addEntity:[self setupMap]];
     [self addEntity:[self setupLeftPlayer]];
+
+    quadtree_      = [[Quadtree alloc] initWithLevel:5
+                                              bounds:CGRectMake(0, 0, 480, 320)];
+
+    Entity *sphere1 = [self setupSphere];
+    Entity *sphere2 = [self setupSphere2];
+
+    sphere1.transform.position = GLKVector2Make(100, 160);
+    sphere2.transform.position = GLKVector2Make(300, 160);
+
+    sphere1.physics.velocity = GLKVector2Make( 1, 0);
+    sphere2.physics.velocity = GLKVector2Make(-1, 0);
+
+
+    [self addEntity:sphere1];
+    [self addEntity:sphere2];
+
+
     [self processEntityQueue];
   }
   return self;
@@ -34,7 +56,13 @@
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
+
   [self processEntityQueue];
+
+  [quadtree_ clear];
+  for (id key in entities_) {
+    [quadtree_ insert:[entities_ objectForKey:key]];
+  }
 }
 
 
@@ -57,6 +85,8 @@
   [entityQueue_ setObject:entity forKey:entity.uuid];
 }
 
+
+
 - (void)processEntityQueue {
   for (id key in entityQueue_) {
     Entity *temp = [entityQueue_ objectForKey:key];
@@ -68,6 +98,8 @@
   }
   [entityQueue_ removeAllObjects];
 }
+
+
 
 -(NSMutableArray*)getEntitiesByTag:(NSString *)tag {
   NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:0];
@@ -98,6 +130,54 @@
 
 
 
+- (Entity *)setupSphere {
+  Entity *sphere   = [[Entity alloc]    initWithTag:@"sphere"];
+  sphere.transform = [[Transform alloc] initWithEntity:sphere];
+  sphere.sprite    = [[Sprite alloc]    initWithFile:@"snowball.png"];
+  sphere.physics   = [[Physics alloc]   initWithEntity:sphere
+                                             transform:sphere.transform];
+  sphere.renderer  = [[Renderer alloc]  initWithEntity:sphere
+                                             transform:sphere.transform
+                                                sprite:sphere.sprite];
+  sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
+                                          transform:sphere.transform
+                                            physics:sphere.physics
+                                              scene:self];
+  sphere.collision = [[Collision alloc] initWithEntity:sphere
+                                             transform:sphere.transform
+                                               physics:sphere.physics
+                                                 scene:self
+                                                radius: 10.f];
+
+  return sphere;
+}
+
+
+
+- (Entity *)setupSphere2 {
+  Entity *sphere   = [[Entity alloc]    initWithTag:@"sphere"];
+  sphere.transform = [[Transform alloc] initWithEntity:sphere];
+  sphere.sprite    = [[Sprite alloc]    initWithFile:@"snowball-small.png"];
+  sphere.physics   = [[Physics alloc]   initWithEntity:sphere
+                                             transform:sphere.transform];
+  sphere.renderer  = [[Renderer alloc]  initWithEntity:sphere
+                                             transform:sphere.transform
+                                                sprite:sphere.sprite];
+  sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
+                                          transform:sphere.transform
+                                            physics:sphere.physics
+                                              scene:self];
+  sphere.collision = [[Collision alloc] initWithEntity:sphere
+                                             transform:sphere.transform
+                                               physics:sphere.physics
+                                                 scene:self
+                                                radius: 5];
+
+  return sphere;
+}
+
+
+
 - (Entity *)setupLeftPlayer {
   Entity *player   = [[Entity alloc]    initWithTag:@"player"];
   player.transform = [[Transform alloc] initWithEntity:player];
@@ -113,7 +193,12 @@
                                                   scene:self];
   player.input     = [[Input alloc]     initWithEntity:player
                                               behavior:player.behavior];
-  
+  player.collision = [[Collision alloc] initWithEntity:player
+                                             transform:player.transform
+                                               physics:player.physics
+                                                 scene:self
+                                                radius: 48.f];
+
   [inputHandlers_ addObject:player.input];
   return player;
 }
@@ -135,10 +220,10 @@
                                                    scene:self];
   player.input     = [[Input alloc]     initWithEntity:player
                                               behavior:player.behavior];
-  
+
   player.transform.position = GLKVector2Make(player.renderer.width,
                                              player.renderer.height);
-  
+
   [inputHandlers_ addObject:player.input];
   return player;
 }

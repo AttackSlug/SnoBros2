@@ -46,7 +46,6 @@
     [scene_.camera panCameraWithHeading:GLKVector2Normalize(GLKVector2Subtract(target,
                                                                                scene_.camera.position))];
   }
-
 }
 
 

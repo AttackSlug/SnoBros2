@@ -36,6 +36,10 @@
 		87E49E5716519A0900202CFB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E5616519A0800202CFB /* Camera.m */; };
 		87E49E591651B9B100202CFB /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E581651B9B100202CFB /* wpaper.jpg */; };
 		87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E5A1651B9CA00202CFB /* sprite2.png */; };
+		A3283F32165187D60059083E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = A3283F31165187D60059083E /* Sphere.m */; };
+		A3283F35165192860059083E /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = A3283F34165192860059083E /* Collision.m */; };
+		A3283F3816519DC70059083E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3283F3716519DC70059083E /* Quadtree.m */; };
+		A3283F3A1652A6B90059083E /* snowball-small.png in Resources */ = {isa = PBXBuildFile; fileRef = A3283F391652A6B90059083E /* snowball-small.png */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -108,6 +112,13 @@
 		87E49E5616519A0800202CFB /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		87E49E581651B9B100202CFB /* wpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wpaper.jpg; sourceTree = "<group>"; };
 		87E49E5A1651B9CA00202CFB /* sprite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite2.png; sourceTree = "<group>"; };
+		A3283F30165187D60059083E /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		A3283F31165187D60059083E /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		A3283F33165192850059083E /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
+		A3283F34165192860059083E /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
+		A3283F3616519DC60059083E /* Quadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quadtree.h; sourceTree = "<group>"; };
+		A3283F3716519DC70059083E /* Quadtree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quadtree.m; sourceTree = "<group>"; };
+		A3283F391652A6B90059083E /* snowball-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snowball-small.png"; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +182,8 @@
 				87E49E1616515A8200202CFB /* Sprite.m */,
 				87E49E1916515A8200202CFB /* ViewController.h */,
 				87E49E1A16515A8200202CFB /* ViewController.m */,
+				A3283F3616519DC60059083E /* Quadtree.h */,
+				A3283F3716519DC70059083E /* Quadtree.m */,
 			);
 			path = SnoBros2;
 			sourceTree = "<group>";
@@ -186,6 +199,8 @@
 				87E49DF316515A8200202CFB /* Behavior.m */,
 				87E49E0A16515A8200202CFB /* Projectile.h */,
 				87E49E0B16515A8200202CFB /* Projectile.m */,
+				A3283F30165187D60059083E /* Sphere.h */,
+				A3283F31165187D60059083E /* Sphere.m */,
 			);
 			name = Behavior;
 			sourceTree = "<group>";
@@ -193,6 +208,7 @@
 		87E49E3E16515F8B00202CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				87E49E0516515A8200202CFB /* main.m */,
 				87E49E1216515A8200202CFB /* SnoBros2-Info.plist */,
 				87E49E1316515A8200202CFB /* SnoBros2-Prefix.pch */,
 				87E49DF816515A8200202CFB /* Default-568h@2x.png */,
@@ -209,6 +225,7 @@
 				87E49E581651B9B100202CFB /* wpaper.jpg */,
 				87E49E5A1651B9CA00202CFB /* sprite2.png */,
 				87E49E5216518BAA00202CFB /* map2.png */,
+				A3283F391652A6B90059083E /* snowball-small.png */,
 				87E49E1416515A8200202CFB /* snowball.png */,
 				87E49E0616515A8200202CFB /* map.png */,
 				87E49E0916515A8200202CFB /* player.png */,
@@ -229,6 +246,8 @@
 				87E49E0D16515A8200202CFB /* Renderer.m */,
 				87E49E1716515A8200202CFB /* Transform.h */,
 				87E49E1816515A8200202CFB /* Transform.m */,
+				A3283F33165192850059083E /* Collision.h */,
+				A3283F34165192860059083E /* Collision.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -377,6 +396,7 @@
 				87E49E5316518BAA00202CFB /* map2.png in Resources */,
 				87E49E591651B9B100202CFB /* wpaper.jpg in Resources */,
 				87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */,
+				A3283F3A1652A6B90059083E /* snowball-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +449,9 @@
 				87E49E3216515A8200202CFB /* Transform.m in Sources */,
 				87E49E3316515A8200202CFB /* ViewController.m in Sources */,
 				87E49E5716519A0900202CFB /* Camera.m in Sources */,
+				A3283F32165187D60059083E /* Sphere.m in Sources */,
+				A3283F35165192860059083E /* Collision.m in Sources */,
+				A3283F3816519DC70059083E /* Quadtree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
