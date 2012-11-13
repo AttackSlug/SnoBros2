@@ -17,6 +17,7 @@
 @synthesize sprite    = sprite_;
 @synthesize input     = input_;
 @synthesize behavior  = behavior_;
+@synthesize collision = collision_;
 @synthesize tag       = tag_;
 @synthesize uuid      = uuid_;
 
@@ -36,8 +37,9 @@
 }
 
 - (void)update {
-  [behavior_ update];
-  [physics_  update];
+  [behavior_  update];
+  [collision_ update];
+  [physics_   update];
 }
 
 

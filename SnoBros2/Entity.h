@@ -13,6 +13,7 @@
 #import "Input.h"
 #import "Behavior.h"
 #import "Camera.h"
+#import "Collision.h"
 
 
 @interface Entity : NSObject {
@@ -22,6 +23,7 @@
   Sprite    *sprite_;
   Input     *input_;
   Behavior  *behavior_;
+  Collision *collision_;
   NSString  *tag_;
   NSString  *uuid_;
 }
@@ -32,6 +34,7 @@
 @property (nonatomic) Sprite    *sprite;
 @property (nonatomic) Input     *input;
 @property (nonatomic) Behavior  *behavior;
+@property (nonatomic) Collision *collision;
 @property (nonatomic) NSString  *tag;
 @property (nonatomic) NSString  *uuid;
 
