@@ -12,6 +12,7 @@
 
 @implementation Scene
 
+@synthesize camera = camera_;
 
 - (id)init {
   self = [super init];
@@ -19,9 +20,9 @@
     entities_      = [[NSMutableDictionary alloc] init];
     entityQueue_   = [[NSMutableDictionary alloc] init];
     inputHandlers_ = [[NSMutableArray alloc] init];
+    camera_        = [[Camera alloc] init];
     [self addEntity:[self setupMap]];
     [self addEntity:[self setupLeftPlayer]];
-    [self addEntity:[self setupRightPlayer]];
     [self processEntityQueue];
   }
   return self;
@@ -40,7 +41,7 @@
 
 - (void)render {
   for (id key in entities_) {
-    [[entities_ objectForKey:key] render];
+    [[entities_ objectForKey:key] renderWithCamera:camera_];
   }
 }
 
@@ -100,7 +101,7 @@
 - (Entity *)setupLeftPlayer {
   Entity *player   = [[Entity alloc]    initWithTag:@"player"];
   player.transform = [[Transform alloc] initWithEntity:player];
-  player.sprite    = [[Sprite alloc]    initWithFile:@"player.png"];
+  player.sprite    = [[Sprite alloc]    initWithFile:@"sprite2.png"];
   player.physics   = [[Physics alloc]   initWithEntity:player
                                              transform:player.transform];
   player.renderer  = [[Renderer alloc]  initWithEntity:player
@@ -147,7 +148,7 @@
 - (Entity *)setupMap {
   Entity *map   = [[Entity alloc] initWithTag:@"map"];
   map.transform = [[Transform alloc] initWithEntity:map];
-  map.sprite    = [[Sprite alloc]    initWithFile:@"map.png"];
+  map.sprite    = [[Sprite alloc]    initWithFile:@"wpaper.jpg"];
   map.renderer  = [[Renderer alloc]  initWithEntity:map
                                           transform:map.transform
                                              sprite:map.sprite];

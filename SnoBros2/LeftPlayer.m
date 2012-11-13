@@ -7,6 +7,7 @@
 //
 
 #import "LeftPlayer.h"
+#import "Scene.h"
 
 @implementation LeftPlayer
 
@@ -24,9 +25,9 @@
 
 
 - (void)walkTo:(GLKVector2)target {
-  if (target.x > 240) { return; }
+  if (target.x > 480) { return; }
   GLKVector2 position = transform_.position;
-  target_    = target;
+  target_    = GLKVector2Add(scene_.camera.position, target);
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
 }
 

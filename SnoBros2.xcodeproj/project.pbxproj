@@ -32,6 +32,10 @@
 		87E49E3116515A8200202CFB /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1616515A8200202CFB /* Sprite.m */; };
 		87E49E3216515A8200202CFB /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1816515A8200202CFB /* Transform.m */; };
 		87E49E3316515A8200202CFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1A16515A8200202CFB /* ViewController.m */; };
+		87E49E5316518BAA00202CFB /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E5216518BAA00202CFB /* map2.png */; };
+		87E49E5716519A0900202CFB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E5616519A0800202CFB /* Camera.m */; };
+		87E49E591651B9B100202CFB /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E581651B9B100202CFB /* wpaper.jpg */; };
+		87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E5A1651B9CA00202CFB /* sprite2.png */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -99,6 +103,11 @@
 		87E49E1816515A8200202CFB /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
 		87E49E1916515A8200202CFB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		87E49E1A16515A8200202CFB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		87E49E5216518BAA00202CFB /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2.png; sourceTree = "<group>"; };
+		87E49E5516519A0700202CFB /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		87E49E5616519A0800202CFB /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		87E49E581651B9B100202CFB /* wpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wpaper.jpg; sourceTree = "<group>"; };
+		87E49E5A1651B9CA00202CFB /* sprite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite2.png; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +163,8 @@
 				87E49DFD16515A8200202CFB /* Entity.h */,
 				87E49DFE16515A8200202CFB /* Entity.m */,
 				87E49E0516515A8200202CFB /* main.m */,
+				87E49E5516519A0700202CFB /* Camera.h */,
+				87E49E5616519A0800202CFB /* Camera.m */,
 				87E49E1016515A8200202CFB /* Scene.h */,
 				87E49E1116515A8200202CFB /* Scene.m */,
 				87E49E1516515A8200202CFB /* Sprite.h */,
@@ -195,6 +206,9 @@
 		87E49E3F16515FA000202CFB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				87E49E581651B9B100202CFB /* wpaper.jpg */,
+				87E49E5A1651B9CA00202CFB /* sprite2.png */,
+				87E49E5216518BAA00202CFB /* map2.png */,
 				87E49E1416515A8200202CFB /* snowball.png */,
 				87E49E0616515A8200202CFB /* map.png */,
 				87E49E0916515A8200202CFB /* player.png */,
@@ -360,6 +374,9 @@
 				87E49E2A16515A8200202CFB /* player.png in Resources */,
 				87E49E2F16515A8200202CFB /* SnoBros2-Info.plist in Resources */,
 				87E49E3016515A8200202CFB /* snowball.png in Resources */,
+				87E49E5316518BAA00202CFB /* map2.png in Resources */,
+				87E49E591651B9B100202CFB /* wpaper.jpg in Resources */,
+				87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +428,7 @@
 				87E49E3116515A8200202CFB /* Sprite.m in Sources */,
 				87E49E3216515A8200202CFB /* Transform.m in Sources */,
 				87E49E3316515A8200202CFB /* ViewController.m in Sources */,
+				87E49E5716519A0900202CFB /* Camera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

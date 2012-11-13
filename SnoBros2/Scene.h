@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Entity.h"
+#import "Camera.h"
 
 @interface Scene : UIResponder {
   NSMutableDictionary *entities_;
   NSMutableDictionary *entityQueue_;
-  NSMutableArray *inputHandlers_;
+  NSMutableArray      *inputHandlers_;
+  Camera              *camera_;
 }
+
+@property (nonatomic) Camera *camera;
 
 - (id)init;
 
