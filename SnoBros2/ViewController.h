@@ -7,7 +7,13 @@
 //
 
 #import <GLKit/GLKit.h>
+#import "Scene.h"
 
-@interface ViewController : GLKViewController
+@interface ViewController : GLKViewController {
+  Scene *currentScene_;
+}
+
+- (void)update;
+- (void)setupGL;
 
 @end
