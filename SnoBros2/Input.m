@@ -28,6 +28,7 @@
     CGPoint pt =[touch locationInView:touch.view];
     [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
   }
+  NSLog(@"Touch from %@ with tag %@", entity_.uuid, entity_.tag);
 }
 
 
