@@ -10,13 +10,14 @@
 #import "Entity.h"
 #import "Camera.h"
 #import "Quadtree.h"
+#import "Input.h"
 
 @interface Scene : UIResponder {
   NSMutableDictionary *entities_;
   NSMutableDictionary *entityQueue_;
-  NSMutableArray      *inputHandlers_;
   Camera              *camera_;
   Quadtree            *quadtree_;
+  Input               *inputHandler_;
 }
 
 @property (nonatomic) Camera *camera;

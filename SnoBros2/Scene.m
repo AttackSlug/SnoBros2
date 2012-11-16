@@ -23,7 +23,7 @@
   if (self) {
     entities_      = [[NSMutableDictionary alloc] init];
     entityQueue_   = [[NSMutableDictionary alloc] init];
-    inputHandlers_ = [[NSMutableArray alloc] init];
+    inputHandler_  = [[Input alloc] init];
     camera_        = [[Camera alloc] init];
     [self addEntity:[self setupMap]];
     [self addEntity:[self setupLeftPlayer]];
@@ -56,6 +56,9 @@
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
+  
+  [inputHandler_ executeTouches:[self getEntitiesByTag:@"player"]];
+  [inputHandler_ clearTouches];
 
   [self processEntityQueue];
 
@@ -87,6 +90,10 @@
 
 
 
+// check the entity queue for adding entities to the main entity list
+// use the entity queue to prevent modifying the entity list while iterating through it
+// if we find an entity in the entity queue and in the main entity list, assume we request its deletion
+// if we find an entity in the entity queue and not in the main entity list, assume we request its insertion
 - (void)processEntityQueue {
   for (id key in entityQueue_) {
     Entity *temp = [entityQueue_ objectForKey:key];
@@ -115,17 +122,15 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  for (UIResponder *input in inputHandlers_) {
-    [input touchesBegan:touches withEvent:event];
+  NSLog(@"Touched Screen");
+  for (UITouch *touch in touches) {
+    [inputHandler_ addTouch:touch];
   }
 }
 
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  for (UIResponder *input in inputHandlers_) {
-    [input touchesBegan:touches withEvent:event];
-  }
 }
 
 
@@ -191,15 +196,11 @@
                                               transform:player.transform
                                                 physics:player.physics
                                                   scene:self];
-  player.input     = [[Input alloc]     initWithEntity:player
-                                              behavior:player.behavior];
   player.collision = [[Collision alloc] initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics
                                                  scene:self
                                                 radius: 48.f];
-
-  [inputHandlers_ addObject:player.input];
   return player;
 }
 
@@ -218,13 +219,8 @@
                                                transform:player.transform
                                                  physics:player.physics
                                                    scene:self];
-  player.input     = [[Input alloc]     initWithEntity:player
-                                              behavior:player.behavior];
-
   player.transform.position = GLKVector2Make(player.renderer.width,
                                              player.renderer.height);
-
-  [inputHandlers_ addObject:player.input];
   return player;
 }
 
