@@ -31,9 +31,16 @@
 }
 
 
-- (void)resolveCollisionWith:(Entity *)otherEntity {
-  NSLog(@"Collided with %@", otherEntity);
+
+- (void)resolveCollisionWith:(Entity *)otherEntity
+                intersection:(GLKVector2)intersection {
+
+  transform_.position = GLKVector2Add(transform_.position, intersection);
   velocity_ = GLKVector2Make(-velocity_.x, -velocity_.y);
+
+  otherEntity.physics.velocity =
+    GLKVector2MultiplyScalar(otherEntity.physics.velocity, -1);
 }
+
 
 @end

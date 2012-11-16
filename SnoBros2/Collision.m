@@ -37,12 +37,14 @@
   NSMutableArray *ents = [scene_.quadtree retrieve:entity_];
 
   for (Entity *e in ents) {
-    if (e == entity_ || !e.collision) { NSLog(@"HERE"); continue; }
+    if (e == entity_ || !e.collision) { continue; }
     float otherRadius = e.collision.radius;
-    float distance    = GLKVector2Distance(transform_.position,
-                                           e.transform.position);
+    GLKVector2 intersection = GLKVector2Subtract(transform_.position,
+                                                 e.transform.position);
+    float distance = GLKVector2Length(intersection);
+
     if (distance < (radius_ + otherRadius)) {
-      [physics_ resolveCollisionWith:e];
+      [physics_ resolveCollisionWith:e intersection:intersection];
     }
   }
 }

@@ -52,7 +52,7 @@
 
 - (void)walkTo:(GLKVector2)target {
   GLKVector2 position = transform_.position;
-  target_    = target; 
+  target_    = target;
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
 }
 
