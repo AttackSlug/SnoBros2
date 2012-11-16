@@ -37,7 +37,7 @@
   NSMutableArray *ents = [scene_.quadtree retrieve:entity_];
 
   for (Entity *e in ents) {
-    if (e == entity_ || !e.collision) { /*NSLog(@"HERE");*/ continue; }
+    if (e == entity_ || !e.collision) { NSLog(@"HERE"); continue; }
     float otherRadius = e.collision.radius;
     float distance    = GLKVector2Distance(transform_.position,
                                            e.transform.position);

@@ -12,6 +12,10 @@
 
 @implementation ViewController
 
+@synthesize camera = camera_;
+@synthesize quadtree = quadtree_;
+@synthesize entities = entities_;
+
 - (void)viewDidLoad {
   [self setupGL];
   

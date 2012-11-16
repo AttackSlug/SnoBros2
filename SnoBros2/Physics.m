@@ -32,7 +32,7 @@
 
 
 - (void)resolveCollisionWith:(Entity *)otherEntity {
-  //NSLog(@"Collided with %@", otherEntity);
+  NSLog(@"Collided with %@", otherEntity);
   velocity_ = GLKVector2Make(-velocity_.x, -velocity_.y);
 }
 
