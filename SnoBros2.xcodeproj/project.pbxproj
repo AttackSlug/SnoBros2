@@ -25,8 +25,6 @@
 		87E49E2A16515A8200202CFB /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0916515A8200202CFB /* player.png */; };
 		87E49E2B16515A8200202CFB /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0B16515A8200202CFB /* Projectile.m */; };
 		87E49E2C16515A8200202CFB /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0D16515A8200202CFB /* Renderer.m */; };
-		87E49E2D16515A8200202CFB /* RightPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0F16515A8200202CFB /* RightPlayer.m */; };
-		87E49E2E16515A8200202CFB /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1116515A8200202CFB /* Scene.m */; };
 		87E49E2F16515A8200202CFB /* SnoBros2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E1216515A8200202CFB /* SnoBros2-Info.plist */; };
 		87E49E3016515A8200202CFB /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E1416515A8200202CFB /* snowball.png */; };
 		87E49E3116515A8200202CFB /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1616515A8200202CFB /* Sprite.m */; };
@@ -94,10 +92,6 @@
 		87E49E0B16515A8200202CFB /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 		87E49E0C16515A8200202CFB /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		87E49E0D16515A8200202CFB /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
-		87E49E0E16515A8200202CFB /* RightPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightPlayer.h; sourceTree = "<group>"; };
-		87E49E0F16515A8200202CFB /* RightPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightPlayer.m; sourceTree = "<group>"; };
-		87E49E1016515A8200202CFB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
-		87E49E1116515A8200202CFB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 		87E49E1216515A8200202CFB /* SnoBros2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
 		87E49E1316515A8200202CFB /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
 		87E49E1416515A8200202CFB /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
@@ -178,8 +172,6 @@
 				87E49E5616519A0800202CFB /* Camera.m */,
 				87E49E0116515A8200202CFB /* Input.h */,
 				87E49E0216515A8200202CFB /* Input.m */,
-				87E49E1016515A8200202CFB /* Scene.h */,
-				87E49E1116515A8200202CFB /* Scene.m */,
 				87E49E1516515A8200202CFB /* Sprite.h */,
 				87E49E1616515A8200202CFB /* Sprite.m */,
 				87E49E1916515A8200202CFB /* ViewController.h */,
@@ -195,8 +187,6 @@
 			children = (
 				87E49E0316515A8200202CFB /* LeftPlayer.h */,
 				87E49E0416515A8200202CFB /* LeftPlayer.m */,
-				87E49E0E16515A8200202CFB /* RightPlayer.h */,
-				87E49E0F16515A8200202CFB /* RightPlayer.m */,
 				87E49DF216515A8200202CFB /* Behavior.h */,
 				87E49DF316515A8200202CFB /* Behavior.m */,
 				87E49E0A16515A8200202CFB /* Projectile.h */,
@@ -443,8 +433,6 @@
 				87E49E2916515A8200202CFB /* Physics.m in Sources */,
 				87E49E2B16515A8200202CFB /* Projectile.m in Sources */,
 				87E49E2C16515A8200202CFB /* Renderer.m in Sources */,
-				87E49E2D16515A8200202CFB /* RightPlayer.m in Sources */,
-				87E49E2E16515A8200202CFB /* Scene.m in Sources */,
 				87E49E3116515A8200202CFB /* Sprite.m in Sources */,
 				87E49E3216515A8200202CFB /* Transform.m in Sources */,
 				87E49E3316515A8200202CFB /* ViewController.m in Sources */,

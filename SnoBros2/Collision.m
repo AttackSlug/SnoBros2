@@ -7,7 +7,7 @@
 //
 
 #import "Collision.h"
-#import "Scene.h"
+#import "ViewController.h"
 #import "Quadtree.h"
 
 @implementation Collision
@@ -19,7 +19,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Scene *)scene
+               scene:(ViewController *)scene
               radius:(float)radius {
   self = [super initWithEntity:entity];
   if (self) {

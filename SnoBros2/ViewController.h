@@ -7,13 +7,30 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "Scene.h"
+#import "Entity.h"
+#import "Camera.h"
+#import "Quadtree.h"
+#import "Input.h"
 
 @interface ViewController : GLKViewController {
-  Scene *currentScene_;
+  NSMutableDictionary *entities_;
+  NSMutableDictionary *entityQueue_;
+  Camera              *camera_;
+  Quadtree            *quadtree_;
+  Input               *inputHandler_;
 }
 
+@property (nonatomic) Camera *camera;
+
+@property NSMutableDictionary *entities;
+@property Quadtree            *quadtree;
+
 - (void)update;
+- (void)render;
+- (void)addEntity:(Entity *)entity;
+- (void)removeEntity:(Entity *)entity;
+- (void)processEntityQueue;
+- (NSMutableArray*)getEntitiesByTag:(NSString*)tag;
 - (void)setupGL;
 
 @end
