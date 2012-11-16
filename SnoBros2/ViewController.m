@@ -86,7 +86,24 @@
 
 
 
-- (void)update {
+- (void)update:(NSTimeInterval)elapsedTime {
+  timestepAccumulator_ += elapsedTime;
+
+  int numSteps = MIN(timestepAccumulator_ / TIMESTEP_INTERVAL, MAX_STEPS);
+  if (numSteps > 0) {
+    timestepAccumulator_ -= numSteps * TIMESTEP_INTERVAL;
+  }
+
+  timestepAccumulatorRatio_ = timestepAccumulator_ / TIMESTEP_INTERVAL;
+
+  for (int i = 0; i < numSteps; i++) {
+    [self step];
+  }
+}
+
+
+
+- (void)step {
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
@@ -106,7 +123,8 @@
 
 - (void)render {
   for (id key in entities_) {
-    [[entities_ objectForKey:key] renderWithCamera:camera_];
+    [[entities_ objectForKey:key] renderWithCamera:camera_
+                                interpolationRatio:timestepAccumulatorRatio_];
   }
 }
 

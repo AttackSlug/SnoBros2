@@ -12,13 +12,16 @@
 
 @interface Transform : Component {
   GLKVector2 position_;
+  GLKVector2 previousPosition_;
 }
 
-@property GLKVector2 position;
+@property (nonatomic)           GLKVector2 position;
+@property (nonatomic, readonly) GLKVector2 previousPosition;
 
 
 - (id)initWithEntity:(Entity *)entity;
 
 - (void)translate:(GLKVector2)translation;
+- (GLKVector2)interpolateWithRatio:(double)ratio;
 
 @end
