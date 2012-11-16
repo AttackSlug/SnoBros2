@@ -33,5 +33,6 @@
 - (void)removeEntity:(Entity *)entity;
 - (void)processEntityQueue;
 - (NSMutableArray*)getEntitiesByTag:(NSString*)tag;
+- (void)gotswipe:(UISwipeGestureRecognizer*)gr;
 
 @end

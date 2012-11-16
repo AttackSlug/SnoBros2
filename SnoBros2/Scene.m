@@ -28,6 +28,9 @@
     [self addEntity:[self setupMap]];
     [self addEntity:[self setupLeftPlayer]];
 
+    UIGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                                                           action:@selector(gotswipe:)];
+    
     quadtree_      = [[Quadtree alloc] initWithLevel:5
                                               bounds:CGRectMake(0, 0, 480, 320)];
 
@@ -236,6 +239,12 @@
   map.transform.position = GLKVector2Make(map.renderer.width  / 2.f,
                                           map.renderer.height / 2.f);
   return map;
+}
+
+
+
+- (void)gotswipe:(UIGestureRecognizer*)gr {
+  NSLog(@"got swipe");
 }
 
 

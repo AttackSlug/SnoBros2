@@ -13,6 +13,9 @@
 - (void)viewDidLoad {
   [self setupGL];
   currentScene_ = [[Scene alloc] init];
+  
+  UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:currentScene_ action:@selector(gotswipe:)];
+  [self.view addGestureRecognizer:swipe];
 }
 
 
