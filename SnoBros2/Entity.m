@@ -44,8 +44,8 @@
 
 
 
-- (void)renderWithCamera:(Camera*) camera {
-  [renderer_ updateWithCamera:camera];
+- (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
+  [renderer_ updateWithCamera:camera interpolationRatio:ratio];
 }
 
 

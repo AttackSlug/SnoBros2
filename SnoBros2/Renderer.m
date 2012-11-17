@@ -32,7 +32,7 @@
 
 
 
-- (void)updateWithCamera:(Camera*)camera {
+- (void)updateWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -40,7 +40,7 @@
   effect_.texture2d0.target  = GLKTextureTarget2D;
   effect_.texture2d0.name    = sprite_.texture.name;
 
-  GLKVector2 position  = transform_.position;
+  GLKVector2 position  = [transform_ interpolateWithRatio:ratio];
   effect_.transform.modelviewMatrix =
     GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
   

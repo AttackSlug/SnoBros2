@@ -10,7 +10,8 @@
 
 @implementation Transform
 
-@synthesize position = position_;
+@synthesize position         = position_;
+@synthesize previousPosition = previousPosition_;
 
 
 - (id)initWithEntity:(Entity *)entity {
@@ -19,8 +20,22 @@
 
 
 
+- (void)position:(GLKVector2)position {
+  previousPosition_ = position_;
+  position_         = position;
+}
+
+
+
 - (void)translate:(GLKVector2)translation {
-  position_ = GLKVector2Add(position_, translation);
+  previousPosition_ = position_;
+  position_         = GLKVector2Add(position_, translation);
+}
+
+
+
+- (GLKVector2)interpolateWithRatio:(double)ratio {
+  return GLKVector2Lerp(previousPosition_, position_, ratio);
 }
 
 

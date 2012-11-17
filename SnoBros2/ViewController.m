@@ -16,38 +16,39 @@
 @synthesize quadtree = quadtree_;
 @synthesize entities = entities_;
 
+
 - (void)viewDidLoad {
   [self setupGL];
-  
+
   entities_      = [[NSMutableDictionary alloc] init];
   entityQueue_   = [[NSMutableDictionary alloc] init];
   inputHandler_  = [[Input alloc] init];
   camera_        = [[Camera alloc] init];
-  [self addEntity:[self setupMap]];
-  [self addEntity:[self setupLeftPlayer]];
-  
+  timestepAccumulatorRatio_ = 1.f;
+  //[self addEntity:[self setupMap]];
+  //[self addEntity:[self setupLeftPlayer]];
+
   UIGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                          action:@selector(gotswipe:)];
-  
+
   quadtree_      = [[Quadtree alloc] initWithLevel:5
                                             bounds:CGRectMake(0, 0, 480, 320)];
-  
+
   Entity *sphere1 = [self setupSphere];
   Entity *sphere2 = [self setupSphere2];
-  
-  sphere1.transform.position = GLKVector2Make(100, 160);
-  sphere2.transform.position = GLKVector2Make(300, 160);
-  
+
+  [sphere1.transform translate:GLKVector2Make(100, 160)];
+  [sphere2.transform translate:GLKVector2Make(300, 160)];
+
   sphere1.physics.velocity = GLKVector2Make( 1, 0);
   sphere2.physics.velocity = GLKVector2Make(-1, 0);
-  
-  
+
+
   [self addEntity:sphere1];
   [self addEntity:sphere2];
-  
-  
+
   [self processEntityQueue];
-  
+
   [self.view addGestureRecognizer:swipe];
 }
 
@@ -58,20 +59,22 @@
   [self render];
 }
 
+
+
 - (void)setupGL {
   EAGLContext *context = [[EAGLContext alloc]
                           initWithAPI:kEAGLRenderingAPIOpenGLES2];
   [EAGLContext setCurrentContext:context];
-  
-  
+
+
   GLKView *view = [[GLKView alloc]
                    initWithFrame:[[UIScreen mainScreen]bounds]
                    context:context];
   view.context  = context;
   view.backgroundColor = [UIColor blueColor];
-  
+
   self.view     = view;
-  
+
   glEnable(GL_DEPTH_TEST);
 }
 
@@ -81,16 +84,41 @@
   return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
+
+
 - (void)update {
+  [self update:[self timeSinceLastUpdate]];
+}
+
+
+
+- (void)update:(NSTimeInterval)elapsedTime {
+  timestepAccumulator_ += elapsedTime;
+
+  int numSteps = MIN(timestepAccumulator_ / TIMESTEP_INTERVAL, MAX_STEPS);
+  if (numSteps > 0) {
+    timestepAccumulator_ -= numSteps * TIMESTEP_INTERVAL;
+  }
+
+  timestepAccumulatorRatio_ = timestepAccumulator_ / TIMESTEP_INTERVAL;
+
+  for (int i = 0; i < numSteps; i++) {
+    [self step];
+  }
+}
+
+
+
+- (void)step {
   for (id key in entities_) {
     [[entities_ objectForKey:key] update];
   }
-  
+
   [inputHandler_ executeTouches:[self getEntitiesByTag:@"player"]];
   [inputHandler_ clearTouches];
-  
+
   [self processEntityQueue];
-  
+
   [quadtree_ clear];
   for (id key in entities_) {
     [quadtree_ insert:[entities_ objectForKey:key]];
@@ -101,7 +129,8 @@
 
 - (void)render {
   for (id key in entities_) {
-    [[entities_ objectForKey:key] renderWithCamera:camera_];
+    [[entities_ objectForKey:key] renderWithCamera:camera_
+                                interpolationRatio:timestepAccumulatorRatio_];
   }
 }
 
@@ -182,7 +211,7 @@
                                                physics:sphere.physics
                                                  scene:self
                                                 radius: 10.f];
-  
+
   return sphere;
 }
 
@@ -206,7 +235,7 @@
                                                physics:sphere.physics
                                                  scene:self
                                                 radius: 5];
-  
+
   return sphere;
 }
 
