@@ -15,7 +15,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Scene *)scene;
+               scene:(ViewController *)scene;
 - (void)walkTo:(GLKVector2)target;
 
 @end

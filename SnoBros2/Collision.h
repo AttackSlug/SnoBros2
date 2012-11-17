@@ -10,14 +10,14 @@
 #import "Physics.h"
 #import "Transform.h"
 
-@class Scene;
+@class ViewController;
 @class Entity;
 
 @interface Collision : Component {
-  Scene     *scene_;
-  Physics   *physics_;
-  Transform *transform_;
-  float      radius_;
+  ViewController  *scene_;
+  Physics         *physics_;
+  Transform       *transform_;
+  float           radius_;
 }
 
 
@@ -27,7 +27,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Scene *)scene
+               scene:(ViewController *)scene
               radius:(float)radius;
 
 - (void)update;

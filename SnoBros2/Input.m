@@ -11,33 +11,35 @@
 
 @implementation Input
 
-
-- (id)initWithEntity:(Entity *)entity behavior:(Behavior *)behavior {
+- (id)init {
   self = [super init];
   if (self) {
-    entity_   = entity;
-    behavior_ = behavior;
+    touches_ = [[NSMutableArray alloc] initWithCapacity:0];
   }
   return self;
 }
 
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  for (UITouch *touch in touches) {
-    CGPoint pt =[touch locationInView:touch.view];
-    [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
-  }
+- (void)clearTouches {
+  [touches_ removeAllObjects];
 }
 
 
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  for (UITouch *touch in touches) {
-    CGPoint pt =[touch locationInView:touch.view];
-    [behavior_ walkTo:GLKVector2Make(pt.x, pt.y)];
-  }
+- (void)addTouch:(UITouch *)touch {
+  [touches_ addObject:touch];
 }
 
+
+
+- (void)executeTouches:(NSMutableArray *)entities { 
+  for (UITouch *touch in touches_) {
+    CGPoint p = [touch locationInView:touch.view];
+    for (Entity *e in entities) {
+      [e.behavior walkTo:GLKVector2Make(p.x, p.y)];
+    }
+  }
+}
 
 @end

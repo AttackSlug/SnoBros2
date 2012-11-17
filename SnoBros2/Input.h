@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Behavior.h"
 
 @class Entity;
 
-@interface Input : UIResponder {
-  Entity   *entity_;
-  Behavior *behavior_;
+@interface Input : NSObject {
+  NSMutableArray *touches_;
 }
 
-- (id)initWithEntity:(Entity *)entity behavior:(Behavior *)behavior;
+- (void)clearTouches;
+- (void)addTouch:(UITouch*) touch;
+- (void)executeTouches:(NSMutableArray*) entities;
 
 @end

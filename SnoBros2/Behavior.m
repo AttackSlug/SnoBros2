@@ -8,7 +8,7 @@
 
 #import "Entity.h"
 #import "Behavior.h"
-#import "Scene.h"
+#import "ViewController.h"
 #import "Projectile.h"
 
 @implementation Behavior
@@ -17,7 +17,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Scene *)scene {
+               scene:(ViewController *)scene {
   self = [super initWithEntity:entity];
   if (self) {
     transform_ = transform;

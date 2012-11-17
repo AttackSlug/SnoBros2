@@ -7,7 +7,6 @@
 //
 
 #import "Projectile.h"
-#import "Scene.h"
 
 @implementation Projectile
 
