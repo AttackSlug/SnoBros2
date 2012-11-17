@@ -11,20 +11,20 @@
 #import "Transform.h"
 #import "Physics.h"
 
-@class Scene;
+@class ViewController;
 
 @interface Behavior : Component {
-  GLKVector2 target_;
-  GLKVector2 direction_;
-  Transform  *transform_;
-  Physics    *physics_;
-  Scene      *scene_;
+  GLKVector2      target_;
+  GLKVector2      direction_;
+  Transform       *transform_;
+  Physics         *physics_;
+  ViewController  *scene_;
 }
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Scene *)scene;
+               scene:(ViewController *)scene;
 - (void)update;
 - (void)walkTo:(GLKVector2)target;
 - (void)throwAt:(GLKVector2)target;

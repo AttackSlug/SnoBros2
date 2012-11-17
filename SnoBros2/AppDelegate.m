@@ -20,58 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [self setupGL];
-  currentScene_ = [[Scene alloc] init];
-  return YES;
-}
-
-
-
-- (UIResponder *)nextResponder {
-  return currentScene_;
-}
-
-
-
-- (void)setupGL {
-  EAGLContext *context = [[EAGLContext alloc]
-                          initWithAPI:kEAGLRenderingAPIOpenGLES2];
-  [EAGLContext setCurrentContext:context];
-  glEnable(GL_DEPTH_TEST);
-
-  GLKView *view = [[GLKView alloc]
-                   initWithFrame:[[UIScreen mainScreen]bounds]
-                   context:context];
-  view.delegate = self;
-  view.context  = context;
-
   ViewController *controller = [[ViewController alloc] init];
-  controller.delegate = self;
-  controller.view     = view;
-
+  
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.backgroundColor = [UIColor whiteColor];
   self.window.rootViewController = controller;
   [self.window makeKeyAndVisible];
-
-  glClearColor(0.7f, 0.7f, 0.7f, 1.0f);
-}
-
-
-
-- (void)glkViewControllerUpdate:(GLKViewController *)controller {
-  //NSTimeInterval elapsedTime = controller.timeSinceLastUpdate;
-  //if (elapsedTime > 0.001) {
-  //  [map_    update:elapsedTime];
-  //  [player_ update:elapsedTime];
-  //}
-  [currentScene_ update];
-}
-
-
-
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  [currentScene_ render];
+  return YES;
 }
 
 

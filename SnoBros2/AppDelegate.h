@@ -8,10 +8,8 @@
 
 #import <GLKit/GLKit.h>
 #import <UIKit/UIKit.h>
-#import "Scene.h"
 
-@interface AppDelegate : UIResponder<UIApplicationDelegate, GLKViewControllerDelegate, GLKViewDelegate> {
-  Scene *currentScene_;
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
 }
 
 @property (strong, nonatomic) UIWindow *window;
