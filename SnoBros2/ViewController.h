@@ -33,6 +33,7 @@ const static int   MAX_STEPS         = 5;
 
 
 - (void)update:(NSTimeInterval)elapsedTime;
+- (void)update;
 - (void)step;
 - (void)render;
 - (void)addEntity:(Entity *)entity;

@@ -38,12 +38,17 @@
 
   for (Entity *e in ents) {
     if (e == entity_ || !e.collision) { continue; }
+
     float otherRadius = e.collision.radius;
-    GLKVector2 intersection = GLKVector2Subtract(transform_.position,
-                                                 e.transform.position);
-    float distance = GLKVector2Length(intersection);
+    float distance    = GLKVector2Distance(transform_.position,
+                                           e.transform.position);
 
     if (distance < (radius_ + otherRadius)) {
+      float overlap           = 1 - (distance / (radius_ + otherRadius));
+      GLKVector2 centers      = GLKVector2Subtract(transform_.position,
+                                                   e.transform.position);
+      GLKVector2 intersection = GLKVector2MultiplyScalar(centers, overlap);
+
       [physics_ resolveCollisionWith:e intersection:intersection];
     }
   }
