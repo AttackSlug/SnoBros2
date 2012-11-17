@@ -26,6 +26,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
               sprite:(Sprite *)sprite;
-- (void)updateWithCamera:(Camera*)camera;
+- (void)updateWithCamera:(Camera*)camera
+      interpolationRatio:(double)ratio;
 
 @end

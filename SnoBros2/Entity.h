@@ -41,6 +41,6 @@
 - (id)init;
 - (id)initWithTag:(NSString*)tag;
 - (void)update;
-- (void)renderWithCamera:(Camera*)camera;
+- (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio;
 
 @end
