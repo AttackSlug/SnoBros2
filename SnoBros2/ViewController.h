@@ -21,6 +21,7 @@ const static int   MAX_STEPS         = 5;
   Camera              *camera_;
   Quadtree            *quadtree_;
   Input               *inputHandler_;
+  UIButton            *button_;
   NSTimeInterval       timestepAccumulator_;
   NSTimeInterval       timestepAccumulatorRatio_;
   NSTimeInterval const timestepInterval_;
@@ -37,5 +38,6 @@ const static int   MAX_STEPS         = 5;
 - (void)step;
 - (void)render;
 - (void)setupGL;
+- (UIButton*)setupButton;
 
 @end

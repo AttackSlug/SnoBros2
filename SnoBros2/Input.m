@@ -22,6 +22,28 @@
 
 
 
+- (id)initWithView:(UIView *)view {
+  self = [super init];
+  if (self) {
+    touches_ = [[NSMutableArray alloc] initWithCapacity:0];
+    oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(throwSingleTapEvent:)];
+    oneFingerTap_.numberOfTapsRequired = 1;
+    oneFingerTap_.numberOfTouchesRequired = 1;
+    [view addGestureRecognizer:oneFingerTap_];
+    
+    
+    twoFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                   action:@selector(throwDoubleTapEvent:)];
+    twoFingerTap_.numberOfTapsRequired = 1;
+    twoFingerTap_.numberOfTouchesRequired = 2;
+    [view addGestureRecognizer:twoFingerTap_];
+  }
+  return self;
+}
+
+
+
 - (void)clearTouches {
   [touches_ removeAllObjects];
 }
@@ -41,6 +63,35 @@
       [e.behavior walkTo:GLKVector2Make(p.x, p.y)];
     }
   }
+}
+
+
+
+- (void)addButtonGestureRecognizer:(UIButton *)button {
+  oneFingerButtonTap_ = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                action:@selector(throwOneFingerButtonTap:)];
+  oneFingerButtonTap_.numberOfTouchesRequired = 1;
+  oneFingerButtonTap_.numberOfTapsRequired = 1;
+  oneFingerButtonTap_.cancelsTouchesInView = YES;
+  [button addGestureRecognizer:oneFingerButtonTap_];
+}
+
+
+
+- (void)throwDoubleTapEvent:(UITapGestureRecognizer *)gr {
+  NSLog(@"TwoFingerTapEvent");
+}
+
+
+
+- (void)throwSingleTapEvent:(UITapGestureRecognizer *)gr {
+  NSLog(@"OneFingerTapEvent");
+}
+
+
+
+- (void)throwOneFingerButtonTap:(UITapGestureRecognizer *)gr {
+  NSLog(@"OneFingerButtonTapEvent");
 }
 
 @end

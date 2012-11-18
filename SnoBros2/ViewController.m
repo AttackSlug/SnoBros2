@@ -33,10 +33,12 @@
   [self setupGL];
 
   entityManager_ = [[EntityManager alloc] init];
-  inputHandler_  = [[Input alloc] init];
+  inputHandler_  = [[Input alloc] initWithView:self.view];
   camera_        = [[Camera alloc] init];
+  
+  button_ = [self setupButton];
+  
   timestepAccumulatorRatio_ = 1.f;
-
 
   Entity *map = [self setupMap];
   [entityManager_ add:map];
@@ -146,7 +148,6 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"Touched Screen");
   for (UITouch *touch in touches) {
     [inputHandler_ addTouch:touch];
   }
@@ -247,8 +248,13 @@
 
 
 
-- (void)gotswipe:(UIGestureRecognizer*)gr {
-  NSLog(@"got swipe");
+- (UIButton *)setupButton {
+  UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  button.frame = CGRectMake(10, 10, 100, 100);
+  [inputHandler_ addButtonGestureRecognizer:button];
+  [self.view addSubview:button];
+  
+  return button;
 }
 
 
