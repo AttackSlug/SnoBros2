@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Transform.h"
-#import "Renderer.h"
-#import "Physics.h"
-#import "Input.h"
-#import "Behavior.h"
-#import "Camera.h"
-#import "Collision.h"
 
+@class Transform;
+@class Renderer;
+@class Physics;
+@class Input;
+@class Camera;
+@class Behavior;
+@class Collision;
+@class Sprite;
 
 @interface Entity : NSObject {
   Transform *transform_;

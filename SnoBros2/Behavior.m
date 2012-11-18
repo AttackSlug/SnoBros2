@@ -6,10 +6,16 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Entity.h"
 #import "Behavior.h"
+#import "Entity.h"
 #import "ViewController.h"
 #import "Projectile.h"
+#import "Transform.h"
+#import "Physics.h"
+#import "EntityManager.h"
+#import "Camera.h"
+#import "Sprite.h"
+#import "Renderer.h"
 
 @implementation Behavior
 
@@ -17,12 +23,14 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene {
+               scene:(ViewController *)scene
+       entityManager:(EntityManager *)entityManager {
   self = [super initWithEntity:entity];
   if (self) {
-    transform_ = transform;
-    physics_   = physics;
-    scene_     = scene;
+    transform_     = transform;
+    physics_       = physics;
+    scene_         = scene;
+    entityManager_ = entityManager;
   }
   return self;
 }
@@ -63,7 +71,7 @@
   Entity *snowball = [self createSnowball];
   snowball.transform.position = position;
   [snowball.behavior walkTo:target];
-  [scene_ addEntity:snowball];
+  [entityManager_ queueForCreation:snowball];
 }
 
 
@@ -80,7 +88,8 @@
   snowball.behavior  = [[Projectile alloc] initWithEntity:snowball
                                                 transform:snowball.transform
                                                   physics:snowball.physics
-                                                    scene:scene_];
+                                                    scene:scene_
+                                            entityManager:entityManager_];
   return snowball;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "Sphere.h"
+#import "Transform.h"
+#import "Physics.h"
 
 @implementation Sphere
 

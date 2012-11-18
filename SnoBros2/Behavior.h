@@ -8,10 +8,13 @@
 
 #import <GLKit/GLKit.h>
 #import "Component.h"
-#import "Transform.h"
-#import "Physics.h"
 
+@class Transform;
+@class Physics;
+@class EntityManager;
 @class ViewController;
+@class EntityManager;
+@class Entity;
 
 @interface Behavior : Component {
   GLKVector2      target_;
@@ -19,12 +22,14 @@
   Transform       *transform_;
   Physics         *physics_;
   ViewController  *scene_;
+  EntityManager   *entityManager_;
 }
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene;
+               scene:(ViewController *)scene
+       entityManager:(EntityManager *)entityManager;
 - (void)update;
 - (void)walkTo:(GLKVector2)target;
 - (void)throwAt:(GLKVector2)target;

@@ -7,6 +7,14 @@
 //
 
 #import "Entity.h"
+#import "Transform.h"
+#import "Renderer.h"
+#import "Physics.h"
+#import "Input.h"
+#import "Behavior.h"
+#import "Camera.h"
+#import "Collision.h"
+#import "Sprite.h"
 
 @implementation Entity
 

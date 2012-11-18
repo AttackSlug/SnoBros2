@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class Entity;
-
 @interface Input : NSObject {
   NSMutableArray *touches_;
 }
 
 - (void)clearTouches;
-- (void)addTouch:(UITouch*) touch;
-- (void)executeTouches:(NSMutableArray*) entities;
+- (void)addTouch:(UITouch *) touch;
+- (void)executeTouches:(NSArray *) entities;
 
 @end

@@ -7,17 +7,17 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "Entity.h"
-#import "Camera.h"
-#import "Quadtree.h"
-#import "Input.h"
+
+@class Camera;
+@class Quadtree;
+@class Input;
+@class EntityManager;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface ViewController : GLKViewController {
-  NSMutableDictionary *entities_;
-  NSMutableDictionary *entityQueue_;
+  EntityManager       *entityManager_;
   Camera              *camera_;
   Quadtree            *quadtree_;
   Input               *inputHandler_;
@@ -36,10 +36,6 @@ const static int   MAX_STEPS         = 5;
 - (void)update;
 - (void)step;
 - (void)render;
-- (void)addEntity:(Entity *)entity;
-- (void)removeEntity:(Entity *)entity;
-- (void)processEntityQueue;
-- (NSMutableArray*)getEntitiesByTag:(NSString*)tag;
 - (void)setupGL;
 
 @end

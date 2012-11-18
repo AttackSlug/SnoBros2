@@ -7,6 +7,9 @@
 //
 
 #import "Renderer.h"
+#import "Transform.h"
+#import "Sprite.h"
+#import "Camera.h"
 #import "Entity.h"
 
 @implementation Renderer

@@ -8,9 +8,11 @@
 
 #import <GLKit/GLKit.h>
 #import "Component.h"
-#import "Transform.h"
-#import "Sprite.h"
-#import "Camera.h"
+
+@class Transform;
+@class Sprite;
+@class Camera;
+@class Entity;
 
 @interface Renderer : Component {
   GLKBaseEffect  *effect_;
