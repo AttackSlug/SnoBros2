@@ -37,10 +37,10 @@
 - (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr {
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
-  
+
   if ([entityManager_ isEntitySelected] == TRUE) {
     NSArray *selectedEntities = [entityManager_ findAllSelected];
-    
+
     for (Entity *e in selectedEntities) {
       NSValue *position = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
       Event *movePlayer = [[Event alloc] initWithType:@"walkTo"

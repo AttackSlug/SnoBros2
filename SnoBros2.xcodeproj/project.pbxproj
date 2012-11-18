@@ -52,6 +52,7 @@
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
+		A3D40BF2165D77770077EECA /* entities.json in Resources */ = {isa = PBXBuildFile; fileRef = A3D40BF1165D77770077EECA /* entities.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3D40BF1165D77770077EECA /* entities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = entities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
+				A3D40BF0165D77560077EECA /* Resources */,
 				87E49E3F16515FA000202CFB /* Assets */,
 				A37046AD165C18CF00F129E0 /* Systems */,
 				87E49E411651601900202CFB /* Event */,
@@ -342,6 +345,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3D40BF0165D77560077EECA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3D40BF1165D77770077EECA /* entities.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +435,7 @@
 				87E49E591651B9B100202CFB /* wpaper.jpg in Resources */,
 				87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */,
 				A3283F3A1652A6B90059083E /* snowball-small.png in Resources */,
+				A3D40BF2165D77770077EECA /* entities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

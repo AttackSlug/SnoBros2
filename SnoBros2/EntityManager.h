@@ -22,6 +22,8 @@
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
+- (void)loadFromFile:(NSString *)filename;
+- (Entity *)buildEntityFromDictionary:(NSDictionary *)data;
 
 - (void)queueForDeletion:(Entity *)entity;
 - (void)queueForCreation:(Entity *)entity;

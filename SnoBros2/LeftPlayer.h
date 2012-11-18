@@ -13,6 +13,8 @@
 @interface LeftPlayer : Behavior
 
 - (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 - (void)walkTo:(GLKVector2)target;
 
 @end

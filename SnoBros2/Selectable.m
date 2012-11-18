@@ -25,6 +25,12 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  return [self initWithEntity:entity];
+}
+
+
+
 - (BOOL)isAtLocation:(GLKVector2)location {
   GLKVector2 pos = entity_.transform.position;
   GLKVector2 size = GLKVector2Make(entity_.sprite.width, entity_.sprite.height);

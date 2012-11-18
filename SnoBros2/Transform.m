@@ -21,6 +21,18 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  self = [self initWithEntity:entity];
+  if (self) {
+    NSDictionary *p = [data valueForKey:@"position"];
+    position_ = GLKVector2Make([[p valueForKey:@"x"] floatValue],
+                               [[p valueForKey:@"y"] floatValue]);
+  }
+  return self;
+}
+
+
+
 - (void)translate:(GLKVector2)translation {
   position_ = GLKVector2Add(position_, translation);
 }
