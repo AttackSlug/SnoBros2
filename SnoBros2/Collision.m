@@ -41,6 +41,7 @@
 - (void)update {
   NSArray *nearbyEntities = [entityManager_ entitiesNear:entity_];
 
+
   for (Entity *otherEntity in nearbyEntities) {
      if (otherEntity == entity_ || !otherEntity.collision) { continue; }
 

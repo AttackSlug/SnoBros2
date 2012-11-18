@@ -30,7 +30,7 @@
 - (NSArray *)entitiesNear:(Entity *)entity;
 - (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;
-//- (NSArray *)findWithComponent:(NSString *)component;
+- (NSArray *)findAllWithComponent:(NSString *)component;
 
 - (void)processQueue;
 - (void)update;

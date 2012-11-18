@@ -71,8 +71,7 @@
 - (NSArray *)findByTag:(NSString *)tag {
   NSMutableArray *found = [[NSMutableArray alloc] init];
 
-  for (id key in entities_) {
-    Entity *e = [entities_ objectForKey:key];
+  for (Entity *e in [entities_ allValues]) {
     if ([e.tag isEqualToString:tag]) {
       [found addObject:e];
     }
@@ -83,7 +82,17 @@
 
 
 
-//- (NSArray *)findWithComponent:(NSString *)component;
+- (NSArray *)findAllWithComponent:(NSString *)component {
+  NSMutableArray *found = [[NSMutableArray alloc] init];
+
+  for (Entity *e in [entities_ allValues]) {
+    if ([e performSelector:NSSelectorFromString(component)]) {
+      [found addObject:e];
+    }
+  }
+
+  return found;
+}
 
 
 
@@ -103,8 +112,8 @@
 
 - (void)update {
   [quadtree_ clear];
-  for (id key in entities_) {
-    Entity *e = [entities_ valueForKey:key];
+
+  for (Entity *e in [entities_ allValues]) {
     [quadtree_ insert:e];
   }
 }
