@@ -21,14 +21,17 @@
   Transform      *previousTransform_;
   int            width_;
   int            height_;
+  int            layer_;
 }
 
 @property (readonly, nonatomic) int width;
 @property (readonly, nonatomic) int height;
+@property (nonatomic)           int layer;
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
-              sprite:(Sprite *)sprite;
+              sprite:(Sprite *)sprite
+               layer:(int)layer;
 - (void)renderWithCamera:(Camera*)camera
       interpolationRatio:(double)ratio;
 
