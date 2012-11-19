@@ -77,8 +77,8 @@
   GLKVector2 pos = GLKVector2Make(p.x, p.y);
   
   Event *e = [[Event alloc] initWithID:player.uuid
-                           AndSelector:@selector(walkTo:)
-                            AndPayload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+                           Selector:@selector(walkTo:)
+                            Payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
   [events_ addObject:e];
 }
 

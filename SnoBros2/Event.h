@@ -18,6 +18,6 @@
 @property (nonatomic, readonly) SEL       func;
 @property (nonatomic, readonly) NSValue   *payload;
 
-- (id)initWithID:(NSString*)uuid AndSelector:(SEL) func AndPayload:(NSValue*) payload;
+- (id)initWithID:(NSString*)uuid Selector:(SEL) func Payload:(NSValue*) payload;
 
 @end

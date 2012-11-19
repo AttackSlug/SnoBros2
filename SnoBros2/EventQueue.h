@@ -16,9 +16,9 @@ const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface EventQueue : NSObject {
-  EntityManager         *entityManager_;
-  Camera              *camera_;
-  NSMutableArray        *events_;
+  EntityManager        *entityManager_;
+  Camera               *camera_;
+  NSMutableArray       *events_;
   NSTimeInterval       timestepAccumulator_;
   NSTimeInterval       timestepAccumulatorRatio_;
   NSTimeInterval const timestepInterval_;
