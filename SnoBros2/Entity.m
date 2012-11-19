@@ -48,12 +48,13 @@
   [behavior_  update];
   [collision_ update];
   [physics_   update];
+  [renderer_  update];
 }
 
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  [renderer_ updateWithCamera:camera interpolationRatio:ratio];
+  [renderer_ renderWithCamera:camera interpolationRatio:ratio];
 }
 
 

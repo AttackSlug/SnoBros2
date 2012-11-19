@@ -36,8 +36,12 @@
   inputHandler_  = [[Input alloc] init];
   camera_        = [[Camera alloc] init];
   timestepAccumulatorRatio_ = 1.f;
-  //[entityManager_ add:[self setupMap]];
-  //[entityManager_ add:[self setupLeftPlayer]];
+
+
+  Entity *map = [self setupMap];
+  [entityManager_ add:map];
+
+  [entityManager_ add:[self setupLeftPlayer]];
 
   UIGestureRecognizer *swipe =
     [[UISwipeGestureRecognizer alloc] initWithTarget:self
@@ -47,8 +51,8 @@
   Entity *sphere1 = [self setupSphere];
   Entity *sphere2 = [self setupSphere2];
 
-  [sphere1.transform translate:GLKVector2Make(100, 160)];
-  [sphere2.transform translate:GLKVector2Make(300, 160)];
+  sphere1.transform.position = GLKVector2Make(100, 160);
+  sphere2.transform.position = GLKVector2Make(300, 160);
 
   sphere1.physics.velocity = GLKVector2Make( 1, 0);
   sphere2.physics.velocity = GLKVector2Make(-1, 0);
@@ -82,6 +86,7 @@
 
   self.view     = view;
 
+  glDepthFunc(GL_GREATER);
   glEnable(GL_DEPTH_TEST);
 }
 

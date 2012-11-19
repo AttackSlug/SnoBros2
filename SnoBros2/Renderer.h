@@ -18,6 +18,7 @@
   GLKBaseEffect  *effect_;
   Sprite         *sprite_;
   Transform      *transform_;
+  Transform      *previousTransform_;
   int            width_;
   int            height_;
 }
@@ -28,7 +29,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
               sprite:(Sprite *)sprite;
-- (void)updateWithCamera:(Camera*)camera
+- (void)renderWithCamera:(Camera*)camera
       interpolationRatio:(double)ratio;
 
 @end

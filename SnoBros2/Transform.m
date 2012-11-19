@@ -10,33 +10,30 @@
 
 @implementation Transform
 
-@synthesize position         = position_;
-@synthesize previousPosition = previousPosition_;
+@synthesize position = position_;
 
 
 - (id)initWithEntity:(Entity *)entity {
-  return [super initWithEntity:entity];
-}
-
-
-
-- (void)position:(GLKVector2)position {
-  previousPosition_ = position_;
-  position_         = position;
+  self = [super initWithEntity:entity];
+  if (self) {
+  }
+  return self;
 }
 
 
 
 - (void)translate:(GLKVector2)translation {
-  previousPosition_ = position_;
-  position_         = GLKVector2Add(position_, translation);
+  position_ = GLKVector2Add(position_, translation);
 }
 
 
 
-- (GLKVector2)interpolateWithRatio:(double)ratio {
-  return GLKVector2Lerp(previousPosition_, position_, ratio);
+- (Transform *)copy {
+  Transform *copy = [[Transform alloc] initWithEntity:entity_];
+  copy.position = position_;
+  return copy;
 }
+
 
 
 @end
