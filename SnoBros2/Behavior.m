@@ -85,7 +85,8 @@
                                                transform:snowball.transform];
   snowball.renderer  = [[Renderer alloc]  initWithEntity:snowball
                                                transform:snowball.transform
-                                                  sprite:snowball.sprite];
+                                                  sprite:snowball.sprite
+                                                   layer:1];
   snowball.behavior  = [[Projectile alloc] initWithEntity:snowball
                                                 transform:snowball.transform
                                                   physics:snowball.physics

@@ -28,7 +28,8 @@
     camera_        = [[Camera alloc] init];
     entityManager_ = [[EntityManager alloc] init];
     events_ = [[NSMutableArray alloc] initWithCapacity:0];
-    
+
+    [entityManager_ add:[self setupMap]];
     [entityManager_ add:[self setupLeftPlayer]];
 
     timestepAccumulatorRatio_ = 1.f;
@@ -124,7 +125,7 @@
 
 
 - (void)render {
-  for (Entity *e in [entityManager_ allEntities]) {
+  for (Entity *e in [entityManager_ allSortedByLayer]) {
     [e renderWithCamera:camera_
      interpolationRatio:timestepAccumulatorRatio_];
   }
@@ -140,7 +141,8 @@
                                              transform:sphere.transform];
   sphere.renderer  = [[Renderer alloc]  initWithEntity:sphere
                                              transform:sphere.transform
-                                                sprite:sphere.sprite];
+                                                sprite:sphere.sprite
+                                                 layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
@@ -165,7 +167,8 @@
                                              transform:sphere.transform];
   sphere.renderer  = [[Renderer alloc]  initWithEntity:sphere
                                              transform:sphere.transform
-                                                sprite:sphere.sprite];
+                                                sprite:sphere.sprite
+                                                 layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
@@ -190,7 +193,8 @@
                                              transform:player.transform];
   player.renderer  = [[Renderer alloc]  initWithEntity:player
                                              transform:player.transform
-                                                sprite:player.sprite];
+                                                sprite:player.sprite
+                                                 layer:1];
   player.behavior  = [[LeftPlayer alloc] initWithEntity:player
                                               transform:player.transform
                                                 physics:player.physics
@@ -214,7 +218,8 @@
   map.sprite    = [[Sprite alloc]    initWithFile:@"wpaper.jpg"];
   map.renderer  = [[Renderer alloc]  initWithEntity:map
                                           transform:map.transform
-                                             sprite:map.sprite];
+                                             sprite:map.sprite
+                                              layer:0];
   map.transform.position = GLKVector2Make(map.renderer.width  / 2.f,
                                           map.renderer.height / 2.f);
   return map;
