@@ -7,6 +7,9 @@
 //
 
 #import "Renderer.h"
+#import "Transform.h"
+#import "Sprite.h"
+#import "Camera.h"
 #import "Entity.h"
 
 @implementation Renderer
@@ -20,7 +23,8 @@
               sprite:(Sprite *)sprite {
   self = [super initWithEntity:entity];
   if (self) {
-    transform_ = transform;
+    transform_          = transform;
+    previousTransform_  = [transform_ copy];
     sprite_    = sprite;
     effect_    = [[GLKBaseEffect alloc] init];
 
@@ -32,24 +36,36 @@
 
 
 
-- (void)updateWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  glEnable(GL_BLEND);
+- (void)update {
+  previousTransform_ = [transform_ copy];
+}
+
+
+
+- (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glEnable(GL_BLEND);
 
   effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect_.texture2d0.target  = GLKTextureTarget2D;
   effect_.texture2d0.name    = sprite_.texture.name;
 
-  GLKVector2 position  = [transform_ interpolateWithRatio:ratio];
+
+  GLKVector2 position  = GLKVector2Lerp(previousTransform_.position,
+                                        transform_.position,
+                                        ratio);
   effect_.transform.modelviewMatrix =
     GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
-  
-  effect_.transform.projectionMatrix = GLKMatrix4MakeOrtho(camera.position.x,
-                                                           camera.viewport.x + camera.position.x,
-                                                           camera.viewport.y + camera.position.y,
-                                                           camera.position.y,
-                                                           -1,
-                                                           1);
+
+  float left   = camera.position.x;
+  float right  = camera.viewport.x + camera.position.x;
+  float bottom = camera.viewport.y + camera.position.y;
+  float top    = camera.position.y;
+  float near   = -16.f;
+  float far    = 16.f;
+
+  effect_.transform.projectionMatrix =
+    GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
 
   [effect_ prepareToDraw];
 

@@ -8,7 +8,9 @@
 
 #import <GLKit/GLKit.h>
 #import "Component.h"
-#import "Transform.h"
+
+@class Transform;
+@class Entity;
 
 @interface Physics : Component {
   GLKVector2 velocity_;

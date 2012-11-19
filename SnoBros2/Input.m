@@ -8,6 +8,7 @@
 
 #import "Input.h"
 #import "Entity.h"
+#import "Behavior.h"
 
 @implementation Input
 
@@ -33,7 +34,7 @@
 
 
 
-- (void)executeTouches:(NSMutableArray *)entities { 
+- (void)executeTouches:(NSArray *)entities {
   for (UITouch *touch in touches_) {
     CGPoint p = [touch locationInView:touch.view];
     for (Entity *e in entities) {
