@@ -26,8 +26,6 @@ const static int   MAX_STEPS         = 5;
 
 @property (nonatomic) Camera *camera;
 
-- (id)initWithEntityManager:(EntityManager*)entityManager;
-
 - (void)addEvent:(Event*)e;
 - (void)addOneFingerTapEvent:(UITapGestureRecognizer*)gr;
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer*)gr;
@@ -37,8 +35,5 @@ const static int   MAX_STEPS         = 5;
 - (void)update:(NSTimeInterval)elapsedTime;
 - (void)step;
 - (void)render;
-
-- (Entity*)getEntityByID:(NSString*)uuid;
-- (Entity*)getEntityByTag:(NSString*)tag;
 
 @end
