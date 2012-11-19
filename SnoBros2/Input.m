@@ -12,7 +12,7 @@
 
 @implementation Input
 
-- (id) initWithView:(UIView *)view AndEventQueue:(EventQueue *)queue {
+- (id)initWithView:(UIView *)view eventQueue:(EventQueue *)queue {
   self = [super init];
   if (self) {
     oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
@@ -29,7 +29,5 @@
   }
   return self;
 }
-
-
 
 @end

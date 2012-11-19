@@ -14,6 +14,6 @@
   UITapGestureRecognizer *twoFingerTap_;
 }
 
-- (id)initWithView:(UIView*) view AndEventQueue:(EventQueue*) queue;
+- (id)initWithView:(UIView *)view eventQueue:(EventQueue *)queue;
 
 @end

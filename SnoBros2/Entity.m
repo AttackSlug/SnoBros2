@@ -18,7 +18,6 @@
 
 @implementation Entity
 
-
 @synthesize transform = transform_;
 @synthesize renderer  = renderer_;
 @synthesize physics   = physics_;
@@ -32,6 +31,8 @@
   return [self initWithTag:@"untagged"];
 }
 
+
+
 - (id)initWithTag:(NSString *)tag {
   self = [super init];
   if (self) {
@@ -42,6 +43,8 @@
   }
   return self;
 }
+
+
 
 - (void)update {
   [behavior_  update];
@@ -55,6 +58,5 @@
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
   [renderer_ renderWithCamera:camera interpolationRatio:ratio];
 }
-
 
 @end

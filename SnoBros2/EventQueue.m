@@ -29,7 +29,6 @@
     entityManager_ = [[EntityManager alloc] init];
     events_ = [[NSMutableArray alloc] initWithCapacity:0];
     
-    
     [entityManager_ add:[self setupLeftPlayer]];
 
     timestepAccumulatorRatio_ = 1.f;
@@ -46,17 +45,6 @@
     [entityManager_ add:sphere1];
     [entityManager_ add:sphere2];
 
-  }
-  return self;
-}
-
-
-
-- (id)initWithEntityManager:(EntityManager *)entityManager {
-  self = [super init];
-  if (self) {
-    entityManager_ = entityManager;
-    events_ = [[NSMutableArray alloc] initWithCapacity:0];
   }
   return self;
 }
@@ -129,6 +117,8 @@
   
   [entityManager_ processQueue];
   [entityManager_ update];
+  [self executeEvents];
+  [self clearEvents];
 }
 
 
