@@ -7,8 +7,20 @@
 //
 
 #import "ViewController.h"
+
 #import "LeftPlayer.h"
 #import "Sphere.h"
+#import "Entity.h"
+#import "Camera.h"
+#import "Quadtree.h"
+#import "Input.h"
+#import "EntityManager.h"
+#import "Transform.h"
+#import "Sprite.h"
+#import "Physics.h"
+#import "Renderer.h"
+#import "Collision.h"
+
 
 @implementation ViewController
 
@@ -20,34 +32,33 @@
 - (void)viewDidLoad {
   [self setupGL];
 
-  entities_      = [[NSMutableDictionary alloc] init];
-  entityQueue_   = [[NSMutableDictionary alloc] init];
+  entityManager_ = [[EntityManager alloc] init];
   inputHandler_  = [[Input alloc] init];
   camera_        = [[Camera alloc] init];
   timestepAccumulatorRatio_ = 1.f;
-  //[self addEntity:[self setupMap]];
-  //[self addEntity:[self setupLeftPlayer]];
 
-  UIGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                         action:@selector(gotswipe:)];
 
-  quadtree_      = [[Quadtree alloc] initWithLevel:5
-                                            bounds:CGRectMake(0, 0, 480, 320)];
+  Entity *map = [self setupMap];
+  [entityManager_ add:map];
+
+  [entityManager_ add:[self setupLeftPlayer]];
+
+  UIGestureRecognizer *swipe =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(gotswipe:)];
+
 
   Entity *sphere1 = [self setupSphere];
   Entity *sphere2 = [self setupSphere2];
 
-  [sphere1.transform translate:GLKVector2Make(100, 160)];
-  [sphere2.transform translate:GLKVector2Make(300, 160)];
+  sphere1.transform.position = GLKVector2Make(100, 160);
+  sphere2.transform.position = GLKVector2Make(300, 160);
 
   sphere1.physics.velocity = GLKVector2Make( 1, 0);
   sphere2.physics.velocity = GLKVector2Make(-1, 0);
 
-
-  [self addEntity:sphere1];
-  [self addEntity:sphere2];
-
-  [self processEntityQueue];
+  [entityManager_ add:sphere1];
+  [entityManager_ add:sphere2];
 
   [self.view addGestureRecognizer:swipe];
 }
@@ -75,6 +86,7 @@
 
   self.view     = view;
 
+  glDepthFunc(GL_GREATER);
   glEnable(GL_DEPTH_TEST);
 }
 
@@ -110,71 +122,25 @@
 
 
 - (void)step {
-  for (id key in entities_) {
-    [[entities_ objectForKey:key] update];
+  for (Entity *e in [entityManager_ allEntities]) {
+    [e update];
   }
 
-  [inputHandler_ executeTouches:[self getEntitiesByTag:@"player"]];
+  NSArray *players = [entityManager_ findByTag:@"player"];
+  [inputHandler_ executeTouches:players];
   [inputHandler_ clearTouches];
 
-  [self processEntityQueue];
-
-  [quadtree_ clear];
-  for (id key in entities_) {
-    [quadtree_ insert:[entities_ objectForKey:key]];
-  }
+  [entityManager_ processQueue];
+  [entityManager_ update];
 }
 
 
 
 - (void)render {
-  for (id key in entities_) {
-    [[entities_ objectForKey:key] renderWithCamera:camera_
-                                interpolationRatio:timestepAccumulatorRatio_];
+  for (Entity *e in [entityManager_ allEntities]) {
+    [e renderWithCamera:camera_
+     interpolationRatio:timestepAccumulatorRatio_];
   }
-}
-
-
-
-- (void)addEntity:(Entity *)entity {
-  [entityQueue_ setObject:entity forKey:entity.uuid];
-}
-
-
-
-- (void)removeEntity:(Entity *)entity {
-  [entityQueue_ setObject:entity forKey:entity.uuid];
-}
-
-
-
-// check the entity queue for adding entities to the main entity list
-// use the entity queue to prevent modifying the entity list while iterating through it
-// if we find an entity in the entity queue and in the main entity list, assume we request its deletion
-// if we find an entity in the entity queue and not in the main entity list, assume we request its insertion
-- (void)processEntityQueue {
-  for (id key in entityQueue_) {
-    Entity *temp = [entityQueue_ objectForKey:key];
-    if ([entities_ objectForKey:key] == nil) {
-      [entities_ setObject:temp forKey:key];
-    } else {
-      [entities_ removeObjectForKey:key];
-    }
-  }
-  [entityQueue_ removeAllObjects];
-}
-
-
-
--(NSMutableArray*)getEntitiesByTag:(NSString *)tag {
-  NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:0];
-  for (id key in entities_) {
-    Entity *temp = [entities_ objectForKey:key];
-    if ([temp.tag isEqualToString:tag]) {
-      [ret addObject:temp];
-    }
-  }
-  return ret;
 }
 
 
@@ -205,11 +171,12 @@
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
-                                              scene:self];
+                                              scene:self
+                                      entityManager:entityManager_];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
-                                                 scene:self
+                                         entityManager:entityManager_
                                                 radius: 10.f];
 
   return sphere;
@@ -229,11 +196,12 @@
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
-                                              scene:self];
+                                              scene:self
+                                      entityManager:entityManager_];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
-                                                 scene:self
+                                         entityManager:entityManager_
                                                 radius: 5];
 
   return sphere;
@@ -253,11 +221,12 @@
   player.behavior  = [[LeftPlayer alloc] initWithEntity:player
                                               transform:player.transform
                                                 physics:player.physics
-                                                  scene:self];
+                                                  scene:self
+                                          entityManager:entityManager_];
   player.collision = [[Collision alloc] initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics
-                                                 scene:self
+                                         entityManager:entityManager_
                                                 radius: 48.f];
   return player;
 }

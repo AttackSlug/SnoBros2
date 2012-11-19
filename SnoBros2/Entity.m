@@ -7,6 +7,14 @@
 //
 
 #import "Entity.h"
+#import "Transform.h"
+#import "Renderer.h"
+#import "Physics.h"
+#import "Input.h"
+#import "Behavior.h"
+#import "Camera.h"
+#import "Collision.h"
+#import "Sprite.h"
 
 @implementation Entity
 
@@ -40,12 +48,13 @@
   [behavior_  update];
   [collision_ update];
   [physics_   update];
+  [renderer_  update];
 }
 
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  [renderer_ updateWithCamera:camera interpolationRatio:ratio];
+  [renderer_ renderWithCamera:camera interpolationRatio:ratio];
 }
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "Projectile.h"
+#import "Transform.h"
+#import "Physics.h"
 
 @implementation Projectile
 

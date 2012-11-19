@@ -6,15 +6,16 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Component.h"
-#import "Physics.h"
-#import "Transform.h"
+#include "Component.h"
 
 @class ViewController;
 @class Entity;
+@class EntityManager;
+@class Physics;
+@class Transform;
 
 @interface Collision : Component {
-  ViewController  *scene_;
+  EntityManager   *entityManager_;
   Physics         *physics_;
   Transform       *transform_;
   float           radius_;
@@ -27,7 +28,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene
+       entityManager:(EntityManager *)entityManager
               radius:(float)radius;
 
 - (void)update;

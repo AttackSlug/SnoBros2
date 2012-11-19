@@ -7,7 +7,12 @@
 //
 
 #import "LeftPlayer.h"
+#import "Physics.h"
+#import "Transform.h"
+#import "EntityManager.h"
+#import "Entity.h"
 #import "ViewController.h"
+#import "Camera.h"
 
 @implementation LeftPlayer
 
@@ -15,11 +20,13 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene {
+               scene:(ViewController *)scene
+       entityManager:(EntityManager *)entityManager {
   return [super initWithEntity:entity
                      transform:transform
                        physics:physics
-                         scene:scene];
+                         scene:scene
+                 entityManager:entityManager];
 }
 
 
