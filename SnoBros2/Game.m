@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "EventQueue.h"
+#import "Game.h"
 #import "LeftPlayer.h"
 #import "Sphere.h"
 #import "Entity.h"
@@ -18,7 +18,7 @@
 #import "Collision.h"
 #import "Camera.h"
 
-@implementation EventQueue
+@implementation Game
 
 @synthesize camera = camera_;
 

@@ -8,7 +8,7 @@
 
 #import "Behavior.h"
 
-@class EventQueue;
+@class Game;
 @class Physics;
 @class Transform;
 @class EntityManager;
@@ -19,7 +19,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(EventQueue *)scene
+               scene:(Game *)scene
        entityManager:(EntityManager *)entityManager;
 - (void)walkTo:(NSValue*)message;
 

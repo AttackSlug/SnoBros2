@@ -16,7 +16,7 @@
 #import "Camera.h"
 #import "Sprite.h"
 #import "Renderer.h"
-#import "EventQueue.h"
+#import "Game.h"
 
 @implementation Behavior
 
@@ -24,7 +24,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(EventQueue *)scene
+               scene:(Game *)scene
        entityManager:(EntityManager *)entityManager {
   self = [super initWithEntity:entity];
   if (self) {

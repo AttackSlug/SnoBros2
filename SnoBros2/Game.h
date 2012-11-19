@@ -15,7 +15,7 @@
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
-@interface EventQueue : NSObject {
+@interface Game : NSObject {
   EntityManager        *entityManager_;
   Camera               *camera_;
   NSMutableArray       *events_;
