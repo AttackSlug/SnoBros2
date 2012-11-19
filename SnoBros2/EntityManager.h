@@ -27,6 +27,7 @@
 - (void)queueForCreation:(Entity *)entity;
 
 - (NSArray *)allEntities;
+- (NSArray *)allSortedByLayer;
 - (NSArray *)entitiesNear:(Entity *)entity;
 - (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;

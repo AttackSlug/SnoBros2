@@ -16,17 +16,20 @@
 
 @synthesize width  = width_;
 @synthesize height = height_;
+@synthesize layer  = layer_;
 
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
-              sprite:(Sprite *)sprite {
+              sprite:(Sprite *)sprite
+               layer:(int)layer {
   self = [super initWithEntity:entity];
   if (self) {
     transform_          = transform;
     previousTransform_  = [transform_ copy];
-    sprite_    = sprite;
-    effect_    = [[GLKBaseEffect alloc] init];
+    sprite_             = sprite;
+    effect_             = [[GLKBaseEffect alloc] init];
+    layer_              = layer;
 
     width_  = 480;
     height_ = 320;
@@ -43,20 +46,13 @@
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glEnable(GL_BLEND);
-
   effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect_.texture2d0.target  = GLKTextureTarget2D;
   effect_.texture2d0.name    = sprite_.texture.name;
 
-
   GLKVector2 position  = GLKVector2Lerp(previousTransform_.position,
                                         transform_.position,
                                         ratio);
-  effect_.transform.modelviewMatrix =
-    GLKMatrix4MakeTranslation(position.x, position.y, 0.f);
-
   float left   = camera.position.x;
   float right  = camera.viewport.x + camera.position.x;
   float bottom = camera.viewport.y + camera.position.y;
@@ -66,6 +62,8 @@
 
   effect_.transform.projectionMatrix =
     GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
+  effect_.transform.modelviewMatrix =
+    GLKMatrix4MakeTranslation(position.x, position.y, layer_);
 
   [effect_ prepareToDraw];
 

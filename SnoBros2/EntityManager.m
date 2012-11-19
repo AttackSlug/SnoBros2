@@ -9,6 +9,7 @@
 #import "EntityManager.h"
 
 #import "Entity.h"
+#import "Renderer.h"
 #import "Quadtree.h"
 
 @implementation EntityManager
@@ -52,6 +53,26 @@
 
 - (NSArray *)allEntities {
   return [entities_ allValues];
+}
+
+
+
+//FIXME: I dont' like that this couples the EntityManager to the Renderer.
+- (NSArray *)allSortedByLayer {
+  NSArray *all = [entities_ allValues];
+  NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    Renderer *renderer1 = [obj1 renderer];
+    Renderer *renderer2 = [obj2 renderer];
+    if (renderer1.layer < renderer2.layer) {
+      return (NSComparisonResult)NSOrderedAscending;
+    } else if (renderer1.layer > renderer2.layer) {
+      return (NSComparisonResult)NSOrderedDescending;
+    } else {
+      return (NSComparisonResult)NSOrderedSame;
+    }
+  }];
+
+  return sorted;
 }
 
 
