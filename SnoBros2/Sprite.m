@@ -33,6 +33,7 @@
     vertices_[2] = GLKVector2Make( halfWidth, -halfHeight);
     vertices_[3] = GLKVector2Make( halfWidth,  halfHeight);
 
+
     uvMap_    = malloc(sizeof(GLKVector2) * 4);
     uvMap_[0] = GLKVector2Make(0, 1);
     uvMap_[1] = GLKVector2Make(0, 0);
