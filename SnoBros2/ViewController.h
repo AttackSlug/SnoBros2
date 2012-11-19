@@ -8,11 +8,11 @@
 
 #import <GLKit/GLKit.h>
 
-@class EventQueue;
+@class Game;
 @class Input;
 
 @interface ViewController : GLKViewController {
-  EventQueue          *eventQueue_;
+  Game          *game_;
   Input               *inputHandler_;
 }
 
