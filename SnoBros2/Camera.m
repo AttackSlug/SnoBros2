@@ -23,7 +23,6 @@
     target_ = GLKVector2Make(0, 0);
     viewport_ = GLKVector2Make(480, 320);
     maxspeed_ = 10;
-    
   }
   return self;
 }

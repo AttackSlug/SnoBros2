@@ -16,6 +16,7 @@
 #import "Camera.h"
 #import "Sprite.h"
 #import "Renderer.h"
+#import "EventQueue.h"
 
 @implementation Behavior
 
@@ -23,7 +24,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene
+               scene:(EventQueue *)scene
        entityManager:(EntityManager *)entityManager {
   self = [super initWithEntity:entity];
   if (self) {

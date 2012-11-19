@@ -23,7 +23,6 @@
 @synthesize renderer  = renderer_;
 @synthesize physics   = physics_;
 @synthesize sprite    = sprite_;
-@synthesize input     = input_;
 @synthesize behavior  = behavior_;
 @synthesize collision = collision_;
 @synthesize tag       = tag_;

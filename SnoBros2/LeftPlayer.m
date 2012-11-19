@@ -13,6 +13,7 @@
 #import "Entity.h"
 #import "ViewController.h"
 #import "Camera.h"
+#import "EventQueue.h"
 
 @implementation LeftPlayer
 
@@ -20,7 +21,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene
+               scene:(EventQueue *)scene
        entityManager:(EntityManager *)entityManager {
   return [super initWithEntity:entity
                      transform:transform
@@ -31,12 +32,11 @@
 
 
 
-- (void)walkTo:(GLKVector2)target {
-  if (target.x > 480) { return; }
-  GLKVector2 position = transform_.position;
+- (void)walkTo:(NSValue*)message {
+  GLKVector2 target;
+  [message getValue:&target];
   target_    = GLKVector2Add(scene_.camera.position, target);
-  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
+  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, transform_.position));
 }
-
 
 @end

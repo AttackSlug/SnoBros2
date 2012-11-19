@@ -12,35 +12,24 @@
 
 @implementation Input
 
-- (id)init {
+- (id) initWithView:(UIView *)view AndEventQueue:(EventQueue *)queue {
   self = [super init];
   if (self) {
-    touches_ = [[NSMutableArray alloc] initWithCapacity:0];
+    oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
+                                                            action:@selector(addOneFingerTapEvent:)];
+    oneFingerTap_.numberOfTapsRequired = 1;
+    oneFingerTap_.numberOfTouchesRequired = 1;
+    [view addGestureRecognizer:oneFingerTap_];
+    
+    twoFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
+                                                            action:@selector(addTwoFingerTapEvent:)];
+    twoFingerTap_.numberOfTapsRequired = 1;
+    twoFingerTap_.numberOfTouchesRequired = 2;
+    [view addGestureRecognizer:twoFingerTap_];
   }
   return self;
 }
 
 
-
-- (void)clearTouches {
-  [touches_ removeAllObjects];
-}
-
-
-
-- (void)addTouch:(UITouch *)touch {
-  [touches_ addObject:touch];
-}
-
-
-
-- (void)executeTouches:(NSArray *)entities {
-  for (UITouch *touch in touches_) {
-    CGPoint p = [touch locationInView:touch.view];
-    for (Entity *e in entities) {
-      [e.behavior walkTo:GLKVector2Make(p.x, p.y)];
-    }
-  }
-}
 
 @end

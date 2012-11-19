@@ -22,7 +22,6 @@
   Renderer  *renderer_;
   Physics   *physics_;
   Sprite    *sprite_;
-  Input     *input_;
   Behavior  *behavior_;
   Collision *collision_;
   NSString  *tag_;
@@ -33,7 +32,6 @@
 @property (nonatomic) Renderer  *renderer;
 @property (nonatomic) Physics   *physics;
 @property (nonatomic) Sprite    *sprite;
-@property (nonatomic) Input     *input;
 @property (nonatomic) Behavior  *behavior;
 @property (nonatomic) Collision *collision;
 @property (nonatomic) NSString  *tag;
