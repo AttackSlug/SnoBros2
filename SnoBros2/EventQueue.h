@@ -29,6 +29,8 @@ const static int   MAX_STEPS         = 5;
 - (id)initWithEntityManager:(EntityManager*)entityManager;
 
 - (void)addEvent:(Event*)e;
+- (void)addOneFingerTapEvent:(UITapGestureRecognizer*)gr;
+- (void)addTwoFingerTapEvent:(UITapGestureRecognizer*)gr;
 - (void)executeEvents;
 - (void)clearEvents;
 
@@ -37,5 +39,6 @@ const static int   MAX_STEPS         = 5;
 - (void)render;
 
 - (Entity*)getEntityByID:(NSString*)uuid;
+- (Entity*)getEntityByTag:(NSString*)tag;
 
 @end

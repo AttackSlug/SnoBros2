@@ -11,11 +11,13 @@
 @interface Event : NSObject {
   NSString  *id_;
   SEL       func_;
+  NSValue   *payload_;
 }
 
 @property (nonatomic, readonly) NSString  *entityID;
 @property (nonatomic, readonly) SEL       func;
+@property (nonatomic, readonly) NSValue   *payload;
 
-- (id)initWithID:(NSString*)uuid AndSelector:(SEL) func;
+- (id)initWithID:(NSString*)uuid AndSelector:(SEL) func AndPayload:(NSValue*) payload;
 
 @end

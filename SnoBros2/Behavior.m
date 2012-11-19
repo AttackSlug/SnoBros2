@@ -24,7 +24,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene
+               scene:(EventQueue *)scene
        entityManager:(EntityManager *)entityManager {
   self = [super initWithEntity:entity];
   if (self) {

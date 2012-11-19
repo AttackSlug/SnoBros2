@@ -20,15 +20,15 @@
 
 @implementation EventQueue
 
+@synthesize camera = camera_;
+
 - (id)init {
   self = [super init];
   if (self) {
+    camera_        = [[Camera alloc] init];
     entityManager_ = [[EntityManager alloc] init];
     events_ = [[NSMutableArray alloc] initWithCapacity:0];
-    camera_        = [[Camera alloc] init];
     
-    Entity *map = [self setupMap];
-    [entityManager_ add:map];
     
     [entityManager_ add:[self setupLeftPlayer]];
 
@@ -69,10 +69,31 @@
 
 
 
+- (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr {
+  NSLog(@"one finger tap from event queue");
+  NSArray *players = [entityManager_ findByTag:@"player"];
+  Entity *player = [players objectAtIndex:0];
+  CGPoint p = [gr locationInView:gr.view];
+  GLKVector2 pos = GLKVector2Make(p.x, p.y);
+  
+  Event *e = [[Event alloc] initWithID:player.uuid
+                           AndSelector:@selector(walkTo:)
+                            AndPayload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+  [events_ addObject:e];
+}
+
+
+
+- (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
+  NSLog(@"two finger tap from event queue");
+}
+
+
+
 - (void)executeEvents {
   for (Event *e in events_) {
-    Entity *ent = [self getEntityByID:e.entityID];
-    [ent.behavior performSelector:e.func];
+    Entity *ent = [entityManager_ findById:e.entityID];
+    [ent.behavior performSelector:e.func withObject:e.payload];
   }
 }
 
@@ -105,8 +126,6 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
-  
-  NSArray *players = [entityManager_ findByTag:@"player"];
   
   [entityManager_ processQueue];
   [entityManager_ update];
@@ -192,6 +211,8 @@
                                                physics:player.physics
                                          entityManager:entityManager_
                                                 radius: 48.f];
+  
+  player.transform.position = GLKVector2Make(20, 20);
   return player;
 }
 

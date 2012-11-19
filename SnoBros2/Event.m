@@ -12,12 +12,14 @@
 
 @synthesize entityID = id_;
 @synthesize func = func_;
+@synthesize payload = payload_;
 
-- (id)initWithID:(NSString *)uuid AndSelector:(SEL )func {
+- (id)initWithID:(NSString *)uuid AndSelector:(SEL )func AndPayload:(NSValue*) payload{
   self = [super init];
   if (self) {
     id_ = uuid;
     func_ = func;
+    payload_ = payload;
   }
   return self;
 }

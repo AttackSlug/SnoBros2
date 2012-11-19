@@ -7,24 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventQueue.h"
 
 @interface Input : NSObject {
-  NSMutableArray *touches_;
   UITapGestureRecognizer *oneFingerTap_;
   UITapGestureRecognizer *twoFingerTap_;
-  UITapGestureRecognizer *oneFingerButtonTap_;
 }
 
-- (id)initWithView:(UIView*) view;
-
-- (void)clearTouches;
-- (void)addTouch:(UITouch *) touch;
-- (void)executeTouches:(NSArray *) entities;
-
-- (void)addButtonGestureRecognizer:(UIButton*)button;
-
-- (void)throwOneFingerTap:(UITapGestureRecognizer*) gr;
-- (void)throwTwoFingerTap:(UITapGestureRecognizer*) gr;
-- (void)throwOneFingerButtonTap:(UITapGestureRecognizer*) gr;
+- (id)initWithView:(UIView*) view AndEventQueue:(EventQueue*) queue;
 
 @end

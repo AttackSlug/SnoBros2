@@ -21,15 +21,7 @@
   [self setupGL];
 
   eventQueue_    = [[EventQueue alloc] init];
-  inputHandler_  = [[Input alloc] initWithView:self.view];
-  
-  button_ = [self setupButton];
-
-  UIGestureRecognizer *swipe =
-    [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                              action:@selector(gotswipe:)];
-  
-  [self.view addGestureRecognizer:swipe];
+  inputHandler_  = [[Input alloc] initWithView:self.view AndEventQueue:eventQueue_];
 }
 
 
@@ -75,23 +67,9 @@
 
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  for (UITouch *touch in touches) {
-    //[inputHandler_ addTouch:touch];
-  }
-}
-
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-}
-
-
-
 - (UIButton *)setupButton {
   UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   button.frame = CGRectMake(10, 10, 100, 100);
-  [inputHandler_ addButtonGestureRecognizer:button];
   [self.view addSubview:button];
   
   return button;

@@ -32,20 +32,11 @@
 
 
 
-- (void)walkTo:(GLKVector2)target {
-  if (target.x > 480) { return; }
-  GLKVector2 position = transform_.position;
+- (void)walkTo:(NSValue*)message {
+  GLKVector2 target;
+  [message getValue:&target];
   target_    = GLKVector2Add(scene_.camera.position, target);
-  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
+  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, transform_.position));
 }
-
-
-
-- (void)walkTo {
-  GLKVector2 position = transform_.position;
-  target_ = GLKVector2Make(50, 50);
-  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, position));
-}
-
 
 @end

@@ -21,8 +21,6 @@
              physics:(Physics *)physics
                scene:(EventQueue *)scene
        entityManager:(EntityManager *)entityManager;
-- (void)walkTo:(GLKVector2)target;
-- (void)walkTo;
-
+- (void)walkTo:(NSValue*)message;
 
 @end
