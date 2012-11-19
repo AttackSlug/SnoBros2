@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87694B37165AB5A200ACEC28 /* EventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* EventQueue.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
 		87E49E1C16515A8200202CFB /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF316515A8200202CFB /* Behavior.m */; };
 		87E49E1D16515A8200202CFB /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF516515A8200202CFB /* Component.m */; };
-		87E49E1E16515A8200202CFB /* CreateEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF716515A8200202CFB /* CreateEntity.m */; };
 		87E49E1F16515A8200202CFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DF816515A8200202CFB /* Default-568h@2x.png */; };
 		87E49E2016515A8200202CFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DF916515A8200202CFB /* Default.png */; };
 		87E49E2116515A8200202CFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFA16515A8200202CFB /* Default@2x.png */; };
@@ -63,14 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87694B35165AB5A200ACEC28 /* EventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventQueue.h; sourceTree = "<group>"; };
+		87694B36165AB5A200ACEC28 /* EventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventQueue.m; sourceTree = "<group>"; };
 		87E49DF016515A8200202CFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87E49DF116515A8200202CFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		87E49DF216515A8200202CFB /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
 		87E49DF316515A8200202CFB /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
 		87E49DF416515A8200202CFB /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		87E49DF516515A8200202CFB /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
-		87E49DF616515A8200202CFB /* CreateEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntity.h; sourceTree = "<group>"; };
-		87E49DF716515A8200202CFB /* CreateEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntity.m; sourceTree = "<group>"; };
 		87E49DF816515A8200202CFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		87E49DF916515A8200202CFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		87E49DFA16515A8200202CFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 		87E49E411651601900202CFB /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				87E49DF616515A8200202CFB /* CreateEntity.h */,
-				87E49DF716515A8200202CFB /* CreateEntity.m */,
+				87694B35165AB5A200ACEC28 /* EventQueue.h */,
+				87694B36165AB5A200ACEC28 /* EventQueue.m */,
 				87E49DFF16515A8200202CFB /* Event.h */,
 				87E49E0016515A8200202CFB /* Event.m */,
 			);
@@ -427,7 +427,6 @@
 				87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */,
 				87E49E1C16515A8200202CFB /* Behavior.m in Sources */,
 				87E49E1D16515A8200202CFB /* Component.m in Sources */,
-				87E49E1E16515A8200202CFB /* CreateEntity.m in Sources */,
 				87E49E2316515A8200202CFB /* Entity.m in Sources */,
 				87E49E2416515A8200202CFB /* Event.m in Sources */,
 				87E49E2516515A8200202CFB /* Input.m in Sources */,
@@ -444,6 +443,7 @@
 				A3283F35165192860059083E /* Collision.m in Sources */,
 				A3283F3816519DC70059083E /* Quadtree.m in Sources */,
 				A329DD4C165816E1004125DC /* EntityManager.m in Sources */,
+				87694B37165AB5A200ACEC28 /* EventQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
 #import "Camera.h"
 #import "Sprite.h"
 #import "Renderer.h"
+#import "EventQueue.h"
 
 @implementation Behavior
 

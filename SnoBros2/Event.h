@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Event : NSObject
+@interface Event : NSObject {
+  NSString  *id_;
+  SEL       func_;
+}
+
+@property (nonatomic, readonly) NSString  *entityID;
+@property (nonatomic, readonly) SEL       func;
+
+- (id)initWithID:(NSString*)uuid AndSelector:(SEL) func;
 
 @end

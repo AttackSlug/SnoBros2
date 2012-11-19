@@ -8,7 +8,7 @@
 
 #import "Behavior.h"
 
-@class ViewController;
+@class EventQueue;
 @class Physics;
 @class Transform;
 @class EntityManager;
@@ -19,8 +19,10 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(ViewController *)scene
+               scene:(EventQueue *)scene
        entityManager:(EntityManager *)entityManager;
 - (void)walkTo:(GLKVector2)target;
+- (void)walkTo;
+
 
 @end

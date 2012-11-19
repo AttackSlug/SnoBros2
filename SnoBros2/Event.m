@@ -10,4 +10,16 @@
 
 @implementation Event
 
+@synthesize entityID = id_;
+@synthesize func = func_;
+
+- (id)initWithID:(NSString *)uuid AndSelector:(SEL )func {
+  self = [super init];
+  if (self) {
+    id_ = uuid;
+    func_ = func;
+  }
+  return self;
+}
+
 @end
