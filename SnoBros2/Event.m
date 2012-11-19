@@ -14,7 +14,7 @@
 @synthesize func = func_;
 @synthesize payload = payload_;
 
-- (id)initWithID:(NSString *)uuid Selector:(SEL )func Payload:(NSValue*) payload{
+- (id)initWithID:(NSString *)uuid selector:(SEL )func payload:(NSValue*) payload{
   self = [super init];
   if (self) {
     id_ = uuid;
