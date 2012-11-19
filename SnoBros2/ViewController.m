@@ -8,20 +8,16 @@
 
 #import "ViewController.h"
 
-#import "Camera.h"
-#import "Quadtree.h"
 #import "Input.h"
+#import "EventQueue.h"
 
 @implementation ViewController
-
-@synthesize quadtree = quadtree_;
-
 
 - (void)viewDidLoad {
   [self setupGL];
 
   eventQueue_    = [[EventQueue alloc] init];
-  inputHandler_  = [[Input alloc] initWithView:self.view AndEventQueue:eventQueue_];
+  inputHandler_  = [[Input alloc] initWithView:self.view eventQueue:eventQueue_];
 }
 
 
@@ -61,20 +57,6 @@
 
 - (void)update {
   [eventQueue_ update:[self timeSinceLastUpdate]];
-  [eventQueue_ executeEvents];
-  [eventQueue_ clearEvents];
 }
-
-
-
-- (UIButton *)setupButton {
-  UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  button.frame = CGRectMake(10, 10, 100, 100);
-  [self.view addSubview:button];
-  
-  return button;
-}
-
-
 
 @end
