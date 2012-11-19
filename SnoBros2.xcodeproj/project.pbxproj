@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87694B37165AB5A200ACEC28 /* EventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* EventQueue.m */; };
+		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
 		87E49E1C16515A8200202CFB /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF316515A8200202CFB /* Behavior.m */; };
 		87E49E1D16515A8200202CFB /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF516515A8200202CFB /* Component.m */; };
@@ -63,8 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		87694B35165AB5A200ACEC28 /* EventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventQueue.h; sourceTree = "<group>"; };
-		87694B36165AB5A200ACEC28 /* EventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventQueue.m; sourceTree = "<group>"; };
+		87694B35165AB5A200ACEC28 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		87E49DF016515A8200202CFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87E49DF116515A8200202CFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		87E49DF216515A8200202CFB /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -157,6 +157,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87694B5A165AF0B200ACEC28 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A329DD4A165816E1004125DC /* EntityManager.h */,
+				A329DD4B165816E1004125DC /* EntityManager.m */,
+				87E49DFD16515A8200202CFB /* Entity.h */,
+				87E49DFE16515A8200202CFB /* Entity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
 		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,10 +175,9 @@
 				87E49E411651601900202CFB /* Event */,
 				87E49E4016515FCE00202CFB /* Component */,
 				87E49E3C16515F3A00202CFB /* Behavior */,
+				87694B5A165AF0B200ACEC28 /* Entity */,
 				87E49DF016515A8200202CFB /* AppDelegate.h */,
 				87E49DF116515A8200202CFB /* AppDelegate.m */,
-				87E49DFD16515A8200202CFB /* Entity.h */,
-				87E49DFE16515A8200202CFB /* Entity.m */,
 				87E49E0516515A8200202CFB /* main.m */,
 				87E49E5516519A0700202CFB /* Camera.h */,
 				87E49E5616519A0800202CFB /* Camera.m */,
@@ -179,8 +189,6 @@
 				87E49E1A16515A8200202CFB /* ViewController.m */,
 				A3283F3616519DC60059083E /* Quadtree.h */,
 				A3283F3716519DC70059083E /* Quadtree.m */,
-				A329DD4A165816E1004125DC /* EntityManager.h */,
-				A329DD4B165816E1004125DC /* EntityManager.m */,
 				87E49E3E16515F8B00202CFB /* Supporting Files */,
 			);
 			path = SnoBros2;
@@ -249,8 +257,8 @@
 		87E49E411651601900202CFB /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				87694B35165AB5A200ACEC28 /* EventQueue.h */,
-				87694B36165AB5A200ACEC28 /* EventQueue.m */,
+				87694B35165AB5A200ACEC28 /* Game.h */,
+				87694B36165AB5A200ACEC28 /* Game.m */,
 				87E49DFF16515A8200202CFB /* Event.h */,
 				87E49E0016515A8200202CFB /* Event.m */,
 			);
@@ -443,7 +451,7 @@
 				A3283F35165192860059083E /* Collision.m in Sources */,
 				A3283F3816519DC70059083E /* Quadtree.m in Sources */,
 				A329DD4C165816E1004125DC /* EntityManager.m in Sources */,
-				87694B37165AB5A200ACEC28 /* EventQueue.m in Sources */,
+				87694B37165AB5A200ACEC28 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

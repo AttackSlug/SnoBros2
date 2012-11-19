@@ -9,22 +9,22 @@
 #import "ViewController.h"
 
 #import "Input.h"
-#import "EventQueue.h"
+#import "Game.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
   [self setupGL];
 
-  eventQueue_    = [[EventQueue alloc] init];
-  inputHandler_  = [[Input alloc] initWithView:self.view eventQueue:eventQueue_];
+  game_           = [[Game alloc] init];
+  inputHandler_   = [[Input alloc] initWithView:self.view eventQueue:game_];
 }
 
 
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  [eventQueue_ render];
+  [game_ render];
 }
 
 
@@ -62,7 +62,7 @@
 
 
 - (void)update {
-  [eventQueue_ update:[self timeSinceLastUpdate]];
+  [game_ update:[self timeSinceLastUpdate]];
 }
 
 @end
