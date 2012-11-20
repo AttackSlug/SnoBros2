@@ -26,6 +26,12 @@
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
+    
+    boxSelector_ = [[UIPanGestureRecognizer alloc] initWithTarget:eventManager
+                                                           action:@selector(addBoxSelectorEvent:)];
+    boxSelector_.minimumNumberOfTouches = 1;
+    boxSelector_.maximumNumberOfTouches = 1;
+    [view addGestureRecognizer:boxSelector_];
   }
   return self;
 }

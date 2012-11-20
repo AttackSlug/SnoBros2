@@ -70,6 +70,11 @@
 
 
 
+- (void)addBoxSelectorEvent:(UIPanGestureRecognizer *)gr {
+}
+
+
+
 - (void)executeEvents {
   for (Event *event in eventQueue_) {
     if ([event.target isEqualToString:@"camera"]) {
@@ -86,11 +91,6 @@
 
 - (void)clearEvents {
   [eventQueue_ removeAllObjects];
-}
-
-
-
-- (BOOL)isEntityUnderTouch:(Entity *)entity {
 }
 
 @end

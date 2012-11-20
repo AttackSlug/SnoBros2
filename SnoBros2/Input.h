@@ -11,8 +11,9 @@
 @class EventManager;
 
 @interface Input : NSObject {
-  UITapGestureRecognizer *oneFingerTap_;
-  UITapGestureRecognizer *twoFingerTap_;
+  UITapGestureRecognizer    *oneFingerTap_;
+  UITapGestureRecognizer    *twoFingerTap_;
+  UIPanGestureRecognizer    *boxSelector_;
 }
 
 - (id)initWithView:(UIView *)view
