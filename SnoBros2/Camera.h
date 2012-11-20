@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@class Game;
-@class Event;
 @class EventManager;
 
 @interface Camera : NSObject {

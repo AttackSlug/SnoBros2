@@ -11,8 +11,6 @@
 @class Camera;
 @class EntityManager;
 @class Event;
-@class Entity;
-@class Behavior;
 
 @interface EventManager : NSObject {
   Camera          *camera_;

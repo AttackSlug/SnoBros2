@@ -7,8 +7,7 @@
 //
 
 #import "Input.h"
-#import "Entity.h"
-#import "Behavior.h"
+#import "EventManager.h"
 
 @implementation Input
 

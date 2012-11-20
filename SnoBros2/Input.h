@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventManager.h"
+
+@class EventManager;
 
 @interface Input : NSObject {
   UITapGestureRecognizer *oneFingerTap_;

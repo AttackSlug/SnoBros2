@@ -10,7 +10,6 @@
 
 @class Entity;
 @class Quadtree;
-@class Selectable;
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
