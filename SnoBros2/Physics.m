@@ -15,31 +15,25 @@
 
 @synthesize velocity = velocity_;
 
-- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform {
-  self = [super initWithEntity:entity];
-  if (self) {
-    transform_ = transform;
-  }
-  return self;
+- (id)initWithEntity:(Entity *)entity {
+  return [super initWithEntity:entity];
 }
 
 
 
 - (void)update {
-  [transform_ translate:velocity_];
+  [entity_.transform translate:velocity_];
 }
 
 
 
 - (void)resolveCollisionWith:(Entity *)otherEntity
                 intersection:(GLKVector2)intersection {
-  [transform_ translate:intersection];
+  [entity_.transform translate:intersection];
   velocity_ = GLKVector2Make(-velocity_.x, -velocity_.y);
 
   otherEntity.physics.velocity =
     GLKVector2MultiplyScalar(otherEntity.physics.velocity, -1);
 }
-
-
 
 @end

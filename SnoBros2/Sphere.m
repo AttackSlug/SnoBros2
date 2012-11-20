@@ -7,23 +7,26 @@
 //
 
 #import "Sphere.h"
+#import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
 
 @implementation Sphere
 
-
 - (void)update {
-  if (transform_.position.x < 0 || transform_.position.x > 480) {
-    physics_.velocity =
-      GLKVector2Make(-physics_.velocity.x, physics_.velocity.y);
+  GLKVector2 position = entity_.transform.position;
+
+  if (position.x < 0 || position.x > 480) {
+    entity_.physics.velocity =
+      GLKVector2Make(-entity_.physics.velocity.x,
+                      entity_.physics.velocity.y);
   }
 
   if (transform_.position.y < 0 || transform_.position.y > 320) {
-    physics_.velocity =
-      GLKVector2Make(physics_.velocity.x, -physics_.velocity.y);
+    entity_.physics.velocity =
+      GLKVector2Make( entity_.physics.velocity.x,
+                     -entity_.physics.velocity.y);
   }
 }
-
 
 @end

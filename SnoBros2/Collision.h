@@ -16,8 +16,6 @@
 
 @interface Collision : Component {
   EntityManager   *entityManager_;
-  Physics         *physics_;
-  Transform       *transform_;
   float           radius_;
 }
 
@@ -26,8 +24,6 @@
 
 
 - (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
-             physics:(Physics *)physics
        entityManager:(EntityManager *)entityManager
               radius:(float)radius;
 

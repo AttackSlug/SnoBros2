@@ -14,9 +14,7 @@
 
 @interface LeftPlayer : Behavior
 
-- (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
-             physics:(Physics *)physics;
+- (id)initWithEntity:(Entity *)entity;
 - (void)walkTo:(NSValue*)message;
 
 @end

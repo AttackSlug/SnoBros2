@@ -11,7 +11,6 @@
 
 @implementation Component
 
-
 - (id)initWithEntity:(Entity *)entity {
   self = [super init];
   if (self) {
@@ -24,6 +23,5 @@
 
 - (void)update {
 }
-
 
 @end

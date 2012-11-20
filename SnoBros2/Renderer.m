@@ -20,13 +20,11 @@
 
 
 - (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
               sprite:(Sprite *)sprite
                layer:(int)layer {
   self = [super initWithEntity:entity];
   if (self) {
-    transform_          = transform;
-    previousTransform_  = [transform_ copy];
+    previousTransform_  = [entity_.transform copy];
     sprite_             = sprite;
     effect_             = [[GLKBaseEffect alloc] init];
     layer_              = layer;
@@ -40,7 +38,7 @@
 
 
 - (void)update {
-  previousTransform_ = [transform_ copy];
+  previousTransform_ = [entity_.transform copy];
 }
 
 
@@ -51,15 +49,15 @@
   effect_.texture2d0.name    = sprite_.texture.name;
 
   GLKVector2 position  = GLKVector2Lerp(previousTransform_.position,
-                                        transform_.position,
+                                        entity_.transform.position,
                                         ratio);
   float left   = camera.position.x;
   float right  = camera.viewport.x + camera.position.x;
   float bottom = camera.viewport.y + camera.position.y;
   float top    = camera.position.y;
   float near   = -16.f;
-  float far    = 16.f;
-  
+  float far    =  16.f;
+
   effect_.transform.projectionMatrix =
     GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
   effect_.transform.modelviewMatrix =

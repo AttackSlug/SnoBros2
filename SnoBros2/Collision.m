@@ -17,19 +17,13 @@
 
 @implementation Collision
 
-
 @synthesize radius = radius_;
 
-
 - (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
-             physics:(Physics *)physics
        entityManager:(EntityManager *)entityManager
               radius:(float)radius {
   self = [super initWithEntity:entity];
   if (self) {
-    transform_     = transform;
-    physics_       = physics;
     entityManager_ = entityManager;
     radius_        = radius;
   }
@@ -46,16 +40,17 @@
      if (otherEntity == entity_ || !otherEntity.collision) { continue; }
 
      float otherRadius = otherEntity.collision.radius;
-     float distance    = GLKVector2Distance(transform_.position,
-                                           otherEntity.transform.position);
+     float distance    = GLKVector2Distance(entity_.transform.position,
+                                            otherEntity.transform.position);
 
      if (distance < (radius_ + otherRadius)) {
        float overlap           = 1 - (distance / (radius_ + otherRadius));
-       GLKVector2 centers      = GLKVector2Subtract(transform_.position,
-                                                   otherEntity.transform.position);
+       GLKVector2 centers      = GLKVector2Subtract(entity_.transform.position,
+                                                    otherEntity.transform.position);
        GLKVector2 intersection = GLKVector2MultiplyScalar(centers, overlap);
 
-       [physics_ resolveCollisionWith:otherEntity intersection:intersection];
+       [entity_.physics resolveCollisionWith:otherEntity
+                                intersection:intersection];
     }
   }
 }
@@ -63,9 +58,9 @@
 
 
 - (CGRect)boundingBox {
-  return CGRectMake(transform_.position.x, transform_.position.y,
+  return CGRectMake(entity_.transform.position.x,
+                    entity_.transform.position.y,
                     radius_, radius_);
 }
-
 
 @end
