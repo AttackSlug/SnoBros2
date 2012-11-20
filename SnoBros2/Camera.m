@@ -7,8 +7,8 @@
 //
 
 #import "Camera.h"
-#import "Game.h"
 #import "Event.h"
+#import "EventManager.h"
 
 @implementation Camera
 
@@ -45,13 +45,13 @@
 
 
 
-- (void)updateWithQueue:(Game *)queue {
+- (void)updateWithEventManager:(EventManager *)eventManager {
   if (GLKVector2Distance(position_, target_) > 10) {
     GLKVector2 heading = GLKVector2Normalize(GLKVector2Subtract(target_, position_));
     Event *e = [[Event alloc] initWithID:@"c"
                                 selector:@selector(panCameraWithHeading:)
                                  payload:[NSValue value:&heading withObjCType:@encode(GLKVector2)]];
-    [queue addEvent:e];
+    [eventManager addEvent:e];
   }
 }
 

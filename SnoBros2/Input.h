@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+
+@class EventManager;
 
 @interface Input : NSObject {
   UITapGestureRecognizer *oneFingerTap_;
   UITapGestureRecognizer *twoFingerTap_;
 }
 
-- (id)initWithView:(UIView *)view eventQueue:(Game *)queue;
+- (id)initWithView:(UIView *)view eventQueue:(EventManager *)queue;
 
 @end

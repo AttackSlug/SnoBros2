@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
+		87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B7D165C0F0D00ACEC28 /* Selectable.m */; };
+		87694B8F165C12CE00ACEC28 /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B8E165C12CE00ACEC28 /* EventManager.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
 		87E49E1C16515A8200202CFB /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF316515A8200202CFB /* Behavior.m */; };
 		87E49E1D16515A8200202CFB /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF516515A8200202CFB /* Component.m */; };
@@ -64,6 +66,10 @@
 /* Begin PBXFileReference section */
 		87694B35165AB5A200ACEC28 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		87694B7C165C0F0D00ACEC28 /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
+		87694B7D165C0F0D00ACEC28 /* Selectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selectable.m; sourceTree = "<group>"; };
+		87694B8D165C12CE00ACEC28 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		87694B8E165C12CE00ACEC28 /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
 		87E49DF016515A8200202CFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87E49DF116515A8200202CFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		87E49DF216515A8200202CFB /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -165,6 +171,15 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		87694B80165C10E500ACEC28 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				87E49E1516515A8200202CFB /* Sprite.h */,
+				87E49E1616515A8200202CFB /* Sprite.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +188,7 @@
 				87E49E4016515FCE00202CFB /* Component */,
 				87E49E3C16515F3A00202CFB /* Behavior */,
 				87694B5A165AF0B200ACEC28 /* Entity */,
+				87694B80165C10E500ACEC28 /* Utilities */,
 				87E49DF016515A8200202CFB /* AppDelegate.h */,
 				87E49DF116515A8200202CFB /* AppDelegate.m */,
 				87E49E0516515A8200202CFB /* main.m */,
@@ -180,8 +196,6 @@
 				87E49E5616519A0800202CFB /* Camera.m */,
 				87E49E0116515A8200202CFB /* Input.h */,
 				87E49E0216515A8200202CFB /* Input.m */,
-				87E49E1516515A8200202CFB /* Sprite.h */,
-				87E49E1616515A8200202CFB /* Sprite.m */,
 				87E49E1916515A8200202CFB /* ViewController.h */,
 				87E49E1A16515A8200202CFB /* ViewController.m */,
 				A3283F3616519DC60059083E /* Quadtree.h */,
@@ -237,6 +251,8 @@
 			children = (
 				87E49DF416515A8200202CFB /* Component.h */,
 				87E49DF516515A8200202CFB /* Component.m */,
+				87694B7C165C0F0D00ACEC28 /* Selectable.h */,
+				87694B7D165C0F0D00ACEC28 /* Selectable.m */,
 				87E49E0716515A8200202CFB /* Physics.h */,
 				87E49E0816515A8200202CFB /* Physics.m */,
 				87E49E0C16515A8200202CFB /* Renderer.h */,
@@ -254,6 +270,8 @@
 			children = (
 				87694B35165AB5A200ACEC28 /* Game.h */,
 				87694B36165AB5A200ACEC28 /* Game.m */,
+				87694B8D165C12CE00ACEC28 /* EventManager.h */,
+				87694B8E165C12CE00ACEC28 /* EventManager.m */,
 				87E49DFF16515A8200202CFB /* Event.h */,
 				87E49E0016515A8200202CFB /* Event.m */,
 			);
@@ -446,6 +464,8 @@
 				A3283F3816519DC70059083E /* Quadtree.m in Sources */,
 				A329DD4C165816E1004125DC /* EntityManager.m in Sources */,
 				87694B37165AB5A200ACEC28 /* Game.m in Sources */,
+				87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */,
+				87694B8F165C12CE00ACEC28 /* EventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
