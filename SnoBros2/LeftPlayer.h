@@ -8,19 +8,15 @@
 
 #import "Behavior.h"
 
-@class Game;
 @class Physics;
 @class Transform;
-@class EntityManager;
 @class Entity;
 
 @interface LeftPlayer : Behavior
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
-             physics:(Physics *)physics
-               scene:(Game *)scene
-       entityManager:(EntityManager *)entityManager;
+             physics:(Physics *)physics;
 - (void)walkTo:(NSValue*)message;
 
 @end

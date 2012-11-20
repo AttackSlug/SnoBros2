@@ -45,7 +45,6 @@
     
     [entityManager_ add:sphere1];
     [entityManager_ add:sphere2];
-
   }
   return self;
 }
@@ -59,16 +58,19 @@
 
 
 - (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr {
-  NSLog(@"one finger tap from event queue");
   NSArray *players = [entityManager_ findByTag:@"player"];
   Entity *player = [players objectAtIndex:0];
   CGPoint p = [gr locationInView:gr.view];
-  GLKVector2 pos = GLKVector2Make(p.x, p.y);
+  GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
   
-  Event *e = [[Event alloc] initWithID:player.uuid
+  Event *movePlayer = [[Event alloc] initWithID:player.uuid
                            selector:@selector(walkTo:)
                             payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-  [events_ addObject:e];
+  Event *panCamera = [[Event alloc] initWithID:@"c"
+                              selector:@selector(panCameraToTarget:)
+                               payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+  [events_ addObject:movePlayer];
+  [events_ addObject:panCamera];
 }
 
 
@@ -81,8 +83,12 @@
 
 - (void)executeEvents {
   for (Event *e in events_) {
-    Entity *ent = [entityManager_ findById:e.entityID];
-    [ent.behavior performSelector:e.func withObject:e.payload];
+    if ([e.entityID isEqualToString:@"c"]) {
+      [camera_ performSelector:e.func withObject:e.payload];
+    } else {
+      Entity *ent = [entityManager_ findById:e.entityID];
+      [ent.behavior performSelector:e.func withObject:e.payload];
+    }
   }
 }
 
@@ -115,7 +121,7 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
-  
+  [camera_ updateWithQueue:self];
   [entityManager_ processQueue];
   [entityManager_ update];
   [self executeEvents];
@@ -145,9 +151,7 @@
                                                  layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
-                                            physics:sphere.physics
-                                              scene:self
-                                      entityManager:entityManager_];
+                                            physics:sphere.physics];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
@@ -171,9 +175,7 @@
                                                  layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
-                                            physics:sphere.physics
-                                              scene:self
-                                      entityManager:entityManager_];
+                                            physics:sphere.physics];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
@@ -197,9 +199,7 @@
                                                  layer:1];
   player.behavior  = [[LeftPlayer alloc] initWithEntity:player
                                               transform:player.transform
-                                                physics:player.physics
-                                                  scene:self
-                                          entityManager:entityManager_];
+                                                physics:player.physics];
   player.collision = [[Collision alloc] initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics
