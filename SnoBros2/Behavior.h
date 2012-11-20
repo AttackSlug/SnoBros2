@@ -14,19 +14,20 @@
 @class EntityManager;
 @class Entity;
 @class Game;
+@class Camera;
 
 @interface Behavior : Component {
   GLKVector2      target_;
   GLKVector2      direction_;
   Transform       *transform_;
   Physics         *physics_;
-  Game            *scene_;
+  Camera          *camera_;
 }
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene;
+              camera:(Camera *)camera;
 - (void)update;
 
 @end

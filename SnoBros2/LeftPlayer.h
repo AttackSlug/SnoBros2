@@ -18,7 +18,7 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene;
+              camera:(Camera *)camera;
 - (void)walkTo:(NSValue*)message;
 
 @end

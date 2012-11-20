@@ -22,12 +22,12 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene {
+              camera:(Camera *)camera {
   self = [super initWithEntity:entity];
   if (self) {
     transform_     = transform;
     physics_       = physics;
-    scene_         = scene;
+    camera_        = camera;
   }
   return self;
 }
@@ -40,16 +40,16 @@
   } else {
     physics_.velocity = GLKVector2Make(0.f, 0.f);
   }
-  float xclip = MIN(-(entity_.transform.position.x-scene_.camera.position.x-scene_.camera.viewport.x),
-                    entity_.transform.position.x-scene_.camera.position.x);
-  float yclip = MIN(-(entity_.transform.position.y-scene_.camera.position.y-scene_.camera.viewport.y),
-                    entity_.transform.position.y-scene_.camera.position.y);
+  float xclip = MIN(-(entity_.transform.position.x-camera_.position.x-camera_.viewport.x),
+                    entity_.transform.position.x-camera_.position.x);
+  float yclip = MIN(-(entity_.transform.position.y-camera_.position.y-camera_.viewport.y),
+                    entity_.transform.position.y-camera_.position.y);
   if (xclip < 160 || yclip < 120) {
     GLKVector2 target = GLKVector2Subtract(entity_.transform.position,
-                                           GLKVector2Make(scene_.camera.viewport.x/2,
-                                                          scene_.camera.viewport.y/2));
-    [scene_.camera panCameraWithHeading:GLKVector2Normalize(GLKVector2Subtract(target,
-                                                                               scene_.camera.position))];
+                                           GLKVector2Make(camera_.viewport.x/2,
+                                                          camera_.viewport.y/2));
+    [camera_ panCameraWithHeading:GLKVector2Normalize(GLKVector2Subtract(target,
+                                                                               camera_.position))];
   }
 }
 

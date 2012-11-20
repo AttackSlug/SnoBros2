@@ -19,11 +19,11 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene {
+              camera:(Camera *)camera {
   return [super initWithEntity:entity
                      transform:transform
                        physics:physics
-                         scene:scene];
+                        camera:camera];
 }
 
 
@@ -31,7 +31,7 @@
 - (void)walkTo:(NSValue*)message {
   GLKVector2 target;
   [message getValue:&target];
-  target_    = GLKVector2Add(scene_.camera.position, target);
+  target_    = GLKVector2Add(camera_.position, target);
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_, transform_.position));
 }
 
