@@ -8,7 +8,6 @@
 
 #import "Behavior.h"
 
-@class Game;
 @class Physics;
 @class Transform;
 @class Entity;
@@ -17,8 +16,7 @@
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
-             physics:(Physics *)physics
-              camera:(Camera *)camera;
+             physics:(Physics *)physics;
 - (void)walkTo:(NSValue*)message;
 
 @end
