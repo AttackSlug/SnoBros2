@@ -11,26 +11,22 @@
 #import "EntityManager.h"
 
 @class Camera;
+@class EventManager;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
-  EntityManager        *entityManager_;
-  Camera               *camera_;
-  NSMutableArray       *events_;
-  NSTimeInterval       timestepAccumulator_;
-  NSTimeInterval       timestepAccumulatorRatio_;
-  NSTimeInterval const timestepInterval_;
+  EntityManager         *entityManager_;
+  Camera                *camera_;
+  EventManager          *eventManager_;
+  NSTimeInterval        timestepAccumulator_;
+  NSTimeInterval        timestepAccumulatorRatio_;
+  NSTimeInterval const  timestepInterval_;
 }
 
-@property (nonatomic) Camera *camera;
-
-- (void)addEvent:(Event*)e;
-- (void)addOneFingerTapEvent:(UITapGestureRecognizer*)gr;
-- (void)addTwoFingerTapEvent:(UITapGestureRecognizer*)gr;
-- (void)executeEvents;
-- (void)clearEvents;
+@property (nonatomic) Camera        *camera;
+@property (nonatomic) EventManager  *eventManager;
 
 - (void)update:(NSTimeInterval)elapsedTime;
 - (void)step;

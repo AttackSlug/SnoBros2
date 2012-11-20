@@ -18,14 +18,15 @@
 
 @implementation Entity
 
-@synthesize transform = transform_;
-@synthesize renderer  = renderer_;
-@synthesize physics   = physics_;
-@synthesize sprite    = sprite_;
-@synthesize behavior  = behavior_;
-@synthesize collision = collision_;
-@synthesize tag       = tag_;
-@synthesize uuid      = uuid_;
+@synthesize transform   = transform_;
+@synthesize renderer    = renderer_;
+@synthesize physics     = physics_;
+@synthesize sprite      = sprite_;
+@synthesize behavior    = behavior_;
+@synthesize collision   = collision_;
+@synthesize selectable  = selectable_;
+@synthesize tag         = tag_;
+@synthesize uuid        = uuid_;
 
 - (id)init {
   return [self initWithTag:@"untagged"];

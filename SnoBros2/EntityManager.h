@@ -10,6 +10,7 @@
 
 @class Entity;
 @class Quadtree;
+@class Selectable;
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
@@ -32,6 +33,8 @@
 - (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;
 - (NSArray *)findAllWithComponent:(NSString *)component;
+
+- (BOOL)isEntitySelected;
 
 - (void)processQueue;
 - (void)update;

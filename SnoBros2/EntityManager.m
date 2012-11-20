@@ -11,6 +11,7 @@
 #import "Entity.h"
 #import "Renderer.h"
 #import "Quadtree.h"
+#import "Selectable.h"
 
 @implementation EntityManager
 
@@ -113,6 +114,17 @@
   }
 
   return found;
+}
+
+
+
+- (BOOL)isEntitySelected {
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    if (e.selectable.selected == TRUE) {
+      return TRUE;
+    }
+  }
+  return FALSE;
 }
 
 

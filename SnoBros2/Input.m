@@ -12,7 +12,7 @@
 
 @implementation Input
 
-- (id)initWithView:(UIView *)view eventQueue:(Game *)queue {
+- (id)initWithView:(UIView *)view eventQueue:(EventManager *)queue {
   self = [super init];
   if (self) {
     oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
