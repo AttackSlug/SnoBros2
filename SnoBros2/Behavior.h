@@ -12,8 +12,6 @@
 @class Transform;
 @class Physics;
 @class EntityManager;
-@class ViewController;
-@class EntityManager;
 @class Entity;
 @class Game;
 
@@ -22,17 +20,13 @@
   GLKVector2      direction_;
   Transform       *transform_;
   Physics         *physics_;
-  Game      *scene_;
-  EntityManager   *entityManager_;
+  Game            *scene_;
 }
 
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene
-       entityManager:(EntityManager *)entityManager;
+               scene:(Game *)scene;
 - (void)update;
-- (void)walkTo:(GLKVector2)target;
-- (void)throwAt:(GLKVector2)target;
 
 @end

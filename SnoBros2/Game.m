@@ -146,8 +146,7 @@
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
-                                              scene:self
-                                      entityManager:entityManager_];
+                                              scene:self];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
@@ -172,8 +171,7 @@
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere
                                           transform:sphere.transform
                                             physics:sphere.physics
-                                              scene:self
-                                      entityManager:entityManager_];
+                                              scene:self];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                              transform:sphere.transform
                                                physics:sphere.physics
@@ -198,8 +196,7 @@
   player.behavior  = [[LeftPlayer alloc] initWithEntity:player
                                               transform:player.transform
                                                 physics:player.physics
-                                                  scene:self
-                                          entityManager:entityManager_];
+                                                  scene:self];
   player.collision = [[Collision alloc] initWithEntity:player
                                              transform:player.transform
                                                physics:player.physics

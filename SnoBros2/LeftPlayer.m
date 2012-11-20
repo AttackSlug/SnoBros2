@@ -9,9 +9,7 @@
 #import "LeftPlayer.h"
 #import "Physics.h"
 #import "Transform.h"
-#import "EntityManager.h"
 #import "Entity.h"
-#import "ViewController.h"
 #import "Camera.h"
 #import "Game.h"
 
@@ -21,13 +19,11 @@
 - (id)initWithEntity:(Entity *)entity
            transform:(Transform *)transform
              physics:(Physics *)physics
-               scene:(Game *)scene
-       entityManager:(EntityManager *)entityManager {
+               scene:(Game *)scene {
   return [super initWithEntity:entity
                      transform:transform
                        physics:physics
-                         scene:scene
-                 entityManager:entityManager];
+                         scene:scene];
 }
 
 
