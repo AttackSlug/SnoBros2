@@ -17,17 +17,20 @@
 #import "Renderer.h"
 #import "Collision.h"
 #import "Camera.h"
+#import "EventManager.h"
+#import "Selectable.h"
 
 @implementation Game
 
-@synthesize camera = camera_;
+@synthesize camera        = camera_;
+@synthesize eventManager  = eventManager_;
 
 - (id)init {
   self = [super init];
   if (self) {
-    camera_        = [[Camera alloc] init];
-    entityManager_ = [[EntityManager alloc] init];
-    events_ = [[NSMutableArray alloc] initWithCapacity:0];
+    camera_         = [[Camera alloc] init];
+    entityManager_  = [[EntityManager alloc] init];
+    eventManager_   = [[EventManager alloc] initWithCamera:camera_ entityManager:entityManager_];
 
     [entityManager_ add:[self setupMap]];
     [entityManager_ add:[self setupLeftPlayer]];
@@ -47,55 +50,6 @@
     [entityManager_ add:sphere2];
   }
   return self;
-}
-
-
-
-- (void)addEvent:(Event *)e {
-  [events_ addObject:e];
-}
-
-
-
-- (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr {
-  NSArray *players = [entityManager_ findByTag:@"player"];
-  Entity *player = [players objectAtIndex:0];
-  CGPoint p = [gr locationInView:gr.view];
-  GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
-  
-  Event *movePlayer = [[Event alloc] initWithID:player.uuid
-                           selector:@selector(walkTo:)
-                            payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-  Event *panCamera = [[Event alloc] initWithID:@"c"
-                              selector:@selector(panCameraToTarget:)
-                               payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-  [events_ addObject:movePlayer];
-  [events_ addObject:panCamera];
-}
-
-
-
-- (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
-  NSLog(@"two finger tap from event queue");
-}
-
-
-
-- (void)executeEvents {
-  for (Event *e in events_) {
-    if ([e.entityID isEqualToString:@"c"]) {
-      [camera_ performSelector:e.func withObject:e.payload];
-    } else {
-      Entity *ent = [entityManager_ findById:e.entityID];
-      [ent.behavior performSelector:e.func withObject:e.payload];
-    }
-  }
-}
-
-
-
-- (void)clearEvents {
-  [events_ removeAllObjects];
 }
 
 
@@ -121,11 +75,11 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
-  [camera_ updateWithQueue:self];
+  [camera_ updateWithEventManager:self.eventManager];
   [entityManager_ processQueue];
   [entityManager_ update];
-  [self executeEvents];
-  [self clearEvents];
+  [eventManager_ executeEvents];
+  [eventManager_ clearEvents];
 }
 
 
@@ -205,6 +159,7 @@
                                                physics:player.physics
                                          entityManager:entityManager_
                                                 radius: 48.f];
+  player.selectable = [[Selectable alloc] initWithEntity:player];
   
   player.transform.position = GLKVector2Make(20, 20);
   return player;

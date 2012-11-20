@@ -15,27 +15,30 @@
 @class Camera;
 @class Behavior;
 @class Collision;
+@class Selectable;
 @class Sprite;
 
 @interface Entity : NSObject {
-  Transform *transform_;
-  Renderer  *renderer_;
-  Physics   *physics_;
-  Sprite    *sprite_;
-  Behavior  *behavior_;
-  Collision *collision_;
-  NSString  *tag_;
-  NSString  *uuid_;
+  Transform   *transform_;
+  Renderer    *renderer_;
+  Physics     *physics_;
+  Sprite      *sprite_;
+  Behavior    *behavior_;
+  Collision   *collision_;
+  Selectable  *selectable_;
+  NSString    *tag_;
+  NSString    *uuid_;
 }
 
-@property (nonatomic) Transform *transform;
-@property (nonatomic) Renderer  *renderer;
-@property (nonatomic) Physics   *physics;
-@property (nonatomic) Sprite    *sprite;
-@property (nonatomic) Behavior  *behavior;
-@property (nonatomic) Collision *collision;
-@property (nonatomic) NSString  *tag;
-@property (nonatomic) NSString  *uuid;
+@property (nonatomic) Transform   *transform;
+@property (nonatomic) Renderer    *renderer;
+@property (nonatomic) Physics     *physics;
+@property (nonatomic) Sprite      *sprite;
+@property (nonatomic) Behavior    *behavior;
+@property (nonatomic) Collision   *collision;
+@property (nonatomic) Selectable  *selectable;
+@property (nonatomic) NSString    *tag;
+@property (nonatomic) NSString    *uuid;
 
 - (id)init;
 - (id)initWithTag:(NSString*)tag;

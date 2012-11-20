@@ -59,7 +59,7 @@
   float top    = camera.position.y;
   float near   = -16.f;
   float far    = 16.f;
-
+  
   effect_.transform.projectionMatrix =
     GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
   effect_.transform.modelviewMatrix =
