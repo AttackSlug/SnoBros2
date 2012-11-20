@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Entity;
+@class Event;
 
 @interface Component : NSObject {
   Entity *entity_;
@@ -16,5 +17,8 @@
 
 - (id)initWithEntity:(Entity *)entity;
 - (void)update;
+
+- (void)sendEvent:(Event *)event;
+- (void)receiveEvent:(Event *)event;
 
 @end

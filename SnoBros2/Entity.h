@@ -17,32 +17,43 @@
 @class Collision;
 @class Selectable;
 @class Sprite;
+@class Game;
+@class Event;
 
 @interface Entity : NSObject {
+  NSString    *tag_;
+  NSString    *uuid_;
+  Sprite      *sprite_;
+
   Transform   *transform_;
   Renderer    *renderer_;
   Physics     *physics_;
-  Sprite      *sprite_;
   Behavior    *behavior_;
   Collision   *collision_;
   Selectable  *selectable_;
-  NSString    *tag_;
-  NSString    *uuid_;
+
+  Game        *eventQueue_;
 }
+
+@property (nonatomic) NSString    *tag;
+@property (nonatomic) NSString    *uuid;
+@property (nonatomic) Sprite      *sprite;
 
 @property (nonatomic) Transform   *transform;
 @property (nonatomic) Renderer    *renderer;
 @property (nonatomic) Physics     *physics;
-@property (nonatomic) Sprite      *sprite;
 @property (nonatomic) Behavior    *behavior;
 @property (nonatomic) Collision   *collision;
 @property (nonatomic) Selectable  *selectable;
-@property (nonatomic) NSString    *tag;
-@property (nonatomic) NSString    *uuid;
 
 - (id)init;
-- (id)initWithTag:(NSString*)tag;
+- (id)initWithTag:(NSString *)tag;
+- (id)initWithTag:(NSString *)tag eventQueue:(Game *)eventQueue;
+
 - (void)update;
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio;
+
+- (void)sendEvent:(Event *)event;
+- (void)receiveEvent:(Event *)event;
 
 @end

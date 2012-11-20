@@ -8,6 +8,7 @@
 
 #import "Component.h"
 #import "Entity.h"
+#import "Event.h"
 
 @implementation Component
 
@@ -22,6 +23,18 @@
 
 
 - (void)update {
+}
+
+
+
+- (void)sendEvent:(Event *)event {
+  [entity_ sendEvent:event];
+}
+
+
+
+- (void)receiveEvent:(id)event {
+  // Do something!
 }
 
 @end
