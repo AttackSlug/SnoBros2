@@ -33,8 +33,10 @@
 - (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;
 - (NSArray *)findAllWithComponent:(NSString *)component;
+- (NSArray *)findAllSelected;
 
 - (BOOL)isEntitySelected;
+- (void)deselectAll;
 
 - (void)processQueue;
 - (void)update;

@@ -11,6 +11,7 @@
 #import "Sprite.h"
 #import "Camera.h"
 #import "Entity.h"
+#import "Selectable.h"
 
 @implementation Renderer
 
@@ -46,9 +47,23 @@
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
-  effect_.texture2d0.target  = GLKTextureTarget2D;
-  effect_.texture2d0.name    = sprite_.texture.name;
+  GLKVector4 *colorVerts = malloc(sizeof(GLKVector4) * 4);
+  
+  if (entity_.selectable.selected == TRUE) {
+    effect_.texture2d0.enabled = FALSE;
+    colorVerts[0] = GLKVector4Make(0, 0, 1, 1);
+    colorVerts[1] = GLKVector4Make(0, 0, 1, 1);
+    colorVerts[2] = GLKVector4Make(0, 0, 1, 1);
+    colorVerts[3] = GLKVector4Make(0, 0, 1, 1);
+    
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, 0, colorVerts);
+  } else {
+    effect_.texture2d0.enabled = TRUE;
+    effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
+    effect_.texture2d0.target  = GLKTextureTarget2D;
+    effect_.texture2d0.name    = sprite_.texture.name;
+  }
 
   GLKVector2 position  = GLKVector2Lerp(previousTransform_.position,
                                         transform_.position,
@@ -59,7 +74,7 @@
   float top    = camera.position.y;
   float near   = -16.f;
   float far    = 16.f;
-
+  
   effect_.transform.projectionMatrix =
     GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
   effect_.transform.modelviewMatrix =
@@ -78,6 +93,13 @@
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+  
+  
+  if (entity_.selectable.selected == TRUE) {
+    glDisableVertexAttribArray(GLKVertexAttribColor);
+  }
+  
+  free(colorVerts);
 }
 
 

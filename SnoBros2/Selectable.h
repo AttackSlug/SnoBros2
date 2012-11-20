@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 #import "Component.h"
 
 @interface Selectable : Component {
@@ -16,5 +17,5 @@
 @property (nonatomic) BOOL selected;
 
 - (id) initWithEntity:(Entity *)entity;
-
+- (BOOL) isAtLocation:(GLKVector2)location;
 @end

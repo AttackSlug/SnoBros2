@@ -18,6 +18,7 @@
 #import "Collision.h"
 #import "Camera.h"
 #import "EventManager.h"
+#import "Selectable.h"
 
 @implementation Game
 
@@ -158,6 +159,7 @@
                                                physics:player.physics
                                          entityManager:entityManager_
                                                 radius: 48.f];
+  player.selectable = [[Selectable alloc] initWithEntity:player];
   
   player.transform.position = GLKVector2Make(20, 20);
   return player;

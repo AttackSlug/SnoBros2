@@ -12,6 +12,7 @@
 #import "Event.h"
 #import "Entity.h"
 #import "Behavior.h"
+#import "Selectable.h"
 
 @implementation EventManager
 
@@ -34,25 +35,36 @@
 
 
 - (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr {
-  NSArray *players = [entityManager_ findByTag:@"player"];
-  Entity *player = [players objectAtIndex:0];
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
   
-  Event *movePlayer = [[Event alloc] initWithID:player.uuid
-                                       selector:@selector(walkTo:)
-                                        payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-  Event *panCamera = [[Event alloc] initWithID:@"c"
-                                      selector:@selector(panCameraToTarget:)
-                                       payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-  [eventQueue_ addObject:movePlayer];
-  [eventQueue_ addObject:panCamera];
+  if ([entityManager_ isEntitySelected] == TRUE) {
+    NSArray *selectedEntities = [entityManager_ findAllSelected];
+    
+    for (Entity *e in selectedEntities) {
+      Event *movePlayer = [[Event alloc] initWithID:e.uuid
+                                           selector:@selector(walkTo:)
+                                            payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+      Event *panCamera = [[Event alloc] initWithID:@"c"
+                                          selector:@selector(panCameraToTarget:)
+                                           payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+      [eventQueue_ addObject:movePlayer];
+      [eventQueue_ addObject:panCamera];
+    }
+  } else {
+    NSArray *players = [entityManager_ findAllWithComponent:@"selectable"];
+    for (Entity *p in players) {
+      if ([p.selectable isAtLocation:pos]) {
+        p.selectable.selected = TRUE;
+      }
+    }
+  }
 }
 
 
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
-  NSLog(@"two finger tap from event queue");
+  [entityManager_ deselectAll];
 }
 
 
@@ -72,6 +84,11 @@
 
 - (void)clearEvents {
   [eventQueue_ removeAllObjects];
+}
+
+
+
+- (BOOL)isEntityUnderTouch:(Entity *)entity {
 }
 
 @end

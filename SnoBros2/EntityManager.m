@@ -118,13 +118,34 @@
 
 
 
+- (NSArray *)findAllSelected {
+  NSMutableArray *found = [[NSMutableArray alloc] init];
+  
+  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
+    if (e.selectable.selected == TRUE) {
+      [found addObject:e];
+    }
+  }
+  return found;
+}
+
+
+
 - (BOOL)isEntitySelected {
-  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
     if (e.selectable.selected == TRUE) {
       return TRUE;
     }
   }
   return FALSE;
+}
+
+
+
+- (void)deselectAll {
+  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
+    e.selectable.selected = FALSE;
+  }
 }
 
 

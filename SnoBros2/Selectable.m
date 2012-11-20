@@ -7,6 +7,9 @@
 //
 
 #import "Selectable.h"
+#import "Sprite.h"
+#import "Transform.h"
+#import "Entity.h"
 
 @implementation Selectable
 
@@ -18,6 +21,18 @@
     selected_ = FALSE;
   }
   return self;
+}
+
+
+
+- (BOOL)isAtLocation:(GLKVector2)location {
+  GLKVector2 pos = entity_.transform.position;
+  GLKVector2 size = GLKVector2Make(entity_.sprite.width, entity_.sprite.height);
+  
+  return (location.x > pos.x - size.x/2 &&
+          location.x < pos.x + size.x/2 &&
+          location.y > pos.y - size.y/2 &&
+          location.y < pos.y + size.y/2);
 }
 
 @end
