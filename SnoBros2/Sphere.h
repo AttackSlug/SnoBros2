@@ -10,4 +10,6 @@
 
 @interface Sphere : Behavior
 
+- (void)collidedWith:(NSValue *)value;
+
 @end

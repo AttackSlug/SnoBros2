@@ -10,7 +10,6 @@
 #import "LeftPlayer.h"
 #import "Sphere.h"
 #import "Entity.h"
-#import "EntityManager.h"
 #import "Transform.h"
 #import "Sprite.h"
 #import "Physics.h"
@@ -19,6 +18,9 @@
 #import "Camera.h"
 #import "EventManager.h"
 #import "Selectable.h"
+#import "Event.h"
+#import "EntityManager.h"
+#import "CollisionSystem.h"
 
 @implementation Game
 
@@ -28,24 +30,28 @@
 - (id)init {
   self = [super init];
   if (self) {
-    camera_         = [[Camera alloc] init];
-    entityManager_  = [[EntityManager alloc] init];
-    eventManager_   = [[EventManager alloc] initWithCamera:camera_ entityManager:entityManager_];
+    camera_          = [[Camera alloc] init];
+
+    entityManager_   = [[EntityManager alloc] init];
+    eventManager_    = [[EventManager alloc] initWithCamera:camera_
+                                              entityManager:entityManager_];
+    collisionSystem_ = [[CollisionSystem alloc] initWithEventManager:eventManager_
+                                                     entityManager:entityManager_];
 
     [entityManager_ add:[self setupMap]];
     [entityManager_ add:[self setupLeftPlayer]];
 
     timestepAccumulatorRatio_ = 1.f;
-    
+
     Entity *sphere1 = [self setupSphere];
     Entity *sphere2 = [self setupSphere2];
-    
+
     sphere1.transform.position = GLKVector2Make(100, 160);
     sphere2.transform.position = GLKVector2Make(300, 160);
-    
+
     sphere1.physics.velocity = GLKVector2Make( 1, 0);
     sphere2.physics.velocity = GLKVector2Make(-1, 0);
-    
+
     [entityManager_ add:sphere1];
     [entityManager_ add:sphere2];
   }
@@ -56,14 +62,14 @@
 
 - (void)update:(NSTimeInterval)elapsedTime {
   timestepAccumulator_ += elapsedTime;
-  
+
   int numSteps = MIN(timestepAccumulator_ / TIMESTEP_INTERVAL, MAX_STEPS);
   if (numSteps > 0) {
     timestepAccumulator_ -= numSteps * TIMESTEP_INTERVAL;
   }
-  
+
   timestepAccumulatorRatio_ = timestepAccumulator_ / TIMESTEP_INTERVAL;
-  
+
   for (int i = 0; i < numSteps; i++) {
     [self step];
   }
@@ -75,6 +81,7 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
+  [collisionSystem_ update];
   [camera_ updateWithEventManager:self.eventManager];
   [entityManager_ processQueue];
   [entityManager_ update];
@@ -105,7 +112,7 @@
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                          entityManager:entityManager_
                                                 radius: 10.f];
-  
+
   return sphere;
 }
 
@@ -123,7 +130,7 @@
   sphere.collision = [[Collision alloc] initWithEntity:sphere
                                          entityManager:entityManager_
                                                 radius: 5];
-  
+
   return sphere;
 }
 
@@ -142,7 +149,7 @@
                                          entityManager:entityManager_
                                                 radius: 48.f];
   player.selectable = [[Selectable alloc] initWithEntity:player];
-  
+
   player.transform.position = GLKVector2Make(20, 20);
   return player;
 }

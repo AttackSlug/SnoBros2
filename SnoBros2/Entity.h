@@ -17,22 +17,22 @@
 @class Collision;
 @class Selectable;
 @class Sprite;
-@class Game;
+@class EventManager;
 @class Event;
 
 @interface Entity : NSObject {
-  NSString    *tag_;
-  NSString    *uuid_;
-  Sprite      *sprite_;
+  NSString     *tag_;
+  NSString     *uuid_;
+  Sprite       *sprite_;
 
-  Transform   *transform_;
-  Renderer    *renderer_;
-  Physics     *physics_;
-  Behavior    *behavior_;
-  Collision   *collision_;
-  Selectable  *selectable_;
+  Transform    *transform_;
+  Renderer     *renderer_;
+  Physics      *physics_;
+  Behavior     *behavior_;
+  Collision    *collision_;
+  Selectable   *selectable_;
 
-  Game        *eventQueue_;
+  EventManager *eventManager_;
 }
 
 @property (nonatomic) NSString    *tag;
@@ -48,7 +48,7 @@
 
 - (id)init;
 - (id)initWithTag:(NSString *)tag;
-- (id)initWithTag:(NSString *)tag eventQueue:(Game *)eventQueue;
+- (id)initWithTag:(NSString *)tag eventManager:(EventManager *)eventManager;
 
 - (void)update;
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio;

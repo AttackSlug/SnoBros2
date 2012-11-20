@@ -15,6 +15,7 @@
 #import "Camera.h"
 #import "Collision.h"
 #import "Sprite.h"
+#import "EventManager.h"
 
 @implementation Entity
 
@@ -30,25 +31,25 @@
 @synthesize selectable  = selectable_;
 
 - (id)init {
-  return [self initWithTag:@"untagged" eventQueue:nil];
+  return [self initWithTag:@"untagged" eventManager:nil];
 }
 
 
 
 - (id)initWithTag:(NSString *)tag {
-  return [self initWithTag:tag eventQueue:nil];
+  return [self initWithTag:tag eventManager:nil];
 }
 
 
 
-- (id)initWithTag:(NSString *)tag eventQueue:(Game *)eventQueue {
+- (id)initWithTag:(NSString *)tag eventManager:(EventManager *)eventManager {
   self = [super init];
   if (self) {
     tag_ = tag;
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     uuid_ = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
-    eventQueue_ = eventQueue;
+    eventManager_ = eventManager;
   }
   return self;
 }
@@ -71,7 +72,7 @@
 
 
 - (void)sendEvent:(Event *)event {
-  [eventQueue_ addEvent:event];
+  [eventManager_ addEvent:event];
 }
 
 

@@ -39,6 +39,7 @@
 		A3283F3816519DC70059083E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3283F3716519DC70059083E /* Quadtree.m */; };
 		A3283F3A1652A6B90059083E /* snowball-small.png in Resources */ = {isa = PBXBuildFile; fileRef = A3283F391652A6B90059083E /* snowball-small.png */; };
 		A329DD4C165816E1004125DC /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DD4B165816E1004125DC /* EntityManager.m */; };
+		A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37046B0165C18F200F129E0 /* CollisionSystem.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -118,6 +119,8 @@
 		A3283F391652A6B90059083E /* snowball-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snowball-small.png"; sourceTree = "<group>"; };
 		A329DD4A165816E1004125DC /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
 		A329DD4B165816E1004125DC /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		A37046AF165C18F200F129E0 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
+		A37046B0165C18F200F129E0 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -184,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				87E49E3F16515FA000202CFB /* Assets */,
+				A37046AD165C18CF00F129E0 /* Systems */,
 				87E49E411651601900202CFB /* Event */,
 				87E49E4016515FCE00202CFB /* Component */,
 				87E49E3C16515F3A00202CFB /* Behavior */,
@@ -276,6 +280,15 @@
 				87E49E0016515A8200202CFB /* Event.m */,
 			);
 			name = Event;
+			sourceTree = "<group>";
+		};
+		A37046AD165C18CF00F129E0 /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				A37046AF165C18F200F129E0 /* CollisionSystem.h */,
+				A37046B0165C18F200F129E0 /* CollisionSystem.m */,
+			);
+			name = Systems;
 			sourceTree = "<group>";
 		};
 		A3BD0C881642EC8B007AEB08 = {
@@ -466,6 +479,7 @@
 				87694B37165AB5A200ACEC28 /* Game.m in Sources */,
 				87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */,
 				87694B8F165C12CE00ACEC28 /* EventManager.m in Sources */,
+				A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
