@@ -15,7 +15,6 @@
 
 @synthesize velocity = velocity_;
 
-
 - (id)initWithEntity:(Entity *)entity transform:(Transform *)transform {
   self = [super initWithEntity:entity];
   if (self) {

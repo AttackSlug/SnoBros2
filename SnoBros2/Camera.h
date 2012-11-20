@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+@class Game;
+@class Event;
+
 @interface Camera : NSObject {
   GLKVector2  position_;
   GLKVector2  target_;
@@ -20,5 +23,8 @@
 @property (readonly, nonatomic) GLKVector2 target;
 @property (readonly, nonatomic) GLKVector2 viewport;
 
--(void)panCameraWithHeading:(GLKVector2)heading;
+- (void)panCameraWithHeading:(NSValue *)message;
+- (void)panCameraToTarget:(NSValue *)message;
+- (void)updateWithQueue:(Game *)queue;
+
 @end
