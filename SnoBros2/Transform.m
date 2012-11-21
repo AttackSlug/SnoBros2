@@ -12,7 +12,6 @@
 
 @synthesize position = position_;
 
-
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
@@ -33,7 +32,5 @@
   copy.position = position_;
   return copy;
 }
-
-
 
 @end

@@ -11,16 +11,17 @@
 
 @implementation Input
 
-- (id)initWithView:(UIView *)view eventQueue:(EventManager *)queue {
+- (id)initWithView:(UIView *)view
+      eventManager:(EventManager *)eventManager {
   self = [super init];
   if (self) {
-    oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
+    oneFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:eventManager
                                                             action:@selector(addOneFingerTapEvent:)];
     oneFingerTap_.numberOfTapsRequired = 1;
     oneFingerTap_.numberOfTouchesRequired = 1;
     [view addGestureRecognizer:oneFingerTap_];
     
-    twoFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:queue
+    twoFingerTap_ = [[UITapGestureRecognizer alloc] initWithTarget:eventManager
                                                             action:@selector(addTwoFingerTapEvent:)];
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;

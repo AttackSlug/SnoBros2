@@ -12,8 +12,8 @@
 @class Input;
 
 @interface ViewController : GLKViewController {
-  Game          *game_;
-  Input               *inputHandler_;
+  Game   *game_;
+  Input  *inputHandler_;
 }
 
 - (void)update;

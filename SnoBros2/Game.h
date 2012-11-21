@@ -1,5 +1,5 @@
 //
-//  EventQueue.h
+//  Game.h
 //  SnoBros2
 //
 //  Created by Tanoy Sinha on 11/18/12.
@@ -7,19 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Event.h"
-#import "EntityManager.h"
 
+@class Event;
+@class EntityManager;
 @class Camera;
 @class EventManager;
+@class CollisionSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
   EntityManager         *entityManager_;
-  Camera                *camera_;
   EventManager          *eventManager_;
+
+  Camera                *camera_;
+  CollisionSystem       *collisionSystem_;
+
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;
   NSTimeInterval const  timestepInterval_;

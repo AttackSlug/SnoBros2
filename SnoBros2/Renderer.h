@@ -17,7 +17,6 @@
 @interface Renderer : Component {
   GLKBaseEffect  *effect_;
   Sprite         *sprite_;
-  Transform      *transform_;
   Transform      *previousTransform_;
   int            width_;
   int            height_;
@@ -29,7 +28,6 @@
 @property (nonatomic)           int layer;
 
 - (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
               sprite:(Sprite *)sprite
                layer:(int)layer;
 - (void)renderWithCamera:(Camera*)camera

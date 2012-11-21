@@ -14,14 +14,12 @@
 
 @interface Physics : Component {
   GLKVector2 velocity_;
-  Transform  *transform_;
 }
 
 @property GLKVector2 velocity;
 
-- (id)initWithEntity:(Entity *)entity transform:(Transform *)transform;
-- (void)resolveCollisionWith:(Entity *)otherEntity
-                intersection:(GLKVector2)intersection;
+- (id)initWithEntity:(Entity *)entity;
+- (void)resolveCollisionWith:(Entity *)otherEntity;
 - (void)update;
 
 @end
