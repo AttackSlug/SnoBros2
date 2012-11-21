@@ -7,7 +7,7 @@
 //
 
 #import "Selectable.h"
-#import "Sprite.h"
+#import "Collision.h"
 #import "Transform.h"
 #import "Entity.h"
 
@@ -32,13 +32,11 @@
 
 
 - (BOOL)isAtLocation:(GLKVector2)location {
-  GLKVector2 pos = entity_.transform.position;
-  GLKVector2 size = GLKVector2Make(entity_.sprite.width, entity_.sprite.height);
-  
-  return (location.x > pos.x - size.x/2 &&
-          location.x < pos.x + size.x/2 &&
-          location.y > pos.y - size.y/2 &&
-          location.y < pos.y + size.y/2);
+  GLKVector2 position = entity_.transform.position;
+  float radius        = entity_.collision.radius;
+  float distance      = GLKVector2Distance(position, location);
+
+  return distance <= radius;
 }
 
 
