@@ -17,7 +17,7 @@
   [self setupGL];
 
   game_           = [[Game alloc] init];
-  inputHandler_   = [[Input alloc] initWithView:self.view eventQueue:game_.eventManager];
+  inputHandler_   = [[Input alloc] initWithView:self.view eventManager:game_.eventManager];
 }
 
 

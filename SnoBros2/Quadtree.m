@@ -12,9 +12,7 @@
 #import "Entity.h"
 #import "Collision.h"
 
-
 @implementation Quadtree
-
 
 - (id)initWithLevel:(int)level bounds:(CGRect)bounds {
   self = [super init];
@@ -128,6 +126,5 @@
   [objects addObjectsFromArray:entities_];
   return objects;
 }
-
 
 @end

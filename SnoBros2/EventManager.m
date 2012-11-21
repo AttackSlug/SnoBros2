@@ -42,12 +42,13 @@
     NSArray *selectedEntities = [entityManager_ findAllSelected];
     
     for (Entity *e in selectedEntities) {
-      Event *movePlayer = [[Event alloc] initWithID:e.uuid
-                                           selector:@selector(walkTo:)
-                                            payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
-      Event *panCamera = [[Event alloc] initWithID:@"c"
-                                          selector:@selector(panCameraToTarget:)
-                                           payload:[NSValue value:&pos withObjCType:@encode(GLKVector2)]];
+      NSValue *position = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
+      Event *movePlayer = [[Event alloc] initWithType:@"walkTo"
+                                               target:e.uuid
+                                              payload:position];
+      Event *panCamera = [[Event alloc] initWithType:@"panCameraToTarget"
+                                              target:@"camera"
+                                             payload:position];
       [eventQueue_ addObject:movePlayer];
       [eventQueue_ addObject:panCamera];
     }
@@ -70,12 +71,13 @@
 
 
 - (void)executeEvents {
-  for (Event *e in eventQueue_) {
-    if ([e.entityID isEqualToString:@"c"]) {
-      [camera_ performSelector:e.func withObject:e.payload];
+  for (Event *event in eventQueue_) {
+    if ([event.target isEqualToString:@"camera"]) {
+      //FIXME: Handle camera as a special case for now because it isn't an entity
+      [camera_ receiveEvent:event];
     } else {
-      Entity *ent = [entityManager_ findById:e.entityID];
-      [ent.behavior performSelector:e.func withObject:e.payload];
+      Entity *entity = [entityManager_ findById:event.target];
+      [entity receiveEvent:event];
     }
   }
 }

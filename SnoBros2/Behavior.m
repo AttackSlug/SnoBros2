@@ -18,23 +18,15 @@
 
 @implementation Behavior
 
-
-- (id)initWithEntity:(Entity *)entity
-           transform:(Transform *)transform
-             physics:(Physics *)physics {
-  self = [super initWithEntity:entity];
-  if (self) {
-    transform_     = transform;
-    physics_       = physics;
-  }
-  return self;
+- (id)initWithEntity:(Entity *)entity {
+  return [super initWithEntity:entity];
 }
 
 
 
 - (void)update {
-  if (GLKVector2Distance(transform_.position, target_) <= 10) {
-    physics_.velocity = GLKVector2Make(0.f, 0.f);
+  if (GLKVector2Distance(entity_.transform.position, target_) <= 10) {
+    entity_.physics.velocity = GLKVector2Make(0.f, 0.f);
   }
 }
 

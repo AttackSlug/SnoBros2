@@ -8,9 +8,9 @@
 
 #import "Component.h"
 #import "Entity.h"
+#import "Event.h"
 
 @implementation Component
-
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super init];
@@ -25,5 +25,16 @@
 - (void)update {
 }
 
+
+
+- (void)sendEvent:(Event *)event {
+  [entity_ sendEvent:event];
+}
+
+
+
+- (void)receiveEvent:(id)event {
+  // Do something!
+}
 
 @end

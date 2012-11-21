@@ -14,7 +14,7 @@
   GLKVector2 position_;
 }
 
-@property (nonatomic)           GLKVector2 position;
+@property (nonatomic) GLKVector2 position;
 
 - (id)initWithEntity:(Entity *)entity;
 
