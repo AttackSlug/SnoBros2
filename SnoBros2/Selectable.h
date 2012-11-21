@@ -18,4 +18,5 @@
 
 - (id) initWithEntity:(Entity *)entity;
 - (BOOL) isAtLocation:(GLKVector2)location;
+- (BOOL) isInRectangle:(CGRect)rectangle;
 @end

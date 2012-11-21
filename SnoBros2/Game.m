@@ -41,6 +41,7 @@
     [entityManager_ add:[self setupMap]];
     [entityManager_ add:[self setupLeftPlayer]];
 
+
     timestepAccumulatorRatio_ = 1.f;
 
     Entity *sphere1 = [self setupSphere];
