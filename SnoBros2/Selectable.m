@@ -35,4 +35,14 @@
           location.y < pos.y + size.y/2);
 }
 
+
+
+- (BOOL)isInRectangle:(CGRect)rectangle {
+  GLKVector2 pos = entity_.transform.position;
+  return (pos.x > rectangle.origin.x &&
+          pos.x < rectangle.origin.x + rectangle.size.width &&
+          pos.y > rectangle.origin.y &&
+          pos.y < rectangle.origin.y + rectangle.size.height);
+}
+
 @end

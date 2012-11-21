@@ -11,7 +11,6 @@
 
 @class Transform;
 @class Physics;
-@class EntityManager;
 @class Entity;
 
 @interface Behavior : Component {

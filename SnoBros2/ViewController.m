@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "Input.h"
+#import "InputSystem.h"
 #import "Game.h"
 
 @implementation ViewController
@@ -17,7 +17,8 @@
   [self setupGL];
 
   game_           = [[Game alloc] init];
-  inputHandler_   = [[Input alloc] initWithView:self.view eventManager:game_.eventManager];
+  inputHandler_   = [[InputSystem alloc] initWithView:self.view
+                                         eventManager:game_.eventManager];
 }
 
 

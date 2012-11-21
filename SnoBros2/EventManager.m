@@ -70,6 +70,28 @@
 
 
 
+- (void)addBoxSelectorEvent:(UIPanGestureRecognizer *)gr {
+  if (gr.state == UIGestureRecognizerStateEnded) {
+    CGPoint  e, t;
+    
+    e = [gr locationInView:gr.view  ];
+    t = [gr translationInView:gr.view];
+    
+    CGRect rectangle = CGRectMake(e.x - t.x + camera_.position.x,
+                                  e.y - t.y + camera_.position.y,
+                                  t.x,
+                                  t.y);
+    
+    for (Entity *ent in [entityManager_ findAllWithComponent:@"physics"]) {
+      if ([ent.selectable isInRectangle:rectangle]) {
+        ent.selectable.selected = TRUE;
+      }
+    }
+  }
+}
+
+
+
 - (void)executeEvents {
   for (Event *event in eventQueue_) {
     if ([event.target isEqualToString:@"camera"]) {
@@ -86,11 +108,6 @@
 
 - (void)clearEvents {
   [eventQueue_ removeAllObjects];
-}
-
-
-
-- (BOOL)isEntityUnderTouch:(Entity *)entity {
 }
 
 @end

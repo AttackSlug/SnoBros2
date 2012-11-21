@@ -8,11 +8,7 @@
 
 #include "Component.h"
 
-@class ViewController;
 @class Entity;
-@class EntityManager;
-@class Physics;
-@class Transform;
 
 @interface Collision : Component {
   float radius_;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Input.h"
+#import "InputSystem.h"
 #import "EventManager.h"
 
-@implementation Input
+@implementation InputSystem
 
 - (id)initWithView:(UIView *)view
       eventManager:(EventManager *)eventManager {
@@ -26,6 +26,12 @@
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
+    
+    boxSelector_ = [[UIPanGestureRecognizer alloc] initWithTarget:eventManager
+                                                           action:@selector(addBoxSelectorEvent:)];
+    boxSelector_.minimumNumberOfTouches = 1;
+    boxSelector_.maximumNumberOfTouches = 1;
+    [view addGestureRecognizer:boxSelector_];
   }
   return self;
 }

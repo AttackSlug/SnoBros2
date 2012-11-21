@@ -10,11 +10,6 @@
 #import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
-#import "EntityManager.h"
-#import "Camera.h"
-#import "Sprite.h"
-#import "Renderer.h"
-#import "Game.h"
 
 @implementation Behavior
 
