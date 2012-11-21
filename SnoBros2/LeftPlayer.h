@@ -8,8 +8,6 @@
 
 #import "Behavior.h"
 
-@class Physics;
-@class Transform;
 @class Entity;
 
 @interface LeftPlayer : Behavior

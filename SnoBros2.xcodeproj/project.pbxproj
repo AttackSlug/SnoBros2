@@ -19,7 +19,7 @@
 		87E49E2216515A8200202CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFB16515A8200202CFB /* InfoPlist.strings */; };
 		87E49E2316515A8200202CFB /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DFE16515A8200202CFB /* Entity.m */; };
 		87E49E2416515A8200202CFB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0016515A8200202CFB /* Event.m */; };
-		87E49E2516515A8200202CFB /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0216515A8200202CFB /* Input.m */; };
+		87E49E2516515A8200202CFB /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0216515A8200202CFB /* InputSystem.m */; };
 		87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0416515A8200202CFB /* LeftPlayer.m */; };
 		87E49E2716515A8200202CFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0516515A8200202CFB /* main.m */; };
 		87E49E2816515A8200202CFB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0616515A8200202CFB /* map.png */; };
@@ -85,8 +85,8 @@
 		87E49DFE16515A8200202CFB /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		87E49DFF16515A8200202CFB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		87E49E0016515A8200202CFB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		87E49E0116515A8200202CFB /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
-		87E49E0216515A8200202CFB /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
+		87E49E0116515A8200202CFB /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
+		87E49E0216515A8200202CFB /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputSystem.m; sourceTree = "<group>"; };
 		87E49E0316515A8200202CFB /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
 		87E49E0416515A8200202CFB /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
 		87E49E0516515A8200202CFB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +177,8 @@
 		87694B80165C10E500ACEC28 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A3283F3616519DC60059083E /* Quadtree.h */,
+				A3283F3716519DC70059083E /* Quadtree.m */,
 				87E49E1516515A8200202CFB /* Sprite.h */,
 				87E49E1616515A8200202CFB /* Sprite.m */,
 			);
@@ -198,12 +200,8 @@
 				87E49E0516515A8200202CFB /* main.m */,
 				87E49E5516519A0700202CFB /* Camera.h */,
 				87E49E5616519A0800202CFB /* Camera.m */,
-				87E49E0116515A8200202CFB /* Input.h */,
-				87E49E0216515A8200202CFB /* Input.m */,
 				87E49E1916515A8200202CFB /* ViewController.h */,
 				87E49E1A16515A8200202CFB /* ViewController.m */,
-				A3283F3616519DC60059083E /* Quadtree.h */,
-				A3283F3716519DC70059083E /* Quadtree.m */,
 				87E49E3E16515F8B00202CFB /* Supporting Files */,
 			);
 			path = SnoBros2;
@@ -285,6 +283,8 @@
 		A37046AD165C18CF00F129E0 /* Systems */ = {
 			isa = PBXGroup;
 			children = (
+				87E49E0116515A8200202CFB /* InputSystem.h */,
+				87E49E0216515A8200202CFB /* InputSystem.m */,
 				A37046AF165C18F200F129E0 /* CollisionSystem.h */,
 				A37046B0165C18F200F129E0 /* CollisionSystem.m */,
 			);
@@ -463,7 +463,7 @@
 				87E49E1D16515A8200202CFB /* Component.m in Sources */,
 				87E49E2316515A8200202CFB /* Entity.m in Sources */,
 				87E49E2416515A8200202CFB /* Event.m in Sources */,
-				87E49E2516515A8200202CFB /* Input.m in Sources */,
+				87E49E2516515A8200202CFB /* InputSystem.m in Sources */,
 				87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */,
 				87E49E2716515A8200202CFB /* main.m in Sources */,
 				87E49E2916515A8200202CFB /* Physics.m in Sources */,

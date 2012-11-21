@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 #import "Component.h"
 

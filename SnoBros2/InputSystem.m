@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Input.h"
+#import "InputSystem.h"
 #import "EventManager.h"
 
-@implementation Input
+@implementation InputSystem
 
 - (id)initWithView:(UIView *)view
       eventManager:(EventManager *)eventManager {

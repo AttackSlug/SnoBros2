@@ -10,7 +10,7 @@
 
 @class EventManager;
 
-@interface Input : NSObject {
+@interface InputSystem : NSObject {
   UITapGestureRecognizer    *oneFingerTap_;
   UITapGestureRecognizer    *twoFingerTap_;
   UIPanGestureRecognizer    *boxSelector_;

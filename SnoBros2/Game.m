@@ -7,20 +7,22 @@
 //
 
 #import "Game.h"
-#import "LeftPlayer.h"
-#import "Sphere.h"
+#import "Camera.h"
+#import "EventManager.h"
+#import "EntityManager.h"
+#import "CollisionSystem.h"
+
 #import "Entity.h"
+
 #import "Transform.h"
 #import "Sprite.h"
 #import "Physics.h"
 #import "Renderer.h"
 #import "Collision.h"
-#import "Camera.h"
-#import "EventManager.h"
 #import "Selectable.h"
-#import "Event.h"
-#import "EntityManager.h"
-#import "CollisionSystem.h"
+
+#import "LeftPlayer.h"
+#import "Sphere.h"
 
 @implementation Game
 

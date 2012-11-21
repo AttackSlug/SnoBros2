@@ -10,7 +10,6 @@
 #import "Physics.h"
 #import "Transform.h"
 #import "Entity.h"
-#import "Game.h"
 #import "Event.h"
 
 @implementation LeftPlayer

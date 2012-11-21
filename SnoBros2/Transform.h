@@ -9,7 +9,6 @@
 #import <GLKit/GLKit.h>
 #import "Component.h"
 
-
 @interface Transform : Component {
   GLKVector2 position_;
 }

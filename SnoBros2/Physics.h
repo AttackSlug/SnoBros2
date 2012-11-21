@@ -9,7 +9,6 @@
 #import <GLKit/GLKit.h>
 #import "Component.h"
 
-@class Transform;
 @class Entity;
 
 @interface Physics : Component {
