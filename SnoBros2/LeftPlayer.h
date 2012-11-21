@@ -15,6 +15,6 @@
 @interface LeftPlayer : Behavior
 
 - (id)initWithEntity:(Entity *)entity;
-- (void)walkTo:(NSValue*)message;
+- (void)walkTo:(GLKVector2)target;
 
 @end

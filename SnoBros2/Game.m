@@ -110,7 +110,6 @@
                                                  layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
-                                         entityManager:entityManager_
                                                 radius: 10.f];
 
   return sphere;
@@ -128,7 +127,6 @@
                                                  layer:1];
   sphere.behavior  = [[Sphere alloc] initWithEntity:sphere];
   sphere.collision = [[Collision alloc] initWithEntity:sphere
-                                         entityManager:entityManager_
                                                 radius: 5];
 
   return sphere;
@@ -146,7 +144,6 @@
                                                  layer:1];
   player.behavior  = [[LeftPlayer alloc] initWithEntity:player];
   player.collision = [[Collision alloc] initWithEntity:player
-                                         entityManager:entityManager_
                                                 radius: 48.f];
   player.selectable = [[Selectable alloc] initWithEntity:player];
 

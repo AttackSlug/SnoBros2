@@ -19,8 +19,7 @@
 @property GLKVector2 velocity;
 
 - (id)initWithEntity:(Entity *)entity;
-- (void)resolveCollisionWith:(Entity *)otherEntity
-                intersection:(GLKVector2)intersection;
+- (void)resolveCollisionWith:(Entity *)otherEntity;
 - (void)update;
 
 @end

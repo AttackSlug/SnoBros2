@@ -43,11 +43,10 @@
 
   for (Entity *other in otherEntities) {
     if ([self didEntity:entity collideWith:other]) {
-      Event *event = [[Event alloc] initWithID:other.uuid
-                                      selector:@selector(collidedWith:)
-                                       payload:[[NSValue alloc] init]];
+      Event *event     = [[Event alloc] initWithType:@"collidedWith"
+                                              target:other.uuid
+                                             payload:other];
       [eventManager_ addEvent:event];
-      NSLog(@"%@ collided with %@!", entity, other);
     }
   }
 }

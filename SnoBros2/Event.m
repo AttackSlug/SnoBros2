@@ -10,17 +10,17 @@
 
 @implementation Event
 
-@synthesize entityID  = id_;
-@synthesize func      = func_;
-@synthesize payload   = payload_;
+@synthesize type    = type_;
+@synthesize target  = target_;
+@synthesize payload = payload_;
 
-- (id)initWithID:(NSString *)uuid
-        selector:(SEL)func
-         payload:(NSValue *)payload {
+- (id)initWithType:(NSString *)type
+            target:(NSString *)target
+           payload:(id)payload {
   self = [super init];
   if (self) {
-    id_      = uuid;
-    func_    = func;
+    type_    = type;
+    target_  = target;
     payload_ = payload;
   }
   return self;

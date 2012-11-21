@@ -9,15 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface Event : NSObject {
-  NSString  *id_;
-  SEL       func_;
-  NSValue   *payload_;
+  NSString  *type_;
+  NSString  *target_;
+  id         payload_;
 }
 
-@property (nonatomic, readonly) NSString  *entityID;
-@property (nonatomic, readonly) SEL       func;
-@property (nonatomic, readonly) NSValue   *payload;
+@property (nonatomic, readonly) NSString  *type;
+@property (nonatomic, readonly) NSString  *target;
+@property (nonatomic, readonly) id         payload;
 
-- (id)initWithID:(NSString *)uuid selector:(SEL)func payload:(NSValue *)payload;
+- (id)initWithType:(NSString *)type
+            target:(NSString *)target
+           payload:(id)payload;
 
 @end

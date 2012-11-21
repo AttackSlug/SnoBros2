@@ -11,6 +11,7 @@
 #import "Transform.h"
 #import "Entity.h"
 #import "Game.h"
+#import "Event.h"
 
 @implementation LeftPlayer
 
@@ -20,15 +21,23 @@
 
 
 
-- (void)walkTo:(NSValue*)message {
-  GLKVector2 target;
-
-  [message getValue:&target];
-
+- (void)walkTo:(GLKVector2)target {
   target_    = target;
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,
                                                       entity_.transform.position));
   entity_.physics.velocity = GLKVector2MultiplyScalar(direction_, 10);
+}
+
+
+
+- (void)receiveEvent:(Event *)event {
+  if ([event.type isEqualToString:@"walkTo"]) {
+
+    GLKVector2 target;
+    [event.payload getValue:&target];
+    [self walkTo:target];
+
+  }
 }
 
 @end

@@ -15,19 +15,14 @@
 @class Transform;
 
 @interface Collision : Component {
-  EntityManager   *entityManager_;
-  float           radius_;
+  float radius_;
 }
-
 
 @property (nonatomic) float radius;
 
-
 - (id)initWithEntity:(Entity *)entity
-       entityManager:(EntityManager *)entityManager
               radius:(float)radius;
 
-- (void)update;
 - (CGRect)boundingBox;
 
 @end
