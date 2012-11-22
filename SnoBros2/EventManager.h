@@ -20,9 +20,10 @@
 
 - (id)initWithCamera:(Camera *)camera entityManager:(EntityManager *)entityManager;
 
-- (void)addEvent:(Event*)e;
-- (void)addOneFingerTapEvent:(UITapGestureRecognizer*)gr;
-- (void)addTwoFingerTapEvent:(UITapGestureRecognizer*)gr;
+- (void)addEvent:(Event *)e;
+- (void)addOneFingerTapEvent:(UITapGestureRecognizer *)gr;
+- (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr;
+- (void)addBoxSelectorEvent:(UIPanGestureRecognizer *)gr;
 - (void)executeEvents;
 - (void)clearEvents;
 

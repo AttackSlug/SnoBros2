@@ -9,11 +9,11 @@
 #import <GLKit/GLKit.h>
 
 @class Game;
-@class Input;
+@class InputSystem;
 
 @interface ViewController : GLKViewController {
-  Game   *game_;
-  Input  *inputHandler_;
+  Game        *game_;
+  InputSystem *inputHandler_;
 }
 
 - (void)update;

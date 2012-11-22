@@ -8,12 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "Entity.h"
-#import "Component.h"
-#import "Transform.h"
-#import "Physics.h"
-#import "Renderer.h"
-#import "Input.h"
 
 @implementation AppDelegate
 

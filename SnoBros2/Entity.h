@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class Camera;
+
 @class Transform;
 @class Renderer;
 @class Physics;
-@class Input;
-@class Camera;
 @class Behavior;
 @class Collision;
 @class Selectable;
+
 @class Sprite;
 @class EventManager;
 @class Event;
