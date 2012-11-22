@@ -21,7 +21,6 @@
 @property (readonly, nonatomic) GLKVector2 *uvMap;
 @property (readonly, nonatomic) GLKTextureInfo *texture;
 
-
 - (id)initWithFile:(NSString *)filePath;
 - (void)dealloc;
 

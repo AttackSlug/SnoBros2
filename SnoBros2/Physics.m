@@ -22,6 +22,18 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  self = [self initWithEntity:entity];
+  if (self) {
+    NSDictionary *v = [data valueForKey:@"velocity"];
+    velocity_ = GLKVector2Make([[v valueForKey:@"x"] floatValue],
+                               [[v valueForKey:@"y"] floatValue]);
+  }
+  return self;
+}
+
+
+
 - (void)update {
   [entity_.transform translate:velocity_];
 }

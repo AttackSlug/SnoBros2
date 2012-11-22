@@ -26,6 +26,13 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  float radius = [[data valueForKey:@"radius"] floatValue];
+  return [self initWithEntity:entity radius:radius];
+}
+
+
+
 - (CGRect)boundingBox {
   return CGRectMake(entity_.transform.position.x,
                     entity_.transform.position.y,

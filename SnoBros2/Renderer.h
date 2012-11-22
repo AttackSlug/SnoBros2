@@ -30,6 +30,8 @@
 - (id)initWithEntity:(Entity *)entity
               sprite:(Sprite *)sprite
                layer:(int)layer;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 - (void)renderWithCamera:(Camera*)camera
       interpolationRatio:(double)ratio;
 

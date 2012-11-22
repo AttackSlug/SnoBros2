@@ -13,6 +13,18 @@
 
 @implementation Sphere
 
+- (id)initWithEntity:(Entity *)entity {
+  return [super initWithEntity:entity];
+}
+
+
+
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  return [self initWithEntity:entity];
+}
+
+
+
 - (void)update {
   GLKVector2 position = entity_.transform.position;
 

@@ -16,8 +16,8 @@
 
 @property (nonatomic) float radius;
 
-- (id)initWithEntity:(Entity *)entity
-              radius:(float)radius;
+- (id)initWithEntity:(Entity *)entity radius:(float)radius;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (CGRect)boundingBox;
 

@@ -22,6 +22,12 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  return [[Component alloc] initWithEntity:entity];
+}
+
+
+
 - (void)update {
 }
 

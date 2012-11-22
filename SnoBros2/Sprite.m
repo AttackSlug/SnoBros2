@@ -10,11 +10,9 @@
 
 @implementation Sprite
 
-
 @synthesize vertices = vertices_;
 @synthesize uvMap    = uvMap_;
 @synthesize texture  = texture_;
-
 
 - (id)initWithFile:(NSString *)filePath {
   self = [super init];
@@ -62,6 +60,5 @@
 - (unsigned)height {
   return texture_.height;
 }
-
 
 @end

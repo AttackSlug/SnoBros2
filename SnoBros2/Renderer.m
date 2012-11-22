@@ -18,7 +18,6 @@
 @synthesize height = height_;
 @synthesize layer  = layer_;
 
-
 - (id)initWithEntity:(Entity *)entity
               sprite:(Sprite *)sprite
                layer:(int)layer {
@@ -33,6 +32,14 @@
     height_ = 320;
   }
   return self;
+}
+
+
+
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  Sprite *sprite = [[Sprite alloc] initWithFile:[data valueForKey:@"sprite"]];
+  int     layer  = [[data valueForKey:@"layer"] intValue];
+  return [self initWithEntity:entity sprite:sprite layer:layer];
 }
 
 
@@ -77,6 +84,5 @@
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
 }
-
 
 @end

@@ -16,6 +16,7 @@
 @property (nonatomic) GLKVector2 position;
 
 - (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (void)translate:(GLKVector2)translation;
 - (Transform *)copy;
