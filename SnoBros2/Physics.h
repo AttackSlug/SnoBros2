@@ -18,6 +18,8 @@
 @property GLKVector2 velocity;
 
 - (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 - (void)resolveCollisionWith:(Entity *)otherEntity;
 - (void)update;
 

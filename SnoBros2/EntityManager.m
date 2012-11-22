@@ -40,6 +40,62 @@
 
 
 
+- (void)loadFromFile:(NSString *)filename {
+  NSError  *error;
+  NSString *path  = [[NSBundle mainBundle]
+                     pathForResource:filename ofType:@"json"];
+  NSString *json = [[NSString alloc] initWithContentsOfFile:path
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:&error];
+  if (error) { NSLog(@"Error: %@", error); return; }
+
+  NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
+  NSDictionary *entityData = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:&error];
+  if (error) { NSLog(@"Error: %@", error); return; }
+
+  if ([entityData isKindOfClass:[NSArray class]]) {
+    for (NSDictionary *d in entityData) {
+      [self add:[self buildEntityFromDictionary:d]];
+    }
+  } else {
+    [self add:[self buildEntityFromDictionary:entityData]];
+  }
+}
+
+
+
+- (Entity *)buildEntityFromDictionary:(NSDictionary *)data {
+  Entity *entity = [[Entity alloc] initWithTag:[data valueForKey:@"tag"]];
+
+  NSDictionary *components = [data valueForKey:@"components"];
+  for (NSString *componentName in components) {
+
+    NSString *className  = [[components valueForKey:componentName]
+                            valueForKey:@"type"];
+    NSString *setterName = [@"set" stringByAppendingString:
+                            [[componentName
+                              stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                              withString:[[componentName substringToIndex:1]
+                                          uppercaseString]]
+                             stringByAppendingString:@":"]];
+
+    SEL selector         = NSSelectorFromString(setterName);
+    Class componentClass = NSClassFromString(className);
+
+    NSDictionary *attributes = [components valueForKey:componentName];
+    Component *component     = [[componentClass alloc] initWithEntity:entity
+                                                           dictionary:attributes];
+
+    [entity performSelector:selector withObject:component];
+  }
+
+  return entity;
+}
+
+
+
 - (void)queueForDeletion:(Entity *)entity {
   [toBeDeleted_ addObject:entity];
 }
@@ -171,7 +227,5 @@
     [quadtree_ insert:e];
   }
 }
-
-
 
 @end

@@ -16,6 +16,8 @@
 }
 
 - (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 - (void)update;
 
 - (void)sendEvent:(Event *)event;

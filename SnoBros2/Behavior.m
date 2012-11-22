@@ -19,6 +19,12 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  return [self initWithEntity:entity];
+}
+
+
+
 - (void)update {
   if (GLKVector2Distance(entity_.transform.position, target_) <= 10) {
     entity_.physics.velocity = GLKVector2Make(0.f, 0.f);

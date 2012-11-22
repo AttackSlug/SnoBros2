@@ -20,6 +20,12 @@
 
 
 
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  return [self initWithEntity:entity];
+}
+
+
+
 - (void)walkTo:(GLKVector2)target {
   target_    = target;
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,

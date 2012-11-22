@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Quadtree.h"
-
 #import <GLKit/GLKit.h>
+
+#import "Quadtree.h"
 #import "Entity.h"
 #import "Collision.h"
 

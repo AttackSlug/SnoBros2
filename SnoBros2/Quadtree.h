@@ -25,7 +25,6 @@
   Quadtree *nodes_[NUM_NODES];
 }
 
-
 - (id)initWithLevel:(int)level bounds:(CGRect)bounds;
 - (void)subdivideRectangle;
 - (void)clear;

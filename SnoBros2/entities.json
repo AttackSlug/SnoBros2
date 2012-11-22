@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Map",
+    "tag":  "map",
+    "components": {
+      "transform": {
+        "type": "Transform",
+        "position": {
+          "x": 240,
+          "y": 160
+        }
+      },
+      "renderer": {
+        "type":   "Renderer",
+        "sprite": "wpaper.jpg",
+        "layer":  0
+      }
+    }
+  },
+  {
+    "name": "Sphere 1",
+    "tag":  "sphere",
+    "components": {
+      "transform": {
+        "type": "Transform",
+        "position": {
+          "x": 100,
+          "y": 160
+        }
+      },
+      "physics": {
+        "type": "Physics",
+        "velocity": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      "renderer": {
+        "type":   "Renderer",
+        "sprite": "snowball.png",
+        "layer": 1
+      },
+      "behavior": {
+        "type": "Sphere"
+      },
+      "collision": {
+        "type":   "Collision",
+        "radius": 10
+      }
+    }
+  },
+  {
+    "name": "Sphere 2",
+    "tag":  "sphere",
+    "components": {
+      "transform": {
+        "type": "Transform",
+        "position": {
+          "x": 300,
+          "y": 160
+        }
+      },
+      "physics": {
+        "type": "Physics",
+        "velocity": {
+          "x": -1,
+          "y":  0
+        }
+      },
+      "renderer": {
+        "type":   "Renderer",
+        "sprite": "snowball.png",
+        "layer": 1
+      },
+      "behavior": {
+        "type": "Sphere"
+      },
+      "collision": {
+        "type": "Collision",
+        "radius": 10
+      }
+    }
+  },
+  {
+    "name": "Player",
+    "tag":  "player",
+    "components": {
+      "transform": {
+        "type": "Transform",
+        "position": {
+          "x": 20,
+          "y": 20
+        }
+      },
+      "physics": {
+        "type": "Physics",
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "renderer": {
+        "type":   "Renderer",
+        "sprite": "sprite2.png",
+        "layer": 1
+      },
+      "behavior": {
+        "type": "LeftPlayer"
+      },
+      "collision": {
+        "type": "Collision",
+        "radius": 48
+      },
+      "selectable": {
+        "type": "Selectable"
+      }
+    }
+  }
+]
