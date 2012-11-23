@@ -35,6 +35,7 @@
 - (id)init;
 - (id)initWithTag:(NSString *)tag;
 - (id)initWithTag:(NSString *)tag eventManager:(EventManager *)eventManager;
+- (id)initWithDictionary:(NSDictionary *)data;
 
 - (void)update;
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio;

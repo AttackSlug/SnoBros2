@@ -31,7 +31,11 @@
     collisionSystem_ = [[CollisionSystem alloc] initWithEventManager:eventManager_
                                                        entityManager:entityManager_];
 
-    [entityManager_ loadFromFile:@"entities"];
+    [entityManager_ loadEntityTypesFromFile:@"entities"];
+    [entityManager_ buildAndAddEntity:@"Map"];
+    [entityManager_ buildAndAddEntity:@"Player"];
+    [entityManager_ buildAndAddEntity:@"Sphere 1"];
+    [entityManager_ buildAndAddEntity:@"Sphere 2"];
   }
   return self;
 }
