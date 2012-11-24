@@ -89,6 +89,7 @@
                                                            dictionary:attributes];
 
     [entity performSelector:selector withObject:component];
+    [entity setComponent:component withString:className];
   }
 
   return entity;
@@ -118,8 +119,8 @@
 - (NSArray *)allSortedByLayer {
   NSArray *all = [entities_ allValues];
   NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    Renderer *renderer1 = [obj1 renderer];
-    Renderer *renderer2 = [obj2 renderer];
+    Renderer *renderer1 = [obj1 getComponentByString:@"Renderer"];
+    Renderer *renderer2 = [obj2 getComponentByString:@"Renderer"];
     if (renderer1.layer < renderer2.layer) {
       return (NSComparisonResult)NSOrderedAscending;
     } else if (renderer1.layer > renderer2.layer) {

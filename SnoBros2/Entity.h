@@ -10,6 +10,8 @@
 
 @class Camera;
 
+@class Component;
+
 @class Transform;
 @class Renderer;
 @class Physics;
@@ -32,6 +34,8 @@
   Behavior     *behavior_;
   Collision    *collision_;
   Selectable   *selectable_;
+  
+  NSMutableDictionary *components_;
 
   EventManager *eventManager_;
 }
@@ -47,6 +51,8 @@
 @property (nonatomic) Collision   *collision;
 @property (nonatomic) Selectable  *selectable;
 
+@property (nonatomic) NSMutableDictionary *components;
+
 - (id)init;
 - (id)initWithTag:(NSString *)tag;
 - (id)initWithTag:(NSString *)tag eventManager:(EventManager *)eventManager;
@@ -56,5 +62,8 @@
 
 - (void)sendEvent:(Event *)event;
 - (void)receiveEvent:(Event *)event;
+
+- (id)getComponentByString:(NSString *)string;
+- (void)setComponent:(Component *)component withString:(NSString *)string;
 
 @end

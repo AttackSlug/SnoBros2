@@ -26,8 +26,10 @@
 
 
 - (void)update {
-  if (GLKVector2Distance(entity_.transform.position, target_) <= 10) {
-    entity_.physics.velocity = GLKVector2Make(0.f, 0.f);
+  Transform *transform  = [entity_ getComponentByString:@"Transform"];
+  Physics   *physics    = [entity_ getComponentByString:@"Physics"];
+  if (GLKVector2Distance(transform.position, target_) <= 10) {
+    physics.velocity = GLKVector2Make(0.f, 0.f);
   }
 }
 

@@ -55,8 +55,9 @@
   } else {
     NSArray *players = [entityManager_ findAllWithComponent:@"selectable"];
     for (Entity *p in players) {
-      if ([p.selectable isAtLocation:pos]) {
-        p.selectable.selected = TRUE;
+      Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
+      if ([playerSelectable isAtLocation:pos]) {
+        playerSelectable.selected = TRUE;
       }
     }
   }
@@ -83,8 +84,9 @@
                                   t.y);
 
     for (Entity *ent in [entityManager_ findAllWithComponent:@"physics"]) {
-      if ([ent.selectable isInRectangle:rectangle]) {
-        ent.selectable.selected = TRUE;
+      Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
+      if ([entSelectable isInRectangle:rectangle]) {
+        entSelectable.selected = TRUE;
       }
     }
   }

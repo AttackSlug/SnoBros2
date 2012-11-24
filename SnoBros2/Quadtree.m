@@ -70,7 +70,8 @@
 
 
 - (int)getIndexOf:(Entity *)entity {
-  CGRect rect = [entity.collision boundingBox];
+  Collision *collision = [entity getComponentByString:@"Collision"];
+  CGRect rect = [collision boundingBox];
 
   if (CGRectContainsRect(topLeft_, rect)) {
     return 0;

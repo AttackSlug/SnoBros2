@@ -45,7 +45,8 @@
 
 
 - (void)update {
-  previousTransform_ = [entity_.transform copy];
+  Transform *prev = [entity_ getComponentByString:@"Transform"];
+  previousTransform_ = prev;
 }
 
 

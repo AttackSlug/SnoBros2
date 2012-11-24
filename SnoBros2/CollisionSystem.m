@@ -54,12 +54,20 @@
 
 
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
-  if (entity == other || !other.collision) { return false; }
+  Collision *otherCollision, *myCollision;
+  Transform *otherTransform, *myTransform;
+  
+  myCollision     = [entity getComponentByString:@"Collision"];
+  otherCollision  = [other getComponentByString:@"Collision"];
+  myTransform     = [entity getComponentByString:@"Transform"];
+  otherTransform  = [other getComponentByString:@"Transform"];
+  
+  if (entity == other || !otherCollision) { return false; }
 
-  float radius      = entity.collision.radius;
-  float otherRadius = other.collision.radius;
-  float distance    = GLKVector2Distance(entity.transform.position,
-                                          other.transform.position);
+  float radius      = myCollision.radius;
+  float otherRadius = otherCollision.radius;
+  float distance    = GLKVector2Distance(myTransform.position,
+                                         otherTransform.position);
 
   if (distance < (radius + otherRadius)) {
     return true;

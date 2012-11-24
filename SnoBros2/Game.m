@@ -14,16 +14,6 @@
 
 #import "Entity.h"
 
-#import "Transform.h"
-#import "Sprite.h"
-#import "Physics.h"
-#import "Renderer.h"
-#import "Collision.h"
-#import "Selectable.h"
-
-#import "LeftPlayer.h"
-#import "Sphere.h"
-
 @implementation Game
 
 @synthesize camera        = camera_;

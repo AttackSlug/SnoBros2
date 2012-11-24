@@ -29,6 +29,8 @@
 @synthesize collision   = collision_;
 @synthesize selectable  = selectable_;
 
+@synthesize components  = components_;
+
 - (id)init {
   return [self initWithTag:@"untagged" eventManager:nil];
 }
@@ -49,6 +51,7 @@
     uuid_ = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
     eventManager_ = eventManager;
+    components_ = [[NSMutableDictionary alloc] init];
   }
   return self;
 }
@@ -56,10 +59,9 @@
 
 
 - (void)update {
-  [behavior_  update];
-  [collision_ update];
-  [physics_   update];
-  [renderer_  update];
+  for (id key in components_) {
+    [[components_ objectForKey:key] update];
+  }
 }
 
 
@@ -77,11 +79,21 @@
 
 
 - (void)receiveEvent:(Event *)event {
-  [behavior_  receiveEvent:event];
-  [transform_ receiveEvent:event];
-  [renderer_  receiveEvent:event];
-  [physics_   receiveEvent:event];
-  [collision_ receiveEvent:event];
+  for (id key in components_) {
+    [[components_ objectForKey:key] receiveEvent:event];
+  }
+}
+
+
+
+- (id)getComponentByString:(NSString *)string {
+  return [components_ objectForKey:string];
+}
+
+
+
+- (void)setComponent:(Component *)component withString:(NSString *)string {
+  [components_ setObject:component forKey:string];
 }
 
 @end
