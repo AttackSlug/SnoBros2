@@ -29,7 +29,7 @@
 
 
 - (void)update {
-  NSArray *entities = [entityManager_ findAllWithComponent:@"collision"];
+  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
 
   for (Entity *e in entities) {
     [self checkCollisionsFor:e];

@@ -71,24 +71,15 @@
 
   NSDictionary *components = [data valueForKey:@"components"];
   for (NSString *componentName in components) {
-
     NSString *className  = [[components valueForKey:componentName]
                             valueForKey:@"type"];
-    NSString *setterName = [@"set" stringByAppendingString:
-                            [[componentName
-                              stringByReplacingCharactersInRange:NSMakeRange(0, 1)
-                              withString:[[componentName substringToIndex:1]
-                                          uppercaseString]]
-                             stringByAppendingString:@":"]];
-
-    SEL selector         = NSSelectorFromString(setterName);
+    
     Class componentClass = NSClassFromString(className);
 
     NSDictionary *attributes = [components valueForKey:componentName];
     Component *component     = [[componentClass alloc] initWithEntity:entity
                                                            dictionary:attributes];
 
-    [entity performSelector:selector withObject:component];
     [entity setComponent:component withString:className];
   }
 
@@ -165,7 +156,7 @@
   NSMutableArray *found = [[NSMutableArray alloc] init];
 
   for (Entity *e in [entities_ allValues]) {
-    if ([e performSelector:NSSelectorFromString(component)]) {
+    if ([e hasComponent:component]) {
       [found addObject:e];
     }
   }
@@ -178,8 +169,9 @@
 - (NSArray *)findAllSelected {
   NSMutableArray *found = [[NSMutableArray alloc] init];
   
-  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
-    if (e.selectable.selected == TRUE) {
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    Selectable *selectable = [e getComponentByString:@"Selectable"];
+    if (selectable.selected == TRUE) {
       [found addObject:e];
     }
   }
@@ -189,8 +181,9 @@
 
 
 - (BOOL)isEntitySelected {
-  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
-    if (e.selectable.selected == TRUE) {
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    Selectable *selectable = [e getComponentByString:@"Selectable"];
+    if (selectable.selected == TRUE) {
       return TRUE;
     }
   }
@@ -200,8 +193,9 @@
 
 
 - (void)deselectAll {
-  for (Entity *e in [self findAllWithComponent:@"selectable"]) {
-    e.selectable.selected = FALSE;
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    Selectable *selectable = [e getComponentByString:@"Selectable"];
+    selectable.selected = FALSE;
   }
 }
 

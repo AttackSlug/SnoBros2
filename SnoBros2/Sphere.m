@@ -28,7 +28,7 @@
 - (void)update {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
   Physics   *physics   = [entity_ getComponentByString:@"Physics"];
-  GLKVector2 position = entity_.transform.position;
+  GLKVector2 position = transform.position;
 
   if (position.x < 0 || position.x > 480) {
     physics.velocity =

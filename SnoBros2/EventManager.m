@@ -53,7 +53,7 @@
       [eventQueue_ addObject:panCamera];
     }
   } else {
-    NSArray *players = [entityManager_ findAllWithComponent:@"selectable"];
+    NSArray *players = [entityManager_ findAllWithComponent:@"Selectable"];
     for (Entity *p in players) {
       Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
       if ([playerSelectable isAtLocation:pos]) {
@@ -83,7 +83,7 @@
                                   t.x,
                                   t.y);
 
-    for (Entity *ent in [entityManager_ findAllWithComponent:@"physics"]) {
+    for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
       Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
       if ([entSelectable isInRectangle:rectangle]) {
         entSelectable.selected = TRUE;

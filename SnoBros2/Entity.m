@@ -10,24 +10,13 @@
 
 #import "EventManager.h"
 
-#import "Transform.h"
 #import "Renderer.h"
-#import "Physics.h"
-#import "Behavior.h"
-#import "Collision.h"
 
 @implementation Entity
 
 @synthesize uuid        = uuid_;
 @synthesize tag         = tag_;
 @synthesize sprite      = sprite_;
-
-@synthesize transform   = transform_;
-@synthesize renderer    = renderer_;
-@synthesize physics     = physics_;
-@synthesize behavior    = behavior_;
-@synthesize collision   = collision_;
-@synthesize selectable  = selectable_;
 
 @synthesize components  = components_;
 
@@ -67,7 +56,8 @@
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  [renderer_ renderWithCamera:camera interpolationRatio:ratio];
+  Renderer *renderer = [self getComponentByString:@"Renderer"];
+  [renderer renderWithCamera:camera interpolationRatio:ratio];
 }
 
 
@@ -94,6 +84,12 @@
 
 - (void)setComponent:(Component *)component withString:(NSString *)string {
   [components_ setObject:component forKey:string];
+}
+
+
+
+- (BOOL)hasComponent:(NSString *)string {
+  return [components_ objectForKey:string] != nil;
 }
 
 @end

@@ -23,7 +23,8 @@
                layer:(int)layer {
   self = [super initWithEntity:entity];
   if (self) {
-    previousTransform_  = [entity_.transform copy];
+    Transform *transform = [entity_ getComponentByString:@"Transform"];
+    previousTransform_  = [transform copy];
     sprite_             = sprite;
     effect_             = [[GLKBaseEffect alloc] init];
     layer_              = layer;
@@ -52,12 +53,14 @@
 
 
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
+  
   effect_.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect_.texture2d0.target  = GLKTextureTarget2D;
   effect_.texture2d0.name    = sprite_.texture.name;
 
   GLKVector2 position  = GLKVector2Lerp(previousTransform_.position,
-                                        entity_.transform.position,
+                                        transform.position,
                                         ratio);
   float left   = camera.position.x;
   float right  = camera.viewport.x + camera.position.x;
