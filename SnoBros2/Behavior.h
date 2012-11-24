@@ -9,15 +9,11 @@
 #import <GLKit/GLKit.h>
 #import "Component.h"
 
-@class Transform;
-@class Physics;
 @class Entity;
 
 @interface Behavior : Component {
   GLKVector2      target_;
   GLKVector2      direction_;
-  Transform       *transform_;
-  Physics         *physics_;
 }
 
 - (id)initWithEntity:(Entity *)entity;

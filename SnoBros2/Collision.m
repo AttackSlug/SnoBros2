@@ -34,8 +34,9 @@
 
 
 - (CGRect)boundingBox {
-  return CGRectMake(entity_.transform.position.x,
-                    entity_.transform.position.y,
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
+  return CGRectMake(transform.position.x,
+                    transform.position.y,
                     radius_, radius_);
 }
 

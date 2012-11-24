@@ -29,7 +29,7 @@
 
 
 - (void)update {
-  NSArray *entities = [entityManager_ findAllWithComponent:@"collision"];
+  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
 
   for (Entity *e in entities) {
     [self checkCollisionsFor:e];
@@ -54,12 +54,17 @@
 
 
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
-  if (entity == other || !other.collision) { return false; }
+  Collision *myCollision    = [entity getComponentByString:@"Collision"];
+  Collision *otherCollision = [other getComponentByString:@"Collision"];
+  Transform *myTransform    = [entity getComponentByString:@"Transform"];
+  Transform *otherTransform = [other getComponentByString:@"Transform"];
+  
+  if (entity == other || !otherCollision) { return false; }
 
-  float radius      = entity.collision.radius;
-  float otherRadius = other.collision.radius;
-  float distance    = GLKVector2Distance(entity.transform.position,
-                                          other.transform.position);
+  float radius      = myCollision.radius;
+  float otherRadius = otherCollision.radius;
+  float distance    = GLKVector2Distance(myTransform.position,
+                                         otherTransform.position);
 
   if (distance < (radius + otherRadius)) {
     return true;

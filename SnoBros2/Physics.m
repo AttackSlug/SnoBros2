@@ -35,14 +35,16 @@
 
 
 - (void)update {
-  [entity_.transform translate:velocity_];
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
+  [transform translate:velocity_];
 }
 
 
 
 - (void)resolveCollisionWith:(Entity *)otherEntity {
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
   GLKVector2 intersection = [self intersectionWith:otherEntity];
-  [entity_.transform translate:intersection];
+  [transform translate:intersection];
 
   velocity_ = GLKVector2Make(-velocity_.x, -velocity_.y);
 }
@@ -50,13 +52,17 @@
 
 
 - (GLKVector2)intersectionWith:(Entity *)other {
-  float radius       = entity_.collision.radius;
-  float otherRadius  = other.collision.radius;
-  float distance     = GLKVector2Distance(entity_.transform.position,
-                                          other.transform.position);
+  Collision *myCollision    = [entity_ getComponentByString:@"Collision"];
+  Collision *otherCollision = [other getComponentByString:@"Collision"];
+  Transform *myTransform    = [entity_ getComponentByString:@"Transform"];
+  Transform *otherTransform = [other getComponentByString:@"Transform"];
+  float radius       = myCollision.radius;
+  float otherRadius  = otherCollision.radius;
+  float distance     = GLKVector2Distance(myTransform.position,
+                                          otherTransform.position);
   float overlap      = 1 - (distance / (radius + otherRadius));
-  GLKVector2 centers = GLKVector2Subtract(entity_.transform.position,
-                                          other.transform.position);
+  GLKVector2 centers = GLKVector2Subtract(myTransform.position,
+                                          otherTransform.position);
 
   return GLKVector2MultiplyScalar(centers, overlap);
 }

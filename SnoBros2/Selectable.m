@@ -32,8 +32,10 @@
 
 
 - (BOOL)isAtLocation:(GLKVector2)location {
-  GLKVector2 position = entity_.transform.position;
-  float radius        = entity_.collision.radius;
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
+  Collision *collision = [entity_ getComponentByString:@"Collision"];
+  GLKVector2 position = transform.position;
+  float radius        = collision.radius;
   float distance      = GLKVector2Distance(position, location);
 
   return distance <= radius;
@@ -42,7 +44,8 @@
 
 
 - (BOOL)isInRectangle:(CGRect)rectangle {
-  GLKVector2 pos = entity_.transform.position;
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
+  GLKVector2 pos = transform.position;
   return (pos.x > rectangle.origin.x &&
           pos.x < rectangle.origin.x + rectangle.size.width &&
           pos.y > rectangle.origin.y &&
