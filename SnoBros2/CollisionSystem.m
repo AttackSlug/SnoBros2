@@ -54,13 +54,10 @@
 
 
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
-  Collision *otherCollision, *myCollision;
-  Transform *otherTransform, *myTransform;
-  
-  myCollision     = [entity getComponentByString:@"Collision"];
-  otherCollision  = [other getComponentByString:@"Collision"];
-  myTransform     = [entity getComponentByString:@"Transform"];
-  otherTransform  = [other getComponentByString:@"Transform"];
+  Collision *myCollision    = [entity getComponentByString:@"Collision"];
+  Collision *otherCollision = [other getComponentByString:@"Collision"];
+  Transform *myTransform    = [entity getComponentByString:@"Transform"];
+  Transform *otherTransform = [other getComponentByString:@"Transform"];
   
   if (entity == other || !otherCollision) { return false; }
 
