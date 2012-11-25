@@ -107,8 +107,10 @@
 
 
 
-- (void)buildAndAddEntity:(NSString *)type {
-  [self add:[self buildEntity:type]];
+- (Entity *)buildAndAddEntity:(NSString *)type {
+  Entity *entity = [self buildEntity:type];
+  [self add:entity];
+  return entity;
 }
 
 
