@@ -73,10 +73,6 @@
 
 
 - (void)render {
-  for (Entity *e in [entityManager_ allSortedByLayer]) {
-    //[e renderWithCamera:camera_ interpolationRatio:timestepAccumulatorRatio_];
-    
-  }
   [renderSystem_ renderEntitieswithInterpolationRatio:timestepAccumulatorRatio_];
 }
 
