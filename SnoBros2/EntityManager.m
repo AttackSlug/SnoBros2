@@ -23,6 +23,11 @@
     entityTypes_ = [[NSMutableDictionary alloc] init];
     quadtree_ = [[Quadtree alloc] initWithLevel:5
                                          bounds:CGRectMake(0, 0, 480, 320)];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(createEntity:)
+                                                 name:@"createEntity"
+                                               object:nil];
   }
   return self;
 }
@@ -65,6 +70,17 @@
     NSString *name = [entityData valueForKey:@"name"];
     [entityTypes_ setValue:entityData forKey:name];
   }
+}
+
+
+
+- (void)createEntity:(NSNotification *)notification {
+  NSString *type             = [notification userInfo][@"type"];
+  void (^callback)(Entity *) = [notification userInfo][@"callback"];
+
+  Entity *entity = [self buildEntity:type];
+  callback(entity);
+  [self add:entity];
 }
 
 

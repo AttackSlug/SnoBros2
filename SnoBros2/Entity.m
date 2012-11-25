@@ -43,7 +43,6 @@
   if (self) {
     NSDictionary *components = [data valueForKey:@"components"];
     for (NSString *componentName in components) {
-
       NSString *className  = [[components valueForKey:componentName]
                               valueForKey:@"type"];
 
