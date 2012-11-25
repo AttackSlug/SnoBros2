@@ -111,12 +111,33 @@
       },
       "selectable": {
         "type": "Selectable"
+      },
+      "attack": {
+        "type": "Attack"
       }
     },
     "sprites": {
       "main": {
         "filePath": "sprite2.png",
         "layer": 1
+      }
+    }
+  },
+  {
+    "name": "Projectile",
+    "tag":  "projectile",
+    "components": {
+      "transform": {
+        "type": "Transform",
+      },
+      "physics": {
+        "type": "Physics",
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "snowball.png",
+        "layer": 2
       }
     }
   }
