@@ -10,12 +10,7 @@
 
 @class Camera;
 
-@class Transform;
-@class Renderer;
-@class Physics;
-@class Behavior;
-@class Collision;
-@class Selectable;
+@class Component;
 
 @class Sprite;
 @class EventManager;
@@ -25,13 +20,8 @@
   NSString     *tag_;
   NSString     *uuid_;
   Sprite       *sprite_;
-
-  Transform    *transform_;
-  Renderer     *renderer_;
-  Physics      *physics_;
-  Behavior     *behavior_;
-  Collision    *collision_;
-  Selectable   *selectable_;
+  
+  NSMutableDictionary *components_;
 
   EventManager *eventManager_;
 }
@@ -40,12 +30,7 @@
 @property (nonatomic) NSString    *uuid;
 @property (nonatomic) Sprite      *sprite;
 
-@property (nonatomic) Transform   *transform;
-@property (nonatomic) Renderer    *renderer;
-@property (nonatomic) Physics     *physics;
-@property (nonatomic) Behavior    *behavior;
-@property (nonatomic) Collision   *collision;
-@property (nonatomic) Selectable  *selectable;
+@property (nonatomic) NSMutableDictionary *components;
 
 - (id)init;
 - (id)initWithTag:(NSString *)tag;
@@ -56,5 +41,9 @@
 
 - (void)sendEvent:(Event *)event;
 - (void)receiveEvent:(Event *)event;
+
+- (id)getComponentByString:(NSString *)string;
+- (void)setComponent:(Component *)component withString:(NSString *)string;
+- (BOOL)hasComponent:(NSString *)string;
 
 @end

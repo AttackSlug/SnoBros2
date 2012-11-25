@@ -27,10 +27,12 @@
 
 
 - (void)walkTo:(GLKVector2)target {
+  Transform *transform  = [entity_ getComponentByString:@"Transform"];
+  Physics   *physics    = [entity_ getComponentByString:@"Physics"];
   target_    = target;
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,
-                                                      entity_.transform.position));
-  entity_.physics.velocity = GLKVector2MultiplyScalar(direction_, 10);
+                                                      transform.position));
+  physics.velocity = GLKVector2MultiplyScalar(direction_, 10);
 }
 
 
