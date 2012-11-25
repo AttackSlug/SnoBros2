@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
 		87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B7D165C0F0D00ACEC28 /* Selectable.m */; };
-		87694B8F165C12CE00ACEC28 /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B8E165C12CE00ACEC28 /* EventManager.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
 		87E49E1C16515A8200202CFB /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF316515A8200202CFB /* Behavior.m */; };
 		87E49E1D16515A8200202CFB /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF516515A8200202CFB /* Component.m */; };
@@ -18,7 +17,6 @@
 		87E49E2116515A8200202CFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFA16515A8200202CFB /* Default@2x.png */; };
 		87E49E2216515A8200202CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87E49DFB16515A8200202CFB /* InfoPlist.strings */; };
 		87E49E2316515A8200202CFB /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DFE16515A8200202CFB /* Entity.m */; };
-		87E49E2416515A8200202CFB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0016515A8200202CFB /* Event.m */; };
 		87E49E2516515A8200202CFB /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0216515A8200202CFB /* InputSystem.m */; };
 		87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0416515A8200202CFB /* LeftPlayer.m */; };
 		87E49E2716515A8200202CFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0516515A8200202CFB /* main.m */; };
@@ -70,8 +68,6 @@
 		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		87694B7C165C0F0D00ACEC28 /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
 		87694B7D165C0F0D00ACEC28 /* Selectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selectable.m; sourceTree = "<group>"; };
-		87694B8D165C12CE00ACEC28 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
-		87694B8E165C12CE00ACEC28 /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
 		87E49DF016515A8200202CFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87E49DF116515A8200202CFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		87E49DF216515A8200202CFB /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -84,8 +80,6 @@
 		87E49DFC16515A8200202CFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87E49DFD16515A8200202CFB /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		87E49DFE16515A8200202CFB /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		87E49DFF16515A8200202CFB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		87E49E0016515A8200202CFB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		87E49E0116515A8200202CFB /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
 		87E49E0216515A8200202CFB /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputSystem.m; sourceTree = "<group>"; };
 		87E49E0316515A8200202CFB /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
@@ -193,7 +187,6 @@
 				A3D40BF0165D77560077EECA /* Resources */,
 				87E49E3F16515FA000202CFB /* Assets */,
 				A37046AD165C18CF00F129E0 /* Systems */,
-				87E49E411651601900202CFB /* Event */,
 				87E49E4016515FCE00202CFB /* Component */,
 				87E49E3C16515F3A00202CFB /* Behavior */,
 				87694B5A165AF0B200ACEC28 /* Entity */,
@@ -270,17 +263,6 @@
 				A3283F34165192860059083E /* Collision.m */,
 			);
 			name = Component;
-			sourceTree = "<group>";
-		};
-		87E49E411651601900202CFB /* Event */ = {
-			isa = PBXGroup;
-			children = (
-				87694B8D165C12CE00ACEC28 /* EventManager.h */,
-				87694B8E165C12CE00ACEC28 /* EventManager.m */,
-				87E49DFF16515A8200202CFB /* Event.h */,
-				87E49E0016515A8200202CFB /* Event.m */,
-			);
-			name = Event;
 			sourceTree = "<group>";
 		};
 		A37046AD165C18CF00F129E0 /* Systems */ = {
@@ -474,7 +456,6 @@
 				87E49E1C16515A8200202CFB /* Behavior.m in Sources */,
 				87E49E1D16515A8200202CFB /* Component.m in Sources */,
 				87E49E2316515A8200202CFB /* Entity.m in Sources */,
-				87E49E2416515A8200202CFB /* Event.m in Sources */,
 				87E49E2516515A8200202CFB /* InputSystem.m in Sources */,
 				87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */,
 				87E49E2716515A8200202CFB /* main.m in Sources */,
@@ -490,7 +471,6 @@
 				A329DD4C165816E1004125DC /* EntityManager.m in Sources */,
 				87694B37165AB5A200ACEC28 /* Game.m in Sources */,
 				87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */,
-				87694B8F165C12CE00ACEC28 /* EventManager.m in Sources */,
 				A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

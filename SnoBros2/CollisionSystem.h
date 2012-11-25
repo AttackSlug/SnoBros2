@@ -9,16 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class Entity;
-@class EventManager;
 @class EntityManager;
 
 @interface CollisionSystem : NSObject {
-  EventManager  *eventManager_;
   EntityManager *entityManager_;
 }
 
-- (id)initWithEventManager:(EventManager *)eventManager
-             entityManager:(EntityManager *)entityManager;
+- (id)initWithEntityManager:(EntityManager *)entityManager;
 
 - (void)update;
 - (void)checkCollisionsFor:(Entity *)entity;

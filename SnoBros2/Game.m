@@ -1,5 +1,5 @@
 //
-//  EventQueue.m
+//  Game.m
 //  SnoBros2
 //
 //  Created by Tanoy Sinha on 11/18/12.
@@ -7,17 +7,17 @@
 //
 
 #import "Game.h"
-#import "Camera.h"
-#import "EventManager.h"
-#import "EntityManager.h"
-#import "CollisionSystem.h"
-
 #import "Entity.h"
+#import "Camera.h"
+
+#import "EntityManager.h"
+#import "InputSystem.h"
+#import "CollisionSystem.h"
 
 @implementation Game
 
 @synthesize camera        = camera_;
-@synthesize eventManager  = eventManager_;
+@synthesize entityManager = entityManager_;
 
 - (id)init {
   self = [super init];
@@ -26,10 +26,8 @@
 
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
-    eventManager_    = [[EventManager alloc] initWithCamera:camera_
-                                              entityManager:entityManager_];
-    collisionSystem_ = [[CollisionSystem alloc] initWithEventManager:eventManager_
-                                                       entityManager:entityManager_];
+    collisionSystem_ = [[CollisionSystem alloc]
+                        initWithEntityManager:entityManager_];
 
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
@@ -64,11 +62,9 @@
     [e update];
   }
   [collisionSystem_ update];
-  [camera_ updateWithEventManager:self.eventManager];
+  [camera_ update];
   [entityManager_ processQueue];
   [entityManager_ update];
-  [eventManager_ executeEvents];
-  [eventManager_ clearEvents];
 }
 
 

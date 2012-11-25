@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@class EntityManager;
 @class Camera;
-@class EventManager;
+@class EntityManager;
 @class CollisionSystem;
+@class InputSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
   EntityManager         *entityManager_;
-  EventManager          *eventManager_;
 
   Camera                *camera_;
   CollisionSystem       *collisionSystem_;
+  InputSystem           *inputSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;
@@ -29,7 +29,7 @@ const static int   MAX_STEPS         = 5;
 }
 
 @property (nonatomic) Camera        *camera;
-@property (nonatomic) EventManager  *eventManager;
+@property (nonatomic) EntityManager *entityManager;
 
 - (void)update:(NSTimeInterval)elapsedTime;
 - (void)step;
