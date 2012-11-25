@@ -132,6 +132,9 @@
       },
       "physics": {
         "type": "Physics",
+      },
+      "seeking": {
+        "type": "Seeking"
       }
     },
     "sprites": {

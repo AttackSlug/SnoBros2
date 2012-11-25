@@ -89,8 +89,9 @@
   [entityManager_ deselectAll];
   Entity *player = [entityManager_ findByTag:@"player"][0];
   Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
+  Entity *target = [entityManager_ findByTag:@"sphere"][0];
 
-  [attack fireAt:player];
+  [attack fireAt:target];
 }
 
 

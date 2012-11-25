@@ -11,6 +11,7 @@
 #import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
+#import "Seeking.h"
 
 @implementation Attack
 
@@ -26,15 +27,17 @@
 
 
 
-- (void)fireAt:(Entity *)entity {
-  Transform *transform = [entity getComponentByString:@"Transform"];
+- (void)fireAt:(Entity *)target {
+  Transform *transform = [entity_ getComponentByString:@"Transform"];
 
   void (^callback)(Entity *) = ^(Entity *projectile){
     Transform *projTransform = [projectile getComponentByString:@"Transform"];
     Physics   *projPhysics   = [projectile getComponentByString:@"Physics"];
+    Seeking   *projSeeking   = [projectile getComponentByString:@"Seeking"];
 
     projTransform.position = transform.position;
     projPhysics.velocity   = GLKVector2Make(10.f, 0.f);
+    projSeeking.target     = target;
   };
   NSDictionary *data = @{@"type": @"Projectile", @"callback": callback};
 
