@@ -26,7 +26,7 @@
 
 - (void)loadEntityTypesFromFile:(NSString *)filename;
 - (Entity *)buildEntity:(NSString *)type;
-- (void)buildAndAddEntity:(NSString *)type;
+- (Entity *)buildAndAddEntity:(NSString *)type;
 
 - (void)queueForDeletion:(Entity *)entity;
 - (void)queueForCreation:(Entity *)entity;

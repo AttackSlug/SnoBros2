@@ -28,6 +28,11 @@
                                              selector:@selector(createEntity:)
                                                  name:@"createEntity"
                                                object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(destroyEntity:)
+                                                 name:@"destroyEntity"
+                                               object:nil];
   }
   return self;
 }
@@ -79,8 +84,18 @@
   void (^callback)(Entity *) = [notification userInfo][@"callback"];
 
   Entity *entity = [self buildEntity:type];
-  callback(entity);
+  if (callback) { callback(entity); }
   [self add:entity];
+}
+
+
+
+- (void)destroyEntity:(NSNotification *)notification {
+  Entity *entity           = [notification userInfo][@"entity"];
+  void (^callback)(Entity *) = [notification userInfo][@"callback"];
+
+  [self remove:entity];
+  if (callback) { callback(entity); }
 }
 
 
@@ -92,8 +107,10 @@
 
 
 
-- (void)buildAndAddEntity:(NSString *)type {
-  [self add:[self buildEntity:type]];
+- (Entity *)buildAndAddEntity:(NSString *)type {
+  Entity *entity = [self buildEntity:type];
+  [self add:entity];
+  return entity;
 }
 
 
