@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class EventManager;
+@class EntityManager;
+@class Camera;
 
 @interface InputSystem : NSObject {
+  EntityManager             *entityManager_;
+  Camera                    *camera_;
+
   UITapGestureRecognizer    *oneFingerTap_;
   UITapGestureRecognizer    *twoFingerTap_;
   UIPanGestureRecognizer    *boxSelector_;
 }
 
 - (id)initWithView:(UIView *)view
-      eventManager:(EventManager *)eventManager;
+     entityManager:(EntityManager *)entityManager
+            camera:(Camera *)camera;
 
 @end

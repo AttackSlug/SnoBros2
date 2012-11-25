@@ -16,9 +16,10 @@
 - (void)viewDidLoad {
   [self setupGL];
 
-  game_           = [[Game alloc] init];
-  inputHandler_   = [[InputSystem alloc] initWithView:self.view
-                                         eventManager:game_.eventManager];
+  game_         = [[Game alloc] init];
+  inputSystem_  = [[InputSystem alloc] initWithView:self.view
+                                      entityManager:game_.entityManager
+                                             camera:game_.camera];
 }
 
 

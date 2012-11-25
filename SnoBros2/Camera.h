@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@class EventManager;
-@class Event;
-
 @interface Camera : NSObject {
   GLKVector2  position_;
   GLKVector2  target_;
@@ -23,10 +20,9 @@
 @property (readonly, nonatomic) GLKVector2 target;
 @property (readonly, nonatomic) GLKVector2 viewport;
 
-- (void)panCameraWithHeading:(GLKVector2)heading;
-- (void)panCameraToTarget:(GLKVector2)target;
-- (void)updateWithEventManager:(EventManager *)eventManager;
+- (void)update;
 
-- (void)receiveEvent:(Event *)event;
+- (void)panCameraWithHeading:(NSNotification *)notification;
+- (void)panCameraToTarget:(NSNotification *)notification;
 
 @end

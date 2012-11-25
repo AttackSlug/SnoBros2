@@ -13,7 +13,7 @@
 
 @interface ViewController : GLKViewController {
   Game        *game_;
-  InputSystem *inputHandler_;
+  InputSystem *inputSystem_;
 }
 
 - (void)update;

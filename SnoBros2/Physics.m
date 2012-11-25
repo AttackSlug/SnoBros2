@@ -9,7 +9,6 @@
 #import "Physics.h"
 #import "Transform.h"
 #import "Entity.h"
-#import "Event.h"
 #import "Collision.h"
 
 @implementation Physics
@@ -17,7 +16,23 @@
 @synthesize velocity = velocity_;
 
 - (id)initWithEntity:(Entity *)entity {
-  return [super initWithEntity:entity];
+  self = [super initWithEntity:entity];
+  if (self) {
+    NSString *collisionEvent = [@"collidedWith:"
+                                stringByAppendingString:entity_.uuid];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(collidedWith:)
+                                                 name:collisionEvent
+                                               object:nil];
+  }
+  return self;
+}
+
+
+
+- (void)collidedWith:(NSNotification *)notification {
+  Entity *other = [notification userInfo][@"entity"];
+  [self resolveCollisionWith:other];
 }
 
 
@@ -68,14 +83,14 @@
 }
 
 
+//TODO: EVENT_FIX
+//- (void)receiveEvent:(Event *)event {
+//  if ([event.type isEqualToString:@"collidedWith"]) {
 
-- (void)receiveEvent:(Event *)event {
-  if ([event.type isEqualToString:@"collidedWith"]) {
+//    Entity *other = event.payload;
+//    [self resolveCollisionWith:other];
 
-    Entity *other = event.payload;
-    [self resolveCollisionWith:other];
-
-  }
-}
+//  }
+//}
 
 @end
