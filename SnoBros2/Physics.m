@@ -82,15 +82,4 @@
   return GLKVector2MultiplyScalar(centers, overlap);
 }
 
-
-//TODO: EVENT_FIX
-//- (void)receiveEvent:(Event *)event {
-//  if ([event.type isEqualToString:@"collidedWith"]) {
-
-//    Entity *other = event.payload;
-//    [self resolveCollisionWith:other];
-
-//  }
-//}
-
 @end
