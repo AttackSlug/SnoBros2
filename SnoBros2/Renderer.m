@@ -39,8 +39,8 @@
 
 
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
-  Sprite *sprite = [[Sprite alloc] initWithFile:[data valueForKey:@"sprite"]];
   int     layer  = [[data valueForKey:@"layer"] intValue];
+  Sprite  *sprite = [[Sprite alloc] initWithFile:[data valueForKey:@"sprite"] layer:layer];
   return [self initWithEntity:entity sprite:sprite layer:layer];
 }
 

@@ -30,7 +30,7 @@
 
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio {
-  for (Entity *e in [entityManager_ allEntities]) {
+  for (Entity *e in [entityManager_ allSortedByLayer]) {
     [self renderEntity:e withInterpolationRatio:ratio];
   }
 }
@@ -39,7 +39,6 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
-  Physics     *physics    = [entity getComponentByString:@"Physics"];
   Renderer    *renderer   = [entity getComponentByString:@"Renderer"];
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
@@ -64,7 +63,7 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, 0);
+  effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, sprite.layer);
   
   [effect prepareToDraw];
   
