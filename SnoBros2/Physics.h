@@ -15,7 +15,7 @@
   GLKVector2 velocity_;
 }
 
-@property GLKVector2 velocity;
+@property (nonatomic) GLKVector2 velocity;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;

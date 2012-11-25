@@ -8,7 +8,8 @@
 
 #import "Entity.h"
 
-#import "Renderer.h"
+#import "Sprite.h"
+#import "Component.h"
 
 @implementation Entity
 
@@ -47,12 +48,25 @@
                               valueForKey:@"type"];
 
       Class componentClass = NSClassFromString(className);
+      if (componentClass == nil) {
+        NSLog(@"ERROR: Attempted to load nonexistent class with name %@ in entity loader", className);
+        exit(0);
+      }
 
       NSDictionary *attributes = [components valueForKey:componentName];
       Component *component     = [[componentClass alloc] initWithEntity:self
                                                            dictionary:attributes];
 
       [self setComponent:component withString:className];
+    }
+    
+    NSDictionary *sprites = [data valueForKey:@"sprites"];
+    for (NSString *spriteName in sprites) {
+      NSString *filePath  = [[sprites valueForKey:spriteName]
+                             valueForKey:@"filePath"];
+      int layer           = [[[sprites valueForKey:spriteName]
+                              valueForKey:@"layer"] intValue];
+      sprite_ = [[Sprite alloc] initWithFile:filePath layer:layer];
     }
   }
   return self;
@@ -64,13 +78,6 @@
   for (id key in components_) {
     [[components_ objectForKey:key] update];
   }
-}
-
-
-
-- (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  Renderer *renderer = [self getComponentByString:@"Renderer"];
-  [renderer renderWithCamera:camera interpolationRatio:ratio];
 }
 
 

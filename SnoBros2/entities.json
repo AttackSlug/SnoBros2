@@ -9,11 +9,12 @@
           "x": 240,
           "y": 160
         }
-      },
-      "renderer": {
-        "type":   "Renderer",
-        "sprite": "wpaper.jpg",
-        "layer":  0
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "wpaper.jpg",
+        "layer": 0
       }
     }
   },
@@ -35,17 +36,18 @@
           "y": 0
         }
       },
-      "renderer": {
-        "type":   "Renderer",
-        "sprite": "snowball.png",
-        "layer": 1
-      },
       "behavior": {
         "type": "Sphere"
       },
       "collision": {
         "type":   "Collision",
         "radius": 10
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "snowball.png",
+        "layer": 1
       }
     }
   },
@@ -67,17 +69,18 @@
           "y":  0
         }
       },
-      "renderer": {
-        "type":   "Renderer",
-        "sprite": "snowball.png",
-        "layer": 1
-      },
       "behavior": {
         "type": "Sphere"
       },
       "collision": {
         "type": "Collision",
         "radius": 10
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "snowball.png",
+        "layer": 1
       }
     }
   },
@@ -99,11 +102,6 @@
           "y": 0
         }
       },
-      "renderer": {
-        "type":   "Renderer",
-        "sprite": "sprite2.png",
-        "layer": 1
-      },
       "behavior": {
         "type": "LeftPlayer"
       },
@@ -113,6 +111,12 @@
       },
       "selectable": {
         "type": "Selectable"
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "sprite2.png",
+        "layer": 1
       }
     }
   }
