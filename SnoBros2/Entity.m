@@ -8,8 +8,8 @@
 
 #import "Entity.h"
 
-#import "Renderer.h"
 #import "Sprite.h"
+#import "Component.h"
 
 @implementation Entity
 
@@ -48,6 +48,10 @@
                               valueForKey:@"type"];
 
       Class componentClass = NSClassFromString(className);
+      if (componentClass == nil) {
+        NSLog(@"ERROR: Attempted to load nonexistent class with name %@ in entity loader", className);
+        exit(0);
+      }
 
       NSDictionary *attributes = [components valueForKey:componentName];
       Component *component     = [[componentClass alloc] initWithEntity:self
@@ -74,13 +78,6 @@
   for (id key in components_) {
     [[components_ objectForKey:key] update];
   }
-}
-
-
-
-- (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
-  Renderer *renderer = [self getComponentByString:@"Renderer"];
-  [renderer renderWithCamera:camera interpolationRatio:ratio];
 }
 
 

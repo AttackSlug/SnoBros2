@@ -24,7 +24,6 @@
 		87E49E2816515A8200202CFB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0616515A8200202CFB /* map.png */; };
 		87E49E2916515A8200202CFB /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0816515A8200202CFB /* Physics.m */; };
 		87E49E2A16515A8200202CFB /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E0916515A8200202CFB /* player.png */; };
-		87E49E2C16515A8200202CFB /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E0D16515A8200202CFB /* Renderer.m */; };
 		87E49E3016515A8200202CFB /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E49E1416515A8200202CFB /* snowball.png */; };
 		87E49E3116515A8200202CFB /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1616515A8200202CFB /* Sprite.m */; };
 		87E49E3216515A8200202CFB /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49E1816515A8200202CFB /* Transform.m */; };
@@ -92,8 +91,6 @@
 		87E49E0716515A8200202CFB /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
 		87E49E0816515A8200202CFB /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
 		87E49E0916515A8200202CFB /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		87E49E0C16515A8200202CFB /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
-		87E49E0D16515A8200202CFB /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
 		87E49E1216515A8200202CFB /* SnoBros2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
 		87E49E1316515A8200202CFB /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
 		87E49E1416515A8200202CFB /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
@@ -258,8 +255,6 @@
 				87694B7D165C0F0D00ACEC28 /* Selectable.m */,
 				87E49E0716515A8200202CFB /* Physics.h */,
 				87E49E0816515A8200202CFB /* Physics.m */,
-				87E49E0C16515A8200202CFB /* Renderer.h */,
-				87E49E0D16515A8200202CFB /* Renderer.m */,
 				87E49E1716515A8200202CFB /* Transform.h */,
 				87E49E1816515A8200202CFB /* Transform.m */,
 				A3283F33165192850059083E /* Collision.h */,
@@ -465,7 +460,6 @@
 				87E49E2616515A8200202CFB /* LeftPlayer.m in Sources */,
 				87E49E2716515A8200202CFB /* main.m in Sources */,
 				87E49E2916515A8200202CFB /* Physics.m in Sources */,
-				87E49E2C16515A8200202CFB /* Renderer.m in Sources */,
 				87E49E3116515A8200202CFB /* Sprite.m in Sources */,
 				87E49E3216515A8200202CFB /* Transform.m in Sources */,
 				87E49E3316515A8200202CFB /* ViewController.m in Sources */,

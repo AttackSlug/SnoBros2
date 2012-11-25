@@ -9,9 +9,9 @@
 #import "EntityManager.h"
 
 #import "Entity.h"
-#import "Renderer.h"
 #import "Quadtree.h"
 #import "Selectable.h"
+#import "Sprite.h"
 
 @implementation EntityManager
 
@@ -120,11 +120,11 @@
 - (NSArray *)allSortedByLayer {
   NSArray *all = [entities_ allValues];
   NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    Renderer *renderer1 = [obj1 getComponentByString:@"Renderer"];
-    Renderer *renderer2 = [obj2 getComponentByString:@"Renderer"];
-    if (renderer1.layer < renderer2.layer) {
+    Sprite *sprite1 = [(Entity *)obj1 sprite];
+    Sprite *sprite2 = [(Entity *)obj2 sprite];
+    if (sprite1.layer < sprite2.layer) {
       return (NSComparisonResult)NSOrderedAscending;
-    } else if (renderer1.layer > renderer2.layer) {
+    } else if (sprite1.layer > sprite2.layer) {
       return (NSComparisonResult)NSOrderedDescending;
     } else {
       return (NSComparisonResult)NSOrderedSame;

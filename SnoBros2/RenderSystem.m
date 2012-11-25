@@ -13,7 +13,6 @@
 #import "Camera.h"
 #import "Transform.h"
 #import "Physics.h"
-#import "Renderer.h"
 #import "Sprite.h"
 
 @implementation RenderSystem
