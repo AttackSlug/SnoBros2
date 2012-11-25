@@ -10,10 +10,13 @@
 
 @implementation Sprite
 
-@synthesize vertices = vertices_;
-@synthesize uvMap    = uvMap_;
-@synthesize texture  = texture_;
-@synthesize layer    = layer_;
+@synthesize vertices        = vertices_;
+@synthesize uvMap           = uvMap_;
+@synthesize modelViewMatrix = modelViewMatrix_;
+@synthesize texture         = texture_;
+@synthesize layer           = layer_;
+@synthesize children        = children_;
+@synthesize parent          = parent_;
 
 - (id)initWithFile:(NSString *)filePath {
   self = [super init];
@@ -39,7 +42,6 @@
     uvMap_[2] = GLKVector2Make(1, 0);
     uvMap_[3] = GLKVector2Make(1, 1);
   }
-
   return self;
 }
 
@@ -69,7 +71,10 @@
     uvMap_[2] = GLKVector2Make(1, 0);
     uvMap_[3] = GLKVector2Make(1, 1);
     
-    layer_ = layer;
+    modelViewMatrix_  = GLKMatrix4Identity;
+    layer_            = layer;
+    children_         = [[NSMutableArray alloc] init];
+    parent_           = nil;
   }
   
   return self;
@@ -84,6 +89,13 @@
 
 
 
+- (void)addChild:(Sprite *)child {
+  child.parent = self;
+  [children_ addObject:child];
+}
+
+
+
 - (unsigned)width {
   return texture_.width;
 }
@@ -93,5 +105,9 @@
 - (unsigned)height {
   return texture_.height;
 }
+
+
+
+
 
 @end

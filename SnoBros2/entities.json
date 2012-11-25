@@ -119,7 +119,14 @@
     "sprites": {
       "main": {
         "filePath": "sprite2.png",
-        "layer": 1
+        "layer": 1,
+        "children": {
+          "healthBar": {
+            "filePath": "healthgradient.png",
+            "layer": 1,
+            "children": "nil"
+          }
+        }
       }
     }
   },

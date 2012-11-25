@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B5BD1661BEE600D1B353 /* RenderSystem.m */; };
+		8718B5F21662AC3700D1B353 /* healthgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 8718B5F11662AC3700D1B353 /* healthgradient.png */; };
 		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
 		87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B7D165C0F0D00ACEC28 /* Selectable.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		8718B5BC1661BEE600D1B353 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
 		8718B5BD1661BEE600D1B353 /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderSystem.m; sourceTree = "<group>"; };
+		8718B5F11662AC3700D1B353 /* healthgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient.png; sourceTree = "<group>"; };
 		87694B35165AB5A200ACEC28 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		87694B7C165C0F0D00ACEC28 /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		87E49E3F16515FA000202CFB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8718B5F11662AC3700D1B353 /* healthgradient.png */,
 				87E49E581651B9B100202CFB /* wpaper.jpg */,
 				87E49E5A1651B9CA00202CFB /* sprite2.png */,
 				87E49E5216518BAA00202CFB /* map2.png */,
@@ -428,6 +431,7 @@
 				87E49E5B1651B9CA00202CFB /* sprite2.png in Resources */,
 				A3283F3A1652A6B90059083E /* snowball-small.png in Resources */,
 				A3D40BF2165D77770077EECA /* entities.json in Resources */,
+				8718B5F21662AC3700D1B353 /* healthgradient.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
