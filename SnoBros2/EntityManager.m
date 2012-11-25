@@ -19,7 +19,8 @@
 - (id)init {
   self = [super init];
   if (self) {
-    entities_ = [[NSMutableDictionary alloc] init];
+    entities_    = [[NSMutableDictionary alloc] init];
+    entityTypes_ = [[NSMutableDictionary alloc] init];
     quadtree_ = [[Quadtree alloc] initWithLevel:5
                                          bounds:CGRectMake(0, 0, 480, 320)];
   }
@@ -40,9 +41,9 @@
 
 
 
-- (void)loadFromFile:(NSString *)filename {
+- (void)loadEntityTypesFromFile:(NSString *)filename {
   NSError  *error;
-  NSString *path  = [[NSBundle mainBundle]
+  NSString *path = [[NSBundle mainBundle]
                      pathForResource:filename ofType:@"json"];
   NSString *json = [[NSString alloc] initWithContentsOfFile:path
                                                    encoding:NSUTF8StringEncoding
@@ -57,33 +58,26 @@
 
   if ([entityData isKindOfClass:[NSArray class]]) {
     for (NSDictionary *d in entityData) {
-      [self add:[self buildEntityFromDictionary:d]];
+      NSString *name = [d valueForKey:@"name"];
+      [entityTypes_ setValue:d forKey:name];
     }
   } else {
-    [self add:[self buildEntityFromDictionary:entityData]];
+    NSString *name = [entityData valueForKey:@"name"];
+    [entityTypes_ setValue:entityData forKey:name];
   }
 }
 
 
 
-- (Entity *)buildEntityFromDictionary:(NSDictionary *)data {
-  Entity *entity = [[Entity alloc] initWithTag:[data valueForKey:@"tag"]];
+- (Entity *)buildEntity:(NSString *)type {
+  NSDictionary * entityData = [entityTypes_ valueForKey:type];
+  return [[Entity alloc] initWithDictionary:entityData];
+}
 
-  NSDictionary *components = [data valueForKey:@"components"];
-  for (NSString *componentName in components) {
-    NSString *className  = [[components valueForKey:componentName]
-                            valueForKey:@"type"];
-    
-    Class componentClass = NSClassFromString(className);
 
-    NSDictionary *attributes = [components valueForKey:componentName];
-    Component *component     = [[componentClass alloc] initWithEntity:entity
-                                                           dictionary:attributes];
 
-    [entity setComponent:component withString:className];
-  }
-
-  return entity;
+- (void)buildAndAddEntity:(NSString *)type {
+  [self add:[self buildEntity:type]];
 }
 
 
@@ -168,7 +162,7 @@
 
 - (NSArray *)findAllSelected {
   NSMutableArray *found = [[NSMutableArray alloc] init];
-  
+
   for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
     Selectable *selectable = [e getComponentByString:@"Selectable"];
     if (selectable.selected == TRUE) {

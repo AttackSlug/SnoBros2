@@ -15,6 +15,7 @@
   NSMutableDictionary *entities_;
   NSMutableArray      *toBeDeleted_;
   NSMutableArray      *toBeCreated_;
+  NSMutableDictionary *entityTypes_;
   Quadtree            *quadtree_;
 }
 
@@ -22,8 +23,10 @@
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
-- (void)loadFromFile:(NSString *)filename;
-- (Entity *)buildEntityFromDictionary:(NSDictionary *)data;
+
+- (void)loadEntityTypesFromFile:(NSString *)filename;
+- (Entity *)buildEntity:(NSString *)type;
+- (void)buildAndAddEntity:(NSString *)type;
 
 - (void)queueForDeletion:(Entity *)entity;
 - (void)queueForCreation:(Entity *)entity;

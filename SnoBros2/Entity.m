@@ -47,6 +47,29 @@
 
 
 
+- (id)initWithDictionary:(NSDictionary *)data {
+  self = [self initWithTag:[data valueForKey:@"tag"]];
+  if (self) {
+    NSDictionary *components = [data valueForKey:@"components"];
+    for (NSString *componentName in components) {
+
+      NSString *className  = [[components valueForKey:componentName]
+                              valueForKey:@"type"];
+
+      Class componentClass = NSClassFromString(className);
+
+      NSDictionary *attributes = [components valueForKey:componentName];
+      Component *component     = [[componentClass alloc] initWithEntity:self
+                                                           dictionary:attributes];
+
+      [self setComponent:component withString:className];
+    }
+  }
+  return self;
+}
+
+
+
 - (void)update {
   for (id key in components_) {
     [[components_ objectForKey:key] update];
