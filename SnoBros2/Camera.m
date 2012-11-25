@@ -7,8 +7,6 @@
 //
 
 #import "Camera.h"
-#import "Event.h"
-#import "EventManager.h"
 
 @implementation Camera
 
@@ -23,53 +21,50 @@
     target_ = GLKVector2Make(-240, -160);
     viewport_ = GLKVector2Make(480, 320);
     maxspeed_ = 10;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(panCameraToTarget:)
+                                                 name:@"panCameraToTarget"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(panCameraWithHeading:)
+                                                 name:@"panCameraWithHeading"
+                                               object:nil];
   }
   return self;
 }
 
 
 
-- (void)panCameraWithHeading:(GLKVector2)heading {
+- (void)update {
+  if (GLKVector2Distance(position_, target_) > 10) {
+    GLKVector2 heading = GLKVector2Normalize(GLKVector2Subtract(target_, position_));
+    NSValue   *payload = [NSValue value:&heading withObjCType:@encode(GLKVector2)];
+    NSDictionary *data = @{@"heading": payload};
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraWithHeading"
+                                                        object:self
+                                                      userInfo:data];
+  }
+}
+
+
+
+- (void)panCameraWithHeading:(NSNotification *)notification {
+  GLKVector2 heading;
+  [[notification userInfo][@"heading"] getValue:&heading];
+
   position_ = GLKVector2Add(position_,
                             GLKVector2MultiplyScalar(heading, maxspeed_));
 }
 
 
 
-- (void)panCameraToTarget:(GLKVector2)target {
+- (void)panCameraToTarget:(NSNotification *)notification {
+  GLKVector2 target;
+  [[notification userInfo][@"target"] getValue:&target];
+
   target_ = GLKVector2Subtract(target, GLKVector2Make(240, 160));
-}
-
-
-
-- (void)updateWithEventManager:(EventManager *)eventManager {
-  if (GLKVector2Distance(position_, target_) > 10) {
-    GLKVector2 heading = GLKVector2Normalize(GLKVector2Subtract(target_, position_));
-    NSValue   *payload = [NSValue value:&heading withObjCType:@encode(GLKVector2)];
-
-    Event *event = [[Event alloc] initWithType:@"panCameraWithHeading"
-                                        target:@"camera"
-                                       payload:payload];
-    [eventManager addEvent:event];
-  }
-}
-
-
-
-- (void)receiveEvent:(Event *)event {
-  if ([event.type isEqualToString:@"panCameraToTarget"]) {
-
-    GLKVector2 target;
-    [event.payload getValue:&target];
-    [self panCameraToTarget:target];
-
-  } else if ([event.type isEqualToString:@"panCameraWithHeading"]) {
-
-    GLKVector2 heading;
-    [event.payload getValue:&heading];
-    [self panCameraWithHeading:heading];
-
-  }
 }
 
 @end

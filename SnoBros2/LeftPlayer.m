@@ -10,12 +10,19 @@
 #import "Physics.h"
 #import "Transform.h"
 #import "Entity.h"
-#import "Event.h"
 
 @implementation LeftPlayer
 
 - (id)initWithEntity:(Entity *)entity {
-  return [super initWithEntity:entity];
+  self = [super initWithEntity:entity];
+  if (self) {
+    NSString *walkTo = [@"walkTo:" stringByAppendingString:entity_.uuid];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(walkTo:)
+                                                 name:walkTo
+                                               object:nil];
+  }
+  return self;
 }
 
 
@@ -26,25 +33,15 @@
 
 
 
-- (void)walkTo:(GLKVector2)target {
+- (void)walkTo:(NSNotification *)notification {
   Transform *transform  = [entity_ getComponentByString:@"Transform"];
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
-  target_    = target;
+
+  [[notification userInfo][@"target"] getValue:&target_];
+
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,
                                                       transform.position));
   physics.velocity = GLKVector2MultiplyScalar(direction_, 10);
-}
-
-
-
-- (void)receiveEvent:(Event *)event {
-  if ([event.type isEqualToString:@"walkTo"]) {
-
-    GLKVector2 target;
-    [event.payload getValue:&target];
-    [self walkTo:target];
-
-  }
 }
 
 @end

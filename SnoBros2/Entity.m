@@ -8,8 +8,6 @@
 
 #import "Entity.h"
 
-#import "EventManager.h"
-
 #import "Renderer.h"
 
 @implementation Entity
@@ -21,25 +19,18 @@
 @synthesize components  = components_;
 
 - (id)init {
-  return [self initWithTag:@"untagged" eventManager:nil];
+  return [self initWithTag:@"untagged"];
 }
 
 
 
 - (id)initWithTag:(NSString *)tag {
-  return [self initWithTag:tag eventManager:nil];
-}
-
-
-
-- (id)initWithTag:(NSString *)tag eventManager:(EventManager *)eventManager {
   self = [super init];
   if (self) {
     tag_ = tag;
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     uuid_ = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
-    eventManager_ = eventManager;
     components_ = [[NSMutableDictionary alloc] init];
   }
   return self;
@@ -81,20 +72,6 @@
 - (void)renderWithCamera:(Camera*)camera interpolationRatio:(double)ratio {
   Renderer *renderer = [self getComponentByString:@"Renderer"];
   [renderer renderWithCamera:camera interpolationRatio:ratio];
-}
-
-
-
-- (void)sendEvent:(Event *)event {
-  [eventManager_ addEvent:event];
-}
-
-
-
-- (void)receiveEvent:(Event *)event {
-  for (id key in components_) {
-    [[components_ objectForKey:key] receiveEvent:event];
-  }
 }
 
 

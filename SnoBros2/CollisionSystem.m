@@ -7,20 +7,16 @@
 //
 
 #import "CollisionSystem.h"
-#import "EventManager.h"
 #import "EntityManager.h"
 #import "Entity.h"
-#import "Event.h"
 #import "Transform.h"
 #import "Collision.h"
 
 @implementation CollisionSystem
 
-- (id)initWithEventManager:(EventManager *)eventManager
-             entityManager:(EntityManager *)entityManager {
+- (id)initWithEntityManager:(EntityManager *)entityManager {
   self = [super init];
   if (self) {
-    eventManager_  = eventManager;
     entityManager_ = entityManager;
   }
   return self;
@@ -43,10 +39,11 @@
 
   for (Entity *other in otherEntities) {
     if ([self didEntity:entity collideWith:other]) {
-      Event *event     = [[Event alloc] initWithType:@"collidedWith"
-                                              target:other.uuid
-                                             payload:other];
-      [eventManager_ addEvent:event];
+      NSString *name = [@"collidedWith:" stringByAppendingString:other.uuid];
+      NSDictionary *data = @{@"entity": other};
+      [[NSNotificationCenter defaultCenter] postNotificationName:name
+                                                          object:entity
+                                                        userInfo:data];
     }
   }
 }
