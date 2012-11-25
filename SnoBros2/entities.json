@@ -133,6 +133,9 @@
       "physics": {
         "type": "Physics",
       },
+      "collision": {
+        "type": "Collision"
+      },
       "seeking": {
         "type": "Seeking"
       }

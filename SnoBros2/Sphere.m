@@ -42,8 +42,4 @@
   }
 }
 
-- (void)collidedWith:(NSValue *)value {
-  NSLog(@"Handling collision!");
-}
-
 @end

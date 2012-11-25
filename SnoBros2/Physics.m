@@ -18,8 +18,8 @@
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
-    NSString *collisionEvent = [@"collidedWith:"
-                                stringByAppendingString:entity_.uuid];
+    NSString *collisionEvent = [entity_.uuid
+                                stringByAppendingString:@"|collidedWith"];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(collidedWith:)
                                                  name:collisionEvent
@@ -31,7 +31,7 @@
 
 
 - (void)collidedWith:(NSNotification *)notification {
-  Entity *other = [notification userInfo][@"entity"];
+  Entity *other = [notification userInfo][@"otherEntity"];
   [self resolveCollisionWith:other];
 }
 

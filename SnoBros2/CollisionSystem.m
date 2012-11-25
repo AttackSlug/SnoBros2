@@ -39,10 +39,10 @@
 
   for (Entity *other in otherEntities) {
     if ([self didEntity:entity collideWith:other]) {
-      NSString *name = [@"collidedWith:" stringByAppendingString:other.uuid];
-      NSDictionary *data = @{@"entity": other};
+      NSString *name = [entity.uuid stringByAppendingString:@"|collidedWith"];
+      NSDictionary *data = @{@"otherEntity": other};
       [[NSNotificationCenter defaultCenter] postNotificationName:name
-                                                          object:entity
+                                                          object:self
                                                         userInfo:data];
     }
   }
