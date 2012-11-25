@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B5BD1661BEE600D1B353 /* RenderSystem.m */; };
 		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
 		87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B7D165C0F0D00ACEC28 /* Selectable.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
@@ -64,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8718B5BC1661BEE600D1B353 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		8718B5BD1661BEE600D1B353 /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderSystem.m; sourceTree = "<group>"; };
 		87694B35165AB5A200ACEC28 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		87694B7C165C0F0D00ACEC28 /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				87E49E0216515A8200202CFB /* InputSystem.m */,
 				A37046AF165C18F200F129E0 /* CollisionSystem.h */,
 				A37046B0165C18F200F129E0 /* CollisionSystem.m */,
+				8718B5BC1661BEE600D1B353 /* RenderSystem.h */,
+				8718B5BD1661BEE600D1B353 /* RenderSystem.m */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				87694B37165AB5A200ACEC28 /* Game.m in Sources */,
 				87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */,
 				A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */,
+				8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
