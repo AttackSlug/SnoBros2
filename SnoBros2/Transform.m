@@ -11,6 +11,7 @@
 @implementation Transform
 
 @synthesize position = position_;
+@synthesize previousPosition = previousPosition_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -27,6 +28,7 @@
     NSDictionary *p = [data valueForKey:@"position"];
     position_ = GLKVector2Make([[p valueForKey:@"x"] floatValue],
                                [[p valueForKey:@"y"] floatValue]);
+    previousPosition_ = position_;
   }
   return self;
 }
@@ -43,6 +45,12 @@
   Transform *copy = [[Transform alloc] initWithEntity:entity_];
   copy.position = position_;
   return copy;
+}
+
+
+
+- (void)update {
+  previousPosition_ = position_;
 }
 
 @end

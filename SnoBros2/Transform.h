@@ -11,14 +11,18 @@
 
 @interface Transform : Component {
   GLKVector2 position_;
+  GLKVector2 previousPosition_;
 }
 
 @property (nonatomic) GLKVector2 position;
+@property (nonatomic) GLKVector2 previousPosition;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (void)translate:(GLKVector2)translation;
 - (Transform *)copy;
+
+- (void)update;
 
 @end

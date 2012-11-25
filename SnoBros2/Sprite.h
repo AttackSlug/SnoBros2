@@ -13,6 +13,7 @@
   GLKVector2     *vertices_;
   GLKVector2     *uvMap_;
   GLKTextureInfo *texture_;
+  int            layer_;
 }
 
 @property (readonly, nonatomic) unsigned width;
@@ -20,8 +21,10 @@
 @property (readonly, nonatomic) GLKVector2 *vertices;
 @property (readonly, nonatomic) GLKVector2 *uvMap;
 @property (readonly, nonatomic) GLKTextureInfo *texture;
+@property (readonly, nonatomic) int layer;
 
 - (id)initWithFile:(NSString *)filePath;
+- (id)initWithFile:(NSString *)filePath layer:(int)layer;
 - (void)dealloc;
 
 @end
