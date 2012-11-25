@@ -15,6 +15,12 @@
         "sprite": "wpaper.jpg",
         "layer":  0
       }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "wpaper.jpg",
+        "layer": 0
+      }
     }
   },
   {
@@ -47,6 +53,12 @@
         "type":   "Collision",
         "radius": 10
       }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "snowball.png",
+        "layer": 1
+      }
     }
   },
   {
@@ -78,6 +90,12 @@
       "collision": {
         "type": "Collision",
         "radius": 10
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "snowball.png",
+        "layer": 1
       }
     }
   },
@@ -113,6 +131,12 @@
       },
       "selectable": {
         "type": "Selectable"
+      }
+    },
+    "sprites": {
+      "main": {
+        "filePath": "sprite2.png",
+        "layer": 1
       }
     }
   }

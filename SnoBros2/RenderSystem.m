@@ -39,11 +39,10 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
-  Renderer    *renderer   = [entity getComponentByString:@"Renderer"];
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
-  [self renderSprite:renderer.sprite atPosition:position];
+  [self renderSprite:entity.sprite atPosition:position];
 }
 
 

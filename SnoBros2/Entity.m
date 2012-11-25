@@ -9,6 +9,7 @@
 #import "Entity.h"
 
 #import "Renderer.h"
+#import "Sprite.h"
 
 @implementation Entity
 
@@ -53,6 +54,15 @@
                                                            dictionary:attributes];
 
       [self setComponent:component withString:className];
+    }
+    
+    NSDictionary *sprites = [data valueForKey:@"sprites"];
+    for (NSString *spriteName in sprites) {
+      NSString *filePath  = [[sprites valueForKey:spriteName]
+                             valueForKey:@"filePath"];
+      int layer           = [[[sprites valueForKey:spriteName]
+                              valueForKey:@"layer"] intValue];
+      sprite_ = [[Sprite alloc] initWithFile:filePath layer:layer];
     }
   }
   return self;
