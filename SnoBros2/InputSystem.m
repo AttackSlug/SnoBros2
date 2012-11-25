@@ -77,7 +77,7 @@
     for (Entity *p in players) {
       Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
       if ([playerSelectable isAtLocation:pos]) {
-        playerSelectable.selected = TRUE;
+        [playerSelectable selectUnit];
       }
     }
   }
@@ -111,7 +111,7 @@
     for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
       Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
       if ([entSelectable isInRectangle:rectangle]) {
-        entSelectable.selected = TRUE;
+        [entSelectable selectUnit];
       }
     }
   }

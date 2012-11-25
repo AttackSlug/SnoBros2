@@ -10,6 +10,7 @@
 #import "Collision.h"
 #import "Transform.h"
 #import "Entity.h"
+#import "Sprite.h"
 
 @implementation Selectable
 
@@ -50,6 +51,22 @@
           pos.x < rectangle.origin.x + rectangle.size.width &&
           pos.y > rectangle.origin.y &&
           pos.y < rectangle.origin.y + rectangle.size.height);
+}
+
+
+
+- (void)selectUnit {
+  selected_ = TRUE;
+  Sprite *healthBar = [entity_ getSpriteByTag:@"healthBar"];
+  healthBar.visible = TRUE;
+}
+
+
+
+- (void)deselectUnit {
+  selected_ = FALSE;
+  Sprite *healthBar = [entity_ getSpriteByTag:@"healthBar"];
+  healthBar.visible = FALSE;
 }
 
 @end

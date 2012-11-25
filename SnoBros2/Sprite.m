@@ -12,11 +12,12 @@
 
 @synthesize vertices        = vertices_;
 @synthesize uvMap           = uvMap_;
-@synthesize modelViewMatrix = modelViewMatrix_;
 @synthesize texture         = texture_;
+@synthesize tag             = tag_;
 @synthesize layer           = layer_;
 @synthesize children        = children_;
 @synthesize parent          = parent_;
+@synthesize visible         = visible_;
 
 - (id)initWithFile:(NSString *)filePath {
   self = [super init];
@@ -47,7 +48,7 @@
 
 
 
-- (id)initWithFile:(NSString *)filePath layer:(int)layer {
+- (id)initWithFile:(NSString *)filePath layer:(int)layer tag:(NSString *)tag {
   self = [super init];
   if (self) {
     texture_  = [GLKTextureLoader
@@ -75,8 +76,9 @@
     layer_            = layer;
     children_         = [[NSMutableArray alloc] init];
     parent_           = nil;
+    visible_          = TRUE;
+    tag_              = tag;
   }
-  
   return self;
 }
 
@@ -108,6 +110,18 @@
 
 
 
+- (GLKMatrix4)modelViewMatrix {
+  if (parent_ != nil) {
+    return GLKMatrix4Multiply(parent_.modelViewMatrix, modelViewMatrix_);
+  }
+  return modelViewMatrix_;
+}
+
+
+
+- (void)translate:(GLKVector2)translation {
+  modelViewMatrix_ = GLKMatrix4Translate(modelViewMatrix_, translation.x, translation.y, 0);
+}
 
 
 @end

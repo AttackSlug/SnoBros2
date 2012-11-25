@@ -222,7 +222,7 @@
 - (void)deselectAll {
   for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
     Selectable *selectable = [e getComponentByString:@"Selectable"];
-    selectable.selected = FALSE;
+    [selectable deselectUnit];
   }
 }
 

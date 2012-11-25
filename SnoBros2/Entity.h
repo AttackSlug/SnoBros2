@@ -39,4 +39,6 @@
 - (void)setComponent:(Component *)component withString:(NSString *)string;
 - (BOOL)hasComponent:(NSString *)string;
 
+- (Sprite *)getSpriteByTag:(NSString *)tag;
+
 @end

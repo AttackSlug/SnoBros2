@@ -46,6 +46,14 @@
 
 
 - (void)renderSprite:(Sprite *)sprite atPosition:(GLKVector2)position {
+  if (sprite.visible == FALSE) {
+    return;
+  }
+  if (sprite.children != nil) {
+    for (Sprite *child in sprite.children) {
+      [self renderSprite:child atPosition:position];
+    }
+  }
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
@@ -60,7 +68,10 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, sprite.layer);
+  effect.transform.modelviewMatrix = GLKMatrix4Multiply(sprite.modelViewMatrix,
+                                                        GLKMatrix4MakeTranslation(position.x,
+                                                                                  position.y,
+                                                                                  sprite.layer));
   
   [effect prepareToDraw];
   
