@@ -25,6 +25,7 @@
 
 @property (readonly, nonatomic) int width;
 @property (readonly, nonatomic) int height;
+@property (nonatomic)           Sprite *sprite;
 @property (nonatomic)           int layer;
 
 - (id)initWithEntity:(Entity *)entity

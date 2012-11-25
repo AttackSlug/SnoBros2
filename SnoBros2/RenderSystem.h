@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 
 @class EntityManager;
 @class Entity;
 @class Camera;
+@class Sprite;
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
@@ -19,7 +21,8 @@
 
 - (id)initWithEntityManager:(EntityManager *)entityManager camera:(Camera *)camera;
 
-- (void)renderEntities;
-- (void)renderEntity:(Entity *)entity withCamera:(Camera *)camera;
+- (void)renderEntitieswithInterpolationRatio:(double)ratio;
+- (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;
+- (void)renderSprite:(Sprite *)sprite atPosition:(GLKVector2)position;
 
 @end

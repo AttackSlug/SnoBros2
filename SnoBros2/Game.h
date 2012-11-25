@@ -12,6 +12,7 @@
 @class EntityManager;
 @class CollisionSystem;
 @class InputSystem;
+@class RenderSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
@@ -22,6 +23,7 @@ const static int   MAX_STEPS         = 5;
   Camera                *camera_;
   CollisionSystem       *collisionSystem_;
   InputSystem           *inputSystem_;
+  RenderSystem          *renderSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;

@@ -13,6 +13,7 @@
 #import "EntityManager.h"
 #import "InputSystem.h"
 #import "CollisionSystem.h"
+#import "RenderSystem.h"
 
 @implementation Game
 
@@ -28,6 +29,8 @@
     entityManager_   = [[EntityManager alloc] init];
     collisionSystem_ = [[CollisionSystem alloc]
                         initWithEntityManager:entityManager_];
+    renderSystem_    = [[RenderSystem alloc]
+                        initWithEntityManager:entityManager_ camera:camera_];
 
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
@@ -71,8 +74,8 @@
 
 - (void)render {
   for (Entity *e in [entityManager_ allSortedByLayer]) {
-    [e renderWithCamera:camera_
-     interpolationRatio:timestepAccumulatorRatio_];
+    //[e renderWithCamera:camera_ interpolationRatio:timestepAccumulatorRatio_];
+    [renderSystem_ renderEntitieswithInterpolationRatio:timestepAccumulatorRatio_];
   }
 }
 

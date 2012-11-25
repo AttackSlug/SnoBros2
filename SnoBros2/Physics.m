@@ -13,7 +13,7 @@
 
 @implementation Physics
 
-@synthesize velocity = velocity_;
+@synthesize velocity          = velocity_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];

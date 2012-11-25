@@ -17,6 +17,7 @@
 @synthesize width  = width_;
 @synthesize height = height_;
 @synthesize layer  = layer_;
+@synthesize sprite = sprite_;
 
 - (id)initWithEntity:(Entity *)entity
               sprite:(Sprite *)sprite
