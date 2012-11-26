@@ -12,13 +12,17 @@
 
 @interface Health : Component {
   float   health_;
+  float   maxHealth_;
   Sprite  *healthBar_;
 }
 
 @property (nonatomic) float health;
+@property (nonatomic) float maxHealth;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+- (void)damage:(float)amount;
+- (void)heal:(float)amount;
 - (void)showHealthBar;
 - (void)hideHealthBar;
 

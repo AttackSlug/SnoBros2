@@ -31,11 +31,32 @@
     
     healthBar_  = [renderable getSpriteByTag:spriteName];
     health_     = [[data valueForKey:@"health"] floatValue];
+    maxHealth_  = health_;
     
     [healthBar_ translate:GLKVector2Make(0, -(healthBar_.parent.height / 2.f))];
     [self hideHealthBar];
   }
   return self;
+}
+
+
+
+- (void)damage:(float)amount {
+  health_ -= amount;
+  if (health_ < 0) {
+    health_ = 0;
+  }
+  [healthBar_ cropByPercent:(health_/maxHealth_)];
+}
+
+
+
+- (void)heal:(float)amount {
+  health_ += amount;
+  if (health_ > maxHealth_) {
+    health_ = maxHealth_;
+  }
+  [healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 

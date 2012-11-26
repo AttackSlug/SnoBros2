@@ -101,4 +101,16 @@
 }
 
 
+
+- (void)cropByPercent:(float)percent {
+  int halfWidth = self.width / 2.f;
+  int halfHeight = self.height / 2.f;
+  
+  int cropEdge = MIN(percent * 2 * halfWidth - halfWidth, halfWidth);
+  vertices_[0] = GLKVector2Make(-halfWidth,  halfHeight);
+  vertices_[1] = GLKVector2Make(-halfWidth, -halfHeight);
+  vertices_[2] = GLKVector2Make(  cropEdge, -halfHeight);
+  vertices_[3] = GLKVector2Make(  cropEdge,  halfHeight);
+}
+
 @end

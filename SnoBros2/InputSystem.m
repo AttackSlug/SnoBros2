@@ -62,6 +62,8 @@
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
       NSDictionary *data = @{@"target": target};
+      Health *health = [e getComponentByString:@"Health"];
+      [health heal:40];
 
       NSString *walkTo       = [@"walkTo:" stringByAppendingString:e.uuid];
       [[NSNotificationCenter defaultCenter] postNotificationName:walkTo
@@ -91,7 +93,10 @@
   Entity *player = [entityManager_ findByTag:@"player"][0];
   Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
   Entity *target = [entityManager_ findByTag:@"sphere"][0];
-
+  
+  Health *health = [player getComponentByString:@"Health"];
+  [health damage:40];
+  
   [attack fireAt:target];
 }
 

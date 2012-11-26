@@ -39,5 +39,6 @@
 - (void)addChild:(Sprite *)child;
 - (void)addChildren:(NSMutableArray *)children;
 - (void)translate:(GLKVector2)translation;
+- (void)cropByPercent:(float)percent;
 
 @end
