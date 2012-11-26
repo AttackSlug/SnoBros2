@@ -15,8 +15,7 @@
         "layer": 0,
         "sprites": {
           "root": {
-            "filePath": "wpaper.jpg",
-            "layer": 0
+            "filePath": "wpaper.jpg"
           }
         }
       }
@@ -52,8 +51,7 @@
         "layer": 1,
         "sprites": {
           "root": {
-            "filePath": "snowball.png",
-            "layer": 1
+            "filePath": "snowball.png"
           }
         }
       }
@@ -89,8 +87,7 @@
         "layer": 1,
         "sprites": {
           "root": {
-            "filePath": "snowball.png",
-            "layer": 1
+            "filePath": "snowball.png"
           }
         }
       }
@@ -133,11 +130,14 @@
         "sprites": {
           "root": {
             "filePath": "sprite2.png",
-            "layer": 1,
-            "children": {
+            "sprites": {
               "healthBar": {
                 "filePath": "healthgradient.png",
-                "layer": 1
+                "sprites" : {
+                  "halt": {
+                    "filePath": "snowball.png"
+                  }
+                }
               }
             }
           }
@@ -166,8 +166,7 @@
         "layer": 2,
         "sprites": {
           "main": {
-            "filePath": "snowball.png",
-            "layer": 2
+            "filePath": "snowball.png"
           }
         }
       }

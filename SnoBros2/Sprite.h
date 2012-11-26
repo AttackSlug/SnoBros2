@@ -19,8 +19,6 @@
   
   BOOL           visible_;
   
-  int            layer_;
-  
   NSMutableArray *children_;
   Sprite         *parent_;
 }
@@ -33,14 +31,14 @@
 @property (readonly, nonatomic) GLKTextureInfo *texture;
 @property (readonly, nonatomic) NSString *tag;
 @property (nonatomic)           BOOL visible;
-@property (readonly, nonatomic) int layer;
 @property (readonly, nonatomic) NSMutableArray *children;
 @property (nonatomic)           Sprite *parent;
 
 - (id)initWithFile:(NSString *)filePath;
-- (id)initWithFile:(NSString *)filePath layer:(int)layer tag:(NSString *)tag;
+- (id)initWithFile:(NSString *)filePath tag:(NSString *)tag;
 - (void)dealloc;
 - (void)addChild:(Sprite *)child;
+- (void)addChildren:(NSMutableArray *)children;
 - (void)translate:(GLKVector2)translation;
 
 @end

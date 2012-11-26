@@ -11,8 +11,8 @@
 
 @implementation Renderable
 
-@synthesize layer = layer_;
-@synthesize root  = root_;
+@synthesize layer   = layer_;
+@synthesize sprites = sprites_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -27,20 +27,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    NSDictionary *sprites = [data valueForKey:@"sprites"];
-    for (NSString *spriteName in sprites) {
-      root_ = [self loadSpriteFromDictionary:sprites withName:spriteName];
-      NSDictionary *children = [[sprites valueForKey:spriteName]
-                                valueForKey:@"children"];
-      if (children != nil) {
-        for (NSString *childName in children) {
-          Sprite *child = [self loadSpriteFromDictionary:children withName:childName];
-          [child translate:GLKVector2Make(0, -((float)root_.height)/2.f - 5)];
-          child.visible = FALSE;
-          [root_ addChild:child];
-        }
-      }
-    }
+    sprites_ = [self loadSpritesFromDictionary:data];
     layer_ = [[data valueForKey:@"layer"] intValue];
   }
   return self;
@@ -49,28 +36,47 @@
 
 
 - (Sprite *)getSpriteByTag:(NSString *)tag {
-  if ([root_.tag isEqualToString:tag]) {
-    return root_;
-  }
-  if (root_.children != nil) {
-    for (Sprite *child in root_.children) {
-      if ([child.tag isEqualToString:tag]) {
-        return child;
-      }
-    }
-  }
-  return nil;
+  return [self getSpriteByTag:tag fromSpriteArray:sprites_];
 }
 
+
+
+- (Sprite *)getSpriteByTag:(NSString *)tag fromSpriteArray:(NSMutableArray *)spriteArray {
+  Sprite *found = nil;
+  for (Sprite *sprite in spriteArray) {
+    if ([sprite.tag isEqualToString:tag]) {
+      found = sprite;
+    } else if (sprite.children != nil) {
+      Sprite *temp = [self getSpriteByTag:tag fromSpriteArray:sprite.children];
+      found = (temp == nil) ? found : temp;
+    }
+  }
+  return found;
+}
 
 
 
 - (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data withName:(NSString *)spriteName {
   NSString *filePath  = [[data valueForKey:spriteName]
                          valueForKey:@"filePath"];
-  int layer           = [[[data valueForKey:spriteName]
-                          valueForKey:@"layer"] intValue];
-  return [[Sprite alloc] initWithFile:filePath layer:layer tag:spriteName];
+  return [[Sprite alloc] initWithFile:filePath tag:spriteName];
+}
+
+
+
+- (NSMutableArray *)loadSpritesFromDictionary:(NSDictionary *)data {
+  NSDictionary *spriteDict = [data valueForKey:@"sprites"];
+  if (spriteDict == nil) {
+    return nil;
+  }
+  NSMutableArray *sprites = [[NSMutableArray alloc] init];
+  for (NSString *spriteName in spriteDict) {
+    Sprite *child = [self loadSpriteFromDictionary:spriteDict withName:spriteName];
+    NSDictionary *childDict = [spriteDict valueForKey:spriteName];
+    [child addChildren:[self loadSpritesFromDictionary:childDict]];
+    [sprites addObject:child];
+  }
+  return sprites;
 }
 
 @end

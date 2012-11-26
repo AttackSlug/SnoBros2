@@ -11,16 +11,18 @@
 @class Sprite;
 
 @interface Renderable : Component {
-  Sprite  *root_;
-  int     layer_;
+  NSMutableArray  *sprites_;
+  int             layer_;
 }
 
-@property (nonatomic)           int     layer;
-@property (nonatomic, readonly) Sprite  *root;
+@property (nonatomic)           int             layer;
+@property (nonatomic, readonly) NSMutableArray  *sprites;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 - (Sprite *)getSpriteByTag:(NSString *)tag;
+- (Sprite *)getSpriteByTag:(NSString *)tag fromSpriteArray:(NSMutableArray *)spriteArray;
 - (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data withName:(NSString *)spriteName;
+- (NSMutableArray *)loadSpritesFromDictionary:(NSDictionary *)data;
 
 @end

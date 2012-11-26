@@ -23,6 +23,6 @@
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;
-- (void)renderSprite:(Sprite *)sprite atPosition:(GLKVector2)position;
+- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix;
 
 @end
