@@ -37,7 +37,9 @@
 		A3283F3816519DC70059083E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3283F3716519DC70059083E /* Quadtree.m */; };
 		A3283F3A1652A6B90059083E /* snowball-small.png in Resources */ = {isa = PBXBuildFile; fileRef = A3283F391652A6B90059083E /* snowball-small.png */; };
 		A329DD4C165816E1004125DC /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DD4B165816E1004125DC /* EntityManager.m */; };
+		A33E47F71661DE330010BFEB /* Attack.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E47F61661DE330010BFEB /* Attack.m */; };
 		A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37046B0165C18F200F129E0 /* CollisionSystem.m */; };
+		A37185CC1662B55900630B9D /* Seeking.m in Sources */ = {isa = PBXBuildFile; fileRef = A37185CB1662B55900630B9D /* Seeking.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -114,8 +116,12 @@
 		A3283F391652A6B90059083E /* snowball-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snowball-small.png"; sourceTree = "<group>"; };
 		A329DD4A165816E1004125DC /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
 		A329DD4B165816E1004125DC /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		A33E47F51661DE330010BFEB /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		A33E47F61661DE330010BFEB /* Attack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attack.m; sourceTree = "<group>"; };
 		A37046AF165C18F200F129E0 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
 		A37046B0165C18F200F129E0 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
+		A37185CA1662B55900630B9D /* Seeking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seeking.h; sourceTree = "<group>"; };
+		A37185CB1662B55900630B9D /* Seeking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seeking.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -259,6 +265,10 @@
 				87E49E1816515A8200202CFB /* Transform.m */,
 				A3283F33165192850059083E /* Collision.h */,
 				A3283F34165192860059083E /* Collision.m */,
+				A33E47F51661DE330010BFEB /* Attack.h */,
+				A33E47F61661DE330010BFEB /* Attack.m */,
+				A37185CA1662B55900630B9D /* Seeking.h */,
+				A37185CB1662B55900630B9D /* Seeking.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -472,6 +482,8 @@
 				87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */,
 				A37046B1165C18F200F129E0 /* CollisionSystem.m in Sources */,
 				8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */,
+				A33E47F71661DE330010BFEB /* Attack.m in Sources */,
+				A37185CC1662B55900630B9D /* Seeking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

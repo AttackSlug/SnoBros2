@@ -13,6 +13,8 @@
 #import "Selectable.h"
 #import "EntityManager.h"
 
+#import "Attack.h"
+
 @implementation InputSystem
 
 - (id)initWithView:(UIView *)view
@@ -85,6 +87,11 @@
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
   [entityManager_ deselectAll];
+  Entity *player = [entityManager_ findByTag:@"player"][0];
+  Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
+  Entity *target = [entityManager_ findByTag:@"sphere"][0];
+
+  [attack fireAt:target];
 }
 
 
