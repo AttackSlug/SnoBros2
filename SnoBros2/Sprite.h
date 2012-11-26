@@ -35,6 +35,7 @@
 @property (nonatomic)           Sprite *parent;
 
 - (id)initWithFile:(NSString *)filePath tag:(NSString *)tag;
+
 - (void)dealloc;
 - (void)addChild:(Sprite *)child;
 - (void)addChildren:(NSMutableArray *)children;

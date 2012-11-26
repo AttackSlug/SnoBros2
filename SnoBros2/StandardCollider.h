@@ -16,7 +16,6 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (void)collidedWith:(NSNotification *)notification;
-
 - (void)resolveCollisionWith:(Entity *)otherEntity;
 - (GLKVector2)intersectionWith:(Entity *)other;
 

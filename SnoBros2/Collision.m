@@ -27,7 +27,7 @@
 
 
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
-  float radius = [[data valueForKey:@"radius"] floatValue];
+  float radius = [data[@"radius"] floatValue];
   return [self initWithEntity:entity radius:radius];
 }
 

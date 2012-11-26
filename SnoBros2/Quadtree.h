@@ -26,6 +26,7 @@
 }
 
 - (id)initWithLevel:(int)level bounds:(CGRect)bounds;
+
 - (void)subdivideRectangle;
 - (void)clear;
 - (void)split;

@@ -20,9 +20,12 @@
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 - (Sprite *)getSpriteByTag:(NSString *)tag;
-- (Sprite *)getSpriteByTag:(NSString *)tag fromSpriteArray:(NSMutableArray *)spriteArray;
-- (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data withName:(NSString *)spriteName;
+- (Sprite *)getSpriteByTag:(NSString *)tag
+           fromSpriteArray:(NSMutableArray *)spriteArray;
+- (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data
+                            withName:(NSString *)spriteName;
 - (NSMutableArray *)loadSpritesFromDictionary:(NSDictionary *)data;
 
 @end

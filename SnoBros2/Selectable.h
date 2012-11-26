@@ -16,13 +16,13 @@
 
 @property (nonatomic) BOOL selected;
 
-- (id) initWithEntity:(Entity *)entity;
-- (id) initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+- (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
-- (BOOL) isAtLocation:(GLKVector2)location;
-- (BOOL) isInRectangle:(CGRect)rectangle;
+- (BOOL)isAtLocation:(GLKVector2)location;
+- (BOOL)isInRectangle:(CGRect)rectangle;
 
-- (void) selectUnit;
-- (void) deselectUnit;
+- (void)selectUnit;
+- (void)deselectUnit;
 
 @end

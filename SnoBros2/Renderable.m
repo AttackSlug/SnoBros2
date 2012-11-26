@@ -17,7 +17,6 @@
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
-    
   }
   return self;
 }
@@ -28,7 +27,7 @@
   self = [self initWithEntity:entity];
   if (self) {
     sprites_ = [self loadSpritesFromDictionary:data];
-    layer_ = [[data valueForKey:@"layer"] intValue];
+    layer_   = [data[@"layer"] intValue];
   }
   return self;
 }
@@ -41,7 +40,8 @@
 
 
 
-- (Sprite *)getSpriteByTag:(NSString *)tag fromSpriteArray:(NSMutableArray *)spriteArray {
+- (Sprite *)getSpriteByTag:(NSString *)tag
+           fromSpriteArray:(NSMutableArray *)spriteArray {
   Sprite *found = nil;
   for (Sprite *sprite in spriteArray) {
     if ([sprite.tag isEqualToString:tag]) {
@@ -56,23 +56,24 @@
 
 
 
-- (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data withName:(NSString *)spriteName {
-  NSString *filePath  = [[data valueForKey:spriteName]
-                         valueForKey:@"filePath"];
+- (Sprite *)loadSpriteFromDictionary:(NSDictionary *)data
+                            withName:(NSString *)spriteName {
+  NSString *filePath = data[spriteName][@"filePath"];
   return [[Sprite alloc] initWithFile:filePath tag:spriteName];
 }
 
 
 
 - (NSMutableArray *)loadSpritesFromDictionary:(NSDictionary *)data {
-  NSDictionary *spriteDict = [data valueForKey:@"sprites"];
+  NSDictionary *spriteDict = data[@"sprites"];
   if (spriteDict == nil) {
     return nil;
   }
   NSMutableArray *sprites = [[NSMutableArray alloc] init];
   for (NSString *spriteName in spriteDict) {
-    Sprite *child = [self loadSpriteFromDictionary:spriteDict withName:spriteName];
-    NSDictionary *childDict = [spriteDict valueForKey:spriteName];
+    Sprite *child = [self loadSpriteFromDictionary:spriteDict
+                                          withName:spriteName];
+    NSDictionary *childDict = spriteDict[spriteName];
     [child addChildren:[self loadSpritesFromDictionary:childDict]];
     [sprites addObject:child];
   }

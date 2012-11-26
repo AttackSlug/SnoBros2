@@ -26,11 +26,11 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    NSString *spriteName    = [data valueForKey:@"spriteName"];
+    NSString *spriteName    = data[@"spriteName"];
     Renderable *renderable  = [entity getComponentByString:@"Renderable"];
     
     healthBar_  = [renderable getSpriteByTag:spriteName];
-    health_     = [[data valueForKey:@"health"] floatValue];
+    health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
     
     [healthBar_ translate:GLKVector2Make(0, -(healthBar_.parent.height / 2.f))];
