@@ -3,7 +3,7 @@
 //  SnoBros2
 //
 //  Created by Tanoy Sinha on 11/26/12.
-//  Copyright (c) 2012 Cjab. All rights reserved.
+//  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
 #import "Component.h"
