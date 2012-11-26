@@ -126,7 +126,7 @@
       },
       "attack": {
         "type": "Attack"
-      }
+      },
       "renderable": {
         "type": "Renderable",
         "layer": 1,
@@ -150,10 +150,10 @@
     "tag":  "projectile",
     "components": {
       "transform": {
-        "type": "Transform",
+        "type": "Transform"
       },
       "physics": {
-        "type": "Physics",
+        "type": "Physics"
       },
       "collision": {
         "type": "Collision"
