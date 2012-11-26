@@ -1,5 +1,5 @@
 //
-//  Seeking.h
+//  Projectile.h
 //  SnoBros2
 //
 //  Created by Cjab on 11/25/12.
@@ -10,7 +10,7 @@
 
 @class Entity;
 
-@interface Seeking : Component {
+@interface Projectile : Component {
   Entity *target_;
 }
 

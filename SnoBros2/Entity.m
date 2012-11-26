@@ -23,8 +23,9 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
                                                      @"Physics",
                                                      @"Transform",
                                                      @"Collision",
+                                                     @"StandardCollider",
                                                      @"Attack",
-                                                     @"Seeking",
+                                                     @"Projectile",
                                                      nil];
   }
 }
@@ -57,10 +58,9 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 - (id)initWithDictionary:(NSDictionary *)data {
   self = [self initWithTag:[data valueForKey:@"tag"]];
   if (self) {
-    NSDictionary *components = [data valueForKey:@"components"];
+    NSDictionary *components = data[@"components"];
     for (NSString *componentName in COMPONENT_LOAD_ORDER) {
-      NSString *className  = [[components valueForKey:componentName]
-                              valueForKey:@"type"];
+      NSString *className  = components[componentName][@"type"];
       // most entities wont have all the components listed in COMPONENT_LOAD_ORDER. we skip them here
       if (className == nil) {
         continue;
