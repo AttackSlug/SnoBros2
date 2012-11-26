@@ -160,12 +160,16 @@
       },
       "seeking": {
         "type": "Seeking"
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 2
+      },
+      "renderable": {
+        "type": "Renderable",
+        "layer": 2,
+        "sprites": {
+          "main": {
+            "filePath": "snowball.png",
+            "layer": 2
+          }
+        }
       }
     }
   }
