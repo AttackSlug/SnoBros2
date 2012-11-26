@@ -117,7 +117,7 @@
     for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
       Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
       if ([entSelectable isInRectangle:rectangle]) {
-        [entSelectable selectUnit];
+        [entityManager_ selectById:ent.uuid];
       }
     }
   }
