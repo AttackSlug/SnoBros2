@@ -11,7 +11,9 @@
 #import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
-#import "Seeking.h"
+#import "Projectile.h"
+#import "Component.h"
+#import "Collision.h"
 
 @implementation Attack
 
@@ -29,15 +31,22 @@
 
 - (void)fireAt:(Entity *)target {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
+  Collision *collision = [entity_ getComponentByString:@"Collision"];
 
   void (^callback)(Entity *) = ^(Entity *projectile){
-    Transform *projTransform = [projectile getComponentByString:@"Transform"];
-    Physics   *projPhysics   = [projectile getComponentByString:@"Physics"];
-    Seeking   *projSeeking   = [projectile getComponentByString:@"Seeking"];
+    Transform  *projTransform   = [projectile getComponentByString:@"Transform"];
+    Physics    *projPhysics     = [projectile getComponentByString:@"Physics"];
+    Projectile *projComponent   = [projectile getComponentByString:@"Projectile"];
+    Transform  *targetTransform = [target getComponentByString:@"Transform"];
 
-    projTransform.position = transform.position;
+    GLKVector2 path      = GLKVector2Subtract(transform.position,
+                                              targetTransform.position);
+    GLKVector2 direction = GLKVector2Normalize(path);
+    GLKVector2 offset    = GLKVector2MultiplyScalar(direction, collision.radius);
+
+    projTransform.position = GLKVector2Subtract(transform.position, offset);
     projPhysics.velocity   = GLKVector2Make(10.f, 0.f);
-    projSeeking.target     = target;
+    projComponent.target   = target;
   };
   NSDictionary *data = @{@"type": @"Projectile", @"callback": callback};
 

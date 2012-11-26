@@ -1,18 +1,18 @@
 //
-//  Seeking.m
+//  Projectile.m
 //  SnoBros2
 //
 //  Created by Cjab on 11/25/12.
 //  Copyright (c) 2012 Cjab. All rights reserved.
 //
 
-#import "Seeking.h"
+#import "Projectile.h"
 
 #import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
 
-@implementation Seeking
+@implementation Projectile
 
 @synthesize target = target_;
 
@@ -24,7 +24,6 @@
                                              selector:@selector(collidedWith:)
                                                  name:name
                                                object:nil];
-
   }
   return self;
 }
