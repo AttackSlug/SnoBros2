@@ -34,7 +34,6 @@
 @property (readonly, nonatomic) NSMutableArray *children;
 @property (nonatomic)           Sprite *parent;
 
-- (id)initWithFile:(NSString *)filePath;
 - (id)initWithFile:(NSString *)filePath tag:(NSString *)tag;
 - (void)dealloc;
 - (void)addChild:(Sprite *)child;

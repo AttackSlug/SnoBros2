@@ -12,6 +12,7 @@
 #import "Quadtree.h"
 #import "Selectable.h"
 #import "Renderable.h"
+#import "Health.h"
 
 @implementation EntityManager
 
@@ -219,10 +220,28 @@
 
 
 
+- (void)selectById:(NSString *)entityId {
+  Entity *e               = [self findById:entityId];
+  Selectable *selectable  = [e getComponentByString:@"Selectable"];
+  Health *health          = [e getComponentByString:@"Health"];
+  
+  [selectable selectUnit];
+  if (health != nil) {
+    [health showHealthBar];
+  }
+}
+
+
+
 - (void)deselectAll {
   for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
     Selectable *selectable = [e getComponentByString:@"Selectable"];
+    Health     *health     = [e getComponentByString:@"Health"];
+    
     [selectable deselectUnit];
+    if (health != nil) {
+      [health hideHealthBar];
+    }
   }
 }
 

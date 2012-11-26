@@ -57,19 +57,13 @@
 
 
 - (void)selectUnit {
-  Renderable *renderable = [entity_ getComponentByString:@"Renderable"];
   selected_ = TRUE;
-  Sprite *healthBar = [renderable getSpriteByTag:@"healthBar"];
-  healthBar.visible = TRUE;
 }
 
 
 
 - (void)deselectUnit {
-  Renderable *renderable = [entity_ getComponentByString:@"Renderable"];
   selected_ = FALSE;
-  Sprite *healthBar = [renderable getSpriteByTag:@"healthBar"];
-  healthBar.visible = FALSE;
 }
 
 @end

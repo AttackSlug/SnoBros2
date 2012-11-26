@@ -11,6 +11,7 @@
 #import "Entity.h"
 #import "Camera.h"
 #import "Selectable.h"
+#import "Health.h"
 #import "EntityManager.h"
 
 #import "Attack.h"
@@ -77,7 +78,7 @@
     for (Entity *p in players) {
       Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
       if ([playerSelectable isAtLocation:pos]) {
-        [playerSelectable selectUnit];
+        [entityManager_ selectById:p.uuid];
       }
     }
   }

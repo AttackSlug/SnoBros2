@@ -3,14 +3,14 @@
     "name": "Map",
     "tag":  "map",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 240,
           "y": 160
         }
       },
-      "renderable": {
+      "Renderable": {
         "type": "Renderable",
         "layer": 0,
         "sprites": {
@@ -25,28 +25,28 @@
     "name": "Sphere 1",
     "tag":  "sphere",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 100,
           "y": 160
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": 1,
           "y": 0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "Sphere"
       },
-      "collision": {
+      "Collision": {
         "type":   "Collision",
         "radius": 10
       },
-      "renderable": {
+      "Renderable": {
         "type": "Renderable",
         "layer": 1,
         "sprites": {
@@ -61,28 +61,28 @@
     "name": "Sphere 2",
     "tag":  "sphere",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 300,
           "y": 160
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": -1,
           "y":  0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "Sphere"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision",
         "radius": 10
       },
-      "renderable": {
+      "Renderable": {
         "type": "Renderable",
         "layer": 1,
         "sprites": {
@@ -97,34 +97,39 @@
     "name": "Player",
     "tag":  "player",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 20,
           "y": 20
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": 0,
           "y": 0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "LeftPlayer"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision",
         "radius": 48
       },
-      "selectable": {
+      "Selectable": {
         "type": "Selectable"
       },
-      "attack": {
+      "Attack": {
         "type": "Attack"
       },
-      "renderable": {
+      "Health": {
+        "type": "Health",
+        "health": 100,
+        "spriteName": "healthBar"
+      },
+      "Renderable": {
         "type": "Renderable",
         "layer": 1,
         "sprites": {
@@ -132,12 +137,7 @@
             "filePath": "sprite2.png",
             "sprites": {
               "healthBar": {
-                "filePath": "healthgradient.png",
-                "sprites" : {
-                  "halt": {
-                    "filePath": "snowball.png"
-                  }
-                }
+                "filePath": "healthgradient.png"
               }
             }
           }
@@ -149,19 +149,19 @@
     "name": "Projectile",
     "tag":  "projectile",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform"
       },
-      "physics": {
+      "Physics": {
         "type": "Physics"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision"
       },
-      "seeking": {
+      "Seeking": {
         "type": "Seeking"
       },
-      "renderable": {
+      "Renderable": {
         "type": "Renderable",
         "layer": 2,
         "sprites": {

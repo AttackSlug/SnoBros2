@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8708CA901663CC620036D8F2 /* Health.m in Sources */ = {isa = PBXBuildFile; fileRef = 8708CA8F1663CC620036D8F2 /* Health.m */; };
 		8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B5BD1661BEE600D1B353 /* RenderSystem.m */; };
 		8718B5F21662AC3700D1B353 /* healthgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 8718B5F11662AC3700D1B353 /* healthgradient.png */; };
 		8718B6101663155100D1B353 /* Renderable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B60F1663155100D1B353 /* Renderable.m */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8708CA8E1663CC610036D8F2 /* Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Health.h; sourceTree = "<group>"; };
+		8708CA8F1663CC620036D8F2 /* Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Health.m; sourceTree = "<group>"; };
 		8718B5BC1661BEE600D1B353 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
 		8718B5BD1661BEE600D1B353 /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderSystem.m; sourceTree = "<group>"; };
 		8718B5F11662AC3700D1B353 /* healthgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient.png; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				87E49DF516515A8200202CFB /* Component.m */,
 				8718B60E1663155100D1B353 /* Renderable.h */,
 				8718B60F1663155100D1B353 /* Renderable.m */,
+				8708CA8E1663CC610036D8F2 /* Health.h */,
+				8708CA8F1663CC620036D8F2 /* Health.m */,
 				87694B7C165C0F0D00ACEC28 /* Selectable.h */,
 				87694B7D165C0F0D00ACEC28 /* Selectable.m */,
 				87E49E0716515A8200202CFB /* Physics.h */,
@@ -494,6 +499,7 @@
 				A33E47F71661DE330010BFEB /* Attack.m in Sources */,
 				A37185CC1662B55900630B9D /* Seeking.m in Sources */,
 				8718B6101663155100D1B353 /* Renderable.m in Sources */,
+				8708CA901663CC620036D8F2 /* Health.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
