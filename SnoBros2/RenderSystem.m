@@ -13,6 +13,7 @@
 #import "Camera.h"
 #import "Transform.h"
 #import "Sprite.h"
+#import "Renderable.h"
 
 @implementation RenderSystem
 
@@ -37,15 +38,23 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
+  Renderable  *renderable = [entity getComponentByString:@"Renderable"];
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
-  [self renderSprite:entity.sprite atPosition:position];
+  GLKMatrix4  modelViewMatrix = GLKMatrix4MakeTranslation(position.x,
+                                                          position.y,
+                                                          renderable.layer);
+  [self renderSprite:[renderable.sprites objectAtIndex:0] withModelViewMatrix:modelViewMatrix];
 }
 
 
 
-- (void)renderSprite:(Sprite *)sprite atPosition:(GLKVector2)position {
+- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix {
+  if (sprite.visible == FALSE) {
+    return;
+  }
+
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
@@ -60,7 +69,8 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, sprite.layer);
+  effect.transform.modelviewMatrix = GLKMatrix4Multiply(sprite.modelViewMatrix,
+                                                        modelViewMatrix);
   
   [effect prepareToDraw];
   
@@ -75,6 +85,12 @@
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+  
+  if (sprite.children != nil) {
+    for (Sprite *child in sprite.children) {
+      [self renderSprite:child withModelViewMatrix:modelViewMatrix];
+    }
+  }
 }
 
 @end

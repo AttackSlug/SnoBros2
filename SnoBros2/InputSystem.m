@@ -11,6 +11,7 @@
 #import "Entity.h"
 #import "Camera.h"
 #import "Selectable.h"
+#import "Health.h"
 #import "EntityManager.h"
 
 #import "Attack.h"
@@ -61,6 +62,8 @@
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
       NSDictionary *data = @{@"target": target};
+      Health *health = [e getComponentByString:@"Health"];
+      [health heal:40];
 
       NSString *walkTo       = [@"walkTo:" stringByAppendingString:e.uuid];
       [[NSNotificationCenter defaultCenter] postNotificationName:walkTo
@@ -77,7 +80,7 @@
     for (Entity *p in players) {
       Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
       if ([playerSelectable isAtLocation:pos]) {
-        playerSelectable.selected = TRUE;
+        [entityManager_ selectById:p.uuid];
       }
     }
   }
@@ -90,7 +93,10 @@
   Entity *player = [entityManager_ findByTag:@"player"][0];
   Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
   Entity *target = [entityManager_ findByTag:@"sphere"][0];
-
+  
+  Health *health = [player getComponentByString:@"Health"];
+  [health damage:40];
+  
   [attack fireAt:target];
 }
 
@@ -111,7 +117,7 @@
     for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
       Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
       if ([entSelectable isInRectangle:rectangle]) {
-        entSelectable.selected = TRUE;
+        [entityManager_ selectById:ent.uuid];
       }
     }
   }
