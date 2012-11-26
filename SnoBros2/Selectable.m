@@ -10,6 +10,8 @@
 #import "Collision.h"
 #import "Transform.h"
 #import "Entity.h"
+#import "Sprite.h"
+#import "Renderable.h"
 
 @implementation Selectable
 
@@ -50,6 +52,18 @@
           pos.x < rectangle.origin.x + rectangle.size.width &&
           pos.y > rectangle.origin.y &&
           pos.y < rectangle.origin.y + rectangle.size.height);
+}
+
+
+
+- (void)selectUnit {
+  selected_ = TRUE;
+}
+
+
+
+- (void)deselectUnit {
+  selected_ = FALSE;
 }
 
 @end

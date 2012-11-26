@@ -40,6 +40,7 @@
 - (NSArray *)findAllSelected;
 
 - (BOOL)isEntitySelected;
+- (void)selectById:(NSString *)entityId;
 - (void)deselectAll;
 
 - (void)processQueue;

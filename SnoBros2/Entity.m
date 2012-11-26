@@ -13,9 +13,24 @@
 
 @implementation Entity
 
+NSArray *COMPONENT_LOAD_ORDER = nil;
++ (void)initialize {
+  if (!COMPONENT_LOAD_ORDER) {
+    COMPONENT_LOAD_ORDER = [NSArray arrayWithObjects:@"Renderable",
+                                                     @"Health",
+                                                     @"Behavior",
+                                                     @"Selectable",
+                                                     @"Physics",
+                                                     @"Transform",
+                                                     @"Collision",
+                                                     @"Attack",
+                                                     @"Seeking",
+                                                     nil];
+  }
+}
+
 @synthesize uuid        = uuid_;
 @synthesize tag         = tag_;
-@synthesize sprite      = sprite_;
 
 @synthesize components  = components_;
 
@@ -43,10 +58,13 @@
   self = [self initWithTag:[data valueForKey:@"tag"]];
   if (self) {
     NSDictionary *components = [data valueForKey:@"components"];
-    for (NSString *componentName in components) {
+    for (NSString *componentName in COMPONENT_LOAD_ORDER) {
       NSString *className  = [[components valueForKey:componentName]
                               valueForKey:@"type"];
-
+      // most entities wont have all the components listed in COMPONENT_LOAD_ORDER. we skip them here
+      if (className == nil) {
+        continue;
+      }
       Class componentClass = NSClassFromString(className);
       if (componentClass == nil) {
         NSLog(@"ERROR: Attempted to load nonexistent class with name %@ in entity loader", className);
@@ -58,15 +76,6 @@
                                                            dictionary:attributes];
 
       [self setComponent:component withString:className];
-    }
-    
-    NSDictionary *sprites = [data valueForKey:@"sprites"];
-    for (NSString *spriteName in sprites) {
-      NSString *filePath  = [[sprites valueForKey:spriteName]
-                             valueForKey:@"filePath"];
-      int layer           = [[[sprites valueForKey:spriteName]
-                              valueForKey:@"layer"] intValue];
-      sprite_ = [[Sprite alloc] initWithFile:filePath layer:layer];
     }
   }
   return self;

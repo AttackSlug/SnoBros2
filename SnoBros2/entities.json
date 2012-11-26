@@ -3,18 +3,21 @@
     "name": "Map",
     "tag":  "map",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 240,
           "y": 160
         }
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "wpaper.jpg",
-        "layer": 0
+      },
+      "Renderable": {
+        "type": "Renderable",
+        "layer": 0,
+        "sprites": {
+          "root": {
+            "filePath": "wpaper.jpg"
+          }
+        }
       }
     }
   },
@@ -22,32 +25,35 @@
     "name": "Sphere 1",
     "tag":  "sphere",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 100,
           "y": 160
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": 1,
           "y": 0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "Sphere"
       },
-      "collision": {
+      "Collision": {
         "type":   "Collision",
         "radius": 10
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 1
+      },
+      "Renderable": {
+        "type": "Renderable",
+        "layer": 1,
+        "sprites": {
+          "root": {
+            "filePath": "snowball.png"
+          }
+        }
       }
     }
   },
@@ -55,32 +61,35 @@
     "name": "Sphere 2",
     "tag":  "sphere",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 300,
           "y": 160
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": -1,
           "y":  0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "Sphere"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision",
         "radius": 10
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 1
+      },
+      "Renderable": {
+        "type": "Renderable",
+        "layer": 1,
+        "sprites": {
+          "root": {
+            "filePath": "snowball.png"
+          }
+        }
       }
     }
   },
@@ -88,38 +97,51 @@
     "name": "Player",
     "tag":  "player",
     "components": {
-      "transform": {
+      "Transform": {
         "type": "Transform",
         "position": {
           "x": 20,
           "y": 20
         }
       },
-      "physics": {
+      "Physics": {
         "type": "Physics",
         "velocity": {
           "x": 0,
           "y": 0
         }
       },
-      "behavior": {
+      "Behavior": {
         "type": "LeftPlayer"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision",
         "radius": 48
       },
-      "selectable": {
+      "Selectable": {
         "type": "Selectable"
       },
-      "attack": {
+      "Attack": {
         "type": "Attack"
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "sprite2.png",
-        "layer": 1
+      },
+      "Health": {
+        "type": "Health",
+        "health": 100,
+        "spriteName": "healthBar"
+      },
+      "Renderable": {
+        "type": "Renderable",
+        "layer": 1,
+        "sprites": {
+          "root": {
+            "filePath": "sprite2.png",
+            "sprites": {
+              "healthBar": {
+                "filePath": "healthgradient.png"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -127,23 +149,26 @@
     "name": "Projectile",
     "tag":  "projectile",
     "components": {
-      "transform": {
-        "type": "Transform",
+      "Transform": {
+        "type": "Transform"
       },
-      "physics": {
-        "type": "Physics",
+      "Physics": {
+        "type": "Physics"
       },
-      "collision": {
+      "Collision": {
         "type": "Collision"
       },
-      "seeking": {
+      "Seeking": {
         "type": "Seeking"
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 2
+      },
+      "Renderable": {
+        "type": "Renderable",
+        "layer": 2,
+        "sprites": {
+          "main": {
+            "filePath": "snowball.png"
+          }
+        }
       }
     }
   }
