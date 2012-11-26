@@ -59,29 +59,6 @@
 
       [self setComponent:component withString:className];
     }
-    
-    NSDictionary *sprites = [data valueForKey:@"sprites"];
-    for (NSString *spriteName in sprites) {
-      NSString *filePath  = [[sprites valueForKey:spriteName]
-                             valueForKey:@"filePath"];
-      int layer           = [[[sprites valueForKey:spriteName]
-                              valueForKey:@"layer"] intValue];
-      sprite_ = [[Sprite alloc] initWithFile:filePath layer:layer tag:spriteName];
-      NSDictionary *children = [[sprites valueForKey:spriteName]
-                                valueForKey:@"children"];
-      if (children != nil) {
-        for (NSString *childName in children) {
-          NSString *filePath  = [[children valueForKey:childName]
-                                 valueForKey:@"filePath"];
-          int layer           = [[[children valueForKey:childName]
-                                  valueForKey:@"layer"] intValue];
-          Sprite *child = [[Sprite alloc] initWithFile:filePath layer:layer tag:childName];
-          [child translate:GLKVector2Make(0, -((float)sprite_.height)/2.f - 5)];
-          child.visible = FALSE;
-          [sprite_ addChild:child];
-        }
-      }
-    }
   }
   return self;
 }

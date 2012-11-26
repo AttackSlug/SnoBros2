@@ -11,7 +11,7 @@
 #import "Entity.h"
 #import "Quadtree.h"
 #import "Selectable.h"
-#import "Sprite.h"
+#import "Renderable.h"
 
 @implementation EntityManager
 
@@ -137,11 +137,11 @@
 - (NSArray *)allSortedByLayer {
   NSArray *all = [entities_ allValues];
   NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    Sprite *sprite1 = [(Entity *)obj1 sprite];
-    Sprite *sprite2 = [(Entity *)obj2 sprite];
-    if (sprite1.layer < sprite2.layer) {
+    Renderable *renderable1 = [obj1 getComponentByString:@"Renderable"];
+    Renderable *renderable2 = [obj2 getComponentByString:@"Renderable"];
+    if (renderable1.layer < renderable2.layer) {
       return (NSComparisonResult)NSOrderedAscending;
-    } else if (sprite1.layer > sprite2.layer) {
+    } else if (renderable1.layer > renderable2.layer) {
       return (NSComparisonResult)NSOrderedDescending;
     } else {
       return (NSComparisonResult)NSOrderedSame;

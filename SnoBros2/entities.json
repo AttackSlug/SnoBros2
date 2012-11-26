@@ -9,12 +9,16 @@
           "x": 240,
           "y": 160
         }
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "wpaper.jpg",
-        "layer": 0
+      },
+      "renderable": {
+        "type": "Renderable",
+        "layer": 0,
+        "sprites": {
+          "root": {
+            "filePath": "wpaper.jpg",
+            "layer": 0
+          }
+        }
       }
     }
   },
@@ -42,12 +46,16 @@
       "collision": {
         "type":   "Collision",
         "radius": 10
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 1
+      },
+      "renderable": {
+        "type": "Renderable",
+        "layer": 1,
+        "sprites": {
+          "root": {
+            "filePath": "snowball.png",
+            "layer": 1
+          }
+        }
       }
     }
   },
@@ -75,12 +83,16 @@
       "collision": {
         "type": "Collision",
         "radius": 10
-      }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "snowball.png",
-        "layer": 1
+      },
+      "renderable": {
+        "type": "Renderable",
+        "layer": 1,
+        "sprites": {
+          "root": {
+            "filePath": "snowball.png",
+            "layer": 1
+          }
+        }
       }
     }
   },
@@ -115,16 +127,19 @@
       "attack": {
         "type": "Attack"
       }
-    },
-    "sprites": {
-      "main": {
-        "filePath": "sprite2.png",
+      "renderable": {
+        "type": "Renderable",
         "layer": 1,
-        "children": {
-          "healthBar": {
-            "filePath": "healthgradient.png",
+        "sprites": {
+          "root": {
+            "filePath": "sprite2.png",
             "layer": 1,
-            "children": "nil"
+            "children": {
+              "healthBar": {
+                "filePath": "healthgradient.png",
+                "layer": 1
+              }
+            }
           }
         }
       }

@@ -13,6 +13,7 @@
 #import "Camera.h"
 #import "Transform.h"
 #import "Sprite.h"
+#import "Renderable.h"
 
 @implementation RenderSystem
 
@@ -37,10 +38,11 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
+  Renderable  *renderable = [entity getComponentByString:@"Renderable"];
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
-  [self renderSprite:entity.sprite atPosition:position];
+  [self renderSprite:renderable.root atPosition:position];
 }
 
 

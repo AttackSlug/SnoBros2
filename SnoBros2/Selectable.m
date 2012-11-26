@@ -11,6 +11,7 @@
 #import "Transform.h"
 #import "Entity.h"
 #import "Sprite.h"
+#import "Renderable.h"
 
 @implementation Selectable
 
@@ -56,16 +57,18 @@
 
 
 - (void)selectUnit {
+  Renderable *renderable = [entity_ getComponentByString:@"Renderable"];
   selected_ = TRUE;
-  Sprite *healthBar = [entity_ getSpriteByTag:@"healthBar"];
+  Sprite *healthBar = [renderable getSpriteByTag:@"healthBar"];
   healthBar.visible = TRUE;
 }
 
 
 
 - (void)deselectUnit {
+  Renderable *renderable = [entity_ getComponentByString:@"Renderable"];
   selected_ = FALSE;
-  Sprite *healthBar = [entity_ getSpriteByTag:@"healthBar"];
+  Sprite *healthBar = [renderable getSpriteByTag:@"healthBar"];
   healthBar.visible = FALSE;
 }
 

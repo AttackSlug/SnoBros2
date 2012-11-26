@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B5BD1661BEE600D1B353 /* RenderSystem.m */; };
 		8718B5F21662AC3700D1B353 /* healthgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 8718B5F11662AC3700D1B353 /* healthgradient.png */; };
+		8718B6101663155100D1B353 /* Renderable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718B60F1663155100D1B353 /* Renderable.m */; };
 		87694B37165AB5A200ACEC28 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B36165AB5A200ACEC28 /* Game.m */; };
 		87694B7E165C0F0D00ACEC28 /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 87694B7D165C0F0D00ACEC28 /* Selectable.m */; };
 		87E49E1B16515A8200202CFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E49DF116515A8200202CFB /* AppDelegate.m */; };
@@ -70,6 +71,8 @@
 		8718B5BC1661BEE600D1B353 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
 		8718B5BD1661BEE600D1B353 /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderSystem.m; sourceTree = "<group>"; };
 		8718B5F11662AC3700D1B353 /* healthgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient.png; sourceTree = "<group>"; };
+		8718B60E1663155100D1B353 /* Renderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderable.h; sourceTree = "<group>"; };
+		8718B60F1663155100D1B353 /* Renderable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderable.m; sourceTree = "<group>"; };
 		87694B35165AB5A200ACEC28 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		87694B36165AB5A200ACEC28 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		87694B7C165C0F0D00ACEC28 /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 			children = (
 				87E49DF416515A8200202CFB /* Component.h */,
 				87E49DF516515A8200202CFB /* Component.m */,
+				8718B60E1663155100D1B353 /* Renderable.h */,
+				8718B60F1663155100D1B353 /* Renderable.m */,
 				87694B7C165C0F0D00ACEC28 /* Selectable.h */,
 				87694B7D165C0F0D00ACEC28 /* Selectable.m */,
 				87E49E0716515A8200202CFB /* Physics.h */,
@@ -488,6 +493,7 @@
 				8718B5BE1661BEE600D1B353 /* RenderSystem.m in Sources */,
 				A33E47F71661DE330010BFEB /* Attack.m in Sources */,
 				A37185CC1662B55900630B9D /* Seeking.m in Sources */,
+				8718B6101663155100D1B353 /* Renderable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
