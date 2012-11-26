@@ -54,8 +54,11 @@
             "filePath": "snowball.png"
           }
         }
+      },
+      "StandardCollider": {
+        "type":   "StandardCollider"
       }
-    }
+    },
   },
   {
     "name": "Sphere 2",
@@ -90,8 +93,11 @@
             "filePath": "snowball.png"
           }
         }
+      },
+      "StandardCollider": {
+        "type":   "StandardCollider"
       }
-    }
+    },
   },
   {
     "name": "Player",
@@ -142,6 +148,9 @@
             }
           }
         }
+      },
+      "StandardCollider": {
+        "type":   "StandardCollider"
       }
     }
   },
@@ -158,9 +167,6 @@
       "Collision": {
         "type": "Collision"
       },
-      "Seeking": {
-        "type": "Seeking"
-      },
       "Renderable": {
         "type": "Renderable",
         "layer": 2,
@@ -169,6 +175,9 @@
             "filePath": "snowball.png"
           }
         }
+      },
+      "Projectile": {
+        "type": "Projectile"
       }
     }
   }

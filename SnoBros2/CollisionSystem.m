@@ -58,12 +58,18 @@
   
   if (entity == other || !otherCollision) { return false; }
 
-  float radius      = myCollision.radius;
-  float otherRadius = otherCollision.radius;
-  float distance    = GLKVector2Distance(myTransform.position,
-                                         otherTransform.position);
+  float radius          = myCollision.radius;
+  float otherRadius     = otherCollision.radius;
+  float centersDistance = radius + otherRadius;
+  float distance        = GLKVector2Distance(myTransform.position,
+                                             otherTransform.position);
 
-  if (distance < (radius + otherRadius)) {
+  const float K = 0.000001f;
+  if (fabs(distance - centersDistance) < K * FLT_EPSILON
+      * fabs(distance + centersDistance) ||
+      fabs(distance - centersDistance) < FLT_MIN) {
+    return true;
+  } else if (distance < centersDistance) {
     return true;
   }
 
