@@ -32,14 +32,14 @@
     oneFingerTap_.numberOfTapsRequired = 1;
     oneFingerTap_.numberOfTouchesRequired = 1;
     [view addGestureRecognizer:oneFingerTap_];
-    
+
     twoFingerTap_ = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
                              action:@selector(addTwoFingerTapEvent:)];
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
-    
+
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
@@ -76,8 +76,8 @@
                                                         userInfo:data];
     }
   } else {
-    NSArray *players = [entityManager_ findAllWithComponent:@"Selectable"];
-    for (Entity *p in players) {
+    NSArray *units = [entityManager_ findAllWithComponent:@"Selectable"];
+    for (Entity *p in units) {
       Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
       if ([playerSelectable isAtLocation:pos]) {
         [entityManager_ selectById:p.uuid];
@@ -90,18 +90,19 @@
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
   [entityManager_ deselectAll];
-  NSArray *players = [entityManager_ findByTag:@"player"];
-  NSArray *targets = [entityManager_ findByTeamName:@"Team Edward"];
+  NSArray *units   = [entityManager_ findByTeamName:@"Team Edward"];
+  NSArray *targets = [entityManager_ findByTeamName:@"Team Jacob"];
 
-  if ([players count] > 0 && [targets count] > 0) {
-    Entity  *player  = players[0];
-    Entity  *target  = targets[0];
-    Attack  *attack  = [player getComponentByString:@"Attack"];
-    Health  *health  = [player getComponentByString:@"Health"];
+  for (Entity *unit in units) {
+    Attack  *attack  = [unit getComponentByString:@"Attack"];
+    if (targets.count > 0) {
+      Entity  *target  = targets[arc4random() % targets.count];
+      Health  *health  = [unit getComponentByString:@"Health"];
 
-    [health damage:20];
-  
-    [attack fireAt:target];
+      [health damage:20];
+
+      [attack fireAt:target];
+    }
   }
 }
 
