@@ -2,8 +2,8 @@
 //  Entity.m
 //  Component
 //
-//  Created by Cjab on 11/1/12.
-//  Copyright (c) 2012 Cjab. All rights reserved.
+//  Created by Chad Jablonski on 11/1/12.
+//  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
 #import "Entity.h"
@@ -24,6 +24,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
                                                      @"Transform",
                                                      @"Collision",
                                                      @"StandardCollider",
+                                                     @"Team",
                                                      @"Attack",
                                                      @"Projectile",
                                                      nil];
