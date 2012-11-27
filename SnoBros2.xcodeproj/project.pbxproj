@@ -7,18 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8761CEB316651BEA0007E5F8 /* SnoBros2 in Resources */ = {isa = PBXBuildFile; fileRef = 8761CEB216651BEA0007E5F8 /* SnoBros2 */; };
-		8761CEB516651C510007E5F8 /* SnoBros2Tests in Resources */ = {isa = PBXBuildFile; fileRef = 8761CEB416651C510007E5F8 /* SnoBros2Tests */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
 		A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
+		A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */; };
+		A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
+		A3F8B076166465A700334E9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B02D166465A700334E9E /* AppDelegate.m */; };
+		A3F8B077166465A700334E9E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B02F166465A700334E9E /* Default-568h@2x.png */; };
+		A3F8B078166465A700334E9E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B030166465A700334E9E /* Default.png */; };
+		A3F8B079166465A700334E9E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B031166465A700334E9E /* Default@2x.png */; };
+		A3F8B07A166465A700334E9E /* entities.json in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B032166465A700334E9E /* entities.json */; };
+		A3F8B07B166465A700334E9E /* healthgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B033166465A700334E9E /* healthgradient.png */; };
+		A3F8B07C166465A700334E9E /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B034166465A700334E9E /* map.png */; };
+		A3F8B07D166465A700334E9E /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B035166465A700334E9E /* map2.png */; };
+		A3F8B07E166465A700334E9E /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B036166465A700334E9E /* player.png */; };
+		A3F8B07F166465A700334E9E /* snowball-small.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B037166465A700334E9E /* snowball-small.png */; };
+		A3F8B080166465A700334E9E /* snowball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B038166465A700334E9E /* snowball.png */; };
+		A3F8B081166465A700334E9E /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B039166465A700334E9E /* sprite2.png */; };
+		A3F8B082166465A700334E9E /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B03A166465A700334E9E /* wpaper.jpg */; };
+		A3F8B083166465A700334E9E /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03D166465A700334E9E /* Behavior.m */; };
+		A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03F166465A700334E9E /* LeftPlayer.m */; };
+		A3F8B085166465A700334E9E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B041166465A700334E9E /* Sphere.m */; };
+		A3F8B086166465A700334E9E /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B043166465A700334E9E /* Camera.m */; };
+		A3F8B087166465A700334E9E /* Attack.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B046166465A700334E9E /* Attack.m */; };
+		A3F8B088166465A700334E9E /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B048166465A700334E9E /* Collision.m */; };
+		A3F8B089166465A700334E9E /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04A166465A700334E9E /* Component.m */; };
+		A3F8B08A166465A700334E9E /* Health.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04C166465A700334E9E /* Health.m */; };
+		A3F8B08B166465A700334E9E /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04E166465A700334E9E /* Physics.m */; };
+		A3F8B08C166465A700334E9E /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B050166465A700334E9E /* Projectile.m */; };
+		A3F8B08D166465A700334E9E /* Renderable.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B052166465A700334E9E /* Renderable.m */; };
+		A3F8B08E166465A700334E9E /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B054166465A700334E9E /* Selectable.m */; };
+		A3F8B08F166465A700334E9E /* StandardCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B056166465A700334E9E /* StandardCollider.m */; };
+		A3F8B090166465A700334E9E /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B058166465A700334E9E /* Team.m */; };
+		A3F8B091166465A700334E9E /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B05A166465A700334E9E /* Transform.m */; };
+		A3F8B092166465A700334E9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B05D166465A700334E9E /* ViewController.m */; };
+		A3F8B093166465A700334E9E /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B05F166465A700334E9E /* Entity.m */; };
+		A3F8B094166465A700334E9E /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B061166465A700334E9E /* EntityManager.m */; };
+		A3F8B095166465A700334E9E /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B063166465A700334E9E /* Game.m */; };
+		A3F8B096166465A700334E9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B064166465A700334E9E /* main.m */; };
+		A3F8B097166465A700334E9E /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B066166465A700334E9E /* Sprite.m */; };
+		A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B068166465A700334E9E /* InfoPlist.strings */; };
+		A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B06A166465A700334E9E /* SnoBros2-Info.plist */; };
+		A3F8B09A166465A700334E9E /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B06E166465A700334E9E /* CollisionSystem.m */; };
+		A3F8B09B166465A700334E9E /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B070166465A700334E9E /* InputSystem.m */; };
+		A3F8B09C166465A700334E9E /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B072166465A700334E9E /* RenderSystem.m */; };
+		A3F8B09D166465A700334E9E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B075166465A700334E9E /* Quadtree.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,16 +72,84 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8761CEB216651BEA0007E5F8 /* SnoBros2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SnoBros2; sourceTree = "<group>"; };
-		8761CEB416651C510007E5F8 /* SnoBros2Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SnoBros2Tests; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnoBros2Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2Tests-Info.plist"; sourceTree = "<group>"; };
+		A3BD0CBF1642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
+		A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3F8B02C166465A700334E9E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A3F8B02D166465A700334E9E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A3F8B02F166465A700334E9E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A3F8B030166465A700334E9E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A3F8B031166465A700334E9E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A3F8B032166465A700334E9E /* entities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = entities.json; sourceTree = "<group>"; };
+		A3F8B033166465A700334E9E /* healthgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient.png; sourceTree = "<group>"; };
+		A3F8B034166465A700334E9E /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		A3F8B035166465A700334E9E /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2.png; sourceTree = "<group>"; };
+		A3F8B036166465A700334E9E /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		A3F8B037166465A700334E9E /* snowball-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snowball-small.png"; sourceTree = "<group>"; };
+		A3F8B038166465A700334E9E /* snowball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowball.png; sourceTree = "<group>"; };
+		A3F8B039166465A700334E9E /* sprite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite2.png; sourceTree = "<group>"; };
+		A3F8B03A166465A700334E9E /* wpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wpaper.jpg; sourceTree = "<group>"; };
+		A3F8B03C166465A700334E9E /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
+		A3F8B03D166465A700334E9E /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
+		A3F8B03E166465A700334E9E /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
+		A3F8B03F166465A700334E9E /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
+		A3F8B040166465A700334E9E /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		A3F8B041166465A700334E9E /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		A3F8B042166465A700334E9E /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		A3F8B043166465A700334E9E /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		A3F8B045166465A700334E9E /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		A3F8B046166465A700334E9E /* Attack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attack.m; sourceTree = "<group>"; };
+		A3F8B047166465A700334E9E /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
+		A3F8B048166465A700334E9E /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
+		A3F8B049166465A700334E9E /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		A3F8B04A166465A700334E9E /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		A3F8B04B166465A700334E9E /* Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Health.h; sourceTree = "<group>"; };
+		A3F8B04C166465A700334E9E /* Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Health.m; sourceTree = "<group>"; };
+		A3F8B04D166465A700334E9E /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
+		A3F8B04E166465A700334E9E /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
+		A3F8B04F166465A700334E9E /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		A3F8B050166465A700334E9E /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
+		A3F8B051166465A700334E9E /* Renderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderable.h; sourceTree = "<group>"; };
+		A3F8B052166465A700334E9E /* Renderable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderable.m; sourceTree = "<group>"; };
+		A3F8B053166465A700334E9E /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
+		A3F8B054166465A700334E9E /* Selectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selectable.m; sourceTree = "<group>"; };
+		A3F8B055166465A700334E9E /* StandardCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardCollider.h; sourceTree = "<group>"; };
+		A3F8B056166465A700334E9E /* StandardCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardCollider.m; sourceTree = "<group>"; };
+		A3F8B057166465A700334E9E /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		A3F8B058166465A700334E9E /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		A3F8B059166465A700334E9E /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		A3F8B05A166465A700334E9E /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
+		A3F8B05C166465A700334E9E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A3F8B05D166465A700334E9E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A3F8B05E166465A700334E9E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		A3F8B05F166465A700334E9E /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		A3F8B060166465A700334E9E /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		A3F8B061166465A700334E9E /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		A3F8B062166465A700334E9E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		A3F8B063166465A700334E9E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		A3F8B064166465A700334E9E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3F8B065166465A700334E9E /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		A3F8B066166465A700334E9E /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		A3F8B069166465A700334E9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3F8B06A166465A700334E9E /* SnoBros2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SnoBros2-Info.plist"; sourceTree = "<group>"; };
+		A3F8B06B166465A700334E9E /* SnoBros2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnoBros2-Prefix.pch"; sourceTree = "<group>"; };
+		A3F8B06D166465A700334E9E /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
+		A3F8B06E166465A700334E9E /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
+		A3F8B06F166465A700334E9E /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
+		A3F8B070166465A700334E9E /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputSystem.m; sourceTree = "<group>"; };
+		A3F8B071166465A700334E9E /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		A3F8B072166465A700334E9E /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderSystem.m; sourceTree = "<group>"; };
+		A3F8B074166465A700334E9E /* Quadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quadtree.h; sourceTree = "<group>"; };
+		A3F8B075166465A700334E9E /* Quadtree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quadtree.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +180,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B06C166465A700334E9E /* Systems */,
+				A3F8B044166465A700334E9E /* Components */,
+				A3F8B03B166465A700334E9E /* Behaviors */,
+				A3F8B062166465A700334E9E /* Game.h */,
+				A3F8B063166465A700334E9E /* Game.m */,
+				A3F8B05E166465A700334E9E /* Entity.h */,
+				A3F8B05F166465A700334E9E /* Entity.m */,
+				A3F8B042166465A700334E9E /* Camera.h */,
+				A3F8B043166465A700334E9E /* Camera.m */,
+				A3F8B065166465A700334E9E /* Sprite.h */,
+				A3F8B066166465A700334E9E /* Sprite.m */,
+				A3F8B060166465A700334E9E /* EntityManager.h */,
+				A3F8B061166465A700334E9E /* EntityManager.m */,
+				A3F8B02C166465A700334E9E /* AppDelegate.h */,
+				A3F8B02D166465A700334E9E /* AppDelegate.m */,
+				A3F8B064166465A700334E9E /* main.m */,
+				A3F8B05B166465A700334E9E /* Controllers */,
+				A3F8B073166465A700334E9E /* Utilities */,
+				A3F8B067166465A700334E9E /* Support */,
+				A3F8B02E166465A700334E9E /* Assets */,
+			);
+			path = SnoBros2;
+			sourceTree = "<group>";
+		};
 		A3BD0C881642EC8B007AEB08 = {
 			isa = PBXGroup;
 			children = (
-				8761CEB216651BEA0007E5F8 /* SnoBros2 */,
-				8761CEB416651C510007E5F8 /* SnoBros2Tests */,
+				87E49DEF16515A8200202CFB /* SnoBros2 */,
+				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3BD0C941642EC8B007AEB08 /* Products */,
 			);
@@ -102,6 +237,127 @@
 				A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */,
+				A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */,
+				A3BD0CBC1642EC8B007AEB08 /* Supporting Files */,
+			);
+			path = SnoBros2Tests;
+			sourceTree = "<group>";
+		};
+		A3BD0CBC1642EC8B007AEB08 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */,
+				A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3F8B02E166465A700334E9E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B02F166465A700334E9E /* Default-568h@2x.png */,
+				A3F8B030166465A700334E9E /* Default.png */,
+				A3F8B031166465A700334E9E /* Default@2x.png */,
+				A3F8B032166465A700334E9E /* entities.json */,
+				A3F8B033166465A700334E9E /* healthgradient.png */,
+				A3F8B034166465A700334E9E /* map.png */,
+				A3F8B035166465A700334E9E /* map2.png */,
+				A3F8B036166465A700334E9E /* player.png */,
+				A3F8B037166465A700334E9E /* snowball-small.png */,
+				A3F8B038166465A700334E9E /* snowball.png */,
+				A3F8B039166465A700334E9E /* sprite2.png */,
+				A3F8B03A166465A700334E9E /* wpaper.jpg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A3F8B03B166465A700334E9E /* Behaviors */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B03C166465A700334E9E /* Behavior.h */,
+				A3F8B03D166465A700334E9E /* Behavior.m */,
+				A3F8B03E166465A700334E9E /* LeftPlayer.h */,
+				A3F8B03F166465A700334E9E /* LeftPlayer.m */,
+				A3F8B040166465A700334E9E /* Sphere.h */,
+				A3F8B041166465A700334E9E /* Sphere.m */,
+			);
+			path = Behaviors;
+			sourceTree = "<group>";
+		};
+		A3F8B044166465A700334E9E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B045166465A700334E9E /* Attack.h */,
+				A3F8B046166465A700334E9E /* Attack.m */,
+				A3F8B047166465A700334E9E /* Collision.h */,
+				A3F8B048166465A700334E9E /* Collision.m */,
+				A3F8B049166465A700334E9E /* Component.h */,
+				A3F8B04A166465A700334E9E /* Component.m */,
+				A3F8B04B166465A700334E9E /* Health.h */,
+				A3F8B04C166465A700334E9E /* Health.m */,
+				A3F8B04D166465A700334E9E /* Physics.h */,
+				A3F8B04E166465A700334E9E /* Physics.m */,
+				A3F8B04F166465A700334E9E /* Projectile.h */,
+				A3F8B050166465A700334E9E /* Projectile.m */,
+				A3F8B051166465A700334E9E /* Renderable.h */,
+				A3F8B052166465A700334E9E /* Renderable.m */,
+				A3F8B053166465A700334E9E /* Selectable.h */,
+				A3F8B054166465A700334E9E /* Selectable.m */,
+				A3F8B055166465A700334E9E /* StandardCollider.h */,
+				A3F8B056166465A700334E9E /* StandardCollider.m */,
+				A3F8B057166465A700334E9E /* Team.h */,
+				A3F8B058166465A700334E9E /* Team.m */,
+				A3F8B059166465A700334E9E /* Transform.h */,
+				A3F8B05A166465A700334E9E /* Transform.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A3F8B05B166465A700334E9E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B05C166465A700334E9E /* ViewController.h */,
+				A3F8B05D166465A700334E9E /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A3F8B067166465A700334E9E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B068166465A700334E9E /* InfoPlist.strings */,
+				A3F8B06A166465A700334E9E /* SnoBros2-Info.plist */,
+				A3F8B06B166465A700334E9E /* SnoBros2-Prefix.pch */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A3F8B06C166465A700334E9E /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B06D166465A700334E9E /* CollisionSystem.h */,
+				A3F8B06E166465A700334E9E /* CollisionSystem.m */,
+				A3F8B06F166465A700334E9E /* InputSystem.h */,
+				A3F8B070166465A700334E9E /* InputSystem.m */,
+				A3F8B071166465A700334E9E /* RenderSystem.h */,
+				A3F8B072166465A700334E9E /* RenderSystem.m */,
+			);
+			path = Systems;
+			sourceTree = "<group>";
+		};
+		A3F8B073166465A700334E9E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B074166465A700334E9E /* Quadtree.h */,
+				A3F8B075166465A700334E9E /* Quadtree.m */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +431,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8761CEB316651BEA0007E5F8 /* SnoBros2 in Resources */,
-				8761CEB516651C510007E5F8 /* SnoBros2Tests in Resources */,
+				A3F8B077166465A700334E9E /* Default-568h@2x.png in Resources */,
+				A3F8B078166465A700334E9E /* Default.png in Resources */,
+				A3F8B079166465A700334E9E /* Default@2x.png in Resources */,
+				A3F8B07A166465A700334E9E /* entities.json in Resources */,
+				A3F8B07B166465A700334E9E /* healthgradient.png in Resources */,
+				A3F8B07C166465A700334E9E /* map.png in Resources */,
+				A3F8B07D166465A700334E9E /* map2.png in Resources */,
+				A3F8B07E166465A700334E9E /* player.png in Resources */,
+				A3F8B07F166465A700334E9E /* snowball-small.png in Resources */,
+				A3F8B080166465A700334E9E /* snowball.png in Resources */,
+				A3F8B081166465A700334E9E /* sprite2.png in Resources */,
+				A3F8B082166465A700334E9E /* wpaper.jpg in Resources */,
+				A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */,
+				A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +479,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F8B076166465A700334E9E /* AppDelegate.m in Sources */,
+				A3F8B083166465A700334E9E /* Behavior.m in Sources */,
+				A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */,
+				A3F8B085166465A700334E9E /* Sphere.m in Sources */,
+				A3F8B086166465A700334E9E /* Camera.m in Sources */,
+				A3F8B087166465A700334E9E /* Attack.m in Sources */,
+				A3F8B088166465A700334E9E /* Collision.m in Sources */,
+				A3F8B089166465A700334E9E /* Component.m in Sources */,
+				A3F8B08A166465A700334E9E /* Health.m in Sources */,
+				A3F8B08B166465A700334E9E /* Physics.m in Sources */,
+				A3F8B08C166465A700334E9E /* Projectile.m in Sources */,
+				A3F8B08D166465A700334E9E /* Renderable.m in Sources */,
+				A3F8B08E166465A700334E9E /* Selectable.m in Sources */,
+				A3F8B08F166465A700334E9E /* StandardCollider.m in Sources */,
+				A3F8B090166465A700334E9E /* Team.m in Sources */,
+				A3F8B091166465A700334E9E /* Transform.m in Sources */,
+				A3F8B092166465A700334E9E /* ViewController.m in Sources */,
+				A3F8B093166465A700334E9E /* Entity.m in Sources */,
+				A3F8B094166465A700334E9E /* EntityManager.m in Sources */,
+				A3F8B095166465A700334E9E /* Game.m in Sources */,
+				A3F8B096166465A700334E9E /* main.m in Sources */,
+				A3F8B097166465A700334E9E /* Sprite.m in Sources */,
+				A3F8B09A166465A700334E9E /* CollisionSystem.m in Sources */,
+				A3F8B09B166465A700334E9E /* InputSystem.m in Sources */,
+				A3F8B09C166465A700334E9E /* RenderSystem.m in Sources */,
+				A3F8B09D166465A700334E9E /* Quadtree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +525,25 @@
 			targetProxy = A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3BD0CBF1642EC8B007AEB08 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A3F8B068166465A700334E9E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3F8B069166465A700334E9E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A3BD0CC41642EC8B007AEB08 /* Debug */ = {
