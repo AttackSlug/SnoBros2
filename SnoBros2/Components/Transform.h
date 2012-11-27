@@ -24,6 +24,7 @@
 
 - (void)translate:(GLKVector2)translation;
 - (Transform *)copy;
+- (bool)isCenterInRectangle:(CGRect)rectangle;
 
 - (void)update;
 

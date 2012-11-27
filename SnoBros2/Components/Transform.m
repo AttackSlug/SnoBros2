@@ -49,6 +49,12 @@
 
 
 
+- (bool)isCenterInRectangle:(CGRect)rectangle {
+  return CGRectContainsPoint(rectangle, CGPointMake(position_.x, position_.y));
+}
+
+
+
 - (Transform *)copy {
   Transform *copy = [[Transform alloc] initWithEntity:entity_];
   copy.position = position_;

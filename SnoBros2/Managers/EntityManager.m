@@ -14,6 +14,8 @@
 #import "Health.h"
 #import "Team.h"
 #import "SceneGraph.h"
+#import "Transform.h"
+#import "Collision.h"
 
 @implementation EntityManager
 
@@ -210,55 +212,35 @@
 
 
 
-- (NSArray *)findAllSelected {
+- (NSArray *)findAllWithinRectangle:(CGRect)rectangle {
   NSMutableArray *found = [[NSMutableArray alloc] init];
 
-  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
-    Selectable *selectable = [e getComponentByString:@"Selectable"];
-    if (selectable.selected == TRUE) {
-      [found addObject:e];
+  for (Entity *ent in [self findAllWithComponent:@"Transform"]) {
+    Transform *transform = [ent getComponentByString:@"Transform"];
+    if ([transform isCenterInRectangle:rectangle]) {
+      [found addObject:ent];
     }
   }
+
   return found;
 }
 
 
 
-- (BOOL)isEntitySelected {
-  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
-    Selectable *selectable = [e getComponentByString:@"Selectable"];
-    if (selectable.selected == TRUE) {
-      return TRUE;
+- (Entity *)findEntityDisplayedAtPosition:(GLKVector2)target {
+  for (Entity *entity in entities_.allValues) {
+    Transform *transform = [entity getComponentByString:@"Transform"];
+    Collision *collision = [entity getComponentByString:@"Collision"];
+    GLKVector2 position  = transform.position;
+    float radius         = collision.radius;
+    float distance       = GLKVector2Distance(position, target);
+
+    if (distance <= radius) {
+      return entity;
     }
   }
-  return FALSE;
-}
 
-
-
-- (void)selectById:(NSString *)entityId {
-  Entity *e               = [self findById:entityId];
-  Selectable *selectable  = [e getComponentByString:@"Selectable"];
-  Health *health          = [e getComponentByString:@"Health"];
-  
-  [selectable selectUnit];
-  if (health != nil) {
-    [health showHealthBar];
-  }
-}
-
-
-
-- (void)deselectAll {
-  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
-    Selectable *selectable = [e getComponentByString:@"Selectable"];
-    Health     *health     = [e getComponentByString:@"Health"];
-    
-    [selectable deselectUnit];
-    if (health != nil) {
-      [health hideHealthBar];
-    }
-  }
+  return NULL;
 }
 
 

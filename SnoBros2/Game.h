@@ -13,6 +13,7 @@
 @class CollisionSystem;
 @class InputSystem;
 @class RenderSystem;
+@class SelectionSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
@@ -24,14 +25,16 @@ const static int   MAX_STEPS         = 5;
   CollisionSystem       *collisionSystem_;
   InputSystem           *inputSystem_;
   RenderSystem          *renderSystem_;
+  SelectionSystem       *selectionSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;
   NSTimeInterval const  timestepInterval_;
 }
 
-@property (nonatomic) Camera        *camera;
-@property (nonatomic) EntityManager *entityManager;
+@property (nonatomic) Camera          *camera;
+@property (nonatomic) EntityManager   *entityManager;
+@property (nonatomic) SelectionSystem *selectionSystem;
 
 - (void)update:(NSTimeInterval)elapsedTime;
 - (void)step;

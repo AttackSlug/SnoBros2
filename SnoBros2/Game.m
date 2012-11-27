@@ -14,13 +14,15 @@
 #import "InputSystem.h"
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
+#import "SelectionSystem.h"
 
 #import "Transform.h"
 
 @implementation Game
 
-@synthesize camera        = camera_;
-@synthesize entityManager = entityManager_;
+@synthesize camera          = camera_;
+@synthesize entityManager   = entityManager_;
+@synthesize selectionSystem = selectionSystem_;
 
 - (id)init {
   self = [super init];
@@ -29,6 +31,8 @@
 
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
+    selectionSystem_ = [[SelectionSystem alloc]
+                        initWithEntityManager:entityManager_];
     collisionSystem_ = [[CollisionSystem alloc]
                         initWithEntityManager:entityManager_];
     renderSystem_    = [[RenderSystem alloc]

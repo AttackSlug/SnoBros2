@@ -13,17 +13,19 @@
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
-
+#import "SelectionSystem.h"
 #import "Attack.h"
 
 @implementation InputSystem
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
+   selectionSystem:(SelectionSystem *)selectionSystem
             camera:(Camera *)camera {
   self = [super init];
   if (self) {
-    entityManager_ = entityManager;
+    entityManager_   = entityManager;
+    selectionSystem_ = selectionSystem;
     camera_        = camera;
 
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
@@ -56,8 +58,8 @@
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
 
-  if ([entityManager_ isEntitySelected] == TRUE) {
-    NSArray *selectedEntities = [entityManager_ findAllSelected];
+  if ([selectionSystem_ isEntitySelected] == TRUE) {
+    NSArray *selectedEntities = [selectionSystem_ findAllSelected];
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
@@ -76,20 +78,14 @@
                                                         userInfo:data];
     }
   } else {
-    NSArray *units = [entityManager_ findAllWithComponent:@"Selectable"];
-    for (Entity *p in units) {
-      Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
-      if ([playerSelectable isAtLocation:pos]) {
-        [entityManager_ selectById:p.uuid];
-      }
-    }
+    [selectionSystem_ selectEntityDisplayedAtPosition:pos];
   }
 }
 
 
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
-  [entityManager_ deselectAll];
+  [selectionSystem_ deselectAll];
   NSArray *units   = [entityManager_ findByTeamName:@"Team Edward"];
   NSArray *targets = [entityManager_ findByTeamName:@"Team Jacob"];
 
@@ -120,12 +116,7 @@
                                   t.x,
                                   t.y);
 
-    for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
-      Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
-      if ([entSelectable isInRectangle:rectangle]) {
-        [entityManager_ selectById:ent.uuid];
-      }
-    }
+    [selectionSystem_ selectAllWithinRectangle:rectangle];
   }
 }
 
