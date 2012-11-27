@@ -13,6 +13,7 @@
 #import "Camera.h"
 #import "Transform.h"
 #import "Sprite.h"
+#import "SpriteManager.h"
 #import "Renderable.h"
 
 @implementation RenderSystem
@@ -21,6 +22,9 @@
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
+    spriteManager_  = [[SpriteManager alloc] init];
+    [spriteManager_ loadEntityTypesFromFile:@"sprites"];
+    [spriteManager_ debug];
     camera_         = camera;
   }
   return self;

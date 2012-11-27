@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8787EC18166523A0000C07E1 /* SpriteManager.m */; };
+		8787EC1B16652664000C07E1 /* sprites.json in Resources */ = {isa = PBXBuildFile; fileRef = 8787EC1A16652664000C07E1 /* sprites.json */; };
+		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -72,6 +75,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8787EC17166523A0000C07E1 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
+		8787EC18166523A0000C07E1 /* SpriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteManager.m; path = Managers/SpriteManager.m; sourceTree = "<group>"; };
+		8787EC1A16652664000C07E1 /* sprites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sprites.json; sourceTree = "<group>"; };
+		87E4195D16652E7600336F3A /* SceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
+		87E4195E16652E7600336F3A /* SceneNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneNode.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,8 +140,8 @@
 		A3F8B05D166465A700334E9E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A3F8B05E166465A700334E9E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		A3F8B05F166465A700334E9E /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		A3F8B060166465A700334E9E /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
-		A3F8B061166465A700334E9E /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		A3F8B060166465A700334E9E /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Managers/EntityManager.h; sourceTree = "<group>"; };
+		A3F8B061166465A700334E9E /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Managers/EntityManager.m; sourceTree = "<group>"; };
 		A3F8B062166465A700334E9E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		A3F8B063166465A700334E9E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		A3F8B064166465A700334E9E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,12 +188,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8787EC1516652307000C07E1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8B060166465A700334E9E /* EntityManager.h */,
+				A3F8B061166465A700334E9E /* EntityManager.m */,
+				8787EC17166523A0000C07E1 /* SpriteManager.h */,
+				8787EC18166523A0000C07E1 /* SpriteManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
 				A3F8B06C166465A700334E9E /* Systems */,
 				A3F8B044166465A700334E9E /* Components */,
 				A3F8B03B166465A700334E9E /* Behaviors */,
+				8787EC1516652307000C07E1 /* Managers */,
 				A3F8B062166465A700334E9E /* Game.h */,
 				A3F8B063166465A700334E9E /* Game.m */,
 				A3F8B05E166465A700334E9E /* Entity.h */,
@@ -194,8 +214,6 @@
 				A3F8B043166465A700334E9E /* Camera.m */,
 				A3F8B065166465A700334E9E /* Sprite.h */,
 				A3F8B066166465A700334E9E /* Sprite.m */,
-				A3F8B060166465A700334E9E /* EntityManager.h */,
-				A3F8B061166465A700334E9E /* EntityManager.m */,
 				A3F8B02C166465A700334E9E /* AppDelegate.h */,
 				A3F8B02D166465A700334E9E /* AppDelegate.m */,
 				A3F8B064166465A700334E9E /* main.m */,
@@ -265,6 +283,7 @@
 				A3F8B030166465A700334E9E /* Default.png */,
 				A3F8B031166465A700334E9E /* Default@2x.png */,
 				A3F8B032166465A700334E9E /* entities.json */,
+				8787EC1A16652664000C07E1 /* sprites.json */,
 				A3F8B033166465A700334E9E /* healthgradient.png */,
 				A3F8B034166465A700334E9E /* map.png */,
 				A3F8B035166465A700334E9E /* map2.png */,
@@ -356,6 +375,8 @@
 			children = (
 				A3F8B074166465A700334E9E /* Quadtree.h */,
 				A3F8B075166465A700334E9E /* Quadtree.m */,
+				87E4195D16652E7600336F3A /* SceneNode.h */,
+				87E4195E16652E7600336F3A /* SceneNode.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -445,6 +466,7 @@
 				A3F8B082166465A700334E9E /* wpaper.jpg in Resources */,
 				A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */,
 				A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */,
+				8787EC1B16652664000C07E1 /* sprites.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +527,8 @@
 				A3F8B09B166465A700334E9E /* InputSystem.m in Sources */,
 				A3F8B09C166465A700334E9E /* RenderSystem.m in Sources */,
 				A3F8B09D166465A700334E9E /* Quadtree.m in Sources */,
+				8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */,
+				87E4195F16652E7600336F3A /* SceneNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

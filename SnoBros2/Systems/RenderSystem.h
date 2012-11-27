@@ -13,9 +13,11 @@
 @class Entity;
 @class Camera;
 @class Sprite;
+@class SpriteManager;
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
+  SpriteManager *spriteManager_;
   Camera        *camera_;
 }
 
