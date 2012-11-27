@@ -2,8 +2,8 @@
 //  Sprite.h
 //  Component
 //
-//  Created by Cjab on 11/4/12.
-//  Copyright (c) 2012 Cjab. All rights reserved.
+//  Created by Chad Jablonski on 11/4/12.
+//  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -35,6 +35,7 @@
 @property (nonatomic)           Sprite *parent;
 
 - (id)initWithFile:(NSString *)filePath tag:(NSString *)tag;
+
 - (void)dealloc;
 - (void)addChild:(Sprite *)child;
 - (void)addChildren:(NSMutableArray *)children;
