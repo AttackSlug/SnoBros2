@@ -12,10 +12,12 @@
 @interface Transform : Component {
   GLKVector2 position_;
   GLKVector2 previousPosition_;
+  GLKVector2 scale_;
 }
 
 @property (nonatomic) GLKVector2 position;
 @property (nonatomic) GLKVector2 previousPosition;
+@property (nonatomic) GLKVector2 scale;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
