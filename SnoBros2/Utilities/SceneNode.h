@@ -16,15 +16,18 @@
   NSMutableArray  *children_;
   NSString        *spriteRef_;
   GLKMatrix4      modelViewMatrix_;
+  BOOL            visible_;
 }
 
 @property (nonatomic) SceneNode       *parent;
 @property (nonatomic) NSMutableArray  *children;
 @property (nonatomic) NSString        *spriteRef;
 @property (nonatomic) GLKMatrix4      modelViewMatrix;
+@property (nonatomic) BOOL            visible;
 
 - (id)initWithSpriteRef:(NSString *)spriteRef;
 - (void)addChild:(SceneNode *)child;
 - (void)addChildren:(NSArray *)children;
+- (void)translate:(GLKVector2)translation;
 
 @end

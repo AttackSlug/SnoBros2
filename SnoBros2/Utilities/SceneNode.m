@@ -14,6 +14,7 @@
 @synthesize children        = children_;
 @synthesize spriteRef       = spriteRef_;
 @synthesize modelViewMatrix = modelViewMatrix_;
+@synthesize visible         = visible_;
 
 - (id)initWithSpriteRef:(NSString *)spriteRef {
   self = [super init];
@@ -21,6 +22,7 @@
     spriteRef_  = spriteRef;
     children_   = [[NSMutableArray alloc] init];
     modelViewMatrix_ = GLKMatrix4Identity;
+    visible_ = TRUE;
   }
   return self;
 }
@@ -38,6 +40,12 @@
   for (SceneNode *child in children) {
     [self addChild:child];
   }
+}
+
+
+
+- (void)translate:(GLKVector2)translation {
+  modelViewMatrix_ = GLKMatrix4Translate(modelViewMatrix_, translation.x, translation.y, 0);
 }
 
 

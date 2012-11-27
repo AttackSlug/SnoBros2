@@ -63,6 +63,9 @@
 
 
 - (void)renderSceneNode:(SceneNode *)sceneNode {
+  if (sceneNode.visible == FALSE) {
+    return;
+  }
   GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:sceneNode];
   Sprite        *sprite = [spriteManager_ getSpriteWithRef:sceneNode.spriteRef];
   [effect prepareToDraw];

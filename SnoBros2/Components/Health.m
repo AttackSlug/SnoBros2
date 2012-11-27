@@ -38,7 +38,7 @@
     health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
     
-    [healthBar_ translate:GLKVector2Make(0, -(healthBar_.parent.height / 2.f))];
+    [healthBar_ translate:GLKVector2Make(0, -20)];
     [self hideHealthBar];
   }
   return self;
@@ -83,13 +83,13 @@
 
 
 - (void)showHealthBar {
-  //healthBar_.visible = TRUE;
+  healthBar_.visible = TRUE;
 }
 
 
 
 - (void)hideHealthBar {
-  //healthBar_.visible = FALSE;
+  healthBar_.visible = FALSE;
 }
 
 @end
