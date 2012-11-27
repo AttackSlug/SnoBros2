@@ -58,7 +58,6 @@
 		A3F8B096166465A700334E9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B064166465A700334E9E /* main.m */; };
 		A3F8B097166465A700334E9E /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B066166465A700334E9E /* Sprite.m */; };
 		A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B068166465A700334E9E /* InfoPlist.strings */; };
-		A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B06A166465A700334E9E /* SnoBros2-Info.plist */; };
 		A3F8B09A166465A700334E9E /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B06E166465A700334E9E /* CollisionSystem.m */; };
 		A3F8B09B166465A700334E9E /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B070166465A700334E9E /* InputSystem.m */; };
 		A3F8B09C166465A700334E9E /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B072166465A700334E9E /* RenderSystem.m */; };
@@ -468,7 +467,6 @@
 				A3F8B081166465A700334E9E /* sprite2.png in Resources */,
 				A3F8B082166465A700334E9E /* wpaper.jpg in Resources */,
 				A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */,
-				A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */,
 				8787EC1B16652664000C07E1 /* sprites.json in Resources */,
 				87E41981166677DE00336F3A /* healthgradient2.png in Resources */,
 			);
