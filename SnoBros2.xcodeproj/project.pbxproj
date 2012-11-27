@@ -45,7 +45,7 @@
 		A3F8B08A166465A700334E9E /* Health.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04C166465A700334E9E /* Health.m */; };
 		A3F8B08B166465A700334E9E /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04E166465A700334E9E /* Physics.m */; };
 		A3F8B08C166465A700334E9E /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B050166465A700334E9E /* Projectile.m */; };
-		A3F8B08D166465A700334E9E /* Renderable.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B052166465A700334E9E /* Renderable.m */; };
+		A3F8B08D166465A700334E9E /* SceneGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B052166465A700334E9E /* SceneGraph.m */; };
 		A3F8B08E166465A700334E9E /* Selectable.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B054166465A700334E9E /* Selectable.m */; };
 		A3F8B08F166465A700334E9E /* StandardCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B056166465A700334E9E /* StandardCollider.m */; };
 		A3F8B090166465A700334E9E /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B058166465A700334E9E /* Team.m */; };
@@ -126,8 +126,8 @@
 		A3F8B04E166465A700334E9E /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
 		A3F8B04F166465A700334E9E /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		A3F8B050166465A700334E9E /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
-		A3F8B051166465A700334E9E /* Renderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderable.h; sourceTree = "<group>"; };
-		A3F8B052166465A700334E9E /* Renderable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderable.m; sourceTree = "<group>"; };
+		A3F8B051166465A700334E9E /* SceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraph.h; sourceTree = "<group>"; };
+		A3F8B052166465A700334E9E /* SceneGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGraph.m; sourceTree = "<group>"; };
 		A3F8B053166465A700334E9E /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
 		A3F8B054166465A700334E9E /* Selectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selectable.m; sourceTree = "<group>"; };
 		A3F8B055166465A700334E9E /* StandardCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardCollider.h; sourceTree = "<group>"; };
@@ -206,6 +206,10 @@
 				A3F8B044166465A700334E9E /* Components */,
 				A3F8B03B166465A700334E9E /* Behaviors */,
 				8787EC1516652307000C07E1 /* Managers */,
+				A3F8B073166465A700334E9E /* Utilities */,
+				A3F8B05B166465A700334E9E /* Controllers */,
+				A3F8B067166465A700334E9E /* Support */,
+				A3F8B02E166465A700334E9E /* Assets */,
 				A3F8B062166465A700334E9E /* Game.h */,
 				A3F8B063166465A700334E9E /* Game.m */,
 				A3F8B05E166465A700334E9E /* Entity.h */,
@@ -217,10 +221,6 @@
 				A3F8B02C166465A700334E9E /* AppDelegate.h */,
 				A3F8B02D166465A700334E9E /* AppDelegate.m */,
 				A3F8B064166465A700334E9E /* main.m */,
-				A3F8B05B166465A700334E9E /* Controllers */,
-				A3F8B073166465A700334E9E /* Utilities */,
-				A3F8B067166465A700334E9E /* Support */,
-				A3F8B02E166465A700334E9E /* Assets */,
 			);
 			path = SnoBros2;
 			sourceTree = "<group>";
@@ -324,8 +324,8 @@
 				A3F8B04E166465A700334E9E /* Physics.m */,
 				A3F8B04F166465A700334E9E /* Projectile.h */,
 				A3F8B050166465A700334E9E /* Projectile.m */,
-				A3F8B051166465A700334E9E /* Renderable.h */,
-				A3F8B052166465A700334E9E /* Renderable.m */,
+				A3F8B051166465A700334E9E /* SceneGraph.h */,
+				A3F8B052166465A700334E9E /* SceneGraph.m */,
 				A3F8B053166465A700334E9E /* Selectable.h */,
 				A3F8B054166465A700334E9E /* Selectable.m */,
 				A3F8B055166465A700334E9E /* StandardCollider.h */,
@@ -512,7 +512,7 @@
 				A3F8B08A166465A700334E9E /* Health.m in Sources */,
 				A3F8B08B166465A700334E9E /* Physics.m in Sources */,
 				A3F8B08C166465A700334E9E /* Projectile.m in Sources */,
-				A3F8B08D166465A700334E9E /* Renderable.m in Sources */,
+				A3F8B08D166465A700334E9E /* SceneGraph.m in Sources */,
 				A3F8B08E166465A700334E9E /* Selectable.m in Sources */,
 				A3F8B08F166465A700334E9E /* StandardCollider.m in Sources */,
 				A3F8B090166465A700334E9E /* Team.m in Sources */,

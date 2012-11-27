@@ -8,12 +8,12 @@
 
 #import "Component.h"
 
-@class Sprite;
+@class SceneNode;
 
 @interface Health : Component {
-  float   health_;
-  float   maxHealth_;
-  Sprite  *healthBar_;
+  float     health_;
+  float     maxHealth_;
+  SceneNode *healthBar_;
 }
 
 @property (nonatomic) float health;

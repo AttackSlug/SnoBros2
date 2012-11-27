@@ -14,7 +14,8 @@
 #import "Transform.h"
 #import "Sprite.h"
 #import "SpriteManager.h"
-#import "Renderable.h"
+#import "SceneGraph.h"
+#import "SceneNode.h"
 
 @implementation RenderSystem
 
@@ -42,24 +43,42 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
-  Renderable  *renderable = [entity getComponentByString:@"Renderable"];
+  SceneGraph  *sceneGraph = [entity getComponentByString:@"SceneGraph"];
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
   GLKMatrix4  modelViewMatrix = GLKMatrix4MakeTranslation(position.x,
                                                           position.y,
-                                                          renderable.layer);
-  [self renderSprite:[renderable.sprites objectAtIndex:0] withModelViewMatrix:modelViewMatrix];
+                                                          sceneGraph.layer);
+  [sceneGraph updateRootModelViewMatrix:modelViewMatrix];
+  [self renderSceneGraph:sceneGraph];
 }
 
 
 
-- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix {
-  if (sprite.visible == FALSE) {
-    return;
-  }
+- (void)renderSceneGraph:(SceneGraph *)sceneGraph {
+  [self renderSceneNode:sceneGraph.rootNode];
+}
 
+
+
+- (void)renderSceneNode:(SceneNode *)sceneNode {
+  GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:sceneNode];
+  Sprite        *sprite = [spriteManager_ getSpriteWithRef:sceneNode.spriteRef];
+  [effect prepareToDraw];
+  [self drawSprite:sprite];
+  if (sceneNode.children != nil) {
+    for (SceneNode *child in sceneNode.children) {
+      [self renderSceneNode:child];
+    }
+  }
+}
+
+
+
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)sceneNode {
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
+  Sprite *sprite = [spriteManager_ getSpriteWithRef:sceneNode.spriteRef];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect.texture2d0.target  = GLKTextureTarget2D;
@@ -73,11 +92,13 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix = GLKMatrix4Multiply(sprite.modelViewMatrix,
-                                                        modelViewMatrix);
-  
-  [effect prepareToDraw];
-  
+  effect.transform.modelviewMatrix  = sceneNode.modelViewMatrix;
+  return effect;
+}
+
+
+
+- (void)drawSprite:(Sprite *)sprite {
   glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
   glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT,
                         GL_FALSE, 0, sprite.uvMap);
@@ -89,12 +110,6 @@
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
-  
-  if (sprite.children != nil) {
-    for (Sprite *child in sprite.children) {
-      [self renderSprite:child withModelViewMatrix:modelViewMatrix];
-    }
-  }
 }
 
 @end

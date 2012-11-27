@@ -10,7 +10,22 @@
 
 @implementation SceneNode
 
-@synthesize parent = parent_;
+@synthesize parent          = parent_;
+@synthesize children        = children_;
+@synthesize spriteRef       = spriteRef_;
+@synthesize modelViewMatrix = modelViewMatrix_;
+
+- (id)initWithSpriteRef:(NSString *)spriteRef {
+  self = [super init];
+  if (self) {
+    spriteRef_  = spriteRef;
+    children_   = [[NSMutableArray alloc] init];
+    modelViewMatrix_ = GLKMatrix4Identity;
+  }
+  return self;
+}
+
+
 
 - (void)addChild:(SceneNode *)child {
   child.parent = self;

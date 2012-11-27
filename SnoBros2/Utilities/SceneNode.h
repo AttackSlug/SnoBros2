@@ -14,13 +14,16 @@
 @interface SceneNode : NSObject {
   SceneNode       *parent_;
   NSMutableArray  *children_;
-  Sprite          *sprite_;
+  NSString        *spriteRef_;
   GLKMatrix4      modelViewMatrix_;
 }
 
-@property (nonatomic) SceneNode   *parent;
-@property (nonatomic) GLKMatrix4  modelViewMatrix;
+@property (nonatomic) SceneNode       *parent;
+@property (nonatomic) NSMutableArray  *children;
+@property (nonatomic) NSString        *spriteRef;
+@property (nonatomic) GLKMatrix4      modelViewMatrix;
 
+- (id)initWithSpriteRef:(NSString *)spriteRef;
 - (void)addChild:(SceneNode *)child;
 - (void)addChildren:(NSArray *)children;
 

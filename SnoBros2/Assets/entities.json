@@ -10,13 +10,12 @@
           "y": 160
         }
       },
-      "Renderable": {
-        "type": "Renderable",
-        "layer": 0,
-        "sprites": {
-          "root": {
-            "filePath": "wpaper.jpg"
-          }
+      "SceneGraph": {
+        "type": "SceneGraph",
+        "Layer": 0,
+        "Nodes": {
+          "Name": "Map",
+          "Children": {}
         }
       }
     }
@@ -46,13 +45,12 @@
         "type":   "Collision",
         "radius": 10
       },
-      "Renderable": {
-        "type": "Renderable",
-        "layer": 1,
-        "sprites": {
-          "root": {
-            "filePath": "snowball.png"
-          }
+      "SceneGraph": {
+        "type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Snowball",
+          "Children": {}
         }
       },
       "StandardCollider": {
@@ -66,7 +64,7 @@
         "type": "Health",
         "health": 100
       }
-    },
+    }
   },
   {
     "name": "Sphere 2",
@@ -93,13 +91,12 @@
         "type": "Collision",
         "radius": 10
       },
-      "Renderable": {
-        "type": "Renderable",
-        "layer": 1,
-        "sprites": {
-          "root": {
-            "filePath": "snowball.png"
-          }
+      "SceneGraph": {
+        "type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Snowball",
+          "Children": {}
         }
       },
       "StandardCollider": {
@@ -151,17 +148,13 @@
         "health": 100,
         "spriteName": "healthBar"
       },
-      "Renderable": {
-        "type": "Renderable",
-        "layer": 1,
-        "sprites": {
-          "root": {
-            "filePath": "sprite2.png",
-            "sprites": {
-              "healthBar": {
-                "filePath": "healthgradient.png"
-              }
-            }
+      "SceneGraph": {
+        "type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "BigBlue",
+          "Children": {
+            "HealthBar": {}
           }
         }
       },
@@ -183,13 +176,12 @@
       "Collision": {
         "type": "Collision"
       },
-      "Renderable": {
-        "type": "Renderable",
-        "layer": 2,
-        "sprites": {
-          "main": {
-            "filePath": "snowball.png"
-          }
+      "SceneGraph": {
+        "type": "SceneGraph",
+        "Layer": 2,
+        "Nodes": {
+          "Name": "Snowball",
+          "Children": {}
         }
       },
       "Projectile": {

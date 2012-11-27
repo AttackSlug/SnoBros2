@@ -8,9 +8,9 @@
 
 #import "Health.h"
 
-#import "Renderable.h"
 #import "Entity.h"
-#import "Sprite.h"
+#import "SceneNode.h"
+#import "SceneGraph.h"
 
 @implementation Health
 
@@ -32,9 +32,9 @@
   self = [self initWithEntity:entity];
   if (self) {
     NSString *spriteName    = data[@"spriteName"];
-    Renderable *renderable  = [entity getComponentByString:@"Renderable"];
+    SceneGraph *sceneGraph  = [entity getComponentByString:@"SceneGraph"];
     
-    healthBar_  = [renderable getSpriteByTag:spriteName];
+    healthBar_  = [sceneGraph getNodeByName:@"HealthBar"];
     health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
     
@@ -67,7 +67,7 @@
     NSLog(@"DEAD!");
   }
 
-  [healthBar_ cropByPercent:(health_/maxHealth_)];
+  //[healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
@@ -77,19 +77,19 @@
   if (health_ > maxHealth_) {
     health_ = maxHealth_;
   }
-  [healthBar_ cropByPercent:(health_/maxHealth_)];
+  //[healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
 
 - (void)showHealthBar {
-  healthBar_.visible = TRUE;
+  //healthBar_.visible = TRUE;
 }
 
 
 
 - (void)hideHealthBar {
-  healthBar_.visible = FALSE;
+  //healthBar_.visible = FALSE;
 }
 
 @end

@@ -52,7 +52,13 @@
 
 
 - (Sprite *)buildSpriteFromDictionary:(NSDictionary *)spriteDict {
-  return [[Sprite alloc] initWithFile:spriteDict[@"FileName"] tag:spriteDict[@"Tag"]];
+  return [[Sprite alloc] initWithFile:spriteDict[@"FileName"]];
+}
+
+
+
+- (Sprite *)getSpriteWithRef:(NSString *)spriteRef {
+  return [spriteTypes_ objectForKey:spriteRef];
 }
 
 

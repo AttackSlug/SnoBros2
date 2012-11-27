@@ -14,6 +14,8 @@
 @class Camera;
 @class Sprite;
 @class SpriteManager;
+@class SceneGraph;
+@class SceneNode;
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
@@ -26,5 +28,9 @@
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;
 - (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix;
+- (void)renderSceneGraph:(SceneGraph *)sceneGraph;
+- (void)renderSceneNode:(SceneNode *)sceneNode;
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)sceneNode;
+- (void)drawSprite:(Sprite *)sprite;
 
 @end

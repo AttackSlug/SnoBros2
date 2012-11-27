@@ -11,9 +11,9 @@
 #import "Entity.h"
 #import "Quadtree.h"
 #import "Selectable.h"
-#import "Renderable.h"
 #import "Health.h"
 #import "Team.h"
+#import "SceneGraph.h"
 
 @implementation EntityManager
 
@@ -139,11 +139,11 @@
 - (NSArray *)allSortedByLayer {
   NSArray *all = [entities_ allValues];
   NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    Renderable *renderable1 = [obj1 getComponentByString:@"Renderable"];
-    Renderable *renderable2 = [obj2 getComponentByString:@"Renderable"];
-    if (renderable1.layer < renderable2.layer) {
+    SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
+    SceneGraph *sceneGraph2 = [obj2 getComponentByString:@"SceneGraph"];
+    if (sceneGraph1.layer < sceneGraph2.layer) {
       return (NSComparisonResult)NSOrderedAscending;
-    } else if (renderable1.layer > renderable2.layer) {
+    } else if (sceneGraph1.layer > sceneGraph2.layer) {
       return (NSComparisonResult)NSOrderedDescending;
     } else {
       return (NSComparisonResult)NSOrderedSame;
