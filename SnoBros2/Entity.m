@@ -24,6 +24,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
                                                      @"Transform",
                                                      @"Collision",
                                                      @"StandardCollider",
+                                                     @"Team",
                                                      @"Attack",
                                                      @"Projectile",
                                                      nil];

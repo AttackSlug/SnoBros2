@@ -13,6 +13,7 @@
 #import "Selectable.h"
 #import "Renderable.h"
 #import "Health.h"
+#import "Team.h"
 
 @implementation EntityManager
 
@@ -186,6 +187,21 @@
   for (Entity *e in [entities_ allValues]) {
     if ([e hasComponent:component]) {
       [found addObject:e];
+    }
+  }
+
+  return found;
+}
+
+
+
+- (NSArray *)findByTeamName:(NSString *)name {
+  NSArray *entities     = [self findAllWithComponent:@"Team"];
+  NSMutableArray *found = [[NSMutableArray alloc] init];
+  for (Entity *entity in entities) {
+    Team *team = [entity getComponentByString:@"Team"];
+    if ([team.name isEqualToString:name]) {
+      [found addObject:entity];
     }
   }
 

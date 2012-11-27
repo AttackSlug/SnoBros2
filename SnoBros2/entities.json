@@ -57,6 +57,10 @@
       },
       "StandardCollider": {
         "type":   "StandardCollider"
+      },
+      "Team": {
+        "type": "Team",
+        "name": "Team Edward"
       }
     },
   },
@@ -96,6 +100,10 @@
       },
       "StandardCollider": {
         "type":   "StandardCollider"
+      },
+      "Team": {
+        "type": "Team",
+        "name": "Team Jacob"
       }
     },
   },

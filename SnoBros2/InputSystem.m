@@ -92,8 +92,8 @@
   [entityManager_ deselectAll];
   Entity *player = [entityManager_ findByTag:@"player"][0];
   Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
-  Entity *target = [entityManager_ findByTag:@"sphere"][0];
-  
+  Entity *target = [entityManager_ findByTeamName:@"Team Edward"][0];
+
   Health *health = [player getComponentByString:@"Health"];
   [health damage:40];
   

@@ -37,6 +37,7 @@
 - (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;
 - (NSArray *)findAllWithComponent:(NSString *)component;
+- (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllSelected;
 
 - (BOOL)isEntitySelected;
