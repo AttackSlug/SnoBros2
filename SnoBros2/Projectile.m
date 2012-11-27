@@ -31,7 +31,11 @@
 
 
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
-  return [self initWithEntity:entity];
+  self = [self initWithEntity:entity];
+  if (self) {
+    damage_ = [data[@"damage"] integerValue];
+  }
+  return self;
 }
 
 
@@ -57,11 +61,18 @@
   Entity *otherEntity = [notification userInfo][@"otherEntity"];
 
   if (otherEntity == target_) {
+    NSValue  *damageVal  = [NSValue value:&damage_ withObjCType:@encode(int *)];
+    NSString *takeDamage = [target_.uuid stringByAppendingString:@"|takeDamage"];
+    NSDictionary *damageData = @{@"amount": damageVal};
+    [[NSNotificationCenter defaultCenter] postNotificationName:takeDamage
+                                                        object:self
+                                                      userInfo:damageData];
+
     target_ = nil;
-    NSDictionary *data = @{@"entity": entity_};
+    NSDictionary *destroyData = @{@"entity": entity_};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"destroyEntity"
                                                         object:self
-                                                      userInfo:data];
+                                                      userInfo:destroyData];
   }
 }
 

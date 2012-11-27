@@ -12,6 +12,7 @@
 
 @interface Projectile : Component {
   Entity *target_;
+  int     damage_;
 }
 
 @property (nonatomic) Entity *target;

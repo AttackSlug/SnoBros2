@@ -61,6 +61,10 @@
       "Team": {
         "type": "Team",
         "name": "Team Edward"
+      },
+      "Health": {
+        "type": "Health",
+        "health": 100
       }
     },
   },
@@ -104,8 +108,12 @@
       "Team": {
         "type": "Team",
         "name": "Team Jacob"
+      },
+      "Health": {
+        "type": "Health",
+        "health": 100
       }
-    },
+    }
   },
   {
     "name": "Player",
@@ -185,7 +193,8 @@
         }
       },
       "Projectile": {
-        "type": "Projectile"
+        "type": "Projectile",
+        "damage": 10
       }
     }
   }

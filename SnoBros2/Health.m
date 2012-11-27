@@ -17,6 +17,11 @@
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
+    NSString *takeDamage = [entity_.uuid stringByAppendingString:@"|takeDamage"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(takeDamage:)
+                                                 name:takeDamage
+                                               object:nil];
   }
   return self;
 }
@@ -41,11 +46,27 @@
 
 
 
+- (void)takeDamage:(NSNotification *)notification {
+  int amount;
+  [[notification userInfo][@"amount"] getValue:&amount];
+  [self damage:amount];
+}
+
+
+
 - (void)damage:(float)amount {
-  health_ -= amount;
-  if (health_ < 0) {
-    health_ = 0;
+  int prevHealth = health_;
+  health_       -= amount;
+  if (health_ < 0) { health_ = 0; }
+
+  if (prevHealth > 0 && health_ == 0) {
+    NSDictionary *destroyData = @{@"entity": entity_};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"destroyEntity"
+                                                        object:self
+                                                      userInfo:destroyData];
+    NSLog(@"DEAD!");
   }
+
   [healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 

@@ -90,14 +90,19 @@
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
   [entityManager_ deselectAll];
-  Entity *player = [entityManager_ findByTag:@"player"][0];
-  Attack *attack = (Attack *)[player getComponentByString:@"Attack"];
-  Entity *target = [entityManager_ findByTeamName:@"Team Edward"][0];
+  NSArray *players = [entityManager_ findByTag:@"player"];
+  NSArray *targets = [entityManager_ findByTeamName:@"Team Edward"];
 
-  Health *health = [player getComponentByString:@"Health"];
-  [health damage:40];
+  if ([players count] > 0 && [targets count] > 0) {
+    Entity  *player  = players[0];
+    Entity  *target  = targets[0];
+    Attack  *attack  = [player getComponentByString:@"Attack"];
+    Health  *health  = [player getComponentByString:@"Health"];
+
+    [health damage:5];
   
-  [attack fireAt:target];
+    [attack fireAt:target];
+  }
 }
 
 
