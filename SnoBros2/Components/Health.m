@@ -36,8 +36,8 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    spriteName_  = data[@"spriteRef"];
-    health_     = [data[@"health"] floatValue];
+    spriteName_  = data[@"SpriteRef"];
+    health_     = [data[@"Health"] floatValue];
     maxHealth_  = health_;
     visible_    = FALSE;
     
