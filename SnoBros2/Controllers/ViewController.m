@@ -19,6 +19,7 @@
   game_         = [[Game alloc] init];
   inputSystem_  = [[InputSystem alloc] initWithView:self.view
                                       entityManager:game_.entityManager
+                                    selectionSystem:game_.selectionSystem
                                              camera:game_.camera];
 }
 

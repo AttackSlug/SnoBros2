@@ -11,6 +11,9 @@
 		8787EC1B16652664000C07E1 /* sprites.json in Resources */ = {isa = PBXBuildFile; fileRef = 8787EC1A16652664000C07E1 /* sprites.json */; };
 		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
 		87E41981166677DE00336F3A /* healthgradient2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E41980166677DE00336F3A /* healthgradient2.png */; };
+		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
+		A37E59451665314C0061E425 /* Float.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* Float.m */; };
+		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -58,7 +61,6 @@
 		A3F8B096166465A700334E9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B064166465A700334E9E /* main.m */; };
 		A3F8B097166465A700334E9E /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B066166465A700334E9E /* Sprite.m */; };
 		A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B068166465A700334E9E /* InfoPlist.strings */; };
-		A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B06A166465A700334E9E /* SnoBros2-Info.plist */; };
 		A3F8B09A166465A700334E9E /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B06E166465A700334E9E /* CollisionSystem.m */; };
 		A3F8B09B166465A700334E9E /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B070166465A700334E9E /* InputSystem.m */; };
 		A3F8B09C166465A700334E9E /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B072166465A700334E9E /* RenderSystem.m */; };
@@ -82,6 +84,12 @@
 		87E4195D16652E7600336F3A /* SceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
 		87E4195E16652E7600336F3A /* SceneNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneNode.m; sourceTree = "<group>"; };
 		87E41980166677DE00336F3A /* healthgradient2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient2.png; sourceTree = "<group>"; };
+		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
+		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
+		A37E59431665314C0061E425 /* Float.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Float.h; sourceTree = "<group>"; };
+		A37E59441665314C0061E425 /* Float.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Float.m; sourceTree = "<group>"; };
+		A37E595A166550320061E425 /* SelectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSystem.h; sourceTree = "<group>"; };
+		A37E595B166550320061E425 /* SelectionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSystem.m; sourceTree = "<group>"; };
 		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -337,6 +345,8 @@
 				A3F8B058166465A700334E9E /* Team.m */,
 				A3F8B059166465A700334E9E /* Transform.h */,
 				A3F8B05A166465A700334E9E /* Transform.m */,
+				A37E594016652BC90061E425 /* UnitCollider.h */,
+				A37E594116652BC90061E425 /* UnitCollider.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -369,6 +379,8 @@
 				A3F8B070166465A700334E9E /* InputSystem.m */,
 				A3F8B071166465A700334E9E /* RenderSystem.h */,
 				A3F8B072166465A700334E9E /* RenderSystem.m */,
+				A37E595A166550320061E425 /* SelectionSystem.h */,
+				A37E595B166550320061E425 /* SelectionSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -380,6 +392,8 @@
 				A3F8B075166465A700334E9E /* Quadtree.m */,
 				87E4195D16652E7600336F3A /* SceneNode.h */,
 				87E4195E16652E7600336F3A /* SceneNode.m */,
+				A37E59431665314C0061E425 /* Float.h */,
+				A37E59441665314C0061E425 /* Float.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -468,7 +482,6 @@
 				A3F8B081166465A700334E9E /* sprite2.png in Resources */,
 				A3F8B082166465A700334E9E /* wpaper.jpg in Resources */,
 				A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */,
-				A3F8B099166465A700334E9E /* SnoBros2-Info.plist in Resources */,
 				8787EC1B16652664000C07E1 /* sprites.json in Resources */,
 				87E41981166677DE00336F3A /* healthgradient2.png in Resources */,
 			);
@@ -533,6 +546,9 @@
 				A3F8B09D166465A700334E9E /* Quadtree.m in Sources */,
 				8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */,
 				87E4195F16652E7600336F3A /* SceneNode.m in Sources */,
+				A37E594216652BC90061E425 /* UnitCollider.m in Sources */,
+				A37E59451665314C0061E425 /* Float.m in Sources */,
+				A37E595C166550320061E425 /* SelectionSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

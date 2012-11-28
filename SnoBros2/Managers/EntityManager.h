@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
+#import <GLKit/GLKit.h>
 #import <Foundation/Foundation.h>
 
 @class Entity;
@@ -38,11 +39,8 @@
 - (NSArray *)findByTag:(NSString *)tag;
 - (NSArray *)findAllWithComponent:(NSString *)component;
 - (NSArray *)findByTeamName:(NSString *)name;
-- (NSArray *)findAllSelected;
-
-- (BOOL)isEntitySelected;
-- (void)selectById:(NSString *)entityId;
-- (void)deselectAll;
+- (NSArray *)findAllWithinRectangle:(CGRect)rectangle;
+- (Entity *)findEntityDisplayedAtPosition:(GLKVector2)target;
 
 - (void)processQueue;
 - (void)update;
