@@ -21,5 +21,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (void)update;
+- (bool)isMovingAwayFrom:(GLKVector2)target;
+- (bool)isMovingTowards:(GLKVector2)target;
 
 @end

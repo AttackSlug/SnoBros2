@@ -14,11 +14,15 @@
 #import "InputSystem.h"
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
+#import "SelectionSystem.h"
+
+#import "Transform.h"
 
 @implementation Game
 
-@synthesize camera        = camera_;
-@synthesize entityManager = entityManager_;
+@synthesize camera          = camera_;
+@synthesize entityManager   = entityManager_;
+@synthesize selectionSystem = selectionSystem_;
 
 - (id)init {
   self = [super init];
@@ -27,6 +31,8 @@
 
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
+    selectionSystem_ = [[SelectionSystem alloc]
+                        initWithEntityManager:entityManager_];
     collisionSystem_ = [[CollisionSystem alloc]
                         initWithEntityManager:entityManager_];
     renderSystem_    = [[RenderSystem alloc]
@@ -34,9 +40,25 @@
 
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
-    [entityManager_ buildAndAddEntity:@"Player"];
-    [entityManager_ buildAndAddEntity:@"Sphere 1"];
-    [entityManager_ buildAndAddEntity:@"Sphere 2"];
+
+    for (int i = 1; i <= 4; i++) {
+      Entity *e = [entityManager_ buildAndAddEntity:@"Unit1"];
+      Transform *transform = [e getComponentByString:@"Transform"];
+      transform.position = GLKVector2Make(0.f, 60.f * i);
+    }
+
+    for (int i = 1; i <= 4; i++) {
+      Entity *e = [entityManager_ buildAndAddEntity:@"Unit2"];
+      Transform *transform = [e getComponentByString:@"Transform"];
+      transform.position = GLKVector2Make(100.f, 60.f * i);
+    }
+
+    GLKVector2    target  = GLKVector2Make(60.f, 120.f);
+    NSDictionary *panData = @{@"target": [NSValue value:&target
+                                           withObjCType:@encode(GLKVector2)]};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"
+                                                        object:self
+                                                      userInfo:panData];
   }
   return self;
 }

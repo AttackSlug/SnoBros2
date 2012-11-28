@@ -12,10 +12,12 @@
 
 @synthesize position = position_;
 @synthesize previousPosition = previousPosition_;
+@synthesize scale = scale_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
+    scale_ = GLKVector2Make(1.f, 1.f);
   }
   return self;
 }
@@ -29,6 +31,12 @@
     position_ = GLKVector2Make([p[@"X"] floatValue],
                                [p[@"Y"] floatValue]);
     previousPosition_ = position_;
+
+    NSDictionary *s = data[@"Scale"];
+    if (s) {
+      scale_    = GLKVector2Make([s[@"X"] floatValue],
+                                 [s[@"Y"] floatValue]);
+    }
   }
   return self;
 }
@@ -37,6 +45,12 @@
 
 - (void)translate:(GLKVector2)translation {
   position_ = GLKVector2Add(position_, translation);
+}
+
+
+
+- (bool)isCenterInRectangle:(CGRect)rectangle {
+  return CGRectContainsPoint(rectangle, CGPointMake(position_.x, position_.y));
 }
 
 

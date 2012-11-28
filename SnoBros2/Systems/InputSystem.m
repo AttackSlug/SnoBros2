@@ -13,17 +13,19 @@
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
-
+#import "SelectionSystem.h"
 #import "Attack.h"
 
 @implementation InputSystem
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
+   selectionSystem:(SelectionSystem *)selectionSystem
             camera:(Camera *)camera {
   self = [super init];
   if (self) {
-    entityManager_ = entityManager;
+    entityManager_   = entityManager;
+    selectionSystem_ = selectionSystem;
     camera_        = camera;
 
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
@@ -32,14 +34,14 @@
     oneFingerTap_.numberOfTapsRequired = 1;
     oneFingerTap_.numberOfTouchesRequired = 1;
     [view addGestureRecognizer:oneFingerTap_];
-    
+
     twoFingerTap_ = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
                              action:@selector(addTwoFingerTapEvent:)];
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
-    
+
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
@@ -56,8 +58,8 @@
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
 
-  if ([entityManager_ isEntitySelected] == TRUE) {
-    NSArray *selectedEntities = [entityManager_ findAllSelected];
+  if ([selectionSystem_ isEntitySelected] == TRUE) {
+    NSArray *selectedEntities = [selectionSystem_ findAllSelected];
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
@@ -76,32 +78,27 @@
                                                         userInfo:data];
     }
   } else {
-    NSArray *players = [entityManager_ findAllWithComponent:@"Selectable"];
-    for (Entity *p in players) {
-      Selectable *playerSelectable = [p getComponentByString:@"Selectable"];
-      if ([playerSelectable isAtLocation:pos]) {
-        [entityManager_ selectById:p.uuid];
-      }
-    }
+    [selectionSystem_ selectEntityDisplayedAtPosition:pos];
   }
 }
 
 
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
-  [entityManager_ deselectAll];
-  NSArray *players = [entityManager_ findByTag:@"player"];
-  NSArray *targets = [entityManager_ findByTeamName:@"Team Edward"];
+  [selectionSystem_ deselectAll];
+  NSArray *units   = [entityManager_ findByTeamName:@"Team Edward"];
+  NSArray *targets = [entityManager_ findByTeamName:@"Team Jacob"];
 
-  if ([players count] > 0 && [targets count] > 0) {
-    Entity  *player  = players[0];
-    Entity  *target  = targets[0];
-    Attack  *attack  = [player getComponentByString:@"Attack"];
-    Health  *health  = [player getComponentByString:@"Health"];
+  for (Entity *unit in units) {
+    Attack  *attack  = [unit getComponentByString:@"Attack"];
+    if (targets.count > 0) {
+      Entity  *target  = targets[arc4random() % targets.count];
+      Health  *health  = [unit getComponentByString:@"Health"];
 
-    [health damage:20];
-  
-    [attack fireAt:target];
+      [health damage:20];
+
+      [attack fireAt:target];
+    }
   }
 }
 
@@ -119,12 +116,7 @@
                                   t.x,
                                   t.y);
 
-    for (Entity *ent in [entityManager_ findAllWithComponent:@"Physics"]) {
-      Selectable *entSelectable = [ent getComponentByString:@"Selectable"];
-      if ([entSelectable isInRectangle:rectangle]) {
-        [entityManager_ selectById:ent.uuid];
-      }
-    }
+    [selectionSystem_ selectAllWithinRectangle:rectangle];
   }
 }
 

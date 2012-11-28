@@ -12,6 +12,8 @@
 #import "Transform.h"
 #import "Collision.h"
 
+#import "Float.h"
+
 @implementation CollisionSystem
 
 - (id)initWithEntityManager:(EntityManager *)entityManager {
@@ -52,9 +54,9 @@
 
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
   Collision *myCollision    = [entity getComponentByString:@"Collision"];
-  Collision *otherCollision = [other getComponentByString:@"Collision"];
+  Collision *otherCollision = [other  getComponentByString:@"Collision"];
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
-  Transform *otherTransform = [other getComponentByString:@"Transform"];
+  Transform *otherTransform = [other  getComponentByString:@"Transform"];
   
   if (entity == other || !otherCollision) { return false; }
 
@@ -64,12 +66,7 @@
   float distance        = GLKVector2Distance(myTransform.position,
                                              otherTransform.position);
 
-  const float K = 0.000001f;
-  if (fabs(distance - centersDistance) < K * FLT_EPSILON
-      * fabs(distance + centersDistance) ||
-      fabs(distance - centersDistance) < FLT_MIN) {
-    return true;
-  } else if (distance < centersDistance) {
+  if ([Float is:distance lessThanOrEqualTo:centersDistance]) {
     return true;
   }
 
