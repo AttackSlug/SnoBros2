@@ -43,7 +43,7 @@
       },
       "Collision": {
         "Type":   "Collision",
-        "radius": 10
+        "Radius": 10
       },
       "SceneGraph": {
         "Type": "SceneGraph",
@@ -90,7 +90,7 @@
       },
       "Collision": {
         "Type": "Collision",
-        "radius": 10
+        "Radius": 10
       },
       "SceneGraph": {
         "Type": "SceneGraph",
@@ -137,7 +137,7 @@
       },
       "Collision": {
         "Type": "Collision",
-        "radius": 48
+        "Radius": 48
       },
       "Selectable": {
         "Type": "Selectable"
