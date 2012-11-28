@@ -1,5 +1,5 @@
 //
-//  Renderable.h
+//  SceneGraph.h
 //  SnoBros2
 //
 //  Created by Tanoy Sinha on 11/25/12.
@@ -26,7 +26,7 @@
 - (NSMutableArray *)loadNodeArrayFromDictionary:(NSDictionary *)data;
 
 - (SceneNode *)getNodeByName:(NSString *)name;
-- (SceneNode *)getNodeByName:(NSString *)name fromNode:(SceneNode *)node;
+- (SceneNode *)getNodeByName:(NSString *)name fromSceneNode:(SceneNode *)node;
 
 - (void)updateRootModelViewMatrix:(GLKMatrix4)modelViewMatrix;
 

@@ -1,5 +1,5 @@
 //
-//  Renderable.m
+//  SceneGraph.m
 //  SnoBros2
 //
 //  Created by Tanoy Sinha on 11/25/12.
@@ -51,9 +51,9 @@
   }
   NSMutableArray *add = [[NSMutableArray alloc] init];
   for (NSString *dataKey in data) {
-    SceneNode *a = [[SceneNode alloc] initWithSpriteRef:dataKey];
-    [a addChildren:[self loadNodeArrayFromDictionary:[data valueForKey:dataKey]]];
-    [add addObject:a];
+    SceneNode *temp = [[SceneNode alloc] initWithSpriteRef:dataKey];
+    [temp addChildren:[self loadNodeArrayFromDictionary:[data valueForKey:dataKey]]];
+    [add addObject:temp];
   }
   return add;
 }
@@ -61,19 +61,19 @@
 
 
 - (SceneNode *)getNodeByName:(NSString *)name {
-  return [self getNodeByName:name fromNode:rootNode_];
+  return [self getNodeByName:name fromSceneNode:rootNode_];
 }
 
 
 
-- (SceneNode *)getNodeByName:(NSString *)name fromNode:(SceneNode *)node {
+- (SceneNode *)getNodeByName:(NSString *)name fromSceneNode:(SceneNode *)node {
   SceneNode *found = nil;
   if ([node.spriteRef isEqualToString:name]) {
     found = node;
   }
   if (node.children) {
     for (SceneNode *child in node.children) {
-      SceneNode *temp = [self getNodeByName:name fromNode:child];
+      SceneNode *temp = [self getNodeByName:name fromSceneNode:child];
       found = temp == nil ? found : temp;
     }
   }
