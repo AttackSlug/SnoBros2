@@ -19,6 +19,5 @@
 - (void)loadEntityTypesFromFile:(NSString *)filename;
 - (Sprite *)buildSpriteFromDictionary:(NSDictionary *)spriteDict;
 - (Sprite *)getSpriteWithRef:(NSString *)spriteRef;
-- (void)debug;
 
 @end

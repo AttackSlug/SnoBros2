@@ -61,13 +61,4 @@
   return [spriteTypes_ objectForKey:spriteRef];
 }
 
-
-
-- (void)debug {
-  for (id key in spriteTypes_) {
-    Sprite *spr = [spriteTypes_ objectForKey:key];
-    NSLog(@"Name: %@", key);
-  }
-}
-
 @end

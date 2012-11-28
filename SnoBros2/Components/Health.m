@@ -31,7 +31,6 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    NSString *spriteName    = data[@"spriteName"];
     SceneGraph *sceneGraph  = [entity getComponentByString:@"SceneGraph"];
     
     healthBar_  = [sceneGraph getNodeByName:@"HealthBar"];
