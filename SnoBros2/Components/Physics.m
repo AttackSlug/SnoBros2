@@ -10,6 +10,7 @@
 #import "Transform.h"
 #import "Entity.h"
 #import "Collision.h"
+#import "Float.h"
 
 @implementation Physics
 
@@ -32,6 +33,30 @@
                                [v[@"Y"] floatValue]);
   }
   return self;
+}
+
+
+
+- (bool)isMovingAwayFrom:(GLKVector2)target {
+  Transform *transform      = [entity_ getComponentByString:@"Transform"];
+  GLKVector2 position       = transform.position;
+  GLKVector2 futurePosition = GLKVector2Add(position, velocity_);
+  float      distance       = GLKVector2Distance(position, target);
+  float      futureDistance = GLKVector2Distance(futurePosition, target);
+
+  return [Float is:futureDistance greaterThan:distance];
+}
+
+
+
+- (bool)isMovingTowards:(GLKVector2)target {
+  Transform *transform      = [entity_ getComponentByString:@"Transform"];
+  GLKVector2 position       = transform.position;
+  GLKVector2 futurePosition = GLKVector2Add(position, velocity_);
+  float      distance       = GLKVector2Distance(position, target);
+  float      futureDistance = GLKVector2Distance(futurePosition, target);
+
+  return [Float is:distance lessThan:futureDistance];
 }
 
 

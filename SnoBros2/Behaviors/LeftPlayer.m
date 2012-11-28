@@ -60,10 +60,16 @@
 
 
 - (void)walkTo:(NSNotification *)notification {
+  [[notification userInfo][@"target"] getValue:&target_];
+  [self walkToTarget:target_];
+}
+
+
+
+- (void)walkToTarget:(GLKVector2)target {
   Transform *transform  = [entity_ getComponentByString:@"Transform"];
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
-
-  [[notification userInfo][@"target"] getValue:&target_];
+  target_ = target;
 
   direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,
                                                       transform.position));
@@ -76,8 +82,11 @@
   Transform *transform  = [entity_ getComponentByString:@"Transform"];
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
   float      distance   = GLKVector2Distance(transform.position, target_);
+
   if ([Float is:distance equalTo:0.f]) {
     physics.velocity = GLKVector2Make(0.f, 0.f);
+  } else if ([physics isMovingAwayFrom:target_]) {
+    [self walkToTarget:target_];
   }
 }
 

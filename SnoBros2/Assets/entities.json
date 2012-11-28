@@ -191,5 +191,123 @@
         "Damage": 10
       }
     }
+  },
+  {
+    "Name": "Unit1",
+    "Tag":  "unit",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "Physics": {
+        "Type": "Physics",
+        "Velocity": {
+          "X": 0,
+          "Y": 0
+        }
+      },
+      "Behavior": {
+        "Type": "LeftPlayer"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 24
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "Attack": {
+        "Type": "Attack"
+      },
+      "Health": {
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "BigBlue",
+          "Children": {
+            "HealthBar": {}
+          }
+        }
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Team": {
+        "Type": "Team",
+        "Name": "Team Edward"
+      }
+    }
+  },
+  {
+    "Name": "Unit2",
+    "Tag":  "unit",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "Physics": {
+        "Type": "Physics",
+        "Velocity": {
+          "X": 0,
+          "Y": 0
+        }
+      },
+      "Behavior": {
+        "Type": "LeftPlayer"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 24
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "Attack": {
+        "Type": "Attack"
+      },
+      "Health": {
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "BigBlue",
+          "Children": {
+            "HealthBar": {}
+          }
+        }
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Team": {
+        "Type": "Team",
+        "Name": "Team Jacob"
+      }
+    }
   }
 ]
