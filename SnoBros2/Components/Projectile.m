@@ -33,7 +33,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    damage_ = [data[@"damage"] integerValue];
+    damage_ = [data[@"Damage"] integerValue];
   }
   return self;
 }

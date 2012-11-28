@@ -1,17 +1,17 @@
 [
   {
-    "name": "Map",
-    "tag":  "map",
-    "components": {
+    "Name": "Map",
+    "Tag":  "map",
+    "Components": {
       "Transform": {
-        "type": "Transform",
-        "position": {
-          "x": 240,
-          "y": 160
+        "Type": "Transform",
+        "Position": {
+          "X": 240,
+          "Y": 160
         }
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 0,
         "Nodes": {
           "Name": "Map",
@@ -21,32 +21,32 @@
     }
   },
   {
-    "name": "Sphere 1",
-    "tag":  "sphere",
-    "components": {
+    "Name": "Sphere 1",
+    "Tag":  "sphere",
+    "Components": {
       "Transform": {
-        "type": "Transform",
-        "position": {
-          "x": 100,
-          "y": 160
+        "Type": "Transform",
+        "Position": {
+          "X": 100,
+          "Y": 160
         }
       },
       "Physics": {
-        "type": "Physics",
-        "velocity": {
-          "x": 1,
-          "y": 0
+        "Type": "Physics",
+        "Velocity": {
+          "X": 1,
+          "Y": 0
         }
       },
       "Behavior": {
-        "type": "Sphere"
+        "Type": "Sphere"
       },
       "Collision": {
-        "type":   "Collision",
-        "radius": 10
+        "Type":   "Collision",
+        "Radius": 10
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "Snowball",
@@ -54,46 +54,46 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       },
       "Team": {
-        "type": "Team",
-        "name": "Team Edward"
+        "Type": "Team",
+        "Name": "Team Edward"
       },
       "Health": {
-        "type": "Health",
-        "health": 100,
-        "spriteRef": "HealthBar"
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
       }
     }
   },
   {
-    "name": "Sphere 2",
-    "tag":  "sphere",
-    "components": {
+    "Name": "Sphere 2",
+    "Tag":  "sphere",
+    "Components": {
       "Transform": {
-        "type": "Transform",
-        "position": {
-          "x": 300,
-          "y": 160
+        "Type": "Transform",
+        "Position": {
+          "X": 300,
+          "Y": 160
         }
       },
       "Physics": {
-        "type": "Physics",
-        "velocity": {
-          "x": -1,
-          "y":  0
+        "Type": "Physics",
+        "Velocity": {
+          "X": -1,
+          "Y":  0
         }
       },
       "Behavior": {
-        "type": "Sphere"
+        "Type": "Sphere"
       },
       "Collision": {
-        "type": "Collision",
-        "radius": 10
+        "Type": "Collision",
+        "Radius": 10
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "Snowball",
@@ -101,57 +101,57 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       },
       "Team": {
-        "type": "Team",
-        "name": "Team Jacob"
+        "Type": "Team",
+        "Name": "Team Jacob"
       },
       "Health": {
-        "type": "Health",
-        "health": 100,
-        "spriteRef": "HealthBar"
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
       }
     }
   },
   {
-    "name": "Player",
-    "tag":  "player",
-    "components": {
+    "Name": "Player",
+    "Tag":  "player",
+    "Components": {
       "Transform": {
-        "type": "Transform",
-        "position": {
-          "x": 20,
-          "y": 20
+        "Type": "Transform",
+        "Position": {
+          "X": 20,
+          "Y": 20
         }
       },
       "Physics": {
-        "type": "Physics",
-        "velocity": {
-          "x": 0,
-          "y": 0
+        "Type": "Physics",
+        "Velocity": {
+          "X": 0,
+          "Y": 0
         }
       },
       "Behavior": {
-        "type": "LeftPlayer"
+        "Type": "LeftPlayer"
       },
       "Collision": {
-        "type": "Collision",
-        "radius": 48
+        "Type": "Collision",
+        "Radius": 48
       },
       "Selectable": {
-        "type": "Selectable"
+        "Type": "Selectable"
       },
       "Attack": {
-        "type": "Attack"
+        "Type": "Attack"
       },
       "Health": {
-        "type": "Health",
-        "health": 100,
-        "spriteRef": "HealthBar"
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "BigBlue",
@@ -161,25 +161,25 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       }
     }
   },
   {
-    "name": "Projectile",
-    "tag":  "projectile",
-    "components": {
+    "Name": "Projectile",
+    "Tag":  "projectile",
+    "Components": {
       "Transform": {
-        "type": "Transform"
+        "Type": "Transform"
       },
       "Physics": {
-        "type": "Physics"
+        "Type": "Physics"
       },
       "Collision": {
-        "type": "Collision"
+        "Type": "Collision"
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 2,
         "Nodes": {
           "Name": "Snowball",
@@ -187,8 +187,8 @@
         }
       },
       "Projectile": {
-        "type": "Projectile",
-        "damage": 10
+        "Type": "Projectile",
+        "Damage": 10
       }
     }
   }
