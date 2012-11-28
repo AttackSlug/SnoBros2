@@ -14,6 +14,11 @@
 
 @implementation Health
 
+@synthesize health    = health_;
+@synthesize maxHealth = maxHealth_;
+@synthesize visible   = visible_;
+@synthesize spriteRef = spriteRef_;
+
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
@@ -31,13 +36,11 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    SceneGraph *sceneGraph  = [entity getComponentByString:@"SceneGraph"];
-    
-    healthBar_  = [sceneGraph getNodeByName:@"HealthBar"];
+    spriteRef_  = data[@"HealthBar"];
     health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
+    visible_    = FALSE;
     
-    [healthBar_ translate:GLKVector2Make(0, -20)];
     [self hideHealthBar];
   }
   return self;
@@ -65,8 +68,6 @@
                                                       userInfo:destroyData];
     NSLog(@"DEAD!");
   }
-
-  //[healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
@@ -76,19 +77,18 @@
   if (health_ > maxHealth_) {
     health_ = maxHealth_;
   }
-  //[healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
 
 - (void)showHealthBar {
-  healthBar_.visible = TRUE;
+  visible_ = TRUE;
 }
 
 
 
 - (void)hideHealthBar {
-  healthBar_.visible = FALSE;
+  visible_ = FALSE;
 }
 
 @end

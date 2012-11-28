@@ -62,7 +62,8 @@
       },
       "Health": {
         "type": "Health",
-        "health": 100
+        "health": 100,
+        "spriteRef": "HealthBar"
       }
     }
   },
@@ -108,7 +109,8 @@
       },
       "Health": {
         "type": "Health",
-        "health": 100
+        "health": 100,
+        "spriteRef": "HealthBar"
       }
     }
   },
@@ -146,7 +148,7 @@
       "Health": {
         "type": "Health",
         "health": 100,
-        "spriteName": "healthBar"
+        "spriteRef": "HealthBar"
       },
       "SceneGraph": {
         "type": "SceneGraph",

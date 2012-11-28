@@ -13,11 +13,14 @@
 @interface Health : Component {
   float     health_;
   float     maxHealth_;
-  SceneNode *healthBar_;
+  BOOL      visible_;
+  NSString  *spriteRef_;
 }
 
 @property (nonatomic) float health;
 @property (nonatomic) float maxHealth;
+@property (nonatomic) BOOL visible;
+@property (nonatomic) NSString *spriteRef;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;

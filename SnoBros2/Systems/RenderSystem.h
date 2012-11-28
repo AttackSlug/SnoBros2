@@ -16,6 +16,7 @@
 @class SpriteManager;
 @class SceneGraph;
 @class SceneNode;
+@class Health;
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
@@ -30,6 +31,9 @@
 - (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix;
 - (void)renderSceneGraph:(SceneGraph *)sceneGraph;
 - (void)renderSceneNode:(SceneNode *)sceneNode;
+
+- (void)transformHealthBar:(SceneNode *)sceneNode withHealthComponent:(Health *)health;
+
 - (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)sceneNode;
 - (void)drawSprite:(Sprite *)sprite;
 

@@ -16,6 +16,7 @@
 #import "SpriteManager.h"
 #import "SceneGraph.h"
 #import "SceneNode.h"
+#import "Health.h"
 
 @implementation RenderSystem
 
@@ -25,7 +26,6 @@
     entityManager_  = entityManager;
     spriteManager_  = [[SpriteManager alloc] init];
     [spriteManager_ loadEntityTypesFromFile:@"sprites"];
-    [spriteManager_ debug];
     camera_         = camera;
   }
   return self;
@@ -44,12 +44,19 @@
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
   SceneGraph  *sceneGraph = [entity getComponentByString:@"SceneGraph"];
+  Health      *health     = [entity getComponentByString:@"Health"];
+  
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
   GLKMatrix4  modelViewMatrix = GLKMatrix4MakeTranslation(position.x,
                                                           position.y,
                                                           sceneGraph.layer);
+  
+  if (health != nil) {
+    [self transformHealthBar:[sceneGraph getNodeByName:@"HealthBar"] withHealthComponent:health];
+  }
+  
   [sceneGraph updateRootModelViewMatrix:modelViewMatrix];
   [self renderSceneGraph:sceneGraph];
 }
@@ -75,6 +82,19 @@
       [self renderSceneNode:child];
     }
   }
+}
+
+
+
+- (void)transformHealthBar:(SceneNode *)sceneNode withHealthComponent:(Health *)health {
+  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:sceneNode.parent.spriteRef];
+  float percent = health.health / health.maxHealth;
+  float ytrans = -(parentSprite.height/2.f) -5;
+  
+  sceneNode.modelViewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeScale(percent, 1, 1),
+                                                 GLKMatrix4MakeTranslation(0, ytrans, 0));
+  //sceneNode.visible = health.visible;
+  
 }
 
 
