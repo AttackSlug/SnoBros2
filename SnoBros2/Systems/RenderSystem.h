@@ -13,9 +13,14 @@
 @class Entity;
 @class Camera;
 @class Sprite;
+@class SpriteManager;
+@class SceneGraph;
+@class SceneNode;
+@class Health;
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
+  SpriteManager *spriteManager_;
   Camera        *camera_;
 }
 
@@ -23,6 +28,12 @@
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;
-- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix;
+- (void)renderSceneGraph:(SceneGraph *)sceneGraph;
+- (void)renderSceneNode:(SceneNode *)node;
+
+- (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health;
+
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node;
+- (void)drawSprite:(Sprite *)sprite;
 
 @end

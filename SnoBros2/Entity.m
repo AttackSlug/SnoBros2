@@ -16,7 +16,7 @@
 NSArray *COMPONENT_LOAD_ORDER = nil;
 + (void)initialize {
   if (!COMPONENT_LOAD_ORDER) {
-    COMPONENT_LOAD_ORDER = [NSArray arrayWithObjects:@"Renderable",
+    COMPONENT_LOAD_ORDER = [NSArray arrayWithObjects:@"SceneGraph",
                                                      @"Health",
                                                      @"Behavior",
                                                      @"Selectable",

@@ -99,7 +99,7 @@
     Attack  *attack  = [player getComponentByString:@"Attack"];
     Health  *health  = [player getComponentByString:@"Health"];
 
-    [health damage:5];
+    [health damage:20];
   
     [attack fireAt:target];
   }
