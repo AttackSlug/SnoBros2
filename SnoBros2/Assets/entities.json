@@ -4,14 +4,14 @@
     "Tag":  "map",
     "Components": {
       "Transform": {
-        "type": "Transform",
+        "Type": "Transform",
         "position": {
           "x": 240,
           "y": 160
         }
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 0,
         "Nodes": {
           "Name": "Map",
@@ -25,28 +25,28 @@
     "Tag":  "sphere",
     "Components": {
       "Transform": {
-        "type": "Transform",
+        "Type": "Transform",
         "position": {
           "x": 100,
           "y": 160
         }
       },
       "Physics": {
-        "type": "Physics",
+        "Type": "Physics",
         "velocity": {
           "x": 1,
           "y": 0
         }
       },
       "Behavior": {
-        "type": "Sphere"
+        "Type": "Sphere"
       },
       "Collision": {
-        "type":   "Collision",
+        "Type":   "Collision",
         "radius": 10
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "Snowball",
@@ -54,14 +54,14 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       },
       "Team": {
-        "type": "Team",
+        "Type": "Team",
         "name": "Team Edward"
       },
       "Health": {
-        "type": "Health",
+        "Type": "Health",
         "health": 100,
         "spriteRef": "HealthBar"
       }
@@ -72,28 +72,28 @@
     "Tag":  "sphere",
     "Components": {
       "Transform": {
-        "type": "Transform",
+        "Type": "Transform",
         "position": {
           "x": 300,
           "y": 160
         }
       },
       "Physics": {
-        "type": "Physics",
+        "Type": "Physics",
         "velocity": {
           "x": -1,
           "y":  0
         }
       },
       "Behavior": {
-        "type": "Sphere"
+        "Type": "Sphere"
       },
       "Collision": {
-        "type": "Collision",
+        "Type": "Collision",
         "radius": 10
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "Snowball",
@@ -101,14 +101,14 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       },
       "Team": {
-        "type": "Team",
+        "Type": "Team",
         "name": "Team Jacob"
       },
       "Health": {
-        "type": "Health",
+        "Type": "Health",
         "health": 100,
         "spriteRef": "HealthBar"
       }
@@ -119,39 +119,39 @@
     "Tag":  "player",
     "Components": {
       "Transform": {
-        "type": "Transform",
+        "Type": "Transform",
         "position": {
           "x": 20,
           "y": 20
         }
       },
       "Physics": {
-        "type": "Physics",
+        "Type": "Physics",
         "velocity": {
           "x": 0,
           "y": 0
         }
       },
       "Behavior": {
-        "type": "LeftPlayer"
+        "Type": "LeftPlayer"
       },
       "Collision": {
-        "type": "Collision",
+        "Type": "Collision",
         "radius": 48
       },
       "Selectable": {
-        "type": "Selectable"
+        "Type": "Selectable"
       },
       "Attack": {
-        "type": "Attack"
+        "Type": "Attack"
       },
       "Health": {
-        "type": "Health",
+        "Type": "Health",
         "health": 100,
         "spriteRef": "HealthBar"
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
           "Name": "BigBlue",
@@ -161,7 +161,7 @@
         }
       },
       "StandardCollider": {
-        "type":   "StandardCollider"
+        "Type":   "StandardCollider"
       }
     }
   },
@@ -170,16 +170,16 @@
     "Tag":  "projectile",
     "Components": {
       "Transform": {
-        "type": "Transform"
+        "Type": "Transform"
       },
       "Physics": {
-        "type": "Physics"
+        "Type": "Physics"
       },
       "Collision": {
-        "type": "Collision"
+        "Type": "Collision"
       },
       "SceneGraph": {
-        "type": "SceneGraph",
+        "Type": "SceneGraph",
         "Layer": 2,
         "Nodes": {
           "Name": "Snowball",
@@ -187,7 +187,7 @@
         }
       },
       "Projectile": {
-        "type": "Projectile",
+        "Type": "Projectile",
         "damage": 10
       }
     }

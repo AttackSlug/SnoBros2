@@ -61,7 +61,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
   if (self) {
     NSDictionary *components = data[@"Components"];
     for (NSString *componentName in COMPONENT_LOAD_ORDER) {
-      NSString *className  = components[componentName][@"type"];
+      NSString *className  = components[componentName][@"Type"];
       // most entities wont have all the components listed in COMPONENT_LOAD_ORDER. we skip them here
       if (className == nil) {
         continue;
