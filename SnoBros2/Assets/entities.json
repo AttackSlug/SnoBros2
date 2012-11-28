@@ -188,7 +188,7 @@
       },
       "Projectile": {
         "Type": "Projectile",
-        "damage": 10
+        "Damage": 10
       }
     }
   }
