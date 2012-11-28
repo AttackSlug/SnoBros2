@@ -54,7 +54,7 @@
                                                           sceneGraph.layer);
   
   if (health != nil) {
-    [self transformHealthBar:[sceneGraph getNodeByName:@"HealthBar"] withHealthComponent:health];
+    [self transformHealthBar:[sceneGraph getNodeByName:health.spriteName] withHealthComponent:health];
   }
   
   [sceneGraph updateRootModelViewMatrix:modelViewMatrix];
@@ -74,7 +74,7 @@
     return;
   }
   GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:node];
-  Sprite        *sprite = [spriteManager_ getSpriteWithRef:node.spriteRef];
+  Sprite        *sprite = [spriteManager_ getSpriteWithRef:node.spriteName];
   [effect prepareToDraw];
   [self drawSprite:sprite];
   if (node.children != nil) {
@@ -87,7 +87,7 @@
 
 
 - (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health {
-  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:node.parent.spriteRef];
+  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:node.parent.spriteName];
   float percent = health.health / health.maxHealth;
   float ytrans = -(parentSprite.height/2.f) -5;
   
@@ -100,7 +100,7 @@
 
 - (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node {
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
-  Sprite *sprite = [spriteManager_ getSpriteWithRef:node.spriteRef];
+  Sprite *sprite = [spriteManager_ getSpriteWithRef:node.spriteName];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect.texture2d0.target  = GLKTextureTarget2D;

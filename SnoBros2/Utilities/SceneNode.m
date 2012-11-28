@@ -12,14 +12,14 @@
 
 @synthesize parent          = parent_;
 @synthesize children        = children_;
-@synthesize spriteRef       = spriteRef_;
+@synthesize spriteName      = spriteName_;
 @synthesize modelViewMatrix = modelViewMatrix_;
 @synthesize visible         = visible_;
 
 - (id)initWithSpriteRef:(NSString *)spriteRef {
   self = [super init];
   if (self) {
-    spriteRef_  = spriteRef;
+    spriteName_  = spriteRef;
     children_   = [[NSMutableArray alloc] init];
     modelViewMatrix_ = GLKMatrix4Identity;
     visible_ = TRUE;

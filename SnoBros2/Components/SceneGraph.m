@@ -68,7 +68,7 @@
 
 - (SceneNode *)getNodeByName:(NSString *)name fromSceneNode:(SceneNode *)node {
   SceneNode *found = nil;
-  if ([node.spriteRef isEqualToString:name]) {
+  if ([node.spriteName isEqualToString:name]) {
     found = node;
   }
   if (node.children) {

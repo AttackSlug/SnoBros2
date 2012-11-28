@@ -17,7 +17,7 @@
 @synthesize health    = health_;
 @synthesize maxHealth = maxHealth_;
 @synthesize visible   = visible_;
-@synthesize spriteRef = spriteRef_;
+@synthesize spriteName = spriteName_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -36,7 +36,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    spriteRef_  = data[@"HealthBar"];
+    spriteName_  = data[@"spriteRef"];
     health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
     visible_    = FALSE;
