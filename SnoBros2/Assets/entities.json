@@ -1,7 +1,7 @@
 [
   {
     "Name": "Map",
-    "tag":  "map",
+    "Tag":  "map",
     "components": {
       "Transform": {
         "type": "Transform",
@@ -22,7 +22,7 @@
   },
   {
     "Name": "Sphere 1",
-    "tag":  "sphere",
+    "Tag":  "sphere",
     "components": {
       "Transform": {
         "type": "Transform",
@@ -69,7 +69,7 @@
   },
   {
     "Name": "Sphere 2",
-    "tag":  "sphere",
+    "Tag":  "sphere",
     "components": {
       "Transform": {
         "type": "Transform",
@@ -116,7 +116,7 @@
   },
   {
     "Name": "Player",
-    "tag":  "player",
+    "Tag":  "player",
     "components": {
       "Transform": {
         "type": "Transform",
@@ -167,7 +167,7 @@
   },
   {
     "Name": "Projectile",
-    "tag":  "projectile",
+    "Tag":  "projectile",
     "components": {
       "Transform": {
         "type": "Transform"

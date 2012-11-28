@@ -57,7 +57,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 
 
 - (id)initWithDictionary:(NSDictionary *)data {
-  self = [self initWithTag:[data valueForKey:@"tag"]];
+  self = [self initWithTag:[data valueForKey:@"Tag"]];
   if (self) {
     NSDictionary *components = data[@"components"];
     for (NSString *componentName in COMPONENT_LOAD_ORDER) {
