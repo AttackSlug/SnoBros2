@@ -2,7 +2,7 @@
   {
     "Name": "Map",
     "Tag":  "map",
-    "components": {
+    "Components": {
       "Transform": {
         "type": "Transform",
         "position": {
@@ -23,7 +23,7 @@
   {
     "Name": "Sphere 1",
     "Tag":  "sphere",
-    "components": {
+    "Components": {
       "Transform": {
         "type": "Transform",
         "position": {
@@ -70,7 +70,7 @@
   {
     "Name": "Sphere 2",
     "Tag":  "sphere",
-    "components": {
+    "Components": {
       "Transform": {
         "type": "Transform",
         "position": {
@@ -117,7 +117,7 @@
   {
     "Name": "Player",
     "Tag":  "player",
-    "components": {
+    "Components": {
       "Transform": {
         "type": "Transform",
         "position": {
@@ -168,7 +168,7 @@
   {
     "Name": "Projectile",
     "Tag":  "projectile",
-    "components": {
+    "Components": {
       "Transform": {
         "type": "Transform"
       },

@@ -59,7 +59,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 - (id)initWithDictionary:(NSDictionary *)data {
   self = [self initWithTag:[data valueForKey:@"Tag"]];
   if (self) {
-    NSDictionary *components = data[@"components"];
+    NSDictionary *components = data[@"Components"];
     for (NSString *componentName in COMPONENT_LOAD_ORDER) {
       NSString *className  = components[componentName][@"type"];
       // most entities wont have all the components listed in COMPONENT_LOAD_ORDER. we skip them here
