@@ -70,11 +70,11 @@
 
   if ([entityData isKindOfClass:[NSArray class]]) {
     for (NSDictionary *d in entityData) {
-      NSString *name = [d valueForKey:@"name"];
+      NSString *name = [d valueForKey:@"Name"];
       [entityTypes_ setValue:d forKey:name];
     }
   } else {
-    NSString *name = [entityData valueForKey:@"name"];
+    NSString *name = [entityData valueForKey:@"Name"];
     [entityTypes_ setValue:entityData forKey:name];
   }
 }
