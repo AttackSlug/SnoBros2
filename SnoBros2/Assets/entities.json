@@ -33,9 +33,9 @@
       },
       "Physics": {
         "Type": "Physics",
-        "velocity": {
-          "x": 1,
-          "y": 0
+        "Velocity": {
+          "X": 1,
+          "Y": 0
         }
       },
       "Behavior": {
@@ -80,9 +80,9 @@
       },
       "Physics": {
         "Type": "Physics",
-        "velocity": {
-          "x": -1,
-          "y":  0
+        "Velocity": {
+          "X": -1,
+          "Y":  0
         }
       },
       "Behavior": {
@@ -127,9 +127,9 @@
       },
       "Physics": {
         "Type": "Physics",
-        "velocity": {
-          "x": 0,
-          "y": 0
+        "Velocity": {
+          "X": 0,
+          "Y": 0
         }
       },
       "Behavior": {
