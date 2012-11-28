@@ -13,7 +13,10 @@
 #import "Camera.h"
 #import "Transform.h"
 #import "Sprite.h"
-#import "Renderable.h"
+#import "SpriteManager.h"
+#import "SceneGraph.h"
+#import "SceneNode.h"
+#import "Health.h"
 
 @implementation RenderSystem
 
@@ -21,6 +24,8 @@
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
+    spriteManager_  = [[SpriteManager alloc] init];
+    [spriteManager_ loadEntityTypesFromFile:@"sprites"];
     camera_         = camera;
   }
   return self;
@@ -38,24 +43,64 @@
 
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio {
   Transform   *transform  = [entity getComponentByString:@"Transform"];
-  Renderable  *renderable = [entity getComponentByString:@"Renderable"];
+  SceneGraph  *sceneGraph = [entity getComponentByString:@"SceneGraph"];
+  Health      *health     = [entity getComponentByString:@"Health"];
+  
   GLKVector2  position    = GLKVector2Lerp(transform.previousPosition,
                                            transform.position,
                                            ratio);
   GLKMatrix4  modelViewMatrix = GLKMatrix4MakeTranslation(position.x,
                                                           position.y,
-                                                          renderable.layer);
-  [self renderSprite:[renderable.sprites objectAtIndex:0] withModelViewMatrix:modelViewMatrix];
+                                                          sceneGraph.layer);
+  
+  if (health != nil) {
+    [self transformHealthBar:[sceneGraph getNodeByName:health.spriteName] withHealthComponent:health];
+  }
+  
+  [sceneGraph updateRootModelViewMatrix:modelViewMatrix];
+  [self renderSceneGraph:sceneGraph];
 }
 
 
 
-- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix {
-  if (sprite.visible == FALSE) {
+- (void)renderSceneGraph:(SceneGraph *)sceneGraph {
+  [self renderSceneNode:sceneGraph.rootNode];
+}
+
+
+
+- (void)renderSceneNode:(SceneNode *)node {
+  if (node.visible == FALSE) {
     return;
   }
+  GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:node];
+  Sprite        *sprite = [spriteManager_ getSpriteWithRef:node.spriteName];
+  [effect prepareToDraw];
+  [self drawSprite:sprite];
+  if (node.children != nil) {
+    for (SceneNode *child in node.children) {
+      [self renderSceneNode:child];
+    }
+  }
+}
 
+
+
+- (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health {
+  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:node.parent.spriteName];
+  float percent = health.health / health.maxHealth;
+  float ytrans = -(parentSprite.height/2.f) -5;
+  
+  node.modelViewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeScale(percent, 1, 1),
+                                                 GLKMatrix4MakeTranslation(0, ytrans, 0));
+  node.visible = health.visible;
+}
+
+
+
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node {
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
+  Sprite *sprite = [spriteManager_ getSpriteWithRef:node.spriteName];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect.texture2d0.target  = GLKTextureTarget2D;
@@ -69,11 +114,13 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix = GLKMatrix4Multiply(sprite.modelViewMatrix,
-                                                        modelViewMatrix);
-  
-  [effect prepareToDraw];
-  
+  effect.transform.modelviewMatrix  = node.modelViewMatrix;
+  return effect;
+}
+
+
+
+- (void)drawSprite:(Sprite *)sprite {
   glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
   glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT,
                         GL_FALSE, 0, sprite.uvMap);
@@ -85,12 +132,6 @@
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(GLKVertexAttribPosition);
   glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
-  
-  if (sprite.children != nil) {
-    for (Sprite *child in sprite.children) {
-      [self renderSprite:child withModelViewMatrix:modelViewMatrix];
-    }
-  }
 }
 
 @end

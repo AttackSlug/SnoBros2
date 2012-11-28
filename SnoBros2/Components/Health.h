@@ -8,16 +8,19 @@
 
 #import "Component.h"
 
-@class Sprite;
+@class SceneNode;
 
 @interface Health : Component {
-  float   health_;
-  float   maxHealth_;
-  Sprite  *healthBar_;
+  float     health_;
+  float     maxHealth_;
+  BOOL      visible_;
+  NSString  *spriteName_;
 }
 
 @property (nonatomic) float health;
 @property (nonatomic) float maxHealth;
+@property (nonatomic) BOOL visible;
+@property (nonatomic) NSString *spriteName;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;

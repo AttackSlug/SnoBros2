@@ -11,7 +11,6 @@
 #import "Transform.h"
 #import "Entity.h"
 #import "Sprite.h"
-#import "Renderable.h"
 
 @implementation Selectable
 

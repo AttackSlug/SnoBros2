@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Map",
+    "Tag": "Map",
+    "FileName": "wpaper.jpg"
+  },
+  {
+    "Name": "Snowball",
+    "Tag": "Snowball",
+    "FileName": "snowball.png"
+  },
+  {
+    "Name": "BigBlue",
+    "Tag": "BigBlue",
+    "FileName": "sprite2.png"
+  },
+  {
+    "Name": "HealthBar",
+    "Tag": "HealthBar",
+    "FileName": "healthgradient2.png"
+  }
+]

@@ -8,11 +8,16 @@
 
 #import "Health.h"
 
-#import "Renderable.h"
 #import "Entity.h"
-#import "Sprite.h"
+#import "SceneNode.h"
+#import "SceneGraph.h"
 
 @implementation Health
+
+@synthesize health    = health_;
+@synthesize maxHealth = maxHealth_;
+@synthesize visible   = visible_;
+@synthesize spriteName = spriteName_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -31,14 +36,11 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    NSString *spriteName    = data[@"spriteName"];
-    Renderable *renderable  = [entity getComponentByString:@"Renderable"];
-    
-    healthBar_  = [renderable getSpriteByTag:spriteName];
+    spriteName_  = data[@"spriteRef"];
     health_     = [data[@"health"] floatValue];
     maxHealth_  = health_;
+    visible_    = FALSE;
     
-    [healthBar_ translate:GLKVector2Make(0, -(healthBar_.parent.height / 2.f))];
     [self hideHealthBar];
   }
   return self;
@@ -66,8 +68,6 @@
                                                       userInfo:destroyData];
     NSLog(@"DEAD!");
   }
-
-  [healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
@@ -77,19 +77,18 @@
   if (health_ > maxHealth_) {
     health_ = maxHealth_;
   }
-  [healthBar_ cropByPercent:(health_/maxHealth_)];
 }
 
 
 
 - (void)showHealthBar {
-  healthBar_.visible = TRUE;
+  visible_ = TRUE;
 }
 
 
 
 - (void)hideHealthBar {
-  healthBar_.visible = FALSE;
+  visible_ = FALSE;
 }
 
 @end
