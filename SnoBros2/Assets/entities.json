@@ -1,6 +1,6 @@
 [
   {
-    "name": "Map",
+    "Name": "Map",
     "tag":  "map",
     "components": {
       "Transform": {
@@ -21,7 +21,7 @@
     }
   },
   {
-    "name": "Sphere 1",
+    "Name": "Sphere 1",
     "tag":  "sphere",
     "components": {
       "Transform": {
@@ -68,7 +68,7 @@
     }
   },
   {
-    "name": "Sphere 2",
+    "Name": "Sphere 2",
     "tag":  "sphere",
     "components": {
       "Transform": {
@@ -115,7 +115,7 @@
     }
   },
   {
-    "name": "Player",
+    "Name": "Player",
     "tag":  "player",
     "components": {
       "Transform": {
@@ -166,7 +166,7 @@
     }
   },
   {
-    "name": "Projectile",
+    "Name": "Projectile",
     "tag":  "projectile",
     "components": {
       "Transform": {
