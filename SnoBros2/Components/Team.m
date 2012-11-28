@@ -26,7 +26,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   self = [self initWithEntity:entity];
   if (self) {
-    name_ = data[@"name"];
+    name_ = data[@"Name"];
   }
   return self;
 }
