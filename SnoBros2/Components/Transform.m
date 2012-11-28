@@ -26,8 +26,8 @@
   self = [self initWithEntity:entity];
   if (self) {
     NSDictionary *p = data[@"Position"];
-    position_ = GLKVector2Make([p[@"x"] floatValue],
-                               [p[@"y"] floatValue]);
+    position_ = GLKVector2Make([p[@"X"] floatValue],
+                               [p[@"Y"] floatValue]);
     previousPosition_ = position_;
   }
   return self;

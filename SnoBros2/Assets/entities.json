@@ -6,8 +6,8 @@
       "Transform": {
         "Type": "Transform",
         "Position": {
-          "x": 240,
-          "y": 160
+          "X": 240,
+          "Y": 160
         }
       },
       "SceneGraph": {
@@ -27,8 +27,8 @@
       "Transform": {
         "Type": "Transform",
         "Position": {
-          "x": 100,
-          "y": 160
+          "X": 100,
+          "Y": 160
         }
       },
       "Physics": {
@@ -74,8 +74,8 @@
       "Transform": {
         "Type": "Transform",
         "Position": {
-          "x": 300,
-          "y": 160
+          "X": 300,
+          "Y": 160
         }
       },
       "Physics": {
@@ -121,8 +121,8 @@
       "Transform": {
         "Type": "Transform",
         "Position": {
-          "x": 20,
-          "y": 20
+          "X": 20,
+          "Y": 20
         }
       },
       "Physics": {
