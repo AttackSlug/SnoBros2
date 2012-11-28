@@ -28,13 +28,12 @@
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;
-- (void)renderSprite:(Sprite *)sprite withModelViewMatrix:(GLKMatrix4)modelViewMatrix;
 - (void)renderSceneGraph:(SceneGraph *)sceneGraph;
-- (void)renderSceneNode:(SceneNode *)sceneNode;
+- (void)renderSceneNode:(SceneNode *)node;
 
-- (void)transformHealthBar:(SceneNode *)sceneNode withHealthComponent:(Health *)health;
+- (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health;
 
-- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)sceneNode;
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node;
 - (void)drawSprite:(Sprite *)sprite;
 
 @end

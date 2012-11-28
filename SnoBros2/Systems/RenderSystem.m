@@ -69,16 +69,16 @@
 
 
 
-- (void)renderSceneNode:(SceneNode *)sceneNode {
-  if (sceneNode.visible == FALSE) {
+- (void)renderSceneNode:(SceneNode *)node {
+  if (node.visible == FALSE) {
     return;
   }
-  GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:sceneNode];
-  Sprite        *sprite = [spriteManager_ getSpriteWithRef:sceneNode.spriteRef];
+  GLKBaseEffect *effect = [self generateBaseEffectWithSceneNode:node];
+  Sprite        *sprite = [spriteManager_ getSpriteWithRef:node.spriteRef];
   [effect prepareToDraw];
   [self drawSprite:sprite];
-  if (sceneNode.children != nil) {
-    for (SceneNode *child in sceneNode.children) {
+  if (node.children != nil) {
+    for (SceneNode *child in node.children) {
       [self renderSceneNode:child];
     }
   }
@@ -86,22 +86,21 @@
 
 
 
-- (void)transformHealthBar:(SceneNode *)sceneNode withHealthComponent:(Health *)health {
-  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:sceneNode.parent.spriteRef];
+- (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health {
+  Sprite *parentSprite = [spriteManager_ getSpriteWithRef:node.parent.spriteRef];
   float percent = health.health / health.maxHealth;
   float ytrans = -(parentSprite.height/2.f) -5;
   
-  sceneNode.modelViewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeScale(percent, 1, 1),
+  node.modelViewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeScale(percent, 1, 1),
                                                  GLKMatrix4MakeTranslation(0, ytrans, 0));
-  //sceneNode.visible = health.visible;
-  
+  node.visible = health.visible;
 }
 
 
 
-- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)sceneNode {
+- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node {
   GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
-  Sprite *sprite = [spriteManager_ getSpriteWithRef:sceneNode.spriteRef];
+  Sprite *sprite = [spriteManager_ getSpriteWithRef:node.spriteRef];
   
   effect.texture2d0.envMode = GLKTextureEnvModeReplace;
   effect.texture2d0.target  = GLKTextureTarget2D;
@@ -115,7 +114,7 @@
   float far    =  16.f;
   
   effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, near, far);
-  effect.transform.modelviewMatrix  = sceneNode.modelViewMatrix;
+  effect.transform.modelviewMatrix  = node.modelViewMatrix;
   return effect;
 }
 
