@@ -2,7 +2,7 @@
 //  MapGrid.h
 //  SnoBros2
 //
-//  Created by Cjab on 11/29/12.
+//  Created by Chad Jablonski on 11/29/12.
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
