@@ -93,13 +93,14 @@
 		87E4195D16652E7600336F3A /* SceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
 		87E4195E16652E7600336F3A /* SceneNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneNode.m; sourceTree = "<group>"; };
 		87E41980166677DE00336F3A /* healthgradient2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient2.png; sourceTree = "<group>"; };
+		8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiwiUnitTest.xcconfig"; path = "Pods/Pods-KiwiUnitTest.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A317B9C81669CFBF00B5D78E /* Pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
 		A317B9CC1669D87500B5D78E /* PathfinderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfinderTest.h; sourceTree = "<group>"; };
 		A317B9CD1669D87500B5D78E /* PathfinderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderTest.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
-		A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
 		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A374CB26166E64DB00286090 /* KiwiUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiwiUnitTest.h; sourceTree = "<group>"; };
@@ -111,11 +112,11 @@
 		A37E59441665314C0061E425 /* ASFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFloat.m; sourceTree = "<group>"; };
 		A37E595A166550320061E425 /* SelectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSystem.h; sourceTree = "<group>"; };
 		A37E595B166550320061E425 /* SelectionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSystem.m; sourceTree = "<group>"; };
-		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD0C931642EC8B007AEB08 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnoBros2Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2Tests-Info.plist"; sourceTree = "<group>"; };
 		A3BD0CBF1642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -295,18 +296,8 @@
 				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
-				A3BD0C941642EC8B007AEB08 /* Products */,
+				8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */,
 			);
-			sourceTree = "<group>";
-		};
-		A3BD0C941642EC8B007AEB08 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A3BD0C931642EC8B007AEB08 /* SnoBros2.app */,
-				A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */,
-				A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A3BD0C961642EC8B007AEB08 /* Frameworks */ = {
@@ -472,6 +463,7 @@
 				A374CB18166E64DB00286090 /* Frameworks */,
 				A374CB19166E64DB00286090 /* Resources */,
 				A374CB1A166E64DB00286090 /* ShellScript */,
+				D18BFACBAF294336B688AFF2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -535,7 +527,7 @@
 				en,
 			);
 			mainGroup = A3BD0C881642EC8B007AEB08;
-			productRefGroup = A3BD0C941642EC8B007AEB08 /* Products */;
+			productRefGroup = A3BD0C881642EC8B007AEB08;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -613,6 +605,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		D18BFACBAF294336B688AFF2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-KiwiUnitTest-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -715,6 +721,7 @@
 /* Begin XCBuildConfiguration section */
 		A374CB2B166E64DB00286090 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -731,6 +738,7 @@
 		};
 		A374CB2C166E64DB00286090 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -868,6 +876,7 @@
 				A374CB2C166E64DB00286090 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "SnoBros2" */ = {
 			isa = XCConfigurationList;
