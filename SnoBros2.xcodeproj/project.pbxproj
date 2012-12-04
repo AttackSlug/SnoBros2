@@ -40,6 +40,8 @@
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE231B16680E0E00E4CB9D /* MapGrid.m */; };
+		A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */; };
+		A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE8166D547300C966AD /* Pathfinding.m */; };
 		A3F8B076166465A700334E9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B02D166465A700334E9E /* AppDelegate.m */; };
 		A3F8B077166465A700334E9E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B02F166465A700334E9E /* Default-568h@2x.png */; };
 		A3F8B078166465A700334E9E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B030166465A700334E9E /* Default.png */; };
@@ -135,6 +137,10 @@
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3EE231A16680E0E00E4CB9D /* MapGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGrid.h; sourceTree = "<group>"; };
 		A3EE231B16680E0E00E4CB9D /* MapGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGrid.m; sourceTree = "<group>"; };
+		A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingSystem.h; sourceTree = "<group>"; };
+		A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfindingSystem.m; sourceTree = "<group>"; };
+		A3F41EE7166D547300C966AD /* Pathfinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinding.h; sourceTree = "<group>"; };
+		A3F41EE8166D547300C966AD /* Pathfinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinding.m; sourceTree = "<group>"; };
 		A3F8B02C166465A700334E9E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3F8B02D166465A700334E9E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A3F8B02F166465A700334E9E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -417,6 +423,8 @@
 				A3F8B05A166465A700334E9E /* Transform.m */,
 				A37E594016652BC90061E425 /* UnitCollider.h */,
 				A37E594116652BC90061E425 /* UnitCollider.m */,
+				A3F41EE7166D547300C966AD /* Pathfinding.h */,
+				A3F41EE8166D547300C966AD /* Pathfinding.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -451,6 +459,8 @@
 				A3F8B072166465A700334E9E /* RenderSystem.m */,
 				A37E595A166550320061E425 /* SelectionSystem.h */,
 				A37E595B166550320061E425 /* SelectionSystem.m */,
+				A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */,
+				A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -697,6 +707,8 @@
 				87149EDA166FACF800D92227 /* Shader.m in Sources */,
 				87149EE1166FAEEF00D92227 /* ShaderManager.m in Sources */,
 				87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */,
+				A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */,
+				A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,19 +63,26 @@
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
-      NSDictionary *data = @{@"target": target};
       Health *health = [e getComponentByString:@"Health"];
       [health heal:40];
 
-      NSString *walkTo       = [@"walkTo:" stringByAppendingString:e.uuid];
-      [[NSNotificationCenter defaultCenter] postNotificationName:walkTo
+      NSDictionary *pathData = @{@"entity": e, @"target": target};
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"findPath"
                                                           object:self
-                                                        userInfo:data];
+                                                        userInfo:pathData];
 
+
+
+      //NSString *walkTo       = [e.uuid stringByAppendingString:@"|walkTo"];
+      //[[NSNotificationCenter defaultCenter] postNotificationName:walkTo
+      //                                                    object:self
+      //                                                  userInfo:data];
+
+      NSDictionary *panData = @{@"target": target};
       NSString *panCamera = @"panCameraToTarget";
       [[NSNotificationCenter defaultCenter] postNotificationName:panCamera
                                                           object:self
-                                                        userInfo:data];
+                                                        userInfo:panData];
     }
   } else {
     [selectionSystem_ selectEntityDisplayedAtPosition:pos];

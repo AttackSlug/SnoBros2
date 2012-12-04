@@ -23,6 +23,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
                                                      @"Physics",
                                                      @"Transform",
                                                      @"Collision",
+                                                     @"Pathfinding",
                                                      @"StandardCollider",
                                                      @"Team",
                                                      @"Attack",

@@ -10,20 +10,26 @@
 
 @class MapNode;
 @class MapGrid;
+@class EntityManager;
+@class Quadtree;
 
 typedef float(^Heuristic)(MapNode *, MapNode *, int);
 
 @interface Pathfinder : NSObject {
-  MapGrid   *map_;
-  Heuristic  heuristic_;
+  EntityManager *entityManager_;
+  Heuristic      heuristic_;
+  Quadtree      *obstacleTree_;
 }
 
 + (Heuristic)manhattanDistance;
 + (Heuristic)euclidianDistance;
 + (Heuristic)diagonalDistance;
 
-- (id)initWithMap:(MapGrid *)map andHeuristic:(Heuristic)heuristic;
+- (id)initWithHeuristic:(Heuristic)heuristic
+          entityManager:(EntityManager *)entityManager;
 
-- (void)findPathFrom:(MapNode *)start to:(MapNode *)end;
+- (NSArray *)findPathFrom:(MapNode *)start to:(MapNode *)end;
+- (NSArray *)buildPathWithEnd:(MapNode *)end;
+- (bool)isNodeTraversable:(MapNode *)node;
 
 @end

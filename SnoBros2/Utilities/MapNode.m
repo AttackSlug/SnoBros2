@@ -13,15 +13,14 @@
 @synthesize parent    = parent_;
 @synthesize neighbors = neighbors_;
 @synthesize position  = position_;
+@synthesize size      = size_;
 @synthesize g         = g_;
 @synthesize h         = h_;
 @synthesize f         = f_;
-@synthesize isTraversable = isTraversable_;
 
-- (id)init {
-  self = [super init];
+- (id)initWithPosition:(GLKVector2)position size:(CGSize)size {
+self = [super init];
   if (self) {
-    isTraversable_ = true;
     neighbors_ = [[NSMutableArray alloc] init];
   }
   return self;
@@ -35,22 +34,22 @@
 
 
 
-// FIXME: This will need to be replaced with a method determining if any
-//        obstacles exist at this node.
-//- (bool)isTraversable {
-//  return true;
-//}
-
-
-
 - (NSArray *)findNeighbors {
   NSMutableArray *neighborsFound = [[NSMutableArray alloc] init];
+
   for (MapNode *node in neighbors_) {
     if (node) {
       [neighborsFound addObject:node];
     }
   }
+
   return neighborsFound;
+}
+
+
+
+- (CGRect)boundingBox {
+  return CGRectMake(position_.x, position_.y, size_.width, size_.height);
 }
 
 @end

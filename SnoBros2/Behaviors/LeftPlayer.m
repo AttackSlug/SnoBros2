@@ -20,7 +20,7 @@
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
-    NSString *walkTo = [@"walkTo:" stringByAppendingString:entity_.uuid];
+    NSString *walkTo = [entity_.uuid stringByAppendingString:@"|walkTo"];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(walkTo:)
                                                  name:walkTo

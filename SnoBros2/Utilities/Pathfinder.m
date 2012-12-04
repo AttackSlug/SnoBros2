@@ -9,15 +9,21 @@
 #import "Pathfinder.h"
 
 #import "MapNode.h"
-#import "MapGrid.h"
+#import "Quadtree.h"
+#import "EntityManager.h"
 
 @implementation Pathfinder
 
-- (id)initWithMap:(MapGrid *)map andHeuristic:(Heuristic)heuristic {
+- (id)initWithHeuristic:(Heuristic)heuristic
+          entityManager:(EntityManager *)entityManager {
   self = [super init];
   if (self) {
-    map_       = map;
-    heuristic_ = heuristic;
+    heuristic_     = heuristic;
+    entityManager_ = entityManager;
+
+    //FIXME: Temporarily hardcoded bounds
+    CGRect bounds  = CGRectMake(-512.f, -512.f, 1024.f, 1024.f);
+    obstacleTree_  = [[Quadtree alloc] initWithLevel:5 bounds:bounds];
   }
   return self;
 }
@@ -69,11 +75,15 @@
 
 
 
-- (void)findPathFrom:(MapNode *)start to:(MapNode *)end {
+- (NSArray *)findPathFrom:(MapNode *)start to:(MapNode *)end {
   NSMutableArray *open    = [[NSMutableArray alloc] init];
   NSMutableArray *closed  = [[NSMutableArray alloc] init];
   MapNode        *current = start;
   [open addObject:start];
+
+  [self updateObstacleTree];
+
+  start.parent = nil;
 
   while (open.count > 0) {
 
@@ -82,13 +92,12 @@
     [closed addObject:current];
 
     if (current == end) {
-      NSLog(@"Found the end!");
-      return;
+      return [self buildPathWithEnd:end];
     }
 
     NSArray *neighbors = [current findNeighbors];
     for (MapNode *neighbor in neighbors) {
-      if ([closed containsObject:neighbor] || ![neighbor isTraversable]) {
+      if ([closed containsObject:neighbor] || ![self isNodeTraversable:neighbor]) {
         continue;
       }
 
@@ -106,6 +115,37 @@
       }
     }
   }
+
+  return nil;
+}
+
+
+
+- (NSArray *)buildPathWithEnd:(MapNode *)end {
+  MapNode *waypoint = end;
+
+  NSMutableArray *path = [[NSMutableArray alloc] init];
+  while (waypoint) {
+    [path addObject:waypoint];
+    waypoint = waypoint.parent;
+  }
+
+  return [[path reverseObjectEnumerator] allObjects];
+}
+
+
+
+- (void)updateObstacleTree {
+  NSArray *entities = [entityManager_ allEntities];
+  for (Entity *entity in entities) {
+    [obstacleTree_ insert:entity];
+  }
+}
+
+
+
+- (bool)isNodeTraversable:(MapNode *)node {
+  return [obstacleTree_ retrieveRectanglesNear:node.boundingBox];
 }
 
 @end

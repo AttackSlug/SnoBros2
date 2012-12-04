@@ -28,6 +28,6 @@ typedef enum {
 }
 
 - (id)initWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize;
-- (MapNode *)findNodeByX:(int)x Y:(int)y;
+- (MapNode *)findNodeByX:(float)x Y:(float)y;
 
 @end

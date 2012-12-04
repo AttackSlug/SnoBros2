@@ -158,7 +158,7 @@
 
 
 - (NSArray *)entitiesNear:(Entity *)entity {
-  return [quadtree_ retrieve:entity];
+  return [quadtree_ retrieveEntitiesNear:entity];
 }
 
 

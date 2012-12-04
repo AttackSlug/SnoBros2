@@ -13,22 +13,23 @@
   MapNode        *parent_;
   NSMutableArray *neighbors_;
   GLKVector2      position_;
+  CGSize          size_;
   int             g_;
   int             h_;
   int             f_;
-  bool            isTraversable_;
 }
 
 @property (nonatomic) MapNode        *parent;
 @property (nonatomic) NSMutableArray *neighbors;
 @property (nonatomic) GLKVector2      position;
+@property (nonatomic) CGSize          size;
 @property (nonatomic) int             g;
 @property (nonatomic) int             h;
 @property (nonatomic) int             f;
-@property (nonatomic) bool            isTraversable;
 
-- (bool)isTraversable;
+- (id)initWithPosition:(GLKVector2)position size:(CGSize)size;
 - (float)movementCostTo:(MapNode *)neighbor;
 - (NSArray *)findNeighbors;
+- (CGRect)boundingBox;
 
 @end

@@ -20,11 +20,17 @@
     bounds_   = bounds;
     nodeSize_ = nodeSize;
 
+    float width  = bounds_.size.width  / nodeSize.width;
+    float height = bounds_.size.height / nodeSize.height;
+
     nodes_ = [[NSMutableArray alloc] init];
-    for (int i = 0; i < bounds_.size.width; i++) {
+    for (int i = 0; i < width; i++) {
       NSMutableArray *column = [[NSMutableArray alloc] init];
-      for (int j = 0; j < bounds_.size.height; j++) {
-        MapNode *node = [[MapNode alloc] init];
+      for (int j = 0; j < height; j++) {
+        GLKVector2 position = GLKVector2Make(i * nodeSize.width,
+                                             j * nodeSize.height);
+        MapNode *node = [[MapNode alloc] initWithPosition:position
+                                                     size:nodeSize];
         node.position = GLKVector2Make(i, j);
         [column addObject:node];
       }
@@ -50,17 +56,20 @@
 
 
 
-- (MapNode *)findNodeByX:(int)x Y:(int)y {
-  if (x < 0 || x >= nodes_.count) {
+- (MapNode *)findNodeByX:(float)x Y:(float)y {
+  int xIndex = (bounds_.size.width  / 2) + x;
+  int yIndex = (bounds_.size.height / 2) + y;
+
+  if (xIndex < 0 || xIndex >= nodes_.count) {
     return nil;
   }
 
-  NSArray *column = nodes_[x];
-  if (y < 0 || y >= column.count) {
+  NSArray *column = nodes_[xIndex];
+  if (yIndex < 0 || yIndex >= column.count) {
     return nil;
   }
 
-  return nodes_[x][y];
+  return nodes_[xIndex][yIndex];
 }
 
 

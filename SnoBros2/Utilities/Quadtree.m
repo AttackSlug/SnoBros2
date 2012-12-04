@@ -69,17 +69,22 @@
 
 
 
-- (int)getIndexOf:(Entity *)entity {
+- (int)getIndexOfEntity:(Entity *)entity {
   Collision *collision = [entity getComponentByString:@"Collision"];
-  CGRect rect = [collision boundingBox];
+  CGRect rectangle     = [collision boundingBox];
+  return [self getIndexOfRectangle:rectangle];
+}
 
-  if (CGRectContainsRect(topLeft_, rect)) {
+
+
+- (int)getIndexOfRectangle:(CGRect)rectangle {
+  if (CGRectContainsRect(topLeft_, rectangle)) {
     return 0;
-  } else if (CGRectContainsRect(topRight_, rect)) {
+  } else if (CGRectContainsRect(topRight_, rectangle)) {
     return 1;
-  } else if (CGRectContainsRect(bottomLeft_, rect)) {
+  } else if (CGRectContainsRect(bottomLeft_, rectangle)) {
     return 2;
-  } else if (CGRectContainsRect(bottomRight_, rect)) {
+  } else if (CGRectContainsRect(bottomRight_, rectangle)) {
     return 3;
   } else {
     return -1;
@@ -90,7 +95,7 @@
 
 - (void)insert:(Entity *)entity {
   if (nodes_[0] != NULL) {
-    int index = [self getIndexOf:entity];
+    int index = [self getIndexOfEntity:entity];
     if (index != -1) {
       [nodes_[index] insert:entity];
       return;
@@ -105,7 +110,7 @@
     }
 
     for (Entity *e in entities_) {
-      int index = [self getIndexOf:e];
+      int index = [self getIndexOfEntity:e];
       if (index != -1) {
         [nodes_[index] insert:e];
         [entities_ removeObject:e];
@@ -116,15 +121,36 @@
 
 
 
-- (NSMutableArray *)retrieve:(Entity *)e {
+- (NSMutableArray *)retrieveEntitiesNear:(Entity *)e {
   NSMutableArray *objects = [[NSMutableArray alloc] init];
 
-  int index = [self getIndexOf:e];
+  int index = [self getIndexOfEntity:e];
   if (index != -1 && nodes_[0] != NULL) {
-    [objects addObjectsFromArray:[nodes_[index] retrieve:e]];
+    [objects addObjectsFromArray:[nodes_[index] retrieveEntitiesNear:e]];
   }
 
   [objects addObjectsFromArray:entities_];
+  return objects;
+}
+
+
+
+- (NSArray *)retrieveRectanglesNear:(CGRect)rectangle {
+  NSMutableArray *objects = [[NSMutableArray alloc] init];
+
+  int index = [self getIndexOfRectangle:rectangle];
+  if (index != -1 && nodes_[0] != NULL) {
+    [objects addObjectsFromArray:[nodes_[index]
+                                  retrieveRectanglesNear:rectangle]];
+  }
+
+  for (Entity *entity in entities_) {
+    Collision *collision = [entity getComponentByString:@"Collision"];
+    CGRect     bounds    = [collision boundingBox];
+    NSValue   *value     = [NSValue value:&bounds withObjCType:@encode(CGRect)];
+    [objects addObject:value];
+  }
+
   return objects;
 }
 

@@ -16,6 +16,7 @@
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
 #import "ShaderManager.h"
+#import "PathfindingSystem.h"
 
 #import "Transform.h"
 
@@ -29,7 +30,7 @@
   self = [super init];
   if (self) {
     timestepAccumulatorRatio_ = 1.f;
-    
+
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
     selectionSystem_ = [[SelectionSystem alloc]
@@ -38,6 +39,8 @@
                         initWithEntityManager:entityManager_];
     renderSystem_    = [[RenderSystem alloc]
                         initWithEntityManager:entityManager_ camera:camera_];
+    pathfindingSystem_ = [[PathfindingSystem alloc]
+                          initWithEntityManager:entityManager_];
 
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
@@ -88,6 +91,7 @@
     [e update];
   }
   [collisionSystem_ update];
+  [pathfindingSystem_ update];
   [camera_ update];
   [entityManager_ processQueue];
   [entityManager_ update];

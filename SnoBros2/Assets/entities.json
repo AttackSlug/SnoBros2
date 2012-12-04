@@ -248,6 +248,9 @@
       "Team": {
         "Type": "Team",
         "Name": "Team Edward"
+      },
+      "Pathfinding": {
+        "Type": "Pathfinding"
       }
     }
   },
@@ -307,6 +310,9 @@
       "Team": {
         "Type": "Team",
         "Name": "Team Jacob"
+      },
+      "Pathfinding": {
+        "Type": "Pathfinding"
       }
     }
   }
