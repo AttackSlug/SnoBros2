@@ -10,7 +10,7 @@
 #import "Transform.h"
 #import "Entity.h"
 #import "Collision.h"
-#import "Float.h"
+#import "ASFloat.h"
 
 @implementation Physics
 
@@ -44,7 +44,7 @@
   float      distance       = GLKVector2Distance(position, target);
   float      futureDistance = GLKVector2Distance(futurePosition, target);
 
-  return [Float is:futureDistance greaterThan:distance];
+  return [ASFloat is:futureDistance greaterThan:distance];
 }
 
 
@@ -56,7 +56,7 @@
   float      distance       = GLKVector2Distance(position, target);
   float      futureDistance = GLKVector2Distance(futurePosition, target);
 
-  return [Float is:distance lessThan:futureDistance];
+  return [ASFloat is:distance lessThan:futureDistance];
 }
 
 
