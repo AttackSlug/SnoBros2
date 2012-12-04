@@ -14,6 +14,11 @@
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
 		A317B9CE1669D87500B5D78E /* PathfinderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9CD1669D87500B5D78E /* PathfinderTest.m */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
+		A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
+		A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
+		A374CB1F166E64DB00286090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
+		A374CB25166E64DB00286090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A374CB23166E64DB00286090 /* InfoPlist.strings */; };
+		A374CB28166E64DB00286090 /* KiwiUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A374CB27166E64DB00286090 /* KiwiUnitTest.m */; };
 		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
 		A37E59451665314C0061E425 /* ASFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* ASFloat.m */; };
 		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
@@ -94,6 +99,12 @@
 		A317B9CD1669D87500B5D78E /* PathfinderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderTest.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
+		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A374CB26166E64DB00286090 /* KiwiUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiwiUnitTest.h; sourceTree = "<group>"; };
+		A374CB27166E64DB00286090 /* KiwiUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiwiUnitTest.m; sourceTree = "<group>"; };
+		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
@@ -183,6 +194,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A374CB18166E64DB00286090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */,
+				A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */,
+				A374CB1F166E64DB00286090 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3BD0C901642EC8B007AEB08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,11 +268,32 @@
 			path = SnoBros2;
 			sourceTree = "<group>";
 		};
+		A374CB20166E64DB00286090 /* KiwiUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				A374CB26166E64DB00286090 /* KiwiUnitTest.h */,
+				A374CB27166E64DB00286090 /* KiwiUnitTest.m */,
+				A374CB21166E64DB00286090 /* Supporting Files */,
+			);
+			path = KiwiUnitTest;
+			sourceTree = "<group>";
+		};
+		A374CB21166E64DB00286090 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */,
+				A374CB23166E64DB00286090 /* InfoPlist.strings */,
+				A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A3BD0C881642EC8B007AEB08 = {
 			isa = PBXGroup;
 			children = (
 				87E49DEF16515A8200202CFB /* SnoBros2 */,
 				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
+				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3BD0C941642EC8B007AEB08 /* Products */,
 			);
@@ -262,6 +304,7 @@
 			children = (
 				A3BD0C931642EC8B007AEB08 /* SnoBros2.app */,
 				A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */,
+				A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,6 +464,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A374CB1B166E64DB00286090 /* KiwiUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A374CB2A166E64DB00286090 /* Build configuration list for PBXNativeTarget "KiwiUnitTest" */;
+			buildPhases = (
+				A374CB17166E64DB00286090 /* Sources */,
+				A374CB18166E64DB00286090 /* Frameworks */,
+				A374CB19166E64DB00286090 /* Resources */,
+				A374CB1A166E64DB00286090 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KiwiUnitTest;
+			productName = KiwiUnitTest;
+			productReference = A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3BD0CC61642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2" */;
@@ -480,11 +541,20 @@
 			targets = (
 				A3BD0C921642EC8B007AEB08 /* SnoBros2 */,
 				A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */,
+				A374CB1B166E64DB00286090 /* KiwiUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A374CB19166E64DB00286090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A374CB25166E64DB00286090 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3BD0C911642EC8B007AEB08 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +588,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A374CB1A166E64DB00286090 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		A3BD0CB21642EC8B007AEB08 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,6 +617,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A374CB17166E64DB00286090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A374CB28166E64DB00286090 /* KiwiUnitTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3BD0C8F1642EC8B007AEB08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,6 +686,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A374CB23166E64DB00286090 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A374CB24166E64DB00286090 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -614,6 +713,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A374CB2B166E64DB00286090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KiwiUnitTest/KiwiUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A374CB2C166E64DB00286090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KiwiUnitTest/KiwiUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		A3BD0CC41642EC8B007AEB08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -730,6 +861,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A374CB2A166E64DB00286090 /* Build configuration list for PBXNativeTarget "KiwiUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A374CB2B166E64DB00286090 /* Debug */,
+				A374CB2C166E64DB00286090 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A3BD0C8D1642EC8B007AEB08 /* Build configuration list for PBXProject "SnoBros2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
