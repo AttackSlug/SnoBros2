@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
-#import "Float.h"
+#import "ASFloat.h"
 
-@implementation Float
+@implementation ASFloat
 
 const float K = 0.000001f;
 

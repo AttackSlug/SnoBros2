@@ -13,7 +13,7 @@
 #import "Transform.h"
 #import "Collision.h"
 
-#import "Float.h"
+#import "ASFloat.h"
 
 @implementation LeftPlayer
 
@@ -83,7 +83,7 @@
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
   float      distance   = GLKVector2Distance(transform.position, target_);
 
-  if ([Float is:distance equalTo:0.f]) {
+  if ([ASFloat is:distance equalTo:0.f]) {
     physics.velocity = GLKVector2Make(0.f, 0.f);
   } else if ([physics isMovingAwayFrom:target_]) {
     [self walkToTarget:target_];
