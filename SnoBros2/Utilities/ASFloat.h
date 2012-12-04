@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Float : NSObject
+@interface ASFloat : NSObject
 
 + (int)compare:(float)value1 to:(float)value2;
 

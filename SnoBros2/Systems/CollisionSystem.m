@@ -12,7 +12,7 @@
 #import "Transform.h"
 #import "Collision.h"
 
-#import "Float.h"
+#import "ASFloat.h"
 
 @implementation CollisionSystem
 
@@ -66,7 +66,7 @@
   float distance        = GLKVector2Distance(myTransform.position,
                                              otherTransform.position);
 
-  if ([Float is:distance lessThanOrEqualTo:centersDistance]) {
+  if ([ASFloat is:distance lessThanOrEqualTo:centersDistance]) {
     return true;
   }
 
