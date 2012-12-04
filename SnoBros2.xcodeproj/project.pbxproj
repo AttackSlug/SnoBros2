@@ -12,13 +12,13 @@
 		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
 		87E41981166677DE00336F3A /* healthgradient2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E41980166677DE00336F3A /* healthgradient2.png */; };
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
-		A317B9CE1669D87500B5D78E /* PathfinderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9CD1669D87500B5D78E /* PathfinderTest.m */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
 		A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A374CB1F166E64DB00286090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A374CB25166E64DB00286090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A374CB23166E64DB00286090 /* InfoPlist.strings */; };
-		A374CB28166E64DB00286090 /* KiwiUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A374CB27166E64DB00286090 /* KiwiUnitTest.m */; };
+		A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A374CB3C166E685A00286090 /* PathfinderSpec.m */; };
+		A374CB3F166E6ABE00286090 /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */; };
 		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
 		A37E59451665314C0061E425 /* ASFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* ASFloat.m */; };
 		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
@@ -28,8 +28,6 @@
 		A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
-		A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */; };
-		A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
@@ -96,16 +94,14 @@
 		8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiwiUnitTest.xcconfig"; path = "Pods/Pods-KiwiUnitTest.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A317B9C81669CFBF00B5D78E /* Pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
-		A317B9CC1669D87500B5D78E /* PathfinderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfinderTest.h; sourceTree = "<group>"; };
-		A317B9CD1669D87500B5D78E /* PathfinderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderTest.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
-		A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
 		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A374CB26166E64DB00286090 /* KiwiUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiwiUnitTest.h; sourceTree = "<group>"; };
-		A374CB27166E64DB00286090 /* KiwiUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiwiUnitTest.m; sourceTree = "<group>"; };
 		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
+		A374CB3C166E685A00286090 /* PathfinderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderSpec.m; sourceTree = "<group>"; };
+		A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KiwiUnitTest.a"; path = "../Pods/build/Release-iphoneos/libPods-KiwiUnitTest.a"; sourceTree = "<group>"; };
+		A374CB40166E7CD200286090 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
@@ -118,10 +114,6 @@
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A3BD0CB41642EC8B007AEB08 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnoBros2Tests-Info.plist"; sourceTree = "<group>"; };
-		A3BD0CBF1642EC8B007AEB08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
-		A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3EE231A16680E0E00E4CB9D /* MapGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGrid.h; sourceTree = "<group>"; };
@@ -199,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A374CB3F166E6ABE00286090 /* libPods-KiwiUnitTest.a in Frameworks */,
 				A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */,
 				A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */,
 				A374CB1F166E64DB00286090 /* Foundation.framework in Frameworks */,
@@ -272,9 +265,8 @@
 		A374CB20166E64DB00286090 /* KiwiUnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				A374CB26166E64DB00286090 /* KiwiUnitTest.h */,
-				A374CB27166E64DB00286090 /* KiwiUnitTest.m */,
 				A374CB21166E64DB00286090 /* Supporting Files */,
+				A374CB3C166E685A00286090 /* PathfinderSpec.m */,
 			);
 			path = KiwiUnitTest;
 			sourceTree = "<group>";
@@ -282,6 +274,8 @@
 		A374CB21166E64DB00286090 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */,
+				A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */,
 				A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */,
 				A374CB23166E64DB00286090 /* InfoPlist.strings */,
 				A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */,
@@ -293,10 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				87E49DEF16515A8200202CFB /* SnoBros2 */,
-				A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */,
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
-				8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -311,27 +303,6 @@
 				A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A3BD0CBB1642EC8B007AEB08 /* SnoBros2Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A3BD0CBC1642EC8B007AEB08 /* Supporting Files */,
-				A3BD0CCC1642F0C1007AEB08 /* EntityTest.h */,
-				A3BD0CCD1642F0C1007AEB08 /* EntityTest.m */,
-				A317B9CC1669D87500B5D78E /* PathfinderTest.h */,
-				A317B9CD1669D87500B5D78E /* PathfinderTest.m */,
-			);
-			path = SnoBros2Tests;
-			sourceTree = "<group>";
-		};
-		A3BD0CBC1642EC8B007AEB08 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A3BD0CBD1642EC8B007AEB08 /* SnoBros2Tests-Info.plist */,
-				A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A3F8B02E166465A700334E9E /* Assets */ = {
@@ -471,7 +442,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = A374CB1C166E64DB00286090 /* KiwiUnitTest.octest */;
+			productReference = A374CB40166E7CD200286090 /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -573,7 +544,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BD0CC01642EC8B007AEB08 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A374CB28166E64DB00286090 /* KiwiUnitTest.m in Sources */,
+				A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,8 +646,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BD0CCE1642F0C1007AEB08 /* EntityTest.m in Sources */,
-				A317B9CE1669D87500B5D78E /* PathfinderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,14 +668,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A3BD0CBE1642EC8B007AEB08 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A3BD0CBF1642EC8B007AEB08 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		A3F8B068166465A700334E9E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -723,6 +683,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -740,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
