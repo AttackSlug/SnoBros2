@@ -32,13 +32,8 @@
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
-		A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
-		A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
-		A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
-		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
-		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE231B16680E0E00E4CB9D /* MapGrid.m */; };
 		A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */; };
 		A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE8166D547300C966AD /* Pathfinding.m */; };
@@ -83,16 +78,6 @@
 		A3F8B09D166465A700334E9E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B075166465A700334E9E /* Quadtree.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3BD0C8A1642EC8B007AEB08 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BD0C921642EC8B007AEB08;
-			remoteInfo = Component;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		87149ED2166FAB8100D92227 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
 		87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
@@ -118,6 +103,8 @@
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		A36DCBD8166E9057009BD524 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
+		A36DCBDA166E9057009BD524 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
 		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
@@ -230,18 +217,6 @@
 				A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */,
 				A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */,
 				A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3BD0CB01642EC8B007AEB08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */,
-				A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */,
-				A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */,
-				A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */,
-				A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +478,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = 87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */;
+			productReference = A36DCBDA166E9057009BD524 /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -520,27 +495,8 @@
 			);
 			name = SnoBros2;
 			productName = SnoBros2;
-			productReference = 87149ED2166FAB8100D92227 /* SnoBros2.app */;
+			productReference = A36DCBD8166E9057009BD524 /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */;
-			buildPhases = (
-				A3BD0CAF1642EC8B007AEB08 /* Sources */,
-				A3BD0CB01642EC8B007AEB08 /* Frameworks */,
-				A3BD0CB11642EC8B007AEB08 /* Resources */,
-				A3BD0CB21642EC8B007AEB08 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */,
-			);
-			name = SnoBros2Tests;
-			productName = SnoBros2Tests;
-			productReference = 87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -564,7 +520,6 @@
 			projectRoot = "";
 			targets = (
 				A3BD0C921642EC8B007AEB08 /* SnoBros2 */,
-				A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */,
 				A374CB1B166E64DB00286090 /* KiwiUnitTest */,
 			);
 		};
@@ -605,30 +560,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A3BD0CB11642EC8B007AEB08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		A374CB1A166E64DB00286090 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		A3BD0CB21642EC8B007AEB08 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,22 +647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A3BD0CAF1642EC8B007AEB08 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A3BD0C921642EC8B007AEB08 /* SnoBros2 */;
-			targetProxy = A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A374CB23166E64DB00286090 /* InfoPlist.strings */ = {
@@ -763,6 +683,7 @@
 				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -781,6 +702,7 @@
 				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -864,40 +786,6 @@
 			};
 			name = Release;
 		};
-		A3BD0CCA1642EC8B007AEB08 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "SnoBros2Tests/SnoBros2Tests-Info.plist";
-				PRODUCT_NAME = SnoBros2Tests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		A3BD0CCB1642EC8B007AEB08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "SnoBros2Tests/SnoBros2Tests-Info.plist";
-				PRODUCT_NAME = SnoBros2Tests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -924,15 +812,6 @@
 			buildConfigurations = (
 				A3BD0CC71642EC8B007AEB08 /* Debug */,
 				A3BD0CC81642EC8B007AEB08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A3BD0CCA1642EC8B007AEB08 /* Debug */,
-				A3BD0CCB1642EC8B007AEB08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -14,7 +14,7 @@
 #import "Entity.h"
 #import "EntityManager.h"
 #import "Transform.h"
-#import "Float.h"
+#import "ASFloat.h"
 #import "Pathfinding.h"
 
 @implementation PathfindingSystem
@@ -103,7 +103,7 @@
   Transform *transform = [entity getComponentByString:@"Transform"];
   float distance = GLKVector2Distance(transform.position, waypoint);
 
-  return [Float is:distance lessThanOrEqualTo:1.f];
+  return [ASFloat is:distance lessThanOrEqualTo:1.f];
 }
 
 @end
