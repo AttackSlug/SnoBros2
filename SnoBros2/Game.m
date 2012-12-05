@@ -15,6 +15,7 @@
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
+#import "ShaderManager.h"
 
 #import "Transform.h"
 
@@ -28,6 +29,8 @@
   self = [super init];
   if (self) {
     timestepAccumulatorRatio_ = 1.f;
+    ShaderManager *temp = [[ShaderManager alloc] init];
+    [temp loadShadersFromFile:@"shaders"];
 
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];

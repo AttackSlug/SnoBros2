@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "BasicSprite",
+    "Type": "Vertex",
+    "Variables": {
+      "position"            : "Attribute",
+      "inputColor"          : "Attribute",
+      "modelViewProjection" : "Uniform"
+    }
+  }
+]
