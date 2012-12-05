@@ -15,17 +15,6 @@
 @synthesize handle  = handle_;
 @synthesize name    = name_;
 
-- (id)init {
-  self = [super init];
-  if (self) {
-    handle_ = glCreateProgram();
-    shaders_ = [[NSMutableDictionary alloc] init];
-  }
-  return self;
-}
-
-
-
 - (id)initWithName:(NSString *)name {
   self = [super init];
   if (self) {

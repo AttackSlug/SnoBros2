@@ -23,7 +23,6 @@
 @property (nonatomic, readonly) GLuint              handle;
 @property (nonatomic, readonly) GLint               compiled;
 
-- (id)initWithName:(NSString *)name type:(NSString *)type variables:(NSMutableDictionary *)variables;
 - (id)initWithDictionary:(NSDictionary *)data;
 
 - (GLint)compile;

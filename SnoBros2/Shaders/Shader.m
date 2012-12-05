@@ -16,18 +16,6 @@
 @synthesize compiled  = compiled_;
 @synthesize variables = variables_;
 
-- (id) initWithName:(NSString *)name type:(NSString *)type variables:(NSMutableDictionary *)variables {
-  self = [super init];
-  if (self) {
-    name_ = name;
-    type_ = type;
-    variables_ = variables;
-  }
-  return self;
-}
-
-
-
 - (id)initWithDictionary:(NSDictionary *)data {
   self = [super init];
   if (self) {

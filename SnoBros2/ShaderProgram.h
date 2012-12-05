@@ -20,7 +20,6 @@
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) GLuint handle;
 
-- (id)init;
 - (id)initWithName:(NSString *)name;
 
 - (void)attachShader:(Shader *)shader;
