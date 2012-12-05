@@ -7,5 +7,5 @@ varying   vec4 outputColor;
 
 void main(void) {
   outputColor = inputColor;
-  gl_Position = modelViewProjection * position;
+  gl_Position = modelViewProjection * vec4(position, 0, 1);
 }

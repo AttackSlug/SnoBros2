@@ -38,6 +38,7 @@
     for (id key in vars) {
       [variables_ setObject:[vars objectForKey:key] forKey:key];
     }
+    [self compile];
   }
   return self;
 }

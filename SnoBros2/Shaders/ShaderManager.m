@@ -9,7 +9,7 @@
 #import "ShaderManager.h"
 
 #import "Shader.h"
-//#import "ShaderProgram.h"
+#import "ShaderProgram.h"
 
 @implementation ShaderManager
 
@@ -46,13 +46,11 @@
     for (NSDictionary *d in shaderData) {
       NSString *name = [d valueForKey:@"Name"];
       Shader *add = [self loadShaderWithDictionary:d];
-      [add compile];
       [shaders_ setValue:add forKey:name];
     }
   } else {
     NSString *name = [shaderData valueForKey:@"Name"];
     Shader *add = [self loadShaderWithDictionary:shaderData];
-    [add compile];
     [shaders_ setValue:add forKey:name];
   }
 }
@@ -65,30 +63,55 @@
 
 
 
-- (void)loadEntityTypesFromFile:(NSString *)filename {
+- (void)loadProgramsFromFile:(NSString *)fileName {
   NSError  *error;
   NSString *path = [[NSBundle mainBundle]
-                    pathForResource:filename ofType:@"json"];
+                    pathForResource:fileName ofType:@"json"];
   NSString *json = [[NSString alloc] initWithContentsOfFile:path
                                                    encoding:NSUTF8StringEncoding
                                                       error:&error];
   if (error) { NSLog(@"Error: %@", error); return; }
   
   NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
-  NSDictionary *entityData = [NSJSONSerialization JSONObjectWithData:data
+  NSDictionary *programData = [NSJSONSerialization JSONObjectWithData:data
                                                              options:NSJSONReadingMutableContainers
                                                                error:&error];
   if (error) { NSLog(@"Error: %@", error); return; }
   
-  if ([entityData isKindOfClass:[NSArray class]]) {
-    for (NSDictionary *d in entityData) {
+  if ([programData isKindOfClass:[NSArray class]]) {
+    for (NSDictionary *d in programData) {
       NSString *name = [d valueForKey:@"Name"];
-      //[entityTypes_ setValue:d forKey:name];
+      ShaderProgram *add = [self loadProgramWithDictionary:d];
+      [programs_ setValue:add forKey:name];
     }
   } else {
-    NSString *name = [entityData valueForKey:@"Name"];
-    //[entityTypes_ setValue:entityData forKey:name];
+    NSString *name = [programData valueForKey:@"Name"];
+    ShaderProgram *add = [self loadProgramWithDictionary:programData];
+    [programs_ setValue:add forKey:name];
   }
+}
+
+
+
+- (ShaderProgram *)loadProgramWithDictionary:(NSDictionary *)data {
+  NSString *name = data[@"Name"];
+  NSArray *shaders = data[@"Shaders"];
+  
+  ShaderProgram *shaderProgram = [[ShaderProgram alloc] initWithName:name];
+  
+  for (NSString *shaderName in shaders) {
+    [shaderProgram attachShader:[shaders_ objectForKey:shaderName]];
+  }
+  
+  if ([shaderProgram linkProgram] == GL_FALSE) {
+    NSLog(@"%@", [shaderProgram getInfoLog]);
+    for (id key in shaders_) {
+      Shader *shader = [shaders_ objectForKey:key];
+      NSLog(@"%@ failed with: %@", shader.name, [shader getInfoLog]);
+    }
+  }
+  
+  return shaderProgram;
 }
 
 
@@ -126,17 +149,15 @@
 
 
 - (void)useProgramWithName:(NSString *)name {
-/*  ShaderProgram *program = [programs_ objectForKey:name];
+  ShaderProgram *program = [programs_ objectForKey:name];
   activeProgram_ = program;
-  glUseProgram(program.handle); */
+  glUseProgram(program.handle); 
 }
 
 
 
 - (NSMutableDictionary *)getActiveProgramVariables {
-  /*
   return activeProgram_ == nil ? activeProgram_ : [activeProgram_ getVariables];
-   */
 }
 
 @end

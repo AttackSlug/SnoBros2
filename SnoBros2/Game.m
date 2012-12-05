@@ -31,6 +31,7 @@
     timestepAccumulatorRatio_ = 1.f;
     ShaderManager *temp = [[ShaderManager alloc] init];
     [temp loadShadersFromFile:@"shaders"];
+    [temp loadProgramsFromFile:@"programs"];
 
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
