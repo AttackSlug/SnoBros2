@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87149EDA166FACF800D92227 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149ED9166FACF800D92227 /* Shader.m */; };
+		87149EE1166FAEEF00D92227 /* ShaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149EE0166FAEEF00D92227 /* ShaderManager.m */; };
+		87149EE3166FB01100D92227 /* shaders.json in Resources */ = {isa = PBXBuildFile; fileRef = 87149EE2166FB01100D92227 /* shaders.json */; };
+		87149EE6166FB2D200D92227 /* BasicVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 87149EE5166FB2D200D92227 /* BasicVertex.glsl */; };
+		87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 87149EE8166FB56B00D92227 /* BasicFragment.glsl */; };
+		87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149EEB166FB90600D92227 /* ShaderProgram.m */; };
+		87149EEE166FB9B900D92227 /* programs.json in Resources */ = {isa = PBXBuildFile; fileRef = 87149EED166FB9B900D92227 /* programs.json */; };
 		8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8787EC18166523A0000C07E1 /* SpriteManager.m */; };
 		8787EC1B16652664000C07E1 /* sprites.json in Resources */ = {isa = PBXBuildFile; fileRef = 8787EC1A16652664000C07E1 /* sprites.json */; };
 		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
@@ -85,9 +92,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		87149EC1166FAB4100D92227 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
-		87149EC3166FAB4100D92227 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
-		87149EC4166FAB4100D92227 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
+		87149ED2166FAB8100D92227 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
+		87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
+		87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
+		87149ED8166FACF800D92227 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = Shaders/Shader.h; sourceTree = "<group>"; };
+		87149ED9166FACF800D92227 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shader.m; path = Shaders/Shader.m; sourceTree = "<group>"; };
+		87149EDF166FAEEF00D92227 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderManager.h; path = Shaders/ShaderManager.h; sourceTree = "<group>"; };
+		87149EE0166FAEEF00D92227 /* ShaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShaderManager.m; path = Shaders/ShaderManager.m; sourceTree = "<group>"; };
+		87149EE2166FB01100D92227 /* shaders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shaders.json; sourceTree = "<group>"; };
+		87149EE5166FB2D200D92227 /* BasicVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BasicVertex.glsl; path = Shaders/Vertex/BasicVertex.glsl; sourceTree = "<group>"; };
+		87149EE8166FB56B00D92227 /* BasicFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BasicFragment.glsl; path = Shaders/Fragment/BasicFragment.glsl; sourceTree = "<group>"; };
+		87149EEA166FB90600D92227 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
+		87149EEB166FB90600D92227 /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
+		87149EED166FB9B900D92227 /* programs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programs.json; sourceTree = "<group>"; };
 		8787EC17166523A0000C07E1 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		8787EC18166523A0000C07E1 /* SpriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteManager.m; path = Managers/SpriteManager.m; sourceTree = "<group>"; };
 		8787EC1A16652664000C07E1 /* sprites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sprites.json; sourceTree = "<group>"; };
@@ -225,6 +242,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87149ED7166FACD000D92227 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				87149EE7166FB53200D92227 /* Fragment */,
+				87149EE4166FB2B600D92227 /* Vertex */,
+				87149ED8166FACF800D92227 /* Shader.h */,
+				87149ED9166FACF800D92227 /* Shader.m */,
+				87149EDF166FAEEF00D92227 /* ShaderManager.h */,
+				87149EE0166FAEEF00D92227 /* ShaderManager.m */,
+				87149EEA166FB90600D92227 /* ShaderProgram.h */,
+				87149EEB166FB90600D92227 /* ShaderProgram.m */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		87149EE4166FB2B600D92227 /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
+				87149EE5166FB2D200D92227 /* BasicVertex.glsl */,
+			);
+			name = Vertex;
+			sourceTree = "<group>";
+		};
+		87149EE7166FB53200D92227 /* Fragment */ = {
+			isa = PBXGroup;
+			children = (
+				87149EE8166FB56B00D92227 /* BasicFragment.glsl */,
+			);
+			name = Fragment;
+			sourceTree = "<group>";
+		};
 		8787EC1516652307000C07E1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +287,7 @@
 		87E49DEF16515A8200202CFB /* SnoBros2 */ = {
 			isa = PBXGroup;
 			children = (
+				87149ED7166FACD000D92227 /* Shaders */,
 				A3F8B06C166465A700334E9E /* Systems */,
 				A3F8B044166465A700334E9E /* Components */,
 				A3F8B03B166465A700334E9E /* Behaviors */,
@@ -314,6 +363,8 @@
 				A3F8B031166465A700334E9E /* Default@2x.png */,
 				A3F8B032166465A700334E9E /* entities.json */,
 				8787EC1A16652664000C07E1 /* sprites.json */,
+				87149EE2166FB01100D92227 /* shaders.json */,
+				87149EED166FB9B900D92227 /* programs.json */,
 				A3F8B033166465A700334E9E /* healthgradient.png */,
 				A3F8B034166465A700334E9E /* map.png */,
 				A3F8B035166465A700334E9E /* map2.png */,
@@ -442,7 +493,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = 87149EC4166FAB4100D92227 /* KiwiUnitTest.octest */;
+			productReference = 87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -459,7 +510,7 @@
 			);
 			name = SnoBros2;
 			productName = SnoBros2;
-			productReference = 87149EC1166FAB4100D92227 /* SnoBros2.app */;
+			productReference = 87149ED2166FAB8100D92227 /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */ = {
@@ -478,7 +529,7 @@
 			);
 			name = SnoBros2Tests;
 			productName = SnoBros2Tests;
-			productReference = 87149EC3166FAB4100D92227 /* SnoBros2Tests.octest */;
+			productReference = 87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -537,6 +588,10 @@
 				A3F8B098166465A700334E9E /* InfoPlist.strings in Resources */,
 				8787EC1B16652664000C07E1 /* sprites.json in Resources */,
 				87E41981166677DE00336F3A /* healthgradient2.png in Resources */,
+				87149EE3166FB01100D92227 /* shaders.json in Resources */,
+				87149EE6166FB2D200D92227 /* BasicVertex.glsl in Resources */,
+				87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */,
+				87149EEE166FB9B900D92227 /* programs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +694,9 @@
 				A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */,
 				A3541B3A16681116004531C1 /* MapNode.m in Sources */,
 				A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */,
+				87149EDA166FACF800D92227 /* Shader.m in Sources */,
+				87149EE1166FAEEF00D92227 /* ShaderManager.m in Sources */,
+				87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
