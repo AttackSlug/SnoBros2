@@ -1,11 +1,15 @@
 [
   {
-    "Name": "BasicSprite",
+    "Name": "BasicVertex",
     "Type": "Vertex",
     "Variables": {
       "position"            : "Attribute",
       "inputColor"          : "Attribute",
       "modelViewProjection" : "Uniform"
     }
+  },
+  {
+    "Name": "BasicFragment",
+    "Type": "Fragment"
   }
 ]
