@@ -35,7 +35,4 @@
 
 - (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health;
 
-- (GLKBaseEffect *)generateBaseEffectWithSceneNode:(SceneNode *)node;
-- (void)drawSprite:(Sprite *)sprite;
-
 @end
