@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
+#import <GLKit/GLKit.h>
 #import <Foundation/Foundation.h>
 
 @class MapNode;
@@ -24,10 +25,13 @@ typedef enum {
 @interface MapGrid : NSObject {
   CGSize          nodeSize_;
   CGRect          bounds_;
-  NSMutableArray *nodes_;
+  NSArray        *nodes_;
 }
 
 - (id)initWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize;
-- (MapNode *)findNodeByX:(float)x Y:(float)y;
+
+- (MapNode *)findNodeByGridCoordinatesX:(int)x Y:(int)y;
+- (MapNode *)findNodeByRealCoordinates:(GLKVector2)realCoordinates;
+- (GLKVector2)gridCoordinatesFromRealCoordinates:(GLKVector2)realCoordinates;
 
 @end

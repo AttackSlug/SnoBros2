@@ -26,6 +26,7 @@
 		A374CB25166E64DB00286090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A374CB23166E64DB00286090 /* InfoPlist.strings */; };
 		A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A374CB3C166E685A00286090 /* PathfinderSpec.m */; };
 		A374CB3F166E6ABE00286090 /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */; };
+		A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A378987F166E9F1F009C13EE /* MapGridSpec.m */; };
 		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
 		A37E59451665314C0061E425 /* ASFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* ASFloat.m */; };
 		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
@@ -103,13 +104,14 @@
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
-		A36DCBD8166E9057009BD524 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
-		A36DCBDA166E9057009BD524 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/cjab/Desktop/Component/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
 		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
 		A374CB3C166E685A00286090 /* PathfinderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderSpec.m; sourceTree = "<group>"; };
 		A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KiwiUnitTest.a"; path = "../Pods/build/Release-iphoneos/libPods-KiwiUnitTest.a"; sourceTree = "<group>"; };
+		A3789879166E9ECE009C13EE /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A378987F166E9F1F009C13EE /* MapGridSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGridSpec.m; sourceTree = "<group>"; };
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				A374CB21166E64DB00286090 /* Supporting Files */,
 				A374CB3C166E685A00286090 /* PathfinderSpec.m */,
+				A378987F166E9F1F009C13EE /* MapGridSpec.m */,
 			);
 			path = KiwiUnitTest;
 			sourceTree = "<group>";
@@ -319,6 +322,8 @@
 				87E49DEF16515A8200202CFB /* SnoBros2 */,
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
+				A3789879166E9ECE009C13EE /* SnoBros2.app */,
+				A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -478,7 +483,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = A36DCBDA166E9057009BD524 /* KiwiUnitTest.octest */;
+			productReference = A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -495,7 +500,7 @@
 			);
 			name = SnoBros2;
 			productName = SnoBros2;
-			productReference = A36DCBD8166E9057009BD524 /* SnoBros2.app */;
+			productReference = A3789879166E9ECE009C13EE /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -598,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */,
+				A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

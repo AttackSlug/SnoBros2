@@ -22,6 +22,8 @@
 self = [super init];
   if (self) {
     neighbors_ = [[NSMutableArray alloc] init];
+    position_  = position;
+    size_      = size;
   }
   return self;
 }

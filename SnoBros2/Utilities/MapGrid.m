@@ -19,27 +19,35 @@
   if (self) {
     bounds_   = bounds;
     nodeSize_ = nodeSize;
-
-    float width  = bounds_.size.width  / nodeSize.width;
-    float height = bounds_.size.height / nodeSize.height;
-
-    nodes_ = [[NSMutableArray alloc] init];
-    for (int i = 0; i < width; i++) {
-      NSMutableArray *column = [[NSMutableArray alloc] init];
-      for (int j = 0; j < height; j++) {
-        GLKVector2 position = GLKVector2Make(i * nodeSize.width,
-                                             j * nodeSize.height);
-        MapNode *node = [[MapNode alloc] initWithPosition:position
-                                                     size:nodeSize];
-        node.position = GLKVector2Make(i, j);
-        [column addObject:node];
-      }
-      [nodes_ addObject:column];
-    }
-
+    nodes_    = [self buildGridWithBounds:bounds nodeSize:nodeSize];
     [self buildGraph];
   }
   return self;
+}
+
+
+
+- (NSArray *)buildGridWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize {
+  int gridWidth  = bounds.size.width  / nodeSize.width;
+  int gridHeight = bounds.size.height / nodeSize.height;
+
+  NSMutableArray *nodes = [[NSMutableArray alloc] init];
+  for (int i = 0; i < gridWidth; i++) {
+    NSMutableArray *column = [[NSMutableArray alloc] init];
+    for (int j = 0; j < gridHeight; j++) {
+
+      GLKVector2 position = GLKVector2Make(i * nodeSize.width,
+                                           j * nodeSize.height);
+
+      MapNode *node = [[MapNode alloc] initWithPosition:position
+                                                   size:nodeSize];
+
+      [column addObject:node];
+    }
+    [nodes addObject:column];
+  }
+
+  return nodes;
 }
 
 
@@ -49,35 +57,33 @@
     NSArray *column = nodes_[x];
     for (int y = 0; y < column.count; y++) {
       MapNode *current  = nodes_[x][y];
-      current.neighbors = [self getNeighborsOfX:x Y:y];
+      current.neighbors = [self getNeighborsOfGridCoordinatesX:x Y:y];
     }
   }
 }
 
 
 
-- (MapNode *)findNodeByX:(float)x Y:(float)y {
-  int xIndex = (bounds_.size.width  / 2) + x;
-  int yIndex = (bounds_.size.height / 2) + y;
+- (GLKVector2)gridCoordinatesFromRealCoordinates:(GLKVector2)realCoordinates {
+  int gridWidth  = bounds_.size.width  / nodeSize_.width;
+  int gridHeight = bounds_.size.height / nodeSize_.height;
 
-  if (xIndex < 0 || xIndex >= nodes_.count) {
-    return nil;
+  float minRealX     = CGRectGetMinX(bounds_);
+  float minRealY     = CGRectGetMinY(bounds_);
+
+  int x = (realCoordinates.x - minRealX) / gridWidth;
+  int y = (realCoordinates.y - minRealY) / gridHeight;
+
+  if (x >= gridWidth || y >= gridHeight || x < 0 || y < 0) {
+    return GLKVector2Make(0, 0);
   }
 
-  NSArray *column = nodes_[xIndex];
-  if (yIndex < 0 || yIndex >= column.count) {
-    return nil;
-  }
-
-  return nodes_[xIndex][yIndex];
+  return GLKVector2Make(x, y);
 }
 
 
 
-// WARNING: This is a very inefficient way to replace a node in the graph.
-//          The primary purpose of this method is testing. If it is needed
-//          for other purposes some time should be spent to improve it.
-- (MapNode *)setNodeAtX:(int)x Y:(int)y to:(MapNode *)replacement {
+- (MapNode *)findNodeByGridCoordinatesX:(int)x Y:(int)y {
   if (x < 0 || x >= nodes_.count) {
     return nil;
   }
@@ -87,15 +93,21 @@
     return nil;
   }
 
-  nodes_[x][y] = replacement;
-  [self buildGraph];
-
   return nodes_[x][y];
 }
 
 
 
-- (NSMutableArray *)getNeighborsOfX:(int)x Y:(int)y {
+- (MapNode *)findNodeByRealCoordinates:(GLKVector2)realCoordinates {
+  GLKVector2 gridCoords =
+    [self gridCoordinatesFromRealCoordinates:realCoordinates];
+
+  return [self findNodeByGridCoordinatesX:gridCoords.x Y:gridCoords.y];
+}
+
+
+
+- (NSMutableArray *)getNeighborsOfGridCoordinatesX:(int)x Y:(int)y {
   NSMutableArray *neighbors = [[NSMutableArray alloc] init];
   for (int i = x - 1; i <= x + 1; i++) {
     for (int j = y + 1; j >= y - 1; j--) {
@@ -105,7 +117,7 @@
         continue;
       }
 
-      MapNode *neighbor = [self findNodeByX:i Y:j];
+      MapNode *neighbor = [self findNodeByGridCoordinatesX:i Y:j];
       if (neighbor) {
         [neighbors addObject:neighbor];
       }

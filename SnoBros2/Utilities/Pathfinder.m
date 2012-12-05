@@ -145,7 +145,17 @@
 
 
 - (bool)isNodeTraversable:(MapNode *)node {
-  return [obstacleTree_ retrieveRectanglesNear:node.boundingBox];
+  NSArray *obstacles = [obstacleTree_ retrieveRectanglesNear:node.boundingBox];
+
+  for (NSValue *rectValue in obstacles) {
+    CGRect rectangle;
+    [rectValue getValue:&rectangle];
+    if (CGRectIntersectsRect(rectangle, node.boundingBox)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 @end

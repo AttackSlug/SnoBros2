@@ -56,9 +56,8 @@
   Pathfinder *pathfinder   = [[Pathfinder alloc] initWithHeuristic:heuristic
                                                      entityManager:entityManager_];
   GLKVector2 position    = transform.position;
-  MapNode *start         = [map_ findNodeByX:position.x Y:position.y];
-  //MapNode *end           = [map_ findNodeByX:target.x   Y:target.y];
-  MapNode *end           = [map_ findNodeByX:100   Y:100];
+  MapNode *start         = [map_ findNodeByRealCoordinates:position];
+  MapNode *end           = [map_ findNodeByRealCoordinates:target];
 
 
   NSMutableArray *vectorPath = [[NSMutableArray alloc] init];
