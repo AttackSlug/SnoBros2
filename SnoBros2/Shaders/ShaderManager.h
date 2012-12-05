@@ -24,7 +24,6 @@
 - (void)loadProgramsFromFile:(NSString *)fileName;
 - (ShaderProgram *)loadProgramWithDictionary:(NSDictionary *)data;
 
-- (void)initPrograms;
 - (void)useProgramWithName:(NSString *)name;
 - (NSMutableDictionary *)getActiveProgramVariables;
 

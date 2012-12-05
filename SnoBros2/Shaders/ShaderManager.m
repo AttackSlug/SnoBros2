@@ -112,38 +112,6 @@
 
 
 
-- (void)initPrograms {
-/*  ShaderProgram *shaderProgram = [[ShaderProgram alloc] init];
-  
-  [shaderProgram attachShader:[shaders_ objectForKey:@"SimpleVertex"]];
-  [shaderProgram attachShader:[shaders_ objectForKey:@"SimpleFragment"]];
-  if ([shaderProgram linkProgram] == GL_FALSE) {
-    NSLog(@"%@", [shaderProgram getInfoLog]);
-    for (id key in shaders_) {
-      Shader *shader = [shaders_ objectForKey:key];
-      NSLog(@"%@ failed with: %@", shader.name, [shader getInfoLog]);
-    }
-  }
-  
-  [programs_ setObject:shaderProgram forKey:@"Default"];
-  
-  ShaderProgram *bezierProgram = [[ShaderProgram alloc] init];
-  
-  [bezierProgram attachShader:[shaders_ objectForKey:@"BezierParticle"]];
-  [bezierProgram attachShader:[shaders_ objectForKey:@"SimpleFragment"]];
-  if ([bezierProgram linkProgram] == GL_FALSE) {
-    NSLog(@"%@", [bezierProgram getInfoLog]);
-    for (id key in shaders_) {
-      Shader *shader = [shaders_ objectForKey:key];
-      NSLog(@"%@ failed with: %@", shader.name, [shader getInfoLog]);
-    }
-  }
-  
-  [programs_ setObject:bezierProgram forKey:@"Bezier"]; */
-}
-
-
-
 - (void)useProgramWithName:(NSString *)name {
   ShaderProgram *program = [programs_ objectForKey:name];
   activeProgram_ = program;
@@ -153,7 +121,7 @@
 
 
 - (NSMutableDictionary *)getActiveProgramVariables {
-  return activeProgram_ == nil ? activeProgram_ : [activeProgram_ getVariables];
+  return activeProgram_ == nil ? nil : [activeProgram_ getVariables];
 }
 
 @end
