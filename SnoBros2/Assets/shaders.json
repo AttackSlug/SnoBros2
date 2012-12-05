@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "BasicVertex",
+    "Type": "Vertex",
+    "Variables": {
+      "position"            : "Attribute",
+      "inputTexCoord"       : "Attribute",
+      "modelViewProjection" : "Uniform"
+    }
+  },
+  {
+    "Name": "BasicFragment",
+    "Type": "Fragment"
+  }
+]
