@@ -47,23 +47,20 @@ describe(@"Pathfinder", ^{
 
   context(@"given a map WITH obstacles", ^{
 
-    __block MapNode *obstacle;
+    __block Entity *obstacle;
 
     beforeEach(^{
-      obstacle = [map findNodeByGridCoordinatesX: 1 Y: 1];
+      obstacle  = [entityManager buildAndAddEntity:@"Unit1"];
+      Transform *transform = [obstacle getComponentByString:@"Transform"];
+      Collision *collision = [obstacle getComponentByString:@"Collision"];
+      transform.position   = GLKVector2Make(1.f, 1.f);
+      collision.radius     = 1.f;
     });
 
 
     it(@"should find a path", ^{
       MapNode *start = [map findNodeByGridCoordinatesX: 0 Y: 0];
       MapNode *end   = [map findNodeByGridCoordinatesX: 3 Y: 3];
-
-
-      Entity *obstacle     = [entityManager buildAndAddEntity:@"Unit1"];
-      Transform *transform = [obstacle getComponentByString:@"Transform"];
-      Collision *collision = [obstacle getComponentByString:@"Collision"];
-      transform.position   = GLKVector2Make(1.f, 1.f);
-      collision.radius     = 1.f;
 
       NSArray *path = [pathfinder findPathFrom:start to:end];
 
