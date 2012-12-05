@@ -46,14 +46,6 @@
 
   self.view     = view;
   view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glCullFace(GL_FRONT);
-  glDepthFunc(GL_LEQUAL);
-
-  glEnable(GL_DEPTH_TEST);
-  glEnable(GL_BLEND);
-  glEnable(GL_CULL_FACE);
 }
 
 

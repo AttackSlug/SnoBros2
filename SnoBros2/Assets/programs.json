@@ -1,0 +1,9 @@
+[
+  {
+    "Name": "Basic",
+    "Shaders": [
+      "BasicVertex",
+      "BasicFragment"
+    ]
+  }
+]
