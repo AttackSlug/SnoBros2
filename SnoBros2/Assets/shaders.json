@@ -5,6 +5,7 @@
     "Variables": {
       "position"            : "Attribute",
       "inputColor"          : "Attribute",
+      "inputTexCoord"       : "Attribute",
       "modelViewProjection" : "Uniform"
     }
   },

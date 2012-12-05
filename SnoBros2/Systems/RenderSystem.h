@@ -10,6 +10,7 @@
 #import <GLKit/GLKit.h>
 
 @class EntityManager;
+@class ShaderManager;
 @class Entity;
 @class Camera;
 @class Sprite;
@@ -20,6 +21,7 @@
 
 @interface RenderSystem : NSObject {
   EntityManager *entityManager_;
+  ShaderManager *shaderManager_;
   SpriteManager *spriteManager_;
   Camera        *camera_;
 }

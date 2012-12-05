@@ -12,7 +12,8 @@
 
 @implementation ShaderProgram
 
-@synthesize handle = handle_;
+@synthesize handle  = handle_;
+@synthesize name    = name_;
 
 - (id)init {
   self = [super init];

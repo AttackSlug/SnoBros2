@@ -8,6 +8,7 @@
 
 #import "RenderSystem.h"
 
+#import "ShaderManager.h"
 #import "Entity.h"
 #import "EntityManager.h"
 #import "Camera.h"
@@ -24,8 +25,15 @@
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
+    
     spriteManager_  = [[SpriteManager alloc] init];
     [spriteManager_ loadEntityTypesFromFile:@"sprites"];
+    
+    shaderManager_  = [[ShaderManager alloc] init];
+    [shaderManager_ loadShadersFromFile:@"shaders"];
+    [shaderManager_ loadProgramsFromFile:@"programs"];
+    [shaderManager_ useProgramWithName:@"Basic"];
+    
     camera_         = camera;
   }
   return self;

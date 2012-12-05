@@ -17,10 +17,8 @@
   self = [super init];
   if (self) {
     shaders_  = [[NSMutableDictionary alloc] init];
-    //programs_ = [[NSMutableDictionary alloc] init];
-    //[self initShaders];
-    //[self initPrograms];
-    //activeProgram_ = nil;
+    programs_ = [[NSMutableDictionary alloc] init];
+    activeProgram_ = nil;
   }
   return self;
 }
@@ -80,14 +78,12 @@
   
   if ([programData isKindOfClass:[NSArray class]]) {
     for (NSDictionary *d in programData) {
-      NSString *name = [d valueForKey:@"Name"];
       ShaderProgram *add = [self loadProgramWithDictionary:d];
-      [programs_ setValue:add forKey:name];
+      [programs_ setValue:add forKey:add.name];
     }
   } else {
-    NSString *name = [programData valueForKey:@"Name"];
     ShaderProgram *add = [self loadProgramWithDictionary:programData];
-    [programs_ setValue:add forKey:name];
+    [programs_ setValue:add forKey:add.name];
   }
 }
 
