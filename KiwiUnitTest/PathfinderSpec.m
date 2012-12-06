@@ -53,7 +53,7 @@ describe(@"Pathfinder", ^{
       obstacle  = [entityManager buildAndAddEntity:@"Unit1"];
       Transform *transform = [obstacle getComponentByString:@"Transform"];
       Collision *collision = [obstacle getComponentByString:@"Collision"];
-      transform.position   = GLKVector2Make(1.f, 1.f);
+      transform.position   = GLKVector2Make(1.5f, 1.5f);
       collision.radius     = 1.f;
     });
 

@@ -25,12 +25,6 @@
                                              selector:@selector(walkTo:)
                                                  name:walkTo
                                                object:nil];
-
-
-    NSString *collided = [entity.uuid stringByAppendingString:@"|collidedWith"];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(collidedWith:)
-                                                 name:collided object:nil];
   }
   return self;
 }
@@ -39,22 +33,6 @@
 
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
   return [self initWithEntity:entity];
-}
-
-
-
-- (void)collidedWith:(NSNotification *)notification {
-  Transform *transform      = [entity_ getComponentByString:@"Transform"];
-
-  Entity *other             = [notification userInfo][@"other"];
-  Collision *otherCollision = [other getComponentByString:@"Collision"];
-
-  CGPoint targetPoint = CGPointMake(target_.x, target_.y);
-  if (CGRectContainsPoint(otherCollision.boundingBox, targetPoint)) {
-    // Dude, stop walking! You can't make it there.
-    NSLog(@"STOPPING");
-    target_ = transform.position;
-  }
 }
 
 
@@ -71,9 +49,15 @@
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
   target_ = target;
 
-  direction_ = GLKVector2Normalize(GLKVector2Subtract(target_,
-                                                      transform.position));
-  physics.velocity = GLKVector2MultiplyScalar(direction_, 10);
+  GLKVector2 path  = GLKVector2Subtract(target_, transform.position);
+
+  if (GLKVector2Length(path) == 0) {
+    direction_ = GLKVector2Make(0.f, 0.f);
+  } else {
+    direction_ = GLKVector2Normalize(path);
+  }
+
+  physics.velocity = GLKVector2MultiplyScalar(direction_, 4);
 }
 
 
@@ -83,8 +67,9 @@
   Physics   *physics    = [entity_ getComponentByString:@"Physics"];
   float      distance   = GLKVector2Distance(transform.position, target_);
 
-  if ([ASFloat is:distance equalTo:0.f]) {
+  if ([ASFloat is:distance lessThan:4.f]) {
     physics.velocity = GLKVector2Make(0.f, 0.f);
+    target_ = transform.position;
   } else if ([physics isMovingAwayFrom:target_]) {
     [self walkToTarget:target_];
   }

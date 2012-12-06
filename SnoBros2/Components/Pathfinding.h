@@ -11,16 +11,18 @@
 #import "Component.h"
 
 @interface Pathfinding : Component {
-  NSArray *waypoints_;
-  int      currentWaypointIndex_;
+  NSMutableArray *waypoints_;
+  GLKVector2      currentWaypoint_;
 }
 
-@property (nonatomic)           NSArray *waypoints;
+@property (nonatomic)           NSArray    *waypoints;
+@property (nonatomic, readonly) GLKVector2  currentWaypoint;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (GLKVector2)nextWaypoint;
 - (GLKVector2)currentWaypoint;
+- (bool)hasNextWaypoint;
 
 @end

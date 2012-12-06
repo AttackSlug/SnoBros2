@@ -22,7 +22,7 @@
     entityManager_ = entityManager;
 
     //FIXME: Temporarily hardcoded bounds
-    CGRect bounds  = CGRectMake(-512.f, -512.f, 1024.f, 1024.f);
+    CGRect bounds  = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
     obstacleTree_  = [[Quadtree alloc] initWithLevel:5 bounds:bounds];
   }
   return self;
@@ -64,6 +64,8 @@
 
 
 - (MapNode *)findCheapestNodeIn:(NSArray *)nodes {
+  if (!nodes.count) { return nil; }
+  
   MapNode *cheapest = nodes[0];
   for (MapNode *node in nodes) {
     if (node.f <= cheapest.f) {
@@ -136,7 +138,7 @@
 
 
 - (void)updateObstacleTree {
-  NSArray *entities = [entityManager_ allEntities];
+  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
   for (Entity *entity in entities) {
     [obstacleTree_ insert:entity];
   }
@@ -146,6 +148,7 @@
 
 - (bool)isNodeTraversable:(MapNode *)node {
   NSArray *obstacles = [obstacleTree_ retrieveRectanglesNear:node.boundingBox];
+
 
   for (NSValue *rectValue in obstacles) {
     CGRect rectangle;

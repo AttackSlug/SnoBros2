@@ -36,8 +36,8 @@
     NSMutableArray *column = [[NSMutableArray alloc] init];
     for (int j = 0; j < gridHeight; j++) {
 
-      GLKVector2 position = GLKVector2Make(i * nodeSize.width,
-                                           j * nodeSize.height);
+      GLKVector2 position = GLKVector2Make(bounds.origin.x + (i * nodeSize.width)  + (nodeSize.width / 2),
+                                           bounds.origin.y + (j * nodeSize.height) + (nodeSize.height / 2));
 
       MapNode *node = [[MapNode alloc] initWithPosition:position
                                                    size:nodeSize];
@@ -68,11 +68,8 @@
   int gridWidth  = bounds_.size.width  / nodeSize_.width;
   int gridHeight = bounds_.size.height / nodeSize_.height;
 
-  float minRealX     = CGRectGetMinX(bounds_);
-  float minRealY     = CGRectGetMinY(bounds_);
-
-  int x = (realCoordinates.x - minRealX) / gridWidth;
-  int y = (realCoordinates.y - minRealY) / gridHeight;
+  int x = (realCoordinates.x / nodeSize_.width);
+  int y = (realCoordinates.y / nodeSize_.height);
 
   if (x >= gridWidth || y >= gridHeight || x < 0 || y < 0) {
     return GLKVector2Make(0, 0);

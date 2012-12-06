@@ -186,6 +186,9 @@
           "Children": {}
         }
       },
+      "Behavior": {
+        "Type": "Sphere"
+      },
       "Projectile": {
         "Type": "Projectile",
         "Damage": 10
@@ -315,5 +318,22 @@
         "Type": "Pathfinding"
       }
     }
-  }
+  },
+  {
+    "Name": "MapNode",
+    "Tag":  "MapNode",
+    "Components": {
+      "Transform": {
+        "Type": "Transform"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 5,
+        "Nodes": {
+          "Name": "Node",
+          "Children": {}
+        }
+      }
+    }
+  },
 ]

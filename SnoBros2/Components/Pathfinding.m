@@ -11,6 +11,7 @@
 @implementation Pathfinding
 
 @synthesize waypoints       = waypoints_;
+@synthesize currentWaypoint = currentWaypoint_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -28,16 +29,17 @@
 
 
 - (GLKVector2)nextWaypoint {
-  currentWaypointIndex_ += 1 % waypoints_.count;
-  return [self currentWaypoint];
+  NSValue *waypointValue = waypoints_[0];
+  [waypointValue getValue:&currentWaypoint_];
+  [waypoints_ removeObjectAtIndex:0];
+
+  return currentWaypoint_;
 }
 
 
 
-- (GLKVector2)currentWaypoint {
-  GLKVector2 current;
-  [waypoints_[currentWaypointIndex_] getValue:&current];
-  return current;
+- (bool)hasNextWaypoint {
+  return !(waypoints_.count == 0);
 }
 
 @end
