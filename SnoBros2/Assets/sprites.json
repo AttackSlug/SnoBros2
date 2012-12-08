@@ -18,5 +18,10 @@
     "Name": "HealthBar",
     "Tag": "HealthBar",
     "FileName": "healthgradient2.png"
+  },
+  {
+    "Name": "Node",
+    "Tag": "Node",
+    "FileName": "node.png"
   }
 ]

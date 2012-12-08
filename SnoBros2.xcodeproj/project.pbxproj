@@ -19,6 +19,7 @@
 		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
 		87E41981166677DE00336F3A /* healthgradient2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E41980166677DE00336F3A /* healthgradient2.png */; };
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
+		A31C32B5166FBDF400B3B529 /* node.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C32B4166FBDF400B3B529 /* node.png */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
 		A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
@@ -26,20 +27,20 @@
 		A374CB25166E64DB00286090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A374CB23166E64DB00286090 /* InfoPlist.strings */; };
 		A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A374CB3C166E685A00286090 /* PathfinderSpec.m */; };
 		A374CB3F166E6ABE00286090 /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */; };
+		A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A378987F166E9F1F009C13EE /* MapGridSpec.m */; };
 		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
 		A37E59451665314C0061E425 /* ASFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* ASFloat.m */; };
 		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
-		A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
-		A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
-		A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
-		A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
-		A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
+		A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8A1672D1180026BC14 /* MovementSystem.m */; };
+		A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8E1672D2060026BC14 /* Movement.m */; };
 		A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE231B16680E0E00E4CB9D /* MapGrid.m */; };
+		A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */; };
+		A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE8166D547300C966AD /* Pathfinding.m */; };
 		A3F8B076166465A700334E9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B02D166465A700334E9E /* AppDelegate.m */; };
 		A3F8B077166465A700334E9E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B02F166465A700334E9E /* Default-568h@2x.png */; };
 		A3F8B078166465A700334E9E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B030166465A700334E9E /* Default.png */; };
@@ -54,7 +55,6 @@
 		A3F8B081166465A700334E9E /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B039166465A700334E9E /* sprite2.png */; };
 		A3F8B082166465A700334E9E /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B03A166465A700334E9E /* wpaper.jpg */; };
 		A3F8B083166465A700334E9E /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03D166465A700334E9E /* Behavior.m */; };
-		A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03F166465A700334E9E /* LeftPlayer.m */; };
 		A3F8B085166465A700334E9E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B041166465A700334E9E /* Sphere.m */; };
 		A3F8B086166465A700334E9E /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B043166465A700334E9E /* Camera.m */; };
 		A3F8B087166465A700334E9E /* Attack.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B046166465A700334E9E /* Attack.m */; };
@@ -81,20 +81,7 @@
 		A3F8B09D166465A700334E9E /* Quadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B075166465A700334E9E /* Quadtree.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3BD0C8A1642EC8B007AEB08 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BD0C921642EC8B007AEB08;
-			remoteInfo = Component;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		87149ED2166FAB8100D92227 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
-		87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
-		87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		87149ED8166FACF800D92227 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = Shaders/Shader.h; sourceTree = "<group>"; };
 		87149ED9166FACF800D92227 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shader.m; path = Shaders/Shader.m; sourceTree = "<group>"; };
 		87149EDF166FAEEF00D92227 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderManager.h; path = Shaders/ShaderManager.h; sourceTree = "<group>"; };
@@ -114,6 +101,7 @@
 		8D5B5125E23F4A65A7F3A265 /* Pods-KiwiUnitTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiwiUnitTest.xcconfig"; path = "Pods/Pods-KiwiUnitTest.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A317B9C81669CFBF00B5D78E /* Pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
+		A31C32B4166FBDF400B3B529 /* node.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = node.png; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
@@ -121,6 +109,9 @@
 		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
 		A374CB3C166E685A00286090 /* PathfinderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderSpec.m; sourceTree = "<group>"; };
 		A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KiwiUnitTest.a"; path = "../Pods/build/Release-iphoneos/libPods-KiwiUnitTest.a"; sourceTree = "<group>"; };
+		A3789879166E9ECE009C13EE /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A378987F166E9F1F009C13EE /* MapGridSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGridSpec.m; sourceTree = "<group>"; };
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
@@ -133,8 +124,16 @@
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3CBFF891672D1180026BC14 /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementSystem.h; sourceTree = "<group>"; };
+		A3CBFF8A1672D1180026BC14 /* MovementSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovementSystem.m; sourceTree = "<group>"; };
+		A3CBFF8D1672D2060026BC14 /* Movement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movement.h; sourceTree = "<group>"; };
+		A3CBFF8E1672D2060026BC14 /* Movement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		A3EE231A16680E0E00E4CB9D /* MapGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGrid.h; sourceTree = "<group>"; };
 		A3EE231B16680E0E00E4CB9D /* MapGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGrid.m; sourceTree = "<group>"; };
+		A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingSystem.h; sourceTree = "<group>"; };
+		A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfindingSystem.m; sourceTree = "<group>"; };
+		A3F41EE7166D547300C966AD /* Pathfinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinding.h; sourceTree = "<group>"; };
+		A3F41EE8166D547300C966AD /* Pathfinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinding.m; sourceTree = "<group>"; };
 		A3F8B02C166465A700334E9E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3F8B02D166465A700334E9E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A3F8B02F166465A700334E9E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -151,8 +150,6 @@
 		A3F8B03A166465A700334E9E /* wpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wpaper.jpg; sourceTree = "<group>"; };
 		A3F8B03C166465A700334E9E /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
 		A3F8B03D166465A700334E9E /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
-		A3F8B03E166465A700334E9E /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
-		A3F8B03F166465A700334E9E /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
 		A3F8B040166465A700334E9E /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		A3F8B041166465A700334E9E /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
 		A3F8B042166465A700334E9E /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -224,18 +221,6 @@
 				A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */,
 				A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */,
 				A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3BD0CB01642EC8B007AEB08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3BD0CF3164614C1007AEB08 /* OpenGLES.framework in Frameworks */,
-				A3BD0CF2164614BC007AEB08 /* GLKit.framework in Frameworks */,
-				A3BD0CB61642EC8B007AEB08 /* SenTestingKit.framework in Frameworks */,
-				A3BD0CB71642EC8B007AEB08 /* UIKit.framework in Frameworks */,
-				A3BD0CB81642EC8B007AEB08 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +301,7 @@
 			children = (
 				A374CB21166E64DB00286090 /* Supporting Files */,
 				A374CB3C166E685A00286090 /* PathfinderSpec.m */,
+				A378987F166E9F1F009C13EE /* MapGridSpec.m */,
 			);
 			path = KiwiUnitTest;
 			sourceTree = "<group>";
@@ -338,6 +324,8 @@
 				87E49DEF16515A8200202CFB /* SnoBros2 */,
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
+				A3789879166E9ECE009C13EE /* SnoBros2.app */,
+				A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -357,6 +345,7 @@
 		A3F8B02E166465A700334E9E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A31C32B4166FBDF400B3B529 /* node.png */,
 				87E41980166677DE00336F3A /* healthgradient2.png */,
 				A3F8B02F166465A700334E9E /* Default-568h@2x.png */,
 				A3F8B030166465A700334E9E /* Default.png */,
@@ -382,8 +371,6 @@
 			children = (
 				A3F8B03C166465A700334E9E /* Behavior.h */,
 				A3F8B03D166465A700334E9E /* Behavior.m */,
-				A3F8B03E166465A700334E9E /* LeftPlayer.h */,
-				A3F8B03F166465A700334E9E /* LeftPlayer.m */,
 				A3F8B040166465A700334E9E /* Sphere.h */,
 				A3F8B041166465A700334E9E /* Sphere.m */,
 			);
@@ -417,6 +404,10 @@
 				A3F8B05A166465A700334E9E /* Transform.m */,
 				A37E594016652BC90061E425 /* UnitCollider.h */,
 				A37E594116652BC90061E425 /* UnitCollider.m */,
+				A3F41EE7166D547300C966AD /* Pathfinding.h */,
+				A3F41EE8166D547300C966AD /* Pathfinding.m */,
+				A3CBFF8D1672D2060026BC14 /* Movement.h */,
+				A3CBFF8E1672D2060026BC14 /* Movement.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -451,6 +442,10 @@
 				A3F8B072166465A700334E9E /* RenderSystem.m */,
 				A37E595A166550320061E425 /* SelectionSystem.h */,
 				A37E595B166550320061E425 /* SelectionSystem.m */,
+				A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */,
+				A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */,
+				A3CBFF891672D1180026BC14 /* MovementSystem.h */,
+				A3CBFF8A1672D1180026BC14 /* MovementSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -493,7 +488,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = 87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */;
+			productReference = A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -510,27 +505,8 @@
 			);
 			name = SnoBros2;
 			productName = SnoBros2;
-			productReference = 87149ED2166FAB8100D92227 /* SnoBros2.app */;
+			productReference = A3789879166E9ECE009C13EE /* SnoBros2.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */;
-			buildPhases = (
-				A3BD0CAF1642EC8B007AEB08 /* Sources */,
-				A3BD0CB01642EC8B007AEB08 /* Frameworks */,
-				A3BD0CB11642EC8B007AEB08 /* Resources */,
-				A3BD0CB21642EC8B007AEB08 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */,
-			);
-			name = SnoBros2Tests;
-			productName = SnoBros2Tests;
-			productReference = 87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -554,7 +530,6 @@
 			projectRoot = "";
 			targets = (
 				A3BD0C921642EC8B007AEB08 /* SnoBros2 */,
-				A3BD0CB31642EC8B007AEB08 /* SnoBros2Tests */,
 				A374CB1B166E64DB00286090 /* KiwiUnitTest */,
 			);
 		};
@@ -592,13 +567,7 @@
 				87149EE6166FB2D200D92227 /* BasicVertex.glsl in Resources */,
 				87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */,
 				87149EEE166FB9B900D92227 /* programs.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3BD0CB11642EC8B007AEB08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A31C32B5166FBDF400B3B529 /* node.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,19 +575,6 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		A374CB1A166E64DB00286090 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		A3BD0CB21642EC8B007AEB08 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -653,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */,
+				A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +619,6 @@
 			files = (
 				A3F8B076166465A700334E9E /* AppDelegate.m in Sources */,
 				A3F8B083166465A700334E9E /* Behavior.m in Sources */,
-				A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */,
 				A3F8B085166465A700334E9E /* Sphere.m in Sources */,
 				A3F8B086166465A700334E9E /* Camera.m in Sources */,
 				A3F8B087166465A700334E9E /* Attack.m in Sources */,
@@ -697,25 +653,14 @@
 				87149EDA166FACF800D92227 /* Shader.m in Sources */,
 				87149EE1166FAEEF00D92227 /* ShaderManager.m in Sources */,
 				87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3BD0CAF1642EC8B007AEB08 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */,
+				A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */,
+				A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */,
+				A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A3BD0CBA1642EC8B007AEB08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A3BD0C921642EC8B007AEB08 /* SnoBros2 */;
-			targetProxy = A3BD0CB91642EC8B007AEB08 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A374CB23166E64DB00286090 /* InfoPlist.strings */ = {
@@ -751,6 +696,7 @@
 				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -769,6 +715,7 @@
 				INFOPLIST_FILE = "KiwiUnitTest/KiwiUnitTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -852,40 +799,6 @@
 			};
 			name = Release;
 		};
-		A3BD0CCA1642EC8B007AEB08 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "SnoBros2Tests/SnoBros2Tests-Info.plist";
-				PRODUCT_NAME = SnoBros2Tests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		A3BD0CCB1642EC8B007AEB08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoBros2.app/SnoBros2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
-				INFOPLIST_FILE = "SnoBros2Tests/SnoBros2Tests-Info.plist";
-				PRODUCT_NAME = SnoBros2Tests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -912,15 +825,6 @@
 			buildConfigurations = (
 				A3BD0CC71642EC8B007AEB08 /* Debug */,
 				A3BD0CC81642EC8B007AEB08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		A3BD0CC91642EC8B007AEB08 /* Build configuration list for PBXNativeTarget "SnoBros2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A3BD0CCA1642EC8B007AEB08 /* Debug */,
-				A3BD0CCB1642EC8B007AEB08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
