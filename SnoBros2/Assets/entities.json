@@ -132,9 +132,6 @@
           "Y": 0
         }
       },
-      "Behavior": {
-        "Type": "LeftPlayer"
-      },
       "Collision": {
         "Type": "Collision",
         "Radius": 48
@@ -186,6 +183,9 @@
           "Children": {}
         }
       },
+      "Behavior": {
+        "Type": "Sphere"
+      },
       "Projectile": {
         "Type": "Projectile",
         "Damage": 10
@@ -213,9 +213,6 @@
           "X": 0,
           "Y": 0
         }
-      },
-      "Behavior": {
-        "Type": "LeftPlayer"
       },
       "Collision": {
         "Type": "Collision",
@@ -248,6 +245,13 @@
       "Team": {
         "Type": "Team",
         "Name": "Team Edward"
+      },
+      "Pathfinding": {
+        "Type": "Pathfinding"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 5
       }
     }
   },
@@ -272,9 +276,6 @@
           "X": 0,
           "Y": 0
         }
-      },
-      "Behavior": {
-        "Type": "LeftPlayer"
       },
       "Collision": {
         "Type": "Collision",
@@ -307,7 +308,27 @@
       "Team": {
         "Type": "Team",
         "Name": "Team Jacob"
+      },
+      "Pathfinding": {
+        "Type": "Pathfinding"
       }
     }
-  }
+  },
+  {
+    "Name": "MapNode",
+    "Tag":  "MapNode",
+    "Components": {
+      "Transform": {
+        "Type": "Transform"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 5,
+        "Nodes": {
+          "Name": "Node",
+          "Children": {}
+        }
+      }
+    }
+  },
 ]

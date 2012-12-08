@@ -16,8 +16,11 @@
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
 #import "ShaderManager.h"
+#import "PathfindingSystem.h"
+#import "MovementSystem.h"
 
 #import "Transform.h"
+#import "Physics.h"
 
 @implementation Game
 
@@ -29,7 +32,7 @@
   self = [super init];
   if (self) {
     timestepAccumulatorRatio_ = 1.f;
-    
+
     camera_          = [[Camera alloc] init];
     entityManager_   = [[EntityManager alloc] init];
     selectionSystem_ = [[SelectionSystem alloc]
@@ -43,18 +46,33 @@
     [entityManager_ buildAndAddEntity:@"Map"];
 
     for (int i = 1; i <= 4; i++) {
-      Entity *e = [entityManager_ buildAndAddEntity:@"Unit1"];
+      Entity *e = [entityManager_ buildAndAddEntity:@"Projectile"];
       Transform *transform = [e getComponentByString:@"Transform"];
-      transform.position = GLKVector2Make(0.f, 60.f * i);
+      transform.position = GLKVector2Make(112.f, (32.f * i) + 16.f);
     }
 
+    for (int i = 1; i <= 4; i++) {
+      Entity *e = [entityManager_ buildAndAddEntity:@"Unit1"];
+      Transform *transform = [e getComponentByString:@"Transform"];
+      transform.position = GLKVector2Make(32.f, (64.f * i) + 32.f);
+    }
+
+
+    /*
     for (int i = 1; i <= 4; i++) {
       Entity *e = [entityManager_ buildAndAddEntity:@"Unit2"];
       Transform *transform = [e getComponentByString:@"Transform"];
       transform.position = GLKVector2Make(100.f, 60.f * i);
     }
+    */
+    
+    pathfindingSystem_ = [[PathfindingSystem alloc]
+                          initWithEntityManager:entityManager_];
+    movementSystem_    = [[MovementSystem alloc]
+                          initWithEntityManager:entityManager_];
 
-    GLKVector2    target  = GLKVector2Make(60.f, 120.f);
+
+    GLKVector2    target  = GLKVector2Make(192.f, 128.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
                                            withObjCType:@encode(GLKVector2)]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"
@@ -87,8 +105,11 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
-  [collisionSystem_ update];
-  [camera_ update];
+
+  [collisionSystem_   update];
+  [movementSystem_    update];
+
+  [camera_            update];
   [entityManager_ processQueue];
   [entityManager_ update];
 }

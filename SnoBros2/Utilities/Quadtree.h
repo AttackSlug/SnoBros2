@@ -30,8 +30,9 @@
 - (void)subdivideRectangle;
 - (void)clear;
 - (void)split;
-- (int)getIndexOf:(Entity *)entity;
+- (int)getIndexOfEntity:(Entity *)entity;
 - (void)insert:(Entity *)entity;
-- (NSMutableArray *)retrieve:(Entity *)entity;
+- (NSMutableArray *)retrieveEntitiesNear:(Entity *)entity;
+- (NSArray *)retrieveRectanglesNear:(CGRect)rectangle;
 
 @end

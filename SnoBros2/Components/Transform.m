@@ -55,14 +55,6 @@
 
 
 
-- (Transform *)copy {
-  Transform *copy = [[Transform alloc] initWithEntity:entity_];
-  copy.position = position_;
-  return copy;
-}
-
-
-
 - (void)update {
   previousPosition_ = position_;
 }
