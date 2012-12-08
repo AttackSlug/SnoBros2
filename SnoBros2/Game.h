@@ -15,6 +15,7 @@
 @class RenderSystem;
 @class SelectionSystem;
 @class PathfindingSystem;
+@class MovementSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
@@ -28,6 +29,7 @@ const static int   MAX_STEPS         = 5;
   RenderSystem          *renderSystem_;
   SelectionSystem       *selectionSystem_;
   PathfindingSystem     *pathfindingSystem_;
+  MovementSystem        *movementSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;

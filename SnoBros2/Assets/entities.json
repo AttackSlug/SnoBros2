@@ -132,9 +132,6 @@
           "Y": 0
         }
       },
-      "Behavior": {
-        "Type": "LeftPlayer"
-      },
       "Collision": {
         "Type": "Collision",
         "Radius": 48
@@ -217,9 +214,6 @@
           "Y": 0
         }
       },
-      "Behavior": {
-        "Type": "LeftPlayer"
-      },
       "Collision": {
         "Type": "Collision",
         "Radius": 24
@@ -254,6 +248,10 @@
       },
       "Pathfinding": {
         "Type": "Pathfinding"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 5
       }
     }
   },
@@ -278,9 +276,6 @@
           "X": 0,
           "Y": 0
         }
-      },
-      "Behavior": {
-        "Type": "LeftPlayer"
       },
       "Collision": {
         "Type": "Collision",

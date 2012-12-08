@@ -30,16 +30,19 @@
     map_           = [[MapGrid alloc] initWithBounds:bounds nodeSize:size];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(findPath:)
+                                             selector:@selector(handleFindPath:)
                                                  name:@"findPath"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleArrivedAtTarget:)
+                                                 name:@"arrivedAtTarget" object:nil];
   }
   return self;
 }
 
 
 
-- (void)findPath:(NSNotification *)notification {
+- (void)handleFindPath:(NSNotification *)notification {
   NSDictionary *data        = [notification userInfo];
   Entity       *entity      = data[@"entity"];
   Pathfinding  *pathfinding = [entity getComponentByString:@"Pathfinding"];
@@ -49,12 +52,14 @@
   pathfinding.waypoints = [self findPathFor:entity to:target];
 
   if (pathfinding.waypoints.count > 1) {
-    NSString   *walkTo       = [entity.uuid stringByAppendingString:@"|walkTo"];
     GLKVector2  nextWaypoint = [pathfinding nextWaypoint];
 
-    NSDictionary *walkToData = @{ @"target": [NSValue value:&nextWaypoint
-                                               withObjCType:@encode(GLKVector2)]};
-    [[NSNotificationCenter defaultCenter] postNotificationName:walkTo
+    NSDictionary *walkToData = @{
+      @"entity":  entity,
+      @"target": [NSValue value:&nextWaypoint
+                   withObjCType:@encode(GLKVector2)]
+    };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"walkTo"
                                                         object:self
                                                       userInfo:walkToData];
   }
@@ -86,34 +91,26 @@
 
 
 
-- (void)update {
-  NSArray *entities = [entityManager_ findAllWithComponent:@"Pathfinding"];
-
-  for (Entity *entity in entities) {
-    Pathfinding *pathfinding   = [entity getComponentByString:@"Pathfinding"];
-    GLKVector2 currentWaypoint = [pathfinding currentWaypoint];
-
-    if ([self isEntity:entity atWaypoint:currentWaypoint] && [pathfinding hasNextWaypoint]) {
-      GLKVector2 nextWaypoint = [pathfinding nextWaypoint];
-      NSString  *walkTo       = [entity.uuid stringByAppendingString:@"|walkTo"];
-      NSValue   *target       = [NSValue value:&nextWaypoint
-                                  withObjCType:@encode(GLKVector2)];
-
-      NSDictionary *data = @{ @"target": target };
-      [[NSNotificationCenter defaultCenter] postNotificationName:walkTo
-                                                          object:self
-                                                        userInfo:data];
-    }
-  }
+- (void)handleArrivedAtTarget:(NSNotification *)notification {
+  Entity *entity = [notification userInfo][@"entity"];
+  [self arrivedAtTarget:entity];
 }
 
 
 
-- (bool)isEntity:(Entity *)entity atWaypoint:(GLKVector2)waypoint {
-  Transform *transform = [entity getComponentByString:@"Transform"];
-  float distance = GLKVector2Distance(transform.position, waypoint);
+- (void)arrivedAtTarget:(Entity *)entity {
+  Pathfinding *pathfinding = [entity getComponentByString:@"Pathfinding"];
 
-  return [ASFloat is:distance lessThanOrEqualTo:4.f];
+  if ([pathfinding hasNextWaypoint]) {
+    GLKVector2 nextWaypoint = [pathfinding nextWaypoint];
+    NSValue   *target       = [NSValue value:&nextWaypoint
+                                withObjCType:@encode(GLKVector2)];
+
+    NSDictionary *data = @{@"entity": entity, @"target": target};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"walkTo"
+                                                        object:self
+                                                      userInfo:data];
+  }
 }
 
 @end

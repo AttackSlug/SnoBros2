@@ -36,6 +36,8 @@
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
 		A3BD0CEF16461496007AEB08 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CEE16461496007AEB08 /* OpenGLES.framework */; };
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
+		A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8A1672D1180026BC14 /* MovementSystem.m */; };
+		A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8E1672D2060026BC14 /* Movement.m */; };
 		A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE231B16680E0E00E4CB9D /* MapGrid.m */; };
 		A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */; };
 		A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE8166D547300C966AD /* Pathfinding.m */; };
@@ -53,7 +55,6 @@
 		A3F8B081166465A700334E9E /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B039166465A700334E9E /* sprite2.png */; };
 		A3F8B082166465A700334E9E /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B03A166465A700334E9E /* wpaper.jpg */; };
 		A3F8B083166465A700334E9E /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03D166465A700334E9E /* Behavior.m */; };
-		A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03F166465A700334E9E /* LeftPlayer.m */; };
 		A3F8B085166465A700334E9E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B041166465A700334E9E /* Sphere.m */; };
 		A3F8B086166465A700334E9E /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B043166465A700334E9E /* Camera.m */; };
 		A3F8B087166465A700334E9E /* Attack.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B046166465A700334E9E /* Attack.m */; };
@@ -81,9 +82,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		87149ED2166FAB8100D92227 /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SnoBros2.app; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2.app"; sourceTree = "<absolute>"; };
-		87149ED4166FAB8100D92227 /* SnoBros2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SnoBros2Tests.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/SnoBros2Tests.octest"; sourceTree = "<absolute>"; };
-		87149ED5166FAB8100D92227 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		87149ED8166FACF800D92227 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = Shaders/Shader.h; sourceTree = "<group>"; };
 		87149ED9166FACF800D92227 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shader.m; path = Shaders/Shader.m; sourceTree = "<group>"; };
 		87149EDF166FAEEF00D92227 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderManager.h; path = Shaders/ShaderManager.h; sourceTree = "<group>"; };
@@ -126,6 +124,10 @@
 		A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3BD0CEE16461496007AEB08 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3BD0CF0164614B7007AEB08 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3CBFF891672D1180026BC14 /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementSystem.h; sourceTree = "<group>"; };
+		A3CBFF8A1672D1180026BC14 /* MovementSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovementSystem.m; sourceTree = "<group>"; };
+		A3CBFF8D1672D2060026BC14 /* Movement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movement.h; sourceTree = "<group>"; };
+		A3CBFF8E1672D2060026BC14 /* Movement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		A3EE231A16680E0E00E4CB9D /* MapGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGrid.h; sourceTree = "<group>"; };
 		A3EE231B16680E0E00E4CB9D /* MapGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGrid.m; sourceTree = "<group>"; };
 		A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingSystem.h; sourceTree = "<group>"; };
@@ -148,8 +150,6 @@
 		A3F8B03A166465A700334E9E /* wpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wpaper.jpg; sourceTree = "<group>"; };
 		A3F8B03C166465A700334E9E /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
 		A3F8B03D166465A700334E9E /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
-		A3F8B03E166465A700334E9E /* LeftPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPlayer.h; sourceTree = "<group>"; };
-		A3F8B03F166465A700334E9E /* LeftPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPlayer.m; sourceTree = "<group>"; };
 		A3F8B040166465A700334E9E /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		A3F8B041166465A700334E9E /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
 		A3F8B042166465A700334E9E /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -371,8 +371,6 @@
 			children = (
 				A3F8B03C166465A700334E9E /* Behavior.h */,
 				A3F8B03D166465A700334E9E /* Behavior.m */,
-				A3F8B03E166465A700334E9E /* LeftPlayer.h */,
-				A3F8B03F166465A700334E9E /* LeftPlayer.m */,
 				A3F8B040166465A700334E9E /* Sphere.h */,
 				A3F8B041166465A700334E9E /* Sphere.m */,
 			);
@@ -408,6 +406,8 @@
 				A37E594116652BC90061E425 /* UnitCollider.m */,
 				A3F41EE7166D547300C966AD /* Pathfinding.h */,
 				A3F41EE8166D547300C966AD /* Pathfinding.m */,
+				A3CBFF8D1672D2060026BC14 /* Movement.h */,
+				A3CBFF8E1672D2060026BC14 /* Movement.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -444,6 +444,8 @@
 				A37E595B166550320061E425 /* SelectionSystem.m */,
 				A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */,
 				A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */,
+				A3CBFF891672D1180026BC14 /* MovementSystem.h */,
+				A3CBFF8A1672D1180026BC14 /* MovementSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -617,7 +619,6 @@
 			files = (
 				A3F8B076166465A700334E9E /* AppDelegate.m in Sources */,
 				A3F8B083166465A700334E9E /* Behavior.m in Sources */,
-				A3F8B084166465A700334E9E /* LeftPlayer.m in Sources */,
 				A3F8B085166465A700334E9E /* Sphere.m in Sources */,
 				A3F8B086166465A700334E9E /* Camera.m in Sources */,
 				A3F8B087166465A700334E9E /* Attack.m in Sources */,
@@ -654,6 +655,8 @@
 				87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */,
 				A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */,
 				A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */,
+				A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */,
+				A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,13 +71,6 @@
                                                           object:self
                                                         userInfo:pathData];
 
-
-
-      //NSString *walkTo       = [e.uuid stringByAppendingString:@"|walkTo"];
-      //[[NSNotificationCenter defaultCenter] postNotificationName:walkTo
-      //                                                    object:self
-      //                                                  userInfo:data];
-
       NSDictionary *panData = @{@"target": target};
       NSString *panCamera = @"panCameraToTarget";
       [[NSNotificationCenter defaultCenter] postNotificationName:panCamera

@@ -17,6 +17,7 @@
 #import "SelectionSystem.h"
 #import "ShaderManager.h"
 #import "PathfindingSystem.h"
+#import "MovementSystem.h"
 
 #import "Transform.h"
 #import "Physics.h"
@@ -67,6 +68,8 @@
     
     pathfindingSystem_ = [[PathfindingSystem alloc]
                           initWithEntityManager:entityManager_];
+    movementSystem_    = [[MovementSystem alloc]
+                          initWithEntityManager:entityManager_];
 
 
     GLKVector2    target  = GLKVector2Make(192.f, 128.f);
@@ -102,8 +105,10 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
+
   [collisionSystem_   update];
-  [pathfindingSystem_ update];
+  [movementSystem_    update];
+
   [camera_            update];
   [entityManager_ processQueue];
   [entityManager_ update];

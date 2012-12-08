@@ -22,10 +22,8 @@
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
-- (void)translate:(GLKVector2)translation;
-- (Transform *)copy;
-- (bool)isCenterInRectangle:(CGRect)rectangle;
-
 - (void)update;
+- (void)translate:(GLKVector2)translation;
+- (bool)isCenterInRectangle:(CGRect)rectangle;
 
 @end

@@ -18,8 +18,12 @@
   EntityManager *entityManager_;
 }
 
-- (void)update;
 - (id)initWithEntityManager:(EntityManager *)entityManager;
-- (bool)isEntity:(Entity *)entity atWaypoint:(GLKVector2)waypoint;
+
+- (void)handleFindPath:(NSNotification *)notification;
+- (void)handleArrivedAtTarget:(NSNotification *)notification;
+
+- (NSArray *)findPathFor:(Entity *)entity to:(GLKVector2)target;
+- (void)arrivedAtTarget:(Entity *)entity;
 
 @end

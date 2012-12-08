@@ -28,6 +28,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
                                                      @"Team",
                                                      @"Attack",
                                                      @"UnitCollider",
+                                                     @"Movement",
                                                      @"Projectile",
                                                      nil];
   }
