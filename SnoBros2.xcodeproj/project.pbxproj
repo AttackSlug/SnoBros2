@@ -20,6 +20,7 @@
 		87E41981166677DE00336F3A /* healthgradient2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E41980166677DE00336F3A /* healthgradient2.png */; };
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
 		A31C32B5166FBDF400B3B529 /* node.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C32B4166FBDF400B3B529 /* node.png */; };
+		A3518E39167303E000D47310 /* QuadtreeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A3518E38167303E000D47310 /* QuadtreeSpec.m */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
 		A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
@@ -102,6 +103,7 @@
 		A317B9C81669CFBF00B5D78E /* Pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
 		A31C32B4166FBDF400B3B529 /* node.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = node.png; sourceTree = "<group>"; };
+		A3518E38167303E000D47310 /* QuadtreeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadtreeSpec.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				A374CB21166E64DB00286090 /* Supporting Files */,
 				A374CB3C166E685A00286090 /* PathfinderSpec.m */,
 				A378987F166E9F1F009C13EE /* MapGridSpec.m */,
+				A3518E38167303E000D47310 /* QuadtreeSpec.m */,
 			);
 			path = KiwiUnitTest;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 			files = (
 				A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */,
 				A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */,
+				A3518E39167303E000D47310 /* QuadtreeSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

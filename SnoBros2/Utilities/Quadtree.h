@@ -8,31 +8,44 @@
 
 #import <Foundation/Foundation.h>
 
-#define NUM_NODES 4
+#define DEFAULT_MAX_OBJECTS 10
+#define DEFAULT_MAX_LEVELS   5
+#define NUM_NODES            4
 
-@class Entity;
+enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 
 @interface Quadtree : NSObject {
   int maxObjects_;
   int maxLevels_;
   int level_;
-  NSMutableArray *entities_;
+
   CGRect bounds_;
   CGRect topLeft_;
   CGRect topRight_;
   CGRect bottomLeft_;
   CGRect bottomRight_;
-  Quadtree *nodes_[NUM_NODES];
+
+  Quadtree            *nodes_[NUM_NODES];
+  NSMutableDictionary *objects_;
 }
 
-- (id)initWithLevel:(int)level bounds:(CGRect)bounds;
+@property (nonatomic, readonly) int maxObjects;
+@property (nonatomic, readonly) int maxLevels;
 
-- (void)subdivideRectangle;
+- (id)initWithBounds:(CGRect)bounds
+               level:(int)level
+          maxObjects:(int)maxObjects
+           maxLevels:(int)maxLevels;
+- (id)initWithBounds:(CGRect)bounds;
+
 - (void)clear;
 - (void)split;
-- (int)getIndexOfEntity:(Entity *)entity;
-- (void)insert:(Entity *)entity;
-- (NSMutableArray *)retrieveEntitiesNear:(Entity *)entity;
-- (NSArray *)retrieveRectanglesNear:(CGRect)rectangle;
+- (bool)isLeafNode;
+- (bool)isNotLeafNode;
+- (void)subdivideRectangle;
+- (void)redistributeObjects;
+- (void)addObject:(id)object withBoundingBox:(CGRect)boundingBox;
+- (NSArray *)nodesContainingBoundingBox:(CGRect)boundingBox;
+- (NSArray *)retrieveObjectsNear:(CGRect)boundingBox;
 
 @end
