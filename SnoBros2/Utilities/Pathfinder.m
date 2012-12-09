@@ -11,6 +11,8 @@
 #import "MapNode.h"
 #import "Quadtree.h"
 #import "EntityManager.h"
+#import "Entity.h"
+#import "Collision.h"
 
 @implementation Pathfinder
 
@@ -23,7 +25,7 @@
 
     //FIXME: Temporarily hardcoded bounds
     CGRect bounds  = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
-    obstacleTree_  = [[Quadtree alloc] initWithLevel:5 bounds:bounds];
+    obstacleTree_  = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
 }
@@ -138,22 +140,24 @@
 
 
 - (void)updateObstacleTree {
+  [obstacleTree_ clear];
+
   NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
   for (Entity *entity in entities) {
-    [obstacleTree_ insert:entity];
+    Collision *collision   = [entity getComponentByString:@"Collision"];
+    CGRect     boundingBox = [collision boundingBox];
+    [obstacleTree_ addObject:entity withBoundingBox:boundingBox];
   }
 }
 
 
 
 - (bool)isNodeTraversable:(MapNode *)node {
-  NSArray *obstacles = [obstacleTree_ retrieveRectanglesNear:node.boundingBox];
+  NSArray *obstacles = [obstacleTree_ retrieveObjectsNear:node.boundingBox];
 
-
-  for (NSValue *rectValue in obstacles) {
-    CGRect rectangle;
-    [rectValue getValue:&rectangle];
-    if (CGRectIntersectsRect(rectangle, node.boundingBox)) {
+   for (Entity *obstacle in obstacles) {
+    Collision *collision = [obstacle getComponentByString:@"Collision"];
+    if (CGRectIntersectsRect(collision.boundingBox, node.boundingBox)) {
       return false;
     }
   }
