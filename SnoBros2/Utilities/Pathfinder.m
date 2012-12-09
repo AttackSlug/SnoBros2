@@ -80,6 +80,8 @@
 - (NSArray *)findPathFrom:(MapNode *)start
                        to:(MapNode *)end
                 forEntity:(Entity *)entity {
+  if (![self isNodeTraversable:end forEntity:entity]) { return nil; }
+
   NSMutableArray *open    = [[NSMutableArray alloc] init];
   NSMutableArray *closed  = [[NSMutableArray alloc] init];
   MapNode        *current = start;
