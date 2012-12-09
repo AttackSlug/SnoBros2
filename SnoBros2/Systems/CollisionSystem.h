@@ -10,8 +10,10 @@
 
 @class Entity;
 @class EntityManager;
+@class Quadtree;
 
 @interface CollisionSystem : NSObject {
+  Quadtree      *quadtree_;
   EntityManager *entityManager_;
 }
 
