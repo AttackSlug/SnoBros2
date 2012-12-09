@@ -6,25 +6,37 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
-#import <GLKit/GLKit.h>
-
 #import "Quadtree.h"
-#import "Entity.h"
-#import "Collision.h"
 
 @implementation Quadtree
 
-- (id)initWithLevel:(int)level bounds:(CGRect)bounds {
+@synthesize maxObjects = maxObjects_;
+@synthesize maxLevels  = maxLevels_;
+
+- (id)initWithBounds:(CGRect)bounds
+               level:(int)level
+          maxObjects:(int)maxObjects
+           maxLevels:(int)maxLevels {
   self = [super init];
   if (self) {
-    maxObjects_ = 10;
-    maxLevels_  = 5;
-    entities_   = [[NSMutableArray alloc] init];
-    level_      = level;
     bounds_     = bounds;
+    level_      = level;
+    maxObjects_ = maxObjects;
+    maxLevels_  = maxLevels;
+    objects_    = [[NSMutableDictionary alloc] init];
+
     [self subdivideRectangle];
   }
   return self;
+}
+
+
+
+- (id)initWithBounds:(CGRect)bounds {
+  return [self initWithBounds:bounds
+                        level:0
+                   maxObjects:DEFAULT_MAX_OBJECTS
+                    maxLevels:DEFAULT_MAX_LEVELS];
 }
 
 
@@ -51,7 +63,7 @@
 
 
 - (void)clear {
-  [entities_ removeAllObjects];
+  [objects_ removeAllObjects];
   for (int i = 0; i < NUM_NODES; i++) {
     [nodes_[i] clear];
     nodes_[i] = NULL;
@@ -61,97 +73,115 @@
 
 
 - (void)split {
-  nodes_[0] = [[Quadtree alloc] initWithLevel:level_+1 bounds:topLeft_];
-  nodes_[1] = [[Quadtree alloc] initWithLevel:level_+1 bounds:topRight_];
-  nodes_[2] = [[Quadtree alloc] initWithLevel:level_+1 bounds:bottomLeft_];
-  nodes_[3] = [[Quadtree alloc] initWithLevel:level_+1 bounds:bottomRight_];
+  nodes_[TOP_LEFT]     = [[Quadtree alloc] initWithBounds:topLeft_
+                                                    level:level_ + 1
+                                               maxObjects:maxObjects_
+                                                maxLevels:maxLevels_];
+  nodes_[TOP_RIGHT]    = [[Quadtree alloc] initWithBounds:topRight_
+                                                    level:level_ + 1
+                                               maxObjects:maxObjects_
+                                                maxLevels:maxLevels_];
+  nodes_[BOTTOM_LEFT]  = [[Quadtree alloc] initWithBounds:bottomLeft_
+                                                    level:level_ + 1
+                                               maxObjects:maxObjects_
+                                                maxLevels:maxLevels_];
+  nodes_[BOTTOM_RIGHT] = [[Quadtree alloc] initWithBounds:bottomRight_
+                                                    level:level_ + 1
+                                               maxObjects:maxObjects_
+                                                maxLevels:maxLevels_];
 }
 
 
 
-- (int)getIndexOfEntity:(Entity *)entity {
-  Collision *collision = [entity getComponentByString:@"Collision"];
-  CGRect rectangle     = [collision boundingBox];
-  return [self getIndexOfRectangle:rectangle];
-}
+- (NSArray *)nodesContainingBoundingBox:(CGRect)boundingBox {
+  NSMutableArray *found = [[NSMutableArray alloc] init];
 
-
-
-- (int)getIndexOfRectangle:(CGRect)rectangle {
-  if (CGRectContainsRect(topLeft_, rectangle)) {
-    return 0;
-  } else if (CGRectContainsRect(topRight_, rectangle)) {
-    return 1;
-  } else if (CGRectContainsRect(bottomLeft_, rectangle)) {
-    return 2;
-  } else if (CGRectContainsRect(bottomRight_, rectangle)) {
-    return 3;
-  } else {
-    return -1;
+  if (nodes_[TOP_LEFT] && CGRectIntersectsRect(topLeft_, boundingBox)) {
+    [found addObject:nodes_[TOP_LEFT]];
   }
+
+  if (nodes_[TOP_RIGHT] && CGRectIntersectsRect(topRight_, boundingBox)) {
+    [found addObject:nodes_[TOP_RIGHT]];
+  }
+
+  if (nodes_[BOTTOM_LEFT] && CGRectIntersectsRect(bottomLeft_, boundingBox)) {
+    [found addObject:nodes_[BOTTOM_LEFT]];
+  }
+
+  if (nodes_[BOTTOM_RIGHT] && CGRectIntersectsRect(bottomRight_, boundingBox)) {
+    [found addObject:nodes_[BOTTOM_RIGHT]];
+  }
+
+  return found;
 }
 
 
 
-- (void)insert:(Entity *)entity {
-  if (nodes_[0] != NULL) {
-    int index = [self getIndexOfEntity:entity];
-    if (index != -1) {
-      [nodes_[index] insert:entity];
-      return;
+- (void)addObject:(id)object withBoundingBox:(CGRect)boundingBox {
+
+  if ([self isNotLeafNode]) {
+    for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
+      [node addObject:object withBoundingBox:boundingBox];
     }
+    return;
   }
 
-  [entities_ addObject:entity];
+  NSValue *key = [NSValue value:&boundingBox withObjCType:@encode(CGRect)];
+  [objects_ setObject:object forKey:key];
 
-  if (entities_.count > maxObjects_ && level_ < maxLevels_) {
-    if (nodes_[0] == NULL) {
+  if (objects_.count >= maxObjects_ && level_ < maxLevels_) {
+    if ([self isLeafNode]) {
       [self split];
     }
 
-    for (Entity *e in entities_) {
-      int index = [self getIndexOfEntity:e];
-      if (index != -1) {
-        [nodes_[index] insert:e];
-        [entities_ removeObject:e];
-      }
+    [self redistributeObjects];
+  }
+}
+
+
+
+- (void)redistributeObjects {
+  CGRect boundingBox;
+  for (id key in objects_) {
+    [key getValue:&boundingBox];
+    id object = objects_[key];
+    for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
+      [node addObject:object withBoundingBox:boundingBox];
     }
   }
 }
 
 
 
-- (NSMutableArray *)retrieveEntitiesNear:(Entity *)e {
-  NSMutableArray *objects = [[NSMutableArray alloc] init];
+- (NSMutableArray *)retrieveObjectsNear:(CGRect)boundingBox {
+  NSMutableArray *found = [[NSMutableArray alloc] init];
 
-  int index = [self getIndexOfEntity:e];
-  if (index != -1 && nodes_[0] != NULL) {
-    [objects addObjectsFromArray:[nodes_[index] retrieveEntitiesNear:e]];
+
+  NSArray *nodes = [self nodesContainingBoundingBox:boundingBox];
+  for (Quadtree *node in nodes) {
+    [found addObjectsFromArray:[node retrieveObjectsNear:boundingBox]];
   }
 
-  [objects addObjectsFromArray:entities_];
-  return objects;
+  [found addObjectsFromArray:[objects_ allValues]];
+
+  return found;
 }
 
 
 
-- (NSArray *)retrieveRectanglesNear:(CGRect)rectangle {
-  NSMutableArray *objects = [[NSMutableArray alloc] init];
-
-  int index = [self getIndexOfRectangle:rectangle];
-  if (index != -1 && nodes_[0] != NULL) {
-    [objects addObjectsFromArray:[nodes_[index]
-                                  retrieveRectanglesNear:rectangle]];
+- (bool)isLeafNode {
+  for (int i = 0; i < NUM_NODES; i++) {
+    if (nodes_[i]) {
+      return false;
+    }
   }
+  return true;
+}
 
-  for (Entity *entity in entities_) {
-    Collision *collision = [entity getComponentByString:@"Collision"];
-    CGRect     bounds    = [collision boundingBox];
-    NSValue   *value     = [NSValue value:&bounds withObjCType:@encode(CGRect)];
-    [objects addObject:value];
-  }
 
-  return objects;
+
+- (bool)isNotLeafNode {
+  return ![self isLeafNode];
 }
 
 @end

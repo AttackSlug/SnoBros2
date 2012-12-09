@@ -10,39 +10,33 @@
 #import <Foundation/Foundation.h>
 
 @class Entity;
-@class Quadtree;
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
   NSMutableArray      *toBeDeleted_;
   NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
-  Quadtree            *quadtree_;
 }
 
 - (id)init;
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
-
-- (void)loadEntityTypesFromFile:(NSString *)filename;
-- (Entity *)buildEntity:(NSString *)type;
-- (Entity *)buildAndAddEntity:(NSString *)type;
-
 - (void)queueForDeletion:(Entity *)entity;
 - (void)queueForCreation:(Entity *)entity;
+- (void)processQueue;
+
+- (Entity *)buildEntity:(NSString *)type;
+- (Entity *)buildAndAddEntity:(NSString *)type;
+- (void)loadEntityTypesFromFile:(NSString *)filename;
 
 - (NSArray *)allEntities;
 - (NSArray *)allSortedByLayer;
-- (NSArray *)entitiesNear:(Entity *)entity;
-- (Entity *)findById:(NSString *)entityId;
 - (NSArray *)findByTag:(NSString *)tag;
-- (NSArray *)findAllWithComponent:(NSString *)component;
+- (Entity  *)findById:(NSString *)entityId;
 - (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllWithinRectangle:(CGRect)rectangle;
-- (Entity *)findEntityDisplayedAtPosition:(GLKVector2)target;
-
-- (void)processQueue;
-- (void)update;
+- (NSArray *)findAllWithComponent:(NSString *)component;
+- (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
 
 @end

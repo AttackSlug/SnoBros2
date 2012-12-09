@@ -111,7 +111,6 @@
 
   [camera_            update];
   [entityManager_ processQueue];
-  [entityManager_ update];
 }
 
 

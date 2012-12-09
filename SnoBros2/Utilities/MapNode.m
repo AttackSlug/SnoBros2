@@ -28,7 +28,6 @@ self = [super init];
     position_  = position;
     size_      = size;
 
-    /**
      void (^callback)(Entity *) = ^(Entity *entity){
       Transform  *transform = [entity getComponentByString:@"Transform"];
       transform.position = position;
@@ -40,7 +39,6 @@ self = [super init];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"createEntity"
                                                         object:self
                                                       userInfo:data];
-     **/
   }
   return self;
 }

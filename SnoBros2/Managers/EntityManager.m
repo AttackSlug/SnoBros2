@@ -9,7 +9,6 @@
 #import "EntityManager.h"
 
 #import "Entity.h"
-#import "Quadtree.h"
 #import "Selectable.h"
 #import "Health.h"
 #import "Team.h"
@@ -25,8 +24,6 @@
   if (self) {
     entities_    = [[NSMutableDictionary alloc] init];
     entityTypes_ = [[NSMutableDictionary alloc] init];
-    quadtree_ = [[Quadtree alloc] initWithLevel:5
-                                         bounds:CGRectMake(0, 0, 480, 320)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -157,12 +154,6 @@
 
 
 
-- (NSArray *)entitiesNear:(Entity *)entity {
-  return [quadtree_ retrieveEntitiesNear:entity];
-}
-
-
-
 - (Entity *)findById:(NSString *)entityId {
   return [entities_ objectForKey:entityId];
 }
@@ -255,16 +246,6 @@
     [entities_ removeObjectForKey:e.uuid];
   }
   [toBeDeleted_ removeAllObjects];
-}
-
-
-
-- (void)update {
-  [quadtree_ clear];
-
-  for (Entity *e in [entities_ allValues]) {
-    [quadtree_ insert:e];
-  }
 }
 
 @end
