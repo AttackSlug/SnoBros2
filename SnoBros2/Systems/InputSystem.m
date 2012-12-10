@@ -86,7 +86,6 @@
 
 
 - (void)addTwoFingerTapEvent:(UITapGestureRecognizer *)gr {
-  [selectionSystem_ deselectAll];
   NSArray *units   = [entityManager_ findByTeamName:@"Team Edward"];
   NSArray *targets = [entityManager_ findByTeamName:@"Team Jacob"];
 
@@ -94,10 +93,7 @@
     Attack  *attack  = [unit getComponentByString:@"Attack"];
     if (targets.count > 0) {
       Entity  *target  = targets[arc4random() % targets.count];
-      Health  *health  = [unit getComponentByString:@"Health"];
       Transform *targetTransform = [target getComponentByString:@"Transform"];
-
-      [health damage:20];
 
       [attack fireAt:targetTransform.position];
     }

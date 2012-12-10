@@ -49,14 +49,13 @@
     
     [self loadMapFromFile:@"map"];
     
-    pathfindingSystem_ = [[PathfindingSystem alloc]
-                          initWithEntityManager:entityManager_];
-    movementSystem_    = [[MovementSystem alloc]
-                          initWithEntityManager:entityManager_];
+    pathfindingSystem_   = [[PathfindingSystem alloc]
+                            initWithEntityManager:entityManager_];
+    movementSystem_      = [[MovementSystem alloc]
+                            initWithEntityManager:entityManager_];
     enemyBehaviorSystem_ = [[EnemyBehaviorSystem alloc]
-                          initWithEntityManager:entityManager_];
+                            initWithEntityManager:entityManager_];
     projectileSystem_    = [[ProjectileSystem alloc] init];
-
 
     GLKVector2    target  = GLKVector2Make(192.f, 128.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -130,6 +129,9 @@
     NSDictionary *d = mapData[@"Objects"];
     for (id key in d) {
       Entity *e = [entityManager_ buildAndAddEntity:d[key]];
+      if ([e.tag isEqualToString:@"maindude"]) {
+        [selectionSystem_ selectEntity:e];
+      }
       Transform *transform = [e getComponentByString:@"Transform"];
       NSArray *locs = [key componentsSeparatedByString:@","];
       int x = [[locs objectAtIndex:0] intValue], y = [[locs objectAtIndex:1] intValue];
