@@ -22,8 +22,10 @@
 		87E41981166677DE00336F3A /* healthgradient2.png in Resources */ = {isa = PBXBuildFile; fileRef = 87E41980166677DE00336F3A /* healthgradient2.png */; };
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
 		A31C32B5166FBDF400B3B529 /* node.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C32B4166FBDF400B3B529 /* node.png */; };
+		A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A32388D51676742D00D4A020 /* ProjectileSystem.m */; };
 		A3518E39167303E000D47310 /* QuadtreeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A3518E38167303E000D47310 /* QuadtreeSpec.m */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
+		A35AD3971676644E001294C2 /* EnemyBehaviorSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A35AD3961676644E001294C2 /* EnemyBehaviorSystem.m */; };
 		A374CB1D166E64DB00286090 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CB51642EC8B007AEB08 /* SenTestingKit.framework */; };
 		A374CB1E166E64DB00286090 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A374CB1F166E64DB00286090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
@@ -107,9 +109,13 @@
 		A317B9C81669CFBF00B5D78E /* Pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
 		A317B9C91669CFBF00B5D78E /* Pathfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pathfinder.m; sourceTree = "<group>"; };
 		A31C32B4166FBDF400B3B529 /* node.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = node.png; sourceTree = "<group>"; };
+		A32388D41676742D00D4A020 /* ProjectileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileSystem.h; sourceTree = "<group>"; };
+		A32388D51676742D00D4A020 /* ProjectileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectileSystem.m; sourceTree = "<group>"; };
 		A3518E38167303E000D47310 /* QuadtreeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadtreeSpec.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		A35AD3951676644E001294C2 /* EnemyBehaviorSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyBehaviorSystem.h; sourceTree = "<group>"; };
+		A35AD3961676644E001294C2 /* EnemyBehaviorSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBehaviorSystem.m; sourceTree = "<group>"; };
 		A374CB22166E64DB00286090 /* KiwiUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwiUnitTest-Info.plist"; sourceTree = "<group>"; };
 		A374CB24166E64DB00286090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A374CB29166E64DB00286090 /* KiwiUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiwiUnitTest-Prefix.pch"; sourceTree = "<group>"; };
@@ -455,6 +461,10 @@
 				A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */,
 				A3CBFF891672D1180026BC14 /* MovementSystem.h */,
 				A3CBFF8A1672D1180026BC14 /* MovementSystem.m */,
+				A35AD3951676644E001294C2 /* EnemyBehaviorSystem.h */,
+				A35AD3961676644E001294C2 /* EnemyBehaviorSystem.m */,
+				A32388D41676742D00D4A020 /* ProjectileSystem.h */,
+				A32388D51676742D00D4A020 /* ProjectileSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -669,6 +679,8 @@
 				A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */,
 				A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */,
 				A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */,
+				A35AD3971676644E001294C2 /* EnemyBehaviorSystem.m in Sources */,
+				A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

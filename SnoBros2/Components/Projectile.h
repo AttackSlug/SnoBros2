@@ -6,20 +6,20 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
+#import <GLKit/GLKit.h>
+
 #import "Component.h"
 
 @class Entity;
 
 @interface Projectile : Component {
-  Entity *target_;
-  int     damage_;
+  GLKVector2 target_;
+  int        damage_;
 }
 
-@property (nonatomic) Entity *target;
+@property (nonatomic) GLKVector2 target;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
-
-- (void)update;
 
 @end

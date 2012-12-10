@@ -17,6 +17,8 @@
 
 @implementation Attack
 
+@synthesize range = range_;
+
 - (id)initWithEntity:(Entity *)entity {
   return [super initWithEntity:entity];
 }
@@ -24,12 +26,28 @@
 
 
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data {
+  self = [self initWithEntity:entity];
+  if (self) {
+    range_ = [data[@"Range"] floatValue];
+    rate_  = [data[@"Rate"] floatValue];
+  }
   return [self initWithEntity:entity];
 }
 
 
 
-- (void)fireAt:(Entity *)target {
+- (void)fireAt:(GLKVector2)target {
+  NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+  if (now - lastFired_ < rate_) {
+    return;
+  }
+  lastFired_ = [[NSDate date] timeIntervalSince1970];
+
+  [self createProjectile:target];
+}
+
+
+- (void)createProjectile:(GLKVector2)target {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
   Collision *collision = [entity_ getComponentByString:@"Collision"];
 
@@ -37,10 +55,8 @@
     Transform  *projTransform   = [projectile getComponentByString:@"Transform"];
     Physics    *projPhysics     = [projectile getComponentByString:@"Physics"];
     Projectile *projComponent   = [projectile getComponentByString:@"Projectile"];
-    Transform  *targetTransform = [target getComponentByString:@"Transform"];
 
-    GLKVector2 path      = GLKVector2Subtract(transform.position,
-                                              targetTransform.position);
+    GLKVector2 path      = GLKVector2Subtract(transform.position, target);
     GLKVector2 direction = GLKVector2Normalize(path);
     GLKVector2 offset    = GLKVector2MultiplyScalar(direction, collision.radius);
 
