@@ -45,9 +45,6 @@
           "Children": {}
         }
       },
-      "Behavior": {
-        "Type": "Sphere"
-      },
       "Projectile": {
         "Type": "Projectile",
         "Damage": 10
