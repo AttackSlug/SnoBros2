@@ -134,6 +134,8 @@
     waypoint = waypoint.parent;
   }
 
+  [path removeLastObject];
+
   return [[path reverseObjectEnumerator] allObjects];
 }
 
