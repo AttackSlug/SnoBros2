@@ -6,8 +6,8 @@
       "Transform": {
         "Type": "Transform",
         "Position": {
-          "X": 240,
-          "Y": 160
+          "X": 512,
+          "Y": 512
         }
       },
       "SceneGraph": {
@@ -17,148 +17,6 @@
           "Name": "Map",
           "Children": {}
         }
-      }
-    }
-  },
-  {
-    "Name": "Sphere 1",
-    "Tag":  "sphere",
-    "Components": {
-      "Transform": {
-        "Type": "Transform",
-        "Position": {
-          "X": 100,
-          "Y": 160
-        }
-      },
-      "Physics": {
-        "Type": "Physics",
-        "Velocity": {
-          "X": 1,
-          "Y": 0
-        }
-      },
-      "Behavior": {
-        "Type": "Sphere"
-      },
-      "Collision": {
-        "Type":   "Collision",
-        "Radius": 10
-      },
-      "SceneGraph": {
-        "Type": "SceneGraph",
-        "Layer": 1,
-        "Nodes": {
-          "Name": "Snowball",
-          "Children": {}
-        }
-      },
-      "StandardCollider": {
-        "Type":   "StandardCollider"
-      },
-      "Team": {
-        "Type": "Team",
-        "Name": "Team Edward"
-      },
-      "Health": {
-        "Type": "Health",
-        "Health": 100,
-        "SpriteRef": "HealthBar"
-      }
-    }
-  },
-  {
-    "Name": "Sphere 2",
-    "Tag":  "sphere",
-    "Components": {
-      "Transform": {
-        "Type": "Transform",
-        "Position": {
-          "X": 300,
-          "Y": 160
-        }
-      },
-      "Physics": {
-        "Type": "Physics",
-        "Velocity": {
-          "X": -1,
-          "Y":  0
-        }
-      },
-      "Behavior": {
-        "Type": "Sphere"
-      },
-      "Collision": {
-        "Type": "Collision",
-        "Radius": 10
-      },
-      "SceneGraph": {
-        "Type": "SceneGraph",
-        "Layer": 1,
-        "Nodes": {
-          "Name": "Snowball",
-          "Children": {}
-        }
-      },
-      "StandardCollider": {
-        "Type":   "StandardCollider"
-      },
-      "Team": {
-        "Type": "Team",
-        "Name": "Team Jacob"
-      },
-      "Health": {
-        "Type": "Health",
-        "Health": 100,
-        "SpriteRef": "HealthBar"
-      }
-    }
-  },
-  {
-    "Name": "Player",
-    "Tag":  "player",
-    "Components": {
-      "Transform": {
-        "Type": "Transform",
-        "Position": {
-          "X": 20,
-          "Y": 20
-        }
-      },
-      "Physics": {
-        "Type": "Physics",
-        "Velocity": {
-          "X": 0,
-          "Y": 0
-        }
-      },
-      "Collision": {
-        "Type": "Collision",
-        "Radius": 48
-      },
-      "Selectable": {
-        "Type": "Selectable"
-      },
-      "Attack": {
-        "Type": "Attack"
-      },
-      "Health": {
-        "Type": "Health",
-        "Health": 100,
-        "SpriteRef": "HealthBar"
-      },
-      "SceneGraph": {
-        "Type": "SceneGraph",
-        "Layer": 1,
-        "Nodes": {
-          "Name": "BigBlue",
-          "Children": {
-            "HealthBar": {}
-          }
-        }
-      },
-      "StandardCollider": {
-        "Type":   "StandardCollider"
       }
     }
   },
@@ -193,7 +51,7 @@
     }
   },
   {
-    "Name": "Unit1",
+    "Name": "MainDude",
     "Tag":  "unit",
     "Components": {
       "Transform": {
@@ -216,7 +74,7 @@
       },
       "Collision": {
         "Type": "Collision",
-        "Radius": 24
+        "Radius": 16
       },
       "Selectable": {
         "Type": "Selectable"
@@ -251,12 +109,12 @@
       },
       "Movement": {
         "Type": "Movement",
-        "Speed": 5
+        "Speed": 4
       }
     }
   },
   {
-    "Name": "Unit2",
+    "Name": "Enemy",
     "Tag":  "unit",
     "Components": {
       "Transform": {
@@ -264,25 +122,11 @@
         "Position": {
           "X": 0,
           "Y": 0
-        },
-        "Scale": {
-          "X": 0.5,
-          "Y": 0.5
-        }
-      },
-      "Physics": {
-        "Type": "Physics",
-        "Velocity": {
-          "X": 0,
-          "Y": 0
         }
       },
       "Collision": {
         "Type": "Collision",
-        "Radius": 24
-      },
-      "Selectable": {
-        "Type": "Selectable"
+        "Radius": 25
       },
       "Attack": {
         "Type": "Attack"
@@ -296,7 +140,7 @@
         "Type": "SceneGraph",
         "Layer": 1,
         "Nodes": {
-          "Name": "BigBlue",
+          "Name": "LittleRed",
           "Children": {
             "HealthBar": {}
           }
@@ -308,9 +152,38 @@
       "Team": {
         "Type": "Team",
         "Name": "Team Jacob"
+      }
+    }
+  },
+  {
+    "Name": "Obstacle",
+    "Tag":  "unit",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        }
       },
-      "Pathfinding": {
-        "Type": "Pathfinding"
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 16
+      },
+      "Attack": {
+        "Type": "Attack"
+      },
+      "Health": {
+        "Type": "Health",
+        "Health": 100,
+        "SpriteRef": "HealthBar"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Obstacle"
+        }
       }
     }
   },
@@ -330,5 +203,5 @@
         }
       }
     }
-  },
+  }
 ]

@@ -14,6 +14,8 @@
 		87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 87149EE8166FB56B00D92227 /* BasicFragment.glsl */; };
 		87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149EEB166FB90600D92227 /* ShaderProgram.m */; };
 		87149EEE166FB9B900D92227 /* programs.json in Resources */ = {isa = PBXBuildFile; fileRef = 87149EED166FB9B900D92227 /* programs.json */; };
+		8782C7271676592900C24790 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7261676592800C24790 /* enemy.png */; };
+		8782C72A16765AF700C24790 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C72916765AF700C24790 /* obstacle.png */; };
 		8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8787EC18166523A0000C07E1 /* SpriteManager.m */; };
 		8787EC1B16652664000C07E1 /* sprites.json in Resources */ = {isa = PBXBuildFile; fileRef = 8787EC1A16652664000C07E1 /* sprites.json */; };
 		87E4195F16652E7600336F3A /* SceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E4195E16652E7600336F3A /* SceneNode.m */; };
@@ -93,6 +95,8 @@
 		87149EEA166FB90600D92227 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		87149EEB166FB90600D92227 /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
 		87149EED166FB9B900D92227 /* programs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programs.json; sourceTree = "<group>"; };
+		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8787EC17166523A0000C07E1 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		8787EC18166523A0000C07E1 /* SpriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteManager.m; path = Managers/SpriteManager.m; sourceTree = "<group>"; };
 		8787EC1A16652664000C07E1 /* sprites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sprites.json; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 		A3F8B02E166465A700334E9E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8782C72916765AF700C24790 /* obstacle.png */,
+				8782C7261676592800C24790 /* enemy.png */,
 				A31C32B4166FBDF400B3B529 /* node.png */,
 				87E41980166677DE00336F3A /* healthgradient2.png */,
 				A3F8B02F166465A700334E9E /* Default-568h@2x.png */,
@@ -571,6 +577,8 @@
 				87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */,
 				87149EEE166FB9B900D92227 /* programs.json in Resources */,
 				A31C32B5166FBDF400B3B529 /* node.png in Resources */,
+				8782C7271676592900C24790 /* enemy.png in Resources */,
+				8782C72A16765AF700C24790 /* obstacle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

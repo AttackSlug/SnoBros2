@@ -77,7 +77,7 @@
   MapNode *end           = [map_ findNodeByRealCoordinates:target];
 
   NSMutableArray *vectorPath = [[NSMutableArray alloc] init];
-  NSArray *nodePath = [pathfinder findPathFrom:start to:end];
+  NSMutableArray *nodePath = [pathfinder findPathFrom:start to:end];
 
   for (MapNode *node in nodePath) {
     GLKVector2 nodePosition = node.position;

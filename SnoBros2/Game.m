@@ -45,9 +45,17 @@
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
 
-    Entity *e = [entityManager_ buildAndAddEntity:@"Unit1"];
+    Entity *e = [entityManager_ buildAndAddEntity:@"MainDude"];
     Transform *transform = [e getComponentByString:@"Transform"];
     transform.position = GLKVector2Make(0.f, 0.f);
+    
+    Entity *e1 = [entityManager_ buildAndAddEntity:@"Enemy"];
+    Transform *transform1 = [e1 getComponentByString:@"Transform"];
+    transform1.position = GLKVector2Make(80.f, 80.f);
+    
+    Entity *e2 = [entityManager_ buildAndAddEntity:@"Obstacle"];
+    Transform *transform2 = [e2 getComponentByString:@"Transform"];
+    transform2.position = GLKVector2Make(112.f, 48.f);
     
     pathfindingSystem_ = [[PathfindingSystem alloc]
                           initWithEntityManager:entityManager_];
