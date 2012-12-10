@@ -34,7 +34,6 @@ self = [super init];
       void (^callback)(Entity *) = ^(Entity *entity){
         Transform  *transform = [entity getComponentByString:@"Transform"];
         transform.position = position;
-        //transform.scale    = GLKVector2Make(2.f, 2.f);
       };
     
       NSDictionary *data = @{@"type": @"MapNode", @"callback": callback};
