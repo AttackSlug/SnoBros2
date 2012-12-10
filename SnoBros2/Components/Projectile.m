@@ -11,10 +11,9 @@
 #import "Entity.h"
 #import "Transform.h"
 #import "Physics.h"
+#import "Collision.h"
 
 @implementation Projectile
-
-@synthesize target = target_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -40,40 +39,34 @@
 
 
 
-- (void)update {
-  if (!target_) { return; }
+- (void)setTarget:(GLKVector2)target  {
+  target_ = target;
+  NSDictionary *walkToData = @{
+    @"entity":  entity_,
+    @"target": [NSValue value:&target_ withObjCType:@encode(GLKVector2)]
 
-  Transform *targetTransform = [target_ getComponentByString:@"Transform"];
-  Transform *transform       = [entity_ getComponentByString:@"Transform"];
-  Physics   *physics         = [entity_ getComponentByString:@"Physics"];
-
-  GLKVector2 targetPosition  = targetTransform.position;
-  GLKVector2 position        = transform.position;
-
-  GLKVector2 direction = GLKVector2Normalize(GLKVector2Subtract(targetPosition,
-                                                                position));
-  physics.velocity = GLKVector2MultiplyScalar(direction, 10);
+  };
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"walkTo"
+                                                      object:self
+                                                    userInfo:walkToData];
 }
 
 
 
 - (void)collidedWith:(NSNotification *)notification {
-  Entity *otherEntity = [notification userInfo][@"otherEntity"];
+  Entity *otherEntity  = [notification userInfo][@"otherEntity"];
 
-  if (otherEntity == target_) {
-    NSValue  *damageVal  = [NSValue value:&damage_ withObjCType:@encode(int *)];
-    NSString *takeDamage = [target_.uuid stringByAppendingString:@"|takeDamage"];
-    NSDictionary *damageData = @{@"amount": damageVal};
-    [[NSNotificationCenter defaultCenter] postNotificationName:takeDamage
-                                                        object:self
-                                                      userInfo:damageData];
+  NSValue  *damageVal  = [NSValue value:&damage_ withObjCType:@encode(int *)];
+  NSString *takeDamage = [otherEntity.uuid stringByAppendingString:@"|takeDamage"];
+  NSDictionary *damageData = @{@"amount": damageVal};
+  [[NSNotificationCenter defaultCenter] postNotificationName:takeDamage
+                                                      object:self
+                                                    userInfo:damageData];
 
-    target_ = nil;
-    NSDictionary *destroyData = @{@"entity": entity_};
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"destroyEntity"
-                                                        object:self
-                                                      userInfo:destroyData];
-  }
+  NSDictionary *destroyData = @{@"entity": entity_};
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"destroyEntity"
+                                                      object:self
+                                                    userInfo:destroyData];
 }
 
 @end

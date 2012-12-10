@@ -15,6 +15,7 @@
 #import "EntityManager.h"
 #import "SelectionSystem.h"
 #import "Attack.h"
+#import "Transform.h"
 
 @implementation InputSystem
 
@@ -94,10 +95,11 @@
     if (targets.count > 0) {
       Entity  *target  = targets[arc4random() % targets.count];
       Health  *health  = [unit getComponentByString:@"Health"];
+      Transform *targetTransform = [target getComponentByString:@"Transform"];
 
       [health damage:20];
 
-      [attack fireAt:target];
+      [attack fireAt:targetTransform.position];
     }
   }
 }

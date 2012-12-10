@@ -33,6 +33,10 @@
       "Collision": {
         "Type": "Collision"
       },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 4
+      },
       "SceneGraph": {
         "Type": "SceneGraph",
         "Layer": 2,
@@ -129,7 +133,9 @@
         "Radius": 25
       },
       "Attack": {
-        "Type": "Attack"
+        "Type": "Attack",
+        "Range": 200,
+        "Rate": 0.5
       },
       "Health": {
         "Type": "Health",
