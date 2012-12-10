@@ -27,18 +27,6 @@ self = [super init];
     neighbors_ = [[NSMutableArray alloc] init];
     position_  = position;
     size_      = size;
-
-     void (^callback)(Entity *) = ^(Entity *entity){
-      Transform  *transform = [entity getComponentByString:@"Transform"];
-      transform.position = position;
-      //transform.scale    = GLKVector2Make(2.f, 2.f);
-    };
-
-    NSDictionary *data = @{@"type": @"MapNode", @"callback": callback};
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"createEntity"
-                                                        object:self
-                                                      userInfo:data];
   }
   return self;
 }
