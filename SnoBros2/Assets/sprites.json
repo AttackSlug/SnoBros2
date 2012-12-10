@@ -15,6 +15,16 @@
     "FileName": "sprite2.png"
   },
   {
+    "Name": "LittleRed",
+    "Tag": "LittleRed",
+    "FileName": "enemy.png"
+  },
+  {
+    "Name": "Obstacle",
+    "Tag": "Obstacle",
+    "FileName": "obstacle.png"
+  },
+  {
     "Name": "HealthBar",
     "Tag": "HealthBar",
     "FileName": "healthgradient2.png"
