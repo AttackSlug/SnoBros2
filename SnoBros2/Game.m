@@ -46,18 +46,8 @@
 
     [entityManager_ loadEntityTypesFromFile:@"entities"];
     [entityManager_ buildAndAddEntity:@"Map"];
-
-    Entity *e = [entityManager_ buildAndAddEntity:@"MainDude"];
-    Transform *transform = [e getComponentByString:@"Transform"];
-    transform.position = GLKVector2Make(0.f, 0.f);
     
-    Entity *e1 = [entityManager_ buildAndAddEntity:@"Enemy"];
-    Transform *transform1 = [e1 getComponentByString:@"Transform"];
-    transform1.position = GLKVector2Make(80.f, 80.f);
-    
-    Entity *e2 = [entityManager_ buildAndAddEntity:@"Obstacle"];
-    Transform *transform2 = [e2 getComponentByString:@"Transform"];
-    transform2.position = GLKVector2Make(112.f, 48.f);
+    [self loadMapFromFile:@"map"];
     
     pathfindingSystem_ = [[PathfindingSystem alloc]
                           initWithEntityManager:entityManager_];
@@ -114,6 +104,39 @@
 
 - (void)render {
   [renderSystem_ renderEntitieswithInterpolationRatio:timestepAccumulatorRatio_];
+}
+
+
+
+- (void)loadMapFromFile:(NSString *)fileName {
+  NSError  *error;
+  NSString *path = [[NSBundle mainBundle]
+                    pathForResource:fileName ofType:@"json"];
+  NSString *json = [[NSString alloc] initWithContentsOfFile:path
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:&error];
+  if (error) { NSLog(@"Error: %@", error); return; }
+  
+  NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
+  NSDictionary *mapData = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:&error];
+  if (error) { NSLog(@"Error: %@", error); return; }
+  
+  if ([mapData isKindOfClass:[NSArray class]]) {
+    for (NSDictionary *d in mapData) {
+    }
+  } else {
+    NSDictionary *d = mapData[@"Objects"];
+    for (id key in d) {
+      Entity *e = [entityManager_ buildAndAddEntity:d[key]];
+      Transform *transform = [e getComponentByString:@"Transform"];
+      NSArray *locs = [key componentsSeparatedByString:@","];
+      int x = [[locs objectAtIndex:0] intValue], y = [[locs objectAtIndex:1] intValue];
+      transform.position = GLKVector2Make(x * 32.f + 16.f, y * 32.f + 16.f);
+    }
+  }
+
 }
 
 @end
