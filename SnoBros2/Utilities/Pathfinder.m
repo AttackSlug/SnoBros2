@@ -79,7 +79,9 @@
 
 
 
-- (NSArray *)findPathFrom:(MapNode *)start to:(MapNode *)end {
+- (NSArray *)findPathFrom:(MapNode *)start
+                       to:(MapNode *)end
+                forEntity:(Entity *)entity {
   NSMutableArray *open    = [[NSMutableArray alloc] init];
   NSMutableArray *closed  = [[NSMutableArray alloc] init];
   MapNode        *current = start;
@@ -101,7 +103,8 @@
 
     NSArray *neighbors = [current findNeighbors];
     for (MapNode *neighbor in neighbors) {
-      if ([closed containsObject:neighbor] || ![self isNodeTraversable:neighbor]) {
+      if ([closed containsObject:neighbor] || ![self isNodeTraversable:neighbor
+                                                             forEntity:(Entity *)entity]) {
         continue;
       }
 
@@ -154,15 +157,19 @@
 
 
 
-- (bool)isNodeTraversable:(MapNode *)node {
+- (bool)isNodeTraversable:(MapNode *)node forEntity:(Entity *)entity {
   NSArray *obstacles = [obstacleTree_ retrieveObjectsNear:node.boundingBox];
 
    for (Entity *obstacle in obstacles) {
-    Collision *collision = [obstacle getComponentByString:@"Collision"];
-    if (CGRectIntersectsRect(collision.boundingBox, node.boundingBox)) {
-      return false;
-    }
-  }
+     if (obstacle == entity) {
+       continue;
+     }
+
+     Collision *collision = [obstacle getComponentByString:@"Collision"];
+     if (CGRectIntersectsRect(collision.boundingBox, node.boundingBox)) {
+       return false;
+     }
+   }
 
   return true;
 }
