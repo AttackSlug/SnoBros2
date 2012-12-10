@@ -47,5 +47,6 @@ const static int   MAX_STEPS         = 5;
 - (void)update:(NSTimeInterval)elapsedTime;
 - (void)step;
 - (void)render;
+- (void)loadMapFromFile:(NSString *)fileName;
 
 @end

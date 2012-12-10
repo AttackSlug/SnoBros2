@@ -45,9 +45,6 @@
           "Children": {}
         }
       },
-      "Behavior": {
-        "Type": "Sphere"
-      },
       "Projectile": {
         "Type": "Projectile",
         "Damage": 10
@@ -56,7 +53,7 @@
   },
   {
     "Name": "MainDude",
-    "Tag":  "unit",
+    "Tag":  "maindude",
     "Components": {
       "Transform": {
         "Type": "Transform",

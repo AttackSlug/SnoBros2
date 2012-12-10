@@ -63,7 +63,7 @@
   Health *health          = [entity getComponentByString:@"Health"];
 
   [selectable selectUnit];
-  if (health != nil) {
+  if (selectable != nil) {
     [health showHealthBar];
   }
 
