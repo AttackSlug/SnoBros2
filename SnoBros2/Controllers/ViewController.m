@@ -10,6 +10,7 @@
 
 #import "InputSystem.h"
 #import "Game.h"
+#import "FPSMeter.h"
 
 @implementation ViewController
 
@@ -21,12 +22,15 @@
                                       entityManager:game_.entityManager
                                     selectionSystem:game_.selectionSystem
                                              camera:game_.camera];
+  fpsMeter_     = [[FPSMeter alloc] initWithFrame:CGRectMake(2, 2, 20, 20) refreshRate:6];
+  [self.view addSubview:fpsMeter_];
 }
 
 
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  [fpsMeter_ updateWithElaspedTime:[self timeSinceLastUpdate]];
   [game_ render];
 }
 
