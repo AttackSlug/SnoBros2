@@ -72,8 +72,8 @@
 
 
 
-- (void)selectAllWithinRectangle:(CGRect)rectangle {
-  for (Entity *entity in [entityManager_ findAllWithinRectangle:rectangle]) {
+- (void)selectAllWithinBoundingBox:(BoundingBox *)boundingBox {
+  for (Entity *entity in [entityManager_ findAllWithinBoundingBox:boundingBox]) {
     [self selectEntity:entity];
   }
 }

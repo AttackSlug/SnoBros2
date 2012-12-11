@@ -9,6 +9,8 @@
 #import <GLKit/GLKit.h>
 #import "Component.h"
 
+@class BoundingBox;
+
 @interface Transform : Component {
   GLKVector2 position_;
   GLKVector2 previousPosition_;
@@ -24,6 +26,6 @@
 
 - (void)update;
 - (void)translate:(GLKVector2)translation;
-- (bool)isCenterInRectangle:(CGRect)rectangle;
+- (bool)isCenterInBoundingBox:(BoundingBox *)boundingBox;
 
 @end

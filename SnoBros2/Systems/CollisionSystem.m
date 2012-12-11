@@ -13,6 +13,7 @@
 #import "Collision.h"
 
 #import "Quadtree.h"
+#import "BoundingBox.h"
 #import "ASFloat.h"
 
 @implementation CollisionSystem
@@ -22,7 +23,10 @@
   if (self) {
     entityManager_ = entityManager;
 
-    CGRect bounds  = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
+    GLKVector2 boundsOrigin = GLKVector2Make(512.f, 512.f);
+    CGSize     boundsSize   = CGSizeMake(1024.f, 1024.f);
+    BoundingBox *bounds     = [[BoundingBox alloc] initWithOrigin:boundsOrigin
+                                                             size:boundsSize];
     quadtree_      = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
@@ -34,6 +38,7 @@
   NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
 
   [quadtree_ clear];
+
   for (Entity *entity in entities) {
     Collision *collision = [entity getComponentByString:@"Collision"];
     [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];

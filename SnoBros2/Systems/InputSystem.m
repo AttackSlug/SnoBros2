@@ -17,6 +17,8 @@
 #import "Attack.h"
 #import "Transform.h"
 
+#import "BoundingBox.h"
+
 @implementation InputSystem
 
 - (id)initWithView:(UIView *)view
@@ -107,12 +109,14 @@
     e = [gr locationInView:gr.view  ];
     t = [gr translationInView:gr.view];
 
-    CGRect rectangle = CGRectMake(e.x - t.x + camera_.position.x,
-                                  e.y - t.y + camera_.position.y,
-                                  t.x,
-                                  t.y);
+    GLKVector2 origin = GLKVector2Make(e.x - t.x + camera_.position.x,
+                                       e.y - t.y + camera_.position.y);
+    CGSize     size   = CGSizeMake(t.x, t.y);
 
-    [selectionSystem_ selectAllWithinRectangle:rectangle];
+    BoundingBox *selectionBox = [[BoundingBox alloc] initWithOrigin:origin
+                                                               size:size];
+
+    [selectionSystem_ selectAllWithinBoundingBox:selectionBox];
   }
 }
 

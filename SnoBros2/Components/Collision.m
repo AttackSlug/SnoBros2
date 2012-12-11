@@ -11,6 +11,8 @@
 #import "Entity.h"
 #import "Transform.h"
 
+#include "BoundingBox.h"
+
 @implementation Collision
 
 @synthesize radius = radius_;
@@ -33,11 +35,10 @@
 
 
 
-- (CGRect)boundingBox {
+- (BoundingBox *)boundingBox {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
-  return CGRectMake(transform.position.x,
-                    transform.position.y,
-                    radius_, radius_);
+  return [[BoundingBox alloc] initWithOrigin:transform.position
+                                        size:CGSizeMake(radius_, radius_)];
 }
 
 @end

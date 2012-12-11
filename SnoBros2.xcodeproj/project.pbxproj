@@ -25,6 +25,8 @@
 		A317B9CA1669CFBF00B5D78E /* Pathfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A317B9C91669CFBF00B5D78E /* Pathfinder.m */; };
 		A31C32B5166FBDF400B3B529 /* node.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C32B4166FBDF400B3B529 /* node.png */; };
 		A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A32388D51676742D00D4A020 /* ProjectileSystem.m */; };
+		A32388E51676A35F00D4A020 /* BoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A32388E41676A35F00D4A020 /* BoundingBox.m */; };
+		A32388E71676A76500D4A020 /* BoundingBoxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A32388E61676A76500D4A020 /* BoundingBoxSpec.m */; };
 		A3518E39167303E000D47310 /* QuadtreeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A3518E38167303E000D47310 /* QuadtreeSpec.m */; };
 		A3541B3A16681116004531C1 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3541B3916681116004531C1 /* MapNode.m */; };
 		A35AD3971676644E001294C2 /* EnemyBehaviorSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A35AD3961676644E001294C2 /* EnemyBehaviorSystem.m */; };
@@ -116,6 +118,9 @@
 		A31C32B4166FBDF400B3B529 /* node.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = node.png; sourceTree = "<group>"; };
 		A32388D41676742D00D4A020 /* ProjectileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileSystem.h; sourceTree = "<group>"; };
 		A32388D51676742D00D4A020 /* ProjectileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectileSystem.m; sourceTree = "<group>"; };
+		A32388E31676A35F00D4A020 /* BoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingBox.h; sourceTree = "<group>"; };
+		A32388E41676A35F00D4A020 /* BoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoundingBox.m; sourceTree = "<group>"; };
+		A32388E61676A76500D4A020 /* BoundingBoxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoundingBoxSpec.m; sourceTree = "<group>"; };
 		A3518E38167303E000D47310 /* QuadtreeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadtreeSpec.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		A3541B3916681116004531C1 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
@@ -320,6 +325,7 @@
 				A374CB3C166E685A00286090 /* PathfinderSpec.m */,
 				A378987F166E9F1F009C13EE /* MapGridSpec.m */,
 				A3518E38167303E000D47310 /* QuadtreeSpec.m */,
+				A32388E61676A76500D4A020 /* BoundingBoxSpec.m */,
 			);
 			path = KiwiUnitTest;
 			sourceTree = "<group>";
@@ -492,6 +498,8 @@
 				A317B9C91669CFBF00B5D78E /* Pathfinder.m */,
 				8742582316778E1200ABF997 /* FPSMeter.h */,
 				8742582416778E1200ABF997 /* FPSMeter.m */,
+				A32388E31676A35F00D4A020 /* BoundingBox.h */,
+				A32388E41676A35F00D4A020 /* BoundingBox.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -641,6 +649,7 @@
 				A374CB3D166E685A00286090 /* PathfinderSpec.m in Sources */,
 				A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */,
 				A3518E39167303E000D47310 /* QuadtreeSpec.m in Sources */,
+				A32388E71676A76500D4A020 /* BoundingBoxSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +700,7 @@
 				A35AD3971676644E001294C2 /* EnemyBehaviorSystem.m in Sources */,
 				A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */,
 				8742582516778E1200ABF997 /* FPSMeter.m in Sources */,
+				A32388E51676A35F00D4A020 /* BoundingBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
