@@ -14,6 +14,7 @@
 		87149EE9166FB56B00D92227 /* BasicFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 87149EE8166FB56B00D92227 /* BasicFragment.glsl */; };
 		87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149EEB166FB90600D92227 /* ShaderProgram.m */; };
 		87149EEE166FB9B900D92227 /* programs.json in Resources */ = {isa = PBXBuildFile; fileRef = 87149EED166FB9B900D92227 /* programs.json */; };
+		8742582516778E1200ABF997 /* FPSMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742582416778E1200ABF997 /* FPSMeter.m */; };
 		8782C7271676592900C24790 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7261676592800C24790 /* enemy.png */; };
 		8782C72A16765AF700C24790 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C72916765AF700C24790 /* obstacle.png */; };
 		8782C7341676672900C24790 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7331676672900C24790 /* map.json */; };
@@ -98,6 +99,8 @@
 		87149EEA166FB90600D92227 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		87149EEB166FB90600D92227 /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
 		87149EED166FB9B900D92227 /* programs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programs.json; sourceTree = "<group>"; };
+		8742582316778E1200ABF997 /* FPSMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSMeter.h; sourceTree = "<group>"; };
+		8742582416778E1200ABF997 /* FPSMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSMeter.m; sourceTree = "<group>"; };
 		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8782C7331676672900C24790 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 				A3541B3916681116004531C1 /* MapNode.m */,
 				A317B9C81669CFBF00B5D78E /* Pathfinder.h */,
 				A317B9C91669CFBF00B5D78E /* Pathfinder.m */,
+				8742582316778E1200ABF997 /* FPSMeter.h */,
+				8742582416778E1200ABF997 /* FPSMeter.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -685,6 +690,7 @@
 				A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */,
 				A35AD3971676644E001294C2 /* EnemyBehaviorSystem.m in Sources */,
 				A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */,
+				8742582516778E1200ABF997 /* FPSMeter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
