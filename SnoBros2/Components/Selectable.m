@@ -12,6 +12,8 @@
 #import "Entity.h"
 #import "Sprite.h"
 
+#import "BoundingBox.h"
+
 @implementation Selectable
 
 @synthesize selected = selected_;
@@ -44,13 +46,10 @@
 
 
 
-- (BOOL)isInRectangle:(CGRect)rectangle {
+- (BOOL)isInBoundingBox:(BoundingBox *)boundingBox {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
-  GLKVector2 pos = transform.position;
-  return (pos.x > rectangle.origin.x &&
-          pos.x < rectangle.origin.x + rectangle.size.width &&
-          pos.y > rectangle.origin.y &&
-          pos.y < rectangle.origin.y + rectangle.size.height);
+  return [boundingBox containsPoint:CGPointMake(transform.position.x,
+                                                transform.position.y)];
 }
 
 

@@ -11,10 +11,11 @@
 #import "MapGrid.h"
 
 #import "MapNode.h"
+#import "BoundingBox.h"
 
 @implementation MapGrid
 
-- (id)initWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize {
+- (id)initWithBounds:(BoundingBox *)bounds nodeSize:(CGSize)nodeSize {
   self = [super init];
   if (self) {
     bounds_   = bounds;
@@ -27,17 +28,17 @@
 
 
 
-- (NSArray *)buildGridWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize {
-  int gridWidth  = bounds.size.width  / nodeSize.width;
-  int gridHeight = bounds.size.height / nodeSize.height;
+- (NSArray *)buildGridWithBounds:(BoundingBox *)bounds nodeSize:(CGSize)nodeSize {
+  int gridWidth  = bounds.width  / nodeSize.width;
+  int gridHeight = bounds.height / nodeSize.height;
 
   NSMutableArray *nodes = [[NSMutableArray alloc] init];
   for (int i = 0; i < gridWidth; i++) {
     NSMutableArray *column = [[NSMutableArray alloc] init];
     for (int j = 0; j < gridHeight; j++) {
 
-      GLKVector2 position = GLKVector2Make(bounds.origin.x + (i * nodeSize.width)  + (nodeSize.width / 2),
-                                           bounds.origin.y + (j * nodeSize.height) + (nodeSize.height / 2));
+      GLKVector2 position = GLKVector2Make((i * nodeSize.width)  + (nodeSize.width / 2),
+                                           (j * nodeSize.height) + (nodeSize.height / 2));
 
       MapNode *node = [[MapNode alloc] initWithPosition:position
                                                    size:nodeSize];
@@ -65,8 +66,8 @@
 
 
 - (GLKVector2)gridCoordinatesFromRealCoordinates:(GLKVector2)realCoordinates {
-  int gridWidth  = bounds_.size.width  / nodeSize_.width;
-  int gridHeight = bounds_.size.height / nodeSize_.height;
+  int gridWidth  = bounds_.width  / nodeSize_.width;
+  int gridHeight = bounds_.height / nodeSize_.height;
 
   int x = (realCoordinates.x / nodeSize_.width);
   int y = (realCoordinates.y / nodeSize_.height);

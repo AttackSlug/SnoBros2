@@ -33,6 +33,6 @@ typedef float(^Heuristic)(MapNode *, MapNode *, int);
                        to:(MapNode *)end
                 forEntity:(Entity *)entity;
 - (NSArray *)buildPathWithEnd:(MapNode *)end;
-- (bool)isNodeTraversable:(MapNode *)node;
+- (bool)isNodeTraversable:(MapNode *)node forEntity:(Entity *)entity;
 
 @end

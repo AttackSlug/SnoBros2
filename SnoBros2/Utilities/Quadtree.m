@@ -8,12 +8,14 @@
 
 #import "Quadtree.h"
 
+#import "BoundingBox.h"
+
 @implementation Quadtree
 
 @synthesize maxObjects = maxObjects_;
 @synthesize maxLevels  = maxLevels_;
 
-- (id)initWithBounds:(CGRect)bounds
+- (id)initWithBounds:(BoundingBox *)bounds
                level:(int)level
           maxObjects:(int)maxObjects
            maxLevels:(int)maxLevels {
@@ -23,7 +25,7 @@
     level_      = level;
     maxObjects_ = maxObjects;
     maxLevels_  = maxLevels;
-    objects_    = [[NSMutableDictionary alloc] init];
+    objects_    = [[NSMutableArray alloc] init];
 
     [self subdivideRectangle];
   }
@@ -32,7 +34,7 @@
 
 
 
-- (id)initWithBounds:(CGRect)bounds {
+- (id)initWithBounds:(BoundingBox *)bounds {
   return [self initWithBounds:bounds
                         level:0
                    maxObjects:DEFAULT_MAX_OBJECTS
@@ -42,22 +44,30 @@
 
 
 - (void)subdivideRectangle {
-  float  x = bounds_.origin.x;
-  float  y = bounds_.origin.y;
+  float  x = bounds_.x;
+  float  y = bounds_.y;
 
-  float  halfWidth     = bounds_.size.width  / 2;
-  float  halfHeight    = bounds_.size.height / 2;
+  float  halfWidth     = bounds_.width  / 2;
+  float  halfHeight    = bounds_.height / 2;
   float  quarterWidth  = halfWidth  / 2;
   float  quarterHeight = halfHeight / 2;
 
-  topLeft_     = CGRectMake(x - quarterWidth, y + quarterHeight,
-                            halfWidth, halfHeight);
-  topRight_    = CGRectMake(x + quarterWidth, y + quarterHeight,
-                            halfWidth, halfHeight);
-  bottomLeft_  = CGRectMake(x - quarterWidth, y - quarterHeight,
-                            halfWidth, halfHeight);
-  bottomRight_ = CGRectMake(x + quarterWidth, y - quarterHeight,
-                            halfWidth, halfHeight);
+  topLeft_ = [[BoundingBox alloc] initWithX:x - quarterWidth
+                                          Y:y + quarterHeight
+                                      width:halfWidth
+                                     height:halfHeight];
+  topRight_ = [[BoundingBox alloc] initWithX:x + quarterWidth
+                                           Y:y + quarterHeight
+                                       width:halfWidth
+                                      height:halfHeight];
+  bottomLeft_ = [[BoundingBox alloc] initWithX:x - quarterWidth
+                                             Y:y - quarterHeight
+                                         width:halfWidth
+                                        height:halfHeight];
+  bottomRight_ = [[BoundingBox alloc] initWithX:x + quarterWidth
+                                              Y:y - quarterHeight
+                                          width:halfWidth
+                                         height:halfHeight];
 }
 
 
@@ -93,22 +103,22 @@
 
 
 
-- (NSArray *)nodesContainingBoundingBox:(CGRect)boundingBox {
+- (NSArray *)nodesContainingBoundingBox:(BoundingBox *)boundingBox {
   NSMutableArray *found = [[NSMutableArray alloc] init];
 
-  if (nodes_[TOP_LEFT] && CGRectIntersectsRect(topLeft_, boundingBox)) {
+  if (nodes_[TOP_LEFT] && [topLeft_ intersectsWith:boundingBox]) {
     [found addObject:nodes_[TOP_LEFT]];
   }
 
-  if (nodes_[TOP_RIGHT] && CGRectIntersectsRect(topRight_, boundingBox)) {
+  if (nodes_[TOP_RIGHT] && [topRight_ intersectsWith:boundingBox]) {
     [found addObject:nodes_[TOP_RIGHT]];
   }
 
-  if (nodes_[BOTTOM_LEFT] && CGRectIntersectsRect(bottomLeft_, boundingBox)) {
+  if (nodes_[BOTTOM_LEFT] && [bottomLeft_ intersectsWith:boundingBox]) {
     [found addObject:nodes_[BOTTOM_LEFT]];
   }
 
-  if (nodes_[BOTTOM_RIGHT] && CGRectIntersectsRect(bottomRight_, boundingBox)) {
+  if (nodes_[BOTTOM_RIGHT] && [bottomRight_ intersectsWith:boundingBox]) {
     [found addObject:nodes_[BOTTOM_RIGHT]];
   }
 
@@ -117,7 +127,7 @@
 
 
 
-- (void)addObject:(id)object withBoundingBox:(CGRect)boundingBox {
+- (void)addObject:(id)object withBoundingBox:(BoundingBox *)boundingBox {
 
   if ([self isNotLeafNode]) {
     for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
@@ -126,10 +136,9 @@
     return;
   }
 
-  NSValue *key = [NSValue value:&boundingBox withObjCType:@encode(CGRect)];
-  [objects_ setObject:object forKey:key];
+  [objects_ addObject:@{@"boundingBox": boundingBox, @"object": object}];
 
-  if (objects_.count >= maxObjects_ && level_ < maxLevels_) {
+  if (objects_.count > maxObjects_ && level_ < maxLevels_) {
     if ([self isLeafNode]) {
       [self split];
     }
@@ -141,28 +150,29 @@
 
 
 - (void)redistributeObjects {
-  CGRect boundingBox;
-  for (id key in objects_) {
-    [key getValue:&boundingBox];
-    id object = objects_[key];
+  for (NSDictionary *entry in objects_) {
+    id object                = entry[@"object"];
+    BoundingBox *boundingBox = entry[@"boundingBox"];
     for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
       [node addObject:object withBoundingBox:boundingBox];
     }
   }
+  [objects_ removeAllObjects];
 }
 
 
 
-- (NSMutableArray *)retrieveObjectsNear:(CGRect)boundingBox {
+- (NSMutableArray *)retrieveObjectsNear:(BoundingBox *)boundingBox {
   NSMutableArray *found = [[NSMutableArray alloc] init];
-
 
   NSArray *nodes = [self nodesContainingBoundingBox:boundingBox];
   for (Quadtree *node in nodes) {
     [found addObjectsFromArray:[node retrieveObjectsNear:boundingBox]];
   }
 
-  [found addObjectsFromArray:[objects_ allValues]];
+  for (NSDictionary *entry in objects_) {
+    [found addObject:entry[@"object"]];
+  }
 
   return found;
 }

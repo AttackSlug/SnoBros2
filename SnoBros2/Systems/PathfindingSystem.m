@@ -11,6 +11,7 @@
 #import "MapGrid.h"
 #import "MapNode.h"
 #import "Pathfinder.h"
+#import "BoundingBox.h"
 
 #import "Entity.h"
 #import "EntityManager.h"
@@ -25,7 +26,10 @@
   if (self) {
     entityManager_ = entityManager;
 
-    CGRect bounds  = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
+    GLKVector2 origin = GLKVector2Make(512.f, 512.f);
+    CGSize boundsSize = CGSizeMake(1024.f, 1024.f);
+    BoundingBox *bounds = [[BoundingBox alloc] initWithOrigin:origin
+                                                         size:boundsSize];
     CGSize size    = CGSizeMake(32.f, 32.f);
     map_           = [[MapGrid alloc] initWithBounds:bounds nodeSize:size];
 

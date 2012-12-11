@@ -11,6 +11,8 @@
 #import "Entity.h"
 #import "Transform.h"
 
+#import "BoundingBox.h"
+
 @implementation MapNode
 
 @synthesize parent    = parent_;
@@ -59,8 +61,8 @@ self = [super init];
 
 
 
-- (CGRect)boundingBox {
-  return CGRectMake(position_.x, position_.y, size_.width, size_.height);
+- (BoundingBox *)boundingBox {
+  return [[BoundingBox alloc] initWithOrigin:position_ size:size_];
 }
 
 

@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @class MapNode;
+@class BoundingBox;
 
 typedef enum {
   TOP_LEFT,
@@ -24,11 +25,11 @@ typedef enum {
 
 @interface MapGrid : NSObject {
   CGSize          nodeSize_;
-  CGRect          bounds_;
+  BoundingBox    *bounds_;
   NSArray        *nodes_;
 }
 
-- (id)initWithBounds:(CGRect)bounds nodeSize:(CGSize)nodeSize;
+- (id)initWithBounds:(BoundingBox *)bounds nodeSize:(CGSize)nodeSize;
 
 - (MapNode *)findNodeByGridCoordinatesX:(int)x Y:(int)y;
 - (MapNode *)findNodeByRealCoordinates:(GLKVector2)realCoordinates;

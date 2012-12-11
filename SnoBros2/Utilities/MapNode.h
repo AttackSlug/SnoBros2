@@ -10,6 +10,7 @@
 #import <GLKit/GLKit.h>
 
 @class Entity;
+@class BoundingBox;
 
 @interface MapNode : NSObject {
   MapNode        *parent_;
@@ -33,7 +34,7 @@
 - (id)initWithPosition:(GLKVector2)position size:(CGSize)size;
 - (float)movementCostTo:(MapNode *)neighbor;
 - (NSArray *)findNeighbors;
-- (CGRect)boundingBox;
+- (BoundingBox *)boundingBox;
 - (void)display;
 
 @end

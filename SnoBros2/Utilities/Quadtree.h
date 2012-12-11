@@ -12,6 +12,8 @@
 #define DEFAULT_MAX_LEVELS   5
 #define NUM_NODES            4
 
+@class BoundingBox;
+
 enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 
 @interface Quadtree : NSObject {
@@ -19,24 +21,24 @@ enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
   int maxLevels_;
   int level_;
 
-  CGRect bounds_;
-  CGRect topLeft_;
-  CGRect topRight_;
-  CGRect bottomLeft_;
-  CGRect bottomRight_;
+  BoundingBox *bounds_;
+  BoundingBox *topLeft_;
+  BoundingBox *topRight_;
+  BoundingBox *bottomLeft_;
+  BoundingBox *bottomRight_;
 
-  Quadtree            *nodes_[NUM_NODES];
-  NSMutableDictionary *objects_;
+  Quadtree       *nodes_[NUM_NODES];
+  NSMutableArray *objects_;
 }
 
 @property (nonatomic, readonly) int maxObjects;
 @property (nonatomic, readonly) int maxLevels;
 
-- (id)initWithBounds:(CGRect)bounds
+- (id)initWithBounds:(BoundingBox *)bounds
                level:(int)level
           maxObjects:(int)maxObjects
            maxLevels:(int)maxLevels;
-- (id)initWithBounds:(CGRect)bounds;
+- (id)initWithBounds:(BoundingBox *)bounds;
 
 - (void)clear;
 - (void)split;
@@ -44,8 +46,8 @@ enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 - (bool)isNotLeafNode;
 - (void)subdivideRectangle;
 - (void)redistributeObjects;
-- (void)addObject:(id)object withBoundingBox:(CGRect)boundingBox;
-- (NSArray *)nodesContainingBoundingBox:(CGRect)boundingBox;
-- (NSArray *)retrieveObjectsNear:(CGRect)boundingBox;
+- (void)addObject:(id)object withBoundingBox:(BoundingBox *)boundingBox;
+- (NSArray *)nodesContainingBoundingBox:(BoundingBox *)boundingBox;
+- (NSArray *)retrieveObjectsNear:(BoundingBox *)boundingBox;
 
 @end
