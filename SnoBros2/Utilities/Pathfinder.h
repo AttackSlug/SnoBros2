@@ -12,6 +12,7 @@
 @class MapGrid;
 @class EntityManager;
 @class Quadtree;
+@class Entity;
 
 typedef float(^Heuristic)(MapNode *, MapNode *, int);
 
@@ -28,7 +29,9 @@ typedef float(^Heuristic)(MapNode *, MapNode *, int);
 - (id)initWithHeuristic:(Heuristic)heuristic
           entityManager:(EntityManager *)entityManager;
 
-- (NSArray *)findPathFrom:(MapNode *)start to:(MapNode *)end;
+- (NSArray *)findPathFrom:(MapNode *)start
+                       to:(MapNode *)end
+                forEntity:(Entity *)entity;
 - (NSArray *)buildPathWithEnd:(MapNode *)end;
 - (bool)isNodeTraversable:(MapNode *)node;
 

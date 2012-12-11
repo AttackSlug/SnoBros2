@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+@class Entity;
+
 @interface MapNode : NSObject {
   MapNode        *parent_;
   NSMutableArray *neighbors_;
@@ -17,6 +19,7 @@
   int             g_;
   int             h_;
   int             f_;
+  Entity         *entity_;
 }
 
 @property (nonatomic) MapNode        *parent;
@@ -31,5 +34,6 @@
 - (float)movementCostTo:(MapNode *)neighbor;
 - (NSArray *)findNeighbors;
 - (CGRect)boundingBox;
+- (void)display;
 
 @end

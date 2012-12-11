@@ -71,9 +71,11 @@
   int x = (realCoordinates.x / nodeSize_.width);
   int y = (realCoordinates.y / nodeSize_.height);
 
-  if (x >= gridWidth || y >= gridHeight || x < 0 || y < 0) {
-    return GLKVector2Make(0, 0);
-  }
+  x = (x < 0 ? 0 : x);
+  y = (y < 0 ? 0 : y);
+
+  x = (x >= gridWidth  ? gridWidth  - 1 : x);
+  y = (y >= gridHeight ? gridHeight - 1 : y);
 
   return GLKVector2Make(x, y);
 }

@@ -77,11 +77,19 @@
   MapNode *end           = [map_ findNodeByRealCoordinates:target];
 
   NSMutableArray *vectorPath = [[NSMutableArray alloc] init];
-  NSArray *nodePath = [pathfinder findPathFrom:start to:end];
+  NSArray *nodePath = [pathfinder findPathFrom:start to:end forEntity:entity];
 
   for (MapNode *node in nodePath) {
     GLKVector2 nodePosition = node.position;
     NSValue *vector = [NSValue value:&nodePosition
+                        withObjCType:@encode(GLKVector2)];
+    [vectorPath addObject:vector];
+  }
+
+  if (vectorPath.count > 0) {
+    // The target itself should be the final waypoint
+    [vectorPath removeLastObject];
+    NSValue *vector = [NSValue value:&target
                         withObjCType:@encode(GLKVector2)];
     [vectorPath addObject:vector];
   }

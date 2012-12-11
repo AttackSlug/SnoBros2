@@ -27,21 +27,11 @@ self = [super init];
     neighbors_ = [[NSMutableArray alloc] init];
     position_  = position;
     size_      = size;
-    
+
     int _DEBUG = 0;
-    
+
     if (_DEBUG) {
-      void (^callback)(Entity *) = ^(Entity *entity){
-        Transform  *transform = [entity getComponentByString:@"Transform"];
-        transform.position = position;
-        //transform.scale    = GLKVector2Make(2.f, 2.f);
-      };
-    
-      NSDictionary *data = @{@"type": @"MapNode", @"callback": callback};
- 
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"createEntity"
-                                                          object:self
-                                                        userInfo:data];
+      [self display];
     }
   }
   return self;
@@ -71,6 +61,33 @@ self = [super init];
 
 - (CGRect)boundingBox {
   return CGRectMake(position_.x, position_.y, size_.width, size_.height);
+}
+
+
+
+- (void)display {
+  void (^callback)(Entity *) = ^(Entity *entity){
+    Transform  *transform = [entity getComponentByString:@"Transform"];
+    transform.position = position_;
+    entity_ = entity;
+  };
+
+  NSDictionary *data = @{@"type": @"MapNode", @"callback": callback};
+
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"createEntity"
+                                                      object:self
+                                                    userInfo:data];
+}
+
+
+
+- (void)hide {
+  if (entity_) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"destroyEntity"
+                                                        object:self
+                                                      userInfo:@{@"entity": entity_}];
+    entity_ = nil;
+  }
 }
 
 @end

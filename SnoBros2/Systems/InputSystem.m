@@ -64,8 +64,6 @@
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
-      Health *health = [e getComponentByString:@"Health"];
-      [health heal:40];
 
       NSDictionary *pathData = @{@"entity": e, @"target": target};
       [[NSNotificationCenter defaultCenter] postNotificationName:@"findPath"
