@@ -8,6 +8,8 @@
 
 #import "Transform.h"
 
+#import "BoundingBox.h"
+
 @implementation Transform
 
 @synthesize position = position_;
@@ -49,8 +51,8 @@
 
 
 
-- (bool)isCenterInRectangle:(CGRect)rectangle {
-  return CGRectContainsPoint(rectangle, CGPointMake(position_.x, position_.y));
+- (bool)isCenterInBoundingBox:(BoundingBox *)boundingBox {
+  return [boundingBox containsPoint:CGPointMake(position_.x, position_.y)];
 }
 
 

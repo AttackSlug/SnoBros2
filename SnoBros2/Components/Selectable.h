@@ -10,6 +10,8 @@
 
 #import "Component.h"
 
+@class BoundingBox;
+
 @interface Selectable : Component {
   BOOL  selected_;
 }
@@ -20,7 +22,7 @@
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
 
 - (BOOL)isAtLocation:(GLKVector2)location;
-- (BOOL)isInRectangle:(CGRect)rectangle;
+- (BOOL)isInBoundingBox:(BoundingBox *)rectangle;
 
 - (void)selectUnit;
 - (void)deselectUnit;

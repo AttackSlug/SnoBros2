@@ -203,12 +203,12 @@
 
 
 
-- (NSArray *)findAllWithinRectangle:(CGRect)rectangle {
+- (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox {
   NSMutableArray *found = [[NSMutableArray alloc] init];
 
   for (Entity *ent in [self findAllWithComponent:@"Transform"]) {
     Transform *transform = [ent getComponentByString:@"Transform"];
-    if ([transform isCenterInRectangle:rectangle]) {
+    if ([transform isCenterInBoundingBox:boundingBox]) {
       [found addObject:ent];
     }
   }

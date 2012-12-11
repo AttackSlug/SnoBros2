@@ -11,6 +11,7 @@
 
 @class EntityManager;
 @class Entity;
+@class BoundingBox;
 
 @interface SelectionSystem : NSObject {
   EntityManager *entityManager_;
@@ -24,7 +25,7 @@
 - (void)selectById:(NSString *)entityId;
 - (void)selectEntity:(Entity *)entity;
 - (Entity *)selectEntityDisplayedAtPosition:(GLKVector2)target;
-- (void)selectAllWithinRectangle:(CGRect)rectangle;
+- (void)selectAllWithinBoundingBox:(BoundingBox *)boundingBox;
 - (void)deselectAll;
 
 @end

@@ -7,20 +7,28 @@
 #import "Transform.h"
 #import "Collision.h"
 
+#import "BoundingBox.h"
+
 SPEC_BEGIN(PathfinderSpec)
 
 describe(@"Pathfinder", ^{
 
-  __block MapGrid *map;
-  __block Pathfinder *pathfinder;
+  __block MapGrid       *map;
+  __block Pathfinder    *pathfinder;
   __block EntityManager *entityManager;
-  CGRect bounds       = CGRectMake(0.f, 0.f, 4.f, 4.f);
+  __block BoundingBox   *bounds;
+
+  GLKVector2 origin = GLKVector2Make(2.f, 2.f);
+  CGSize boundsSize = CGSizeMake(4.f, 4.f);
+
   CGSize size         = CGSizeMake(1.f, 1.f);
   Heuristic heuristic = [Pathfinder manhattanDistance];
 
 
   beforeEach(^{
     entityManager = [[EntityManager alloc] init];
+    bounds        = [[BoundingBox alloc] initWithOrigin:origin
+                                                   size:boundsSize];
     map           = [[MapGrid alloc] initWithBounds:bounds nodeSize:size];
     pathfinder    = [[Pathfinder alloc] initWithHeuristic:heuristic
                                             entityManager:entityManager];
@@ -35,12 +43,11 @@ describe(@"Pathfinder", ^{
       MapNode *start = [map findNodeByGridCoordinatesX: 0 Y: 0];
       MapNode *end   = [map findNodeByGridCoordinatesX: 3 Y: 3];
 
-      NSArray *path = [pathfinder findPathFrom:start to:end];
+      NSArray *path = [pathfinder findPathFrom:start to:end forEntity:nil];
 
-      [[path[0] should] equal:start];
-      [[path[1] should] equal:[map findNodeByGridCoordinatesX:1 Y:1]];
-      [[path[2] should] equal:[map findNodeByGridCoordinatesX:2 Y:2]];
-      [[path[3] should] equal:end];
+      [[path[0] should] equal:[map findNodeByGridCoordinatesX:1 Y:1]];
+      [[path[1] should] equal:[map findNodeByGridCoordinatesX:2 Y:2]];
+      [[path[2] should] equal:end];
     });
   });
 
@@ -50,11 +57,11 @@ describe(@"Pathfinder", ^{
     __block Entity *obstacle;
 
     beforeEach(^{
-      obstacle  = [entityManager buildAndAddEntity:@"Unit1"];
+      obstacle             = [entityManager buildAndAddEntity:@"Obstacle"];
       Transform *transform = [obstacle getComponentByString:@"Transform"];
       Collision *collision = [obstacle getComponentByString:@"Collision"];
       transform.position   = GLKVector2Make(1.5f, 1.5f);
-      collision.radius     = 1.f;
+      collision.radius     = 0.5f;
     });
 
 
@@ -62,13 +69,13 @@ describe(@"Pathfinder", ^{
       MapNode *start = [map findNodeByGridCoordinatesX: 0 Y: 0];
       MapNode *end   = [map findNodeByGridCoordinatesX: 3 Y: 3];
 
-      NSArray *path = [pathfinder findPathFrom:start to:end];
+      NSArray *path  = [pathfinder findPathFrom:start to:end forEntity:nil];
 
-      [[path[0] should] equal:start];
-      [[path[1] should] equal:[map findNodeByGridCoordinatesX:1 Y:0]];
-      [[path[2] should] equal:[map findNodeByGridCoordinatesX:2 Y:1]];
-      [[path[3] should] equal:[map findNodeByGridCoordinatesX:3 Y:2]];
-      [[path[4] should] equal:end];
+
+      [[path[0] should] equal:[map findNodeByGridCoordinatesX:1 Y:0]];
+      [[path[1] should] equal:[map findNodeByGridCoordinatesX:2 Y:1]];
+      [[path[2] should] equal:[map findNodeByGridCoordinatesX:3 Y:2]];
+      [[path[3] should] equal:end];
     });
   });
 });

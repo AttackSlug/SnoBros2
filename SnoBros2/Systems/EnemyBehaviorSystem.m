@@ -15,6 +15,7 @@
 #import "Collision.h"
 
 #import "Quadtree.h"
+#import "BoundingBox.h"
 
 @implementation EnemyBehaviorSystem
 
@@ -22,8 +23,12 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-    quadtree_      = [[Quadtree alloc] initWithBounds:CGRectMake(0.f, 0.f,
-                                                                1024.f, 1024.f)];
+
+    GLKVector2 boundsOrigin = GLKVector2Make(512.f, 512.f);
+    CGSize     boundsSize   = CGSizeMake(1024.f, 1024.f);
+    BoundingBox *bounds     = [[BoundingBox alloc] initWithOrigin:boundsOrigin
+                                                             size:boundsSize];
+    quadtree_               = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
 }
@@ -49,9 +54,9 @@
   }
 
   for (Entity *player in players) {
-    Transform *transform = [player getComponentByString:@"Transform"];
-    CGRect rangeBounds   = CGRectMake(transform.position.x, transform.position.y,
-                                      maxRange, maxRange);
+    Transform   *transform   = [player getComponentByString:@"Transform"];
+    BoundingBox *rangeBounds = [[BoundingBox alloc] initWithOrigin:transform.position
+                                                              size:CGSizeMake(maxRange, maxRange)];
 
     inRange = [quadtree_ retrieveObjectsNear:rangeBounds];
 

@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @class Entity;
+@class BoundingBox;
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
@@ -35,8 +36,8 @@
 - (NSArray *)findByTag:(NSString *)tag;
 - (Entity  *)findById:(NSString *)entityId;
 - (NSArray *)findByTeamName:(NSString *)name;
-- (NSArray *)findAllWithinRectangle:(CGRect)rectangle;
 - (NSArray *)findAllWithComponent:(NSString *)component;
 - (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
+- (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
 
 @end

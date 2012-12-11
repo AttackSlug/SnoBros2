@@ -14,6 +14,8 @@
 #import "Entity.h"
 #import "Collision.h"
 
+#import "BoundingBox.h"
+
 @implementation Pathfinder
 
 - (id)initWithHeuristic:(Heuristic)heuristic
@@ -24,7 +26,9 @@
     entityManager_ = entityManager;
 
     //FIXME: Temporarily hardcoded bounds
-    CGRect bounds  = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
+    GLKVector2   origin = GLKVector2Make(512.f, 512.f);
+    CGSize       size   = CGSizeMake(1024.f, 1024.f);
+    BoundingBox *bounds = [[BoundingBox alloc] initWithOrigin:origin size:size];
     obstacleTree_  = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
@@ -149,8 +153,8 @@
 
   NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
   for (Entity *entity in entities) {
-    Collision *collision   = [entity getComponentByString:@"Collision"];
-    CGRect     boundingBox = [collision boundingBox];
+    Collision   *collision   = [entity getComponentByString:@"Collision"];
+    BoundingBox *boundingBox = [collision boundingBox];
     [obstacleTree_ addObject:entity withBoundingBox:boundingBox];
   }
 }
@@ -160,16 +164,16 @@
 - (bool)isNodeTraversable:(MapNode *)node forEntity:(Entity *)entity {
   NSArray *obstacles = [obstacleTree_ retrieveObjectsNear:node.boundingBox];
 
-   for (Entity *obstacle in obstacles) {
-     if (obstacle == entity) {
-       continue;
-     }
+  for (Entity *obstacle in obstacles) {
+    if (obstacle == entity) {
+      continue;
+    }
 
-     Collision *collision = [obstacle getComponentByString:@"Collision"];
-     if (CGRectIntersectsRect(collision.boundingBox, node.boundingBox)) {
-       return false;
-     }
-   }
+    Collision *collision = [obstacle getComponentByString:@"Collision"];
+    if ([collision.boundingBox intersectsWith:node.boundingBox]) {
+      return false;
+    }
+  }
 
   return true;
 }

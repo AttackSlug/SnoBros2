@@ -9,16 +9,16 @@
 #include "Component.h"
 
 @class Entity;
+@class BoundingBox;
 
 @interface Collision : Component {
   float radius_;
 }
 
-@property (nonatomic) float radius;
+@property (nonatomic)           float        radius;
+@property (nonatomic, readonly) BoundingBox *boundingBox;
 
 - (id)initWithEntity:(Entity *)entity radius:(float)radius;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
-
-- (CGRect)boundingBox;
 
 @end
