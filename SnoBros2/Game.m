@@ -67,7 +67,7 @@
                                                         spriteManager:spriteManager_
                                                                camera:camera_];
 
-    GLKVector2    target  = GLKVector2Make(192.f, 128.f);
+    GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
                                            withObjCType:@encode(GLKVector2)]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"

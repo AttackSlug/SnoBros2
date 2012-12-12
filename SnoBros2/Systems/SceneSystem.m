@@ -42,9 +42,10 @@
 
 - (void)updateViewableEntities {
   NSMutableArray *entitiesToDraw = [entityManager_ findAllWithComponent:@"SceneGraph"];
-  BoundingBox *cameraBox = [[BoundingBox alloc] initWithOrigin:camera_.position
-                                                            size:CGSizeMake(camera_.viewport.x,
-                                                                            camera_.viewport.y)];
+  BoundingBox *cameraBox = [[BoundingBox alloc] initWithX:camera_.position.x + camera_.viewport.x / 2
+                                                        Y:camera_.position.y + camera_.viewport.y / 2
+                                                    width:camera_.viewport.x
+                                                   height:camera_.viewport.y];
   
   for (int i = 0; i < [entitiesToDraw count]; i++) {
     Entity *entity = [entitiesToDraw objectAtIndex:i];
