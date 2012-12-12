@@ -26,6 +26,7 @@
 - (void)queueForDeletion:(Entity *)entity;
 - (void)queueForCreation:(Entity *)entity;
 - (void)processQueue;
+- (void)update;
 
 - (Entity *)buildEntity:(NSString *)type;
 - (Entity *)buildAndAddEntity:(NSString *)type;

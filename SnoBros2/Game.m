@@ -92,9 +92,7 @@
 
 
 - (void)step {
-  for (Entity *e in [entityManager_ allEntities]) {
-    [e update];
-  }
+  [entityManager_ update];
   
   //[collisionSystem_     update];
   [movementSystem_      update];

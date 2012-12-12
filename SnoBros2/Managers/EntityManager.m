@@ -231,4 +231,12 @@
   [toBeDeleted_ removeAllObjects];
 }
 
+
+
+- (void)update {
+  [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+    [object update];
+  }];
+}
+
 @end
