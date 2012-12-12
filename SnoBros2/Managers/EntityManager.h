@@ -14,6 +14,7 @@
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
+  NSMutableDictionary *entitiesByComponent_;
   NSMutableArray      *toBeDeleted_;
   NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
@@ -39,5 +40,7 @@
 - (NSArray *)findAllWithComponent:(NSString *)component;
 - (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
+
+- (void)logState;
 
 @end

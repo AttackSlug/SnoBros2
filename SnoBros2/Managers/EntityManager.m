@@ -21,8 +21,9 @@
 - (id)init {
   self = [super init];
   if (self) {
-    entities_    = [[NSMutableDictionary alloc] init];
-    entityTypes_ = [[NSMutableDictionary alloc] init];
+    entities_             = [[NSMutableDictionary alloc] init];
+    entityTypes_          = [[NSMutableDictionary alloc] init];
+    entitiesByComponent_  = [[NSMutableDictionary alloc] init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -41,12 +42,21 @@
 
 - (void)add:(Entity *)entity {
   [entities_ setValue:entity forKey:entity.uuid];
+  for (id key in entity.components) {
+    if (entitiesByComponent_[key] == nil) {
+      entitiesByComponent_[key] = [[NSMutableArray alloc] init];
+    }
+    [entitiesByComponent_[key] addObject:entity];
+  }
 }
 
 
 
 - (void)remove:(Entity *)entity {
   [entities_ removeObjectForKey:entity.uuid];
+  for (id key in entity.components) {
+    [entitiesByComponent_[key] removeObject:entity];
+  }
 }
 
 
@@ -158,6 +168,7 @@
 
 
 - (NSArray *)findAllWithComponent:(NSString *)component {
+  /*
   NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:150];
   
   for (Entity *e in [entities_ allValues]) {
@@ -167,6 +178,10 @@
   }
 
   return found;
+  */
+  NSMutableArray *found = [[NSMutableArray alloc] initWithArray:entitiesByComponent_[component]];
+  return found;
+  
 }
 
 
@@ -237,6 +252,17 @@
   [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
     [object update];
   }];
+}
+
+
+
+- (void)logState {
+  int ct = 0;
+  for (NSArray *array in [entitiesByComponent_ allValues]) {
+    ct += [array count];
+  }
+  NSLog(@"count: %d", ct);
+  //NSLog(@"%@", entitiesByComponent_);
 }
 
 @end
