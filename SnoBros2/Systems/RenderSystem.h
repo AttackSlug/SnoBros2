@@ -26,7 +26,9 @@
   Camera        *camera_;
 }
 
-- (id)initWithEntityManager:(EntityManager *)entityManager camera:(Camera *)camera;
+- (id)initWithEntityManager:(EntityManager *)entityManager
+              spriteManager:(SpriteManager *)spriteManager
+                     camera:(Camera *)camera;
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;

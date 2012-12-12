@@ -21,13 +21,14 @@
 
 @implementation RenderSystem
 
-- (id)initWithEntityManager:(EntityManager *)entityManager camera:(Camera *)camera {
+- (id)initWithEntityManager:(EntityManager *)entityManager
+              spriteManager:(SpriteManager *)spriteManager
+                     camera:(Camera *)camera {
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
     
-    spriteManager_  = [[SpriteManager alloc] init];
-    [spriteManager_ loadEntityTypesFromFile:@"sprites"];
+    spriteManager_  = spriteManager;
     
     shaderManager_  = [[ShaderManager alloc] init];
     [shaderManager_ loadShadersFromFile:@"shaders"];
@@ -49,7 +50,8 @@
 
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio {
-  for (Entity *e in [entityManager_ allSortedByLayer]) {
+  NSMutableArray *entities = entityManager_.entitiesInViewPort;
+  for (Entity *e in entities) {
     [self renderEntity:e withInterpolationRatio:ratio];
   }
 }

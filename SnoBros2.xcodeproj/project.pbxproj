@@ -15,6 +15,7 @@
 		87149EEC166FB90600D92227 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 87149EEB166FB90600D92227 /* ShaderProgram.m */; };
 		87149EEE166FB9B900D92227 /* programs.json in Resources */ = {isa = PBXBuildFile; fileRef = 87149EED166FB9B900D92227 /* programs.json */; };
 		8742582516778E1200ABF997 /* FPSMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742582416778E1200ABF997 /* FPSMeter.m */; };
+		87595BCE1678E95B008D4DF0 /* SceneSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595BCD1678E95B008D4DF0 /* SceneSystem.m */; };
 		8782C7271676592900C24790 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7261676592800C24790 /* enemy.png */; };
 		8782C72A16765AF700C24790 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C72916765AF700C24790 /* obstacle.png */; };
 		8782C7341676672900C24790 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7331676672900C24790 /* map.json */; };
@@ -103,6 +104,8 @@
 		87149EED166FB9B900D92227 /* programs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programs.json; sourceTree = "<group>"; };
 		8742582316778E1200ABF997 /* FPSMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSMeter.h; sourceTree = "<group>"; };
 		8742582416778E1200ABF997 /* FPSMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSMeter.m; sourceTree = "<group>"; };
+		87595BCC1678E95B008D4DF0 /* SceneSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneSystem.h; sourceTree = "<group>"; };
+		87595BCD1678E95B008D4DF0 /* SceneSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneSystem.m; sourceTree = "<group>"; };
 		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8782C7331676672900C24790 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
@@ -132,7 +135,7 @@
 		A374CB3C166E685A00286090 /* PathfinderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathfinderSpec.m; sourceTree = "<group>"; };
 		A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KiwiUnitTest.a"; path = "../Pods/build/Release-iphoneos/libPods-KiwiUnitTest.a"; sourceTree = "<group>"; };
 		A3789879166E9ECE009C13EE /* SnoBros2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoBros2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = KiwiUnitTest.octest; path = "/Users/tsinha/src/iOS/SnoBros2/build/Debug-iphoneos/KiwiUnitTest.octest"; sourceTree = "<absolute>"; };
 		A378987F166E9F1F009C13EE /* MapGridSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGridSpec.m; sourceTree = "<group>"; };
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
@@ -349,7 +352,6 @@
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3789879166E9ECE009C13EE /* SnoBros2.app */,
-				A378987B166E9ECE009C13EE /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -477,6 +479,8 @@
 				A35AD3961676644E001294C2 /* EnemyBehaviorSystem.m */,
 				A32388D41676742D00D4A020 /* ProjectileSystem.h */,
 				A32388D51676742D00D4A020 /* ProjectileSystem.m */,
+				87595BCC1678E95B008D4DF0 /* SceneSystem.h */,
+				87595BCD1678E95B008D4DF0 /* SceneSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -701,6 +705,7 @@
 				A32388D61676742D00D4A020 /* ProjectileSystem.m in Sources */,
 				8742582516778E1200ABF997 /* FPSMeter.m in Sources */,
 				A32388E51676A35F00D4A020 /* BoundingBox.m in Sources */,
+				87595BCE1678E95B008D4DF0 /* SceneSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

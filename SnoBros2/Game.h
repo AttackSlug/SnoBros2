@@ -10,6 +10,7 @@
 
 @class Camera;
 @class EntityManager;
+@class SpriteManager;
 @class CollisionSystem;
 @class InputSystem;
 @class RenderSystem;
@@ -18,12 +19,14 @@
 @class MovementSystem;
 @class EnemyBehaviorSystem;
 @class ProjectileSystem;
+@class SceneSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
   EntityManager         *entityManager_;
+  SpriteManager         *spriteManager_;
 
   Camera                *camera_;
   CollisionSystem       *collisionSystem_;
@@ -34,6 +37,7 @@ const static int   MAX_STEPS         = 5;
   MovementSystem        *movementSystem_;
   EnemyBehaviorSystem   *enemyBehaviorSystem_;
   ProjectileSystem      *projectileSystem_;
+  SceneSystem           *sceneSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;

@@ -18,12 +18,14 @@
 
 @implementation EntityManager
 
+@synthesize entitiesInViewPort = entitiesInViewPort_;
 
 - (id)init {
   self = [super init];
   if (self) {
     entities_    = [[NSMutableDictionary alloc] init];
     entityTypes_ = [[NSMutableDictionary alloc] init];
+    entitiesInViewPort_ = [[NSMutableArray alloc] init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -149,6 +151,24 @@
     }
   }];
 
+  return sorted;
+}
+
+
+
+- (NSArray *)sortByLayer:(NSArray *)entities {
+  NSArray *sorted = [entities sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
+    SceneGraph *sceneGraph2 = [obj2 getComponentByString:@"SceneGraph"];
+    if (sceneGraph1.layer < sceneGraph2.layer) {
+      return (NSComparisonResult)NSOrderedAscending;
+    } else if (sceneGraph1.layer > sceneGraph2.layer) {
+      return (NSComparisonResult)NSOrderedDescending;
+    } else {
+      return (NSComparisonResult)NSOrderedSame;
+    }
+  }];
+  
   return sorted;
 }
 

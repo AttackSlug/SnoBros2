@@ -11,6 +11,7 @@
 #import "Camera.h"
 
 #import "EntityManager.h"
+#import "SpriteManager.h"
 #import "InputSystem.h"
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
@@ -20,6 +21,7 @@
 #import "MovementSystem.h"
 #import "EnemyBehaviorSystem.h"
 #import "ProjectileSystem.h"
+#import "SceneSystem.h"
 
 #import "Transform.h"
 #import "Physics.h"
@@ -36,18 +38,23 @@
     timestepAccumulatorRatio_ = 1.f;
 
     camera_          = [[Camera alloc] init];
+    
     entityManager_   = [[EntityManager alloc] init];
+    [entityManager_ loadEntityTypesFromFile:@"entities"];
+    [entityManager_ buildAndAddEntity:@"Map"];
+    [self loadMapFromFile:@"map"];
+    
+    spriteManager_   = [[SpriteManager alloc] init];
+    [spriteManager_ loadEntityTypesFromFile:@"sprites"];
+    
     selectionSystem_ = [[SelectionSystem alloc]
                         initWithEntityManager:entityManager_];
     collisionSystem_ = [[CollisionSystem alloc]
                         initWithEntityManager:entityManager_];
     renderSystem_    = [[RenderSystem alloc]
-                        initWithEntityManager:entityManager_ camera:camera_];
-
-    [entityManager_ loadEntityTypesFromFile:@"entities"];
-    [entityManager_ buildAndAddEntity:@"Map"];
-    
-    [self loadMapFromFile:@"map"];
+                          initWithEntityManager:entityManager_
+                                  spriteManager:spriteManager_
+                                         camera:camera_];
     
     pathfindingSystem_   = [[PathfindingSystem alloc]
                             initWithEntityManager:entityManager_];
@@ -56,6 +63,9 @@
     enemyBehaviorSystem_ = [[EnemyBehaviorSystem alloc]
                             initWithEntityManager:entityManager_];
     projectileSystem_    = [[ProjectileSystem alloc] init];
+    sceneSystem_         = [[SceneSystem alloc] initWithEntityManager:entityManager_
+                                                        spriteManager:spriteManager_
+                                                               camera:camera_];
 
     GLKVector2    target  = GLKVector2Make(192.f, 128.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -91,9 +101,10 @@
     [e update];
   }
 
-  [collisionSystem_     update];
+  //[collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];
+  [sceneSystem_ update];
 
   [camera_            update];
   [entityManager_ processQueue];
