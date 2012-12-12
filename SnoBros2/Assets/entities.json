@@ -1,7 +1,6 @@
 [
   {
-    "Name": "Map",
-    "Tag":  "map",
+    "Type": "Map",
     "Components": {
       "Transform": {
         "Type": "Transform",
@@ -21,8 +20,7 @@
     }
   },
   {
-    "Name": "Projectile",
-    "Tag":  "projectile",
+    "Type": "Projectile",
     "Components": {
       "Transform": {
         "Type": "Transform"
@@ -52,8 +50,7 @@
     }
   },
   {
-    "Name": "MainDude",
-    "Tag":  "maindude",
+    "Type": "MainDude",
     "Components": {
       "Transform": {
         "Type": "Transform",
@@ -115,8 +112,7 @@
     }
   },
   {
-    "Name": "Enemy",
-    "Tag":  "unit",
+    "Type": "Enemy",
     "Components": {
       "Transform": {
         "Type": "Transform",
@@ -159,8 +155,7 @@
     }
   },
   {
-    "Name": "Obstacle",
-    "Tag":  "unit",
+    "Type": "Obstacle",
     "Components": {
       "Transform": {
         "Type": "Transform",
@@ -191,8 +186,7 @@
     }
   },
   {
-    "Name": "MapNode",
-    "Tag":  "MapNode",
+    "Type": "MapNode",
     "Components": {
       "Transform": {
         "Type": "Transform"

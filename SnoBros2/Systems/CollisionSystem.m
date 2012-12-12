@@ -36,7 +36,7 @@
 
 - (void)update {
   NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
-
+  
   [quadtree_ clear];
 
   for (Entity *entity in entities) {

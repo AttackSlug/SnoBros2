@@ -21,8 +21,9 @@
 - (id)init {
   self = [super init];
   if (self) {
-    entities_    = [[NSMutableDictionary alloc] init];
-    entityTypes_ = [[NSMutableDictionary alloc] init];
+    entities_             = [[NSMutableDictionary alloc] init];
+    entityTypes_          = [[NSMutableDictionary alloc] init];
+    entitiesByComponent_  = [[NSMutableDictionary alloc] init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -41,12 +42,21 @@
 
 - (void)add:(Entity *)entity {
   [entities_ setValue:entity forKey:entity.uuid];
+  for (id key in entity.components) {
+    if (entitiesByComponent_[key] == nil) {
+      entitiesByComponent_[key] = [[NSMutableArray alloc] init];
+    }
+    [entitiesByComponent_[key] addObject:entity];
+  }
 }
 
 
 
 - (void)remove:(Entity *)entity {
   [entities_ removeObjectForKey:entity.uuid];
+  for (id key in entity.components) {
+    [entitiesByComponent_[key] removeObject:entity];
+  }
 }
 
 
@@ -68,12 +78,12 @@
 
   if ([entityData isKindOfClass:[NSArray class]]) {
     for (NSDictionary *d in entityData) {
-      NSString *name = [d valueForKey:@"Name"];
-      [entityTypes_ setValue:d forKey:name];
+      NSString *type = [d valueForKey:@"Type"];
+      [entityTypes_ setValue:d forKey:type];
     }
   } else {
-    NSString *name = [entityData valueForKey:@"Name"];
-    [entityTypes_ setValue:entityData forKey:name];
+    NSString *type = [entityData valueForKey:@"Type"];
+    [entityTypes_ setValue:entityData forKey:type];
   }
 }
 
@@ -133,26 +143,6 @@
 
 
 
-//FIXME: I dont' like that this couples the EntityManager to the Renderer.
-- (NSArray *)allSortedByLayer {
-  NSArray *all = [entities_ allValues];
-  NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
-    SceneGraph *sceneGraph2 = [obj2 getComponentByString:@"SceneGraph"];
-    if (sceneGraph1.layer < sceneGraph2.layer) {
-      return (NSComparisonResult)NSOrderedAscending;
-    } else if (sceneGraph1.layer > sceneGraph2.layer) {
-      return (NSComparisonResult)NSOrderedDescending;
-    } else {
-      return (NSComparisonResult)NSOrderedSame;
-    }
-  }];
-
-  return sorted;
-}
-
-
-
 - (NSArray *)sortByLayer:(NSArray *)entities {
   NSArray *sorted = [entities sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
@@ -171,35 +161,8 @@
 
 
 
-- (Entity *)findById:(NSString *)entityId {
-  return [entities_ objectForKey:entityId];
-}
-
-
-
-- (NSArray *)findByTag:(NSString *)tag {
-  NSMutableArray *found = [[NSMutableArray alloc] init];
-
-  for (Entity *e in [entities_ allValues]) {
-    if ([e.tag isEqualToString:tag]) {
-      [found addObject:e];
-    }
-  }
-
-  return found;
-}
-
-
-
 - (NSArray *)findAllWithComponent:(NSString *)component {
-  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:150];
-  
-  for (Entity *e in [entities_ allValues]) {
-    if ([e hasComponent:component]) {
-      [found addObject:e];
-    }
-  }
-
+  NSMutableArray *found = [[NSMutableArray alloc] initWithArray:entitiesByComponent_[component]];
   return found;
 }
 
@@ -263,6 +226,14 @@
     [entities_ removeObjectForKey:e.uuid];
   }
   [toBeDeleted_ removeAllObjects];
+}
+
+
+
+- (void)update {
+  [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+    [object update];
+  }];
 }
 
 @end

@@ -13,19 +13,19 @@
 @class Component;
 
 @interface Entity : NSObject {
-  NSString     *tag_;
+  NSString     *type_;
   NSString     *uuid_;
   
   NSMutableDictionary *components_;
 }
 
-@property (nonatomic) NSString    *tag;
+@property (nonatomic) NSString    *type;
 @property (nonatomic) NSString    *uuid;
 
 @property (nonatomic) NSMutableDictionary *components;
 
 - (id)init;
-- (id)initWithTag:(NSString *)tag;
+- (id)initWithType:(NSString *)type;
 - (id)initWithDictionary:(NSDictionary *)data;
 
 - (void)update;

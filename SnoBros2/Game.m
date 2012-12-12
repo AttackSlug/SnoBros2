@@ -16,7 +16,6 @@
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
-#import "ShaderManager.h"
 #import "PathfindingSystem.h"
 #import "MovementSystem.h"
 #import "EnemyBehaviorSystem.h"
@@ -93,10 +92,8 @@
 
 
 - (void)step {
-  for (Entity *e in [entityManager_ allEntities]) {
-    [e update];
-  }
-
+  [entityManager_ update];
+  
   //[collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];
@@ -136,7 +133,7 @@
     NSDictionary *d = mapData[@"Objects"];
     for (id key in d) {
       Entity *e = [entityManager_ buildAndAddEntity:d[key]];
-      if ([e.tag isEqualToString:@"maindude"]) {
+      if ([e.type isEqualToString:@"MainDude"]) {
         [selectionSystem_ selectEntity:e];
       }
       Transform *transform = [e getComponentByString:@"Transform"];

@@ -22,7 +22,6 @@
 
 - (NSArray *)findAllSelected;
 - (BOOL)isEntitySelected;
-- (void)selectById:(NSString *)entityId;
 - (void)selectEntity:(Entity *)entity;
 - (Entity *)selectEntityDisplayedAtPosition:(GLKVector2)target;
 - (void)selectAllWithinBoundingBox:(BoundingBox *)boundingBox;
