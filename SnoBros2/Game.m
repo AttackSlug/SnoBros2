@@ -16,7 +16,6 @@
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
-#import "ShaderManager.h"
 #import "PathfindingSystem.h"
 #import "MovementSystem.h"
 #import "EnemyBehaviorSystem.h"
@@ -96,7 +95,7 @@
   for (Entity *e in [entityManager_ allEntities]) {
     [e update];
   }
-
+  
   //[collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];

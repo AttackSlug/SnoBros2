@@ -88,9 +88,9 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 
 
 - (void)update {
-  for (id key in components_) {
-    [[components_ objectForKey:key] update];
-  }
+  [components_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+    [object update];
+  }];
 }
 
 
