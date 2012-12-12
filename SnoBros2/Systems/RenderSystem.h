@@ -24,6 +24,8 @@
   ShaderManager *shaderManager_;
   SpriteManager *spriteManager_;
   Camera        *camera_;
+  
+  NSMutableArray *entitiesToDraw_;
 }
 
 - (id)initWithEntityManager:(EntityManager *)entityManager
@@ -36,5 +38,7 @@
 - (void)renderSceneNode:(SceneNode *)node;
 
 - (void)transformHealthBar:(SceneNode *)node withHealthComponent:(Health *)health;
+- (void)update;
+- (void)updateViewableEntities;
 
 @end

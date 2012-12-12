@@ -21,7 +21,6 @@
 #import "MovementSystem.h"
 #import "EnemyBehaviorSystem.h"
 #import "ProjectileSystem.h"
-#import "SceneSystem.h"
 
 #import "Transform.h"
 #import "Physics.h"
@@ -63,9 +62,6 @@
     enemyBehaviorSystem_ = [[EnemyBehaviorSystem alloc]
                             initWithEntityManager:entityManager_];
     projectileSystem_    = [[ProjectileSystem alloc] init];
-    sceneSystem_         = [[SceneSystem alloc] initWithEntityManager:entityManager_
-                                                        spriteManager:spriteManager_
-                                                               camera:camera_];
 
     GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -104,7 +100,7 @@
   //[collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];
-  [sceneSystem_ update];
+  [renderSystem_ update];
 
   [camera_            update];
   [entityManager_ processQueue];

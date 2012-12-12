@@ -17,10 +17,7 @@
   NSMutableArray      *toBeDeleted_;
   NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
-  NSMutableArray      *entitiesInViewPort_;
 }
-
-@property (nonatomic) NSMutableArray *entitiesInViewPort;
 
 - (id)init;
 

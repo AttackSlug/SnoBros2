@@ -18,6 +18,7 @@
 #import "SceneGraph.h"
 #import "SceneNode.h"
 #import "Health.h"
+#import "BoundingBox.h"
 
 @implementation RenderSystem
 
@@ -35,6 +36,8 @@
     [shaderManager_ loadProgramsFromFile:@"programs"];
     [shaderManager_ useProgramWithName:@"Basic"];
     
+    entitiesToDraw_ = [[NSMutableArray alloc] init];
+    
     camera_         = camera;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glCullFace(GL_FRONT);
@@ -50,8 +53,7 @@
 
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio {
-  NSMutableArray *entities = entityManager_.entitiesInViewPort;
-  for (Entity *e in entities) {
+  for (Entity *e in entitiesToDraw_) {
     [self renderEntity:e withInterpolationRatio:ratio];
   }
 }
@@ -148,6 +150,39 @@
   node.modelViewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeScale(percent, 1, 1),
                                                  GLKMatrix4MakeTranslation(0, ytrans, 0));
   node.visible = health.visible;
+}
+
+
+
+- (void)update {
+  [self updateViewableEntities];
+}
+
+
+
+- (void)updateViewableEntities {
+  entitiesToDraw_ = [entityManager_ findAllWithComponent:@"SceneGraph"];
+  BoundingBox *cameraBox = [[BoundingBox alloc] initWithX:camera_.position.x + camera_.viewport.x / 2
+                                                        Y:camera_.position.y + camera_.viewport.y / 2
+                                                    width:camera_.viewport.x
+                                                   height:camera_.viewport.y];
+  
+  for (int i = 0; i < [entitiesToDraw_ count]; i++) {
+    Entity *entity = [entitiesToDraw_ objectAtIndex:i];
+    SceneGraph *sceneGraph = [entity getComponentByString:@"SceneGraph"];
+    Sprite *sprite = [spriteManager_ getSpriteWithRef:sceneGraph.rootNode.spriteName];
+    Transform *transform  = [entity getComponentByString:@"Transform"];
+    BoundingBox *entityBox = [[BoundingBox alloc] initWithOrigin:GLKVector2Make(transform.position.x,
+                                                                                transform.position.y)
+                                                            size:CGSizeMake(sprite.width,
+                                                                            sprite.height)];
+    
+    if (![cameraBox intersectsWith:entityBox]) {
+      [entitiesToDraw_ removeObjectAtIndex:i];
+      i--;
+    }
+  }
+  entitiesToDraw_ = [entityManager_ sortByLayer:entitiesToDraw_];
 }
 
 @end

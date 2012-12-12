@@ -19,7 +19,6 @@
 @class MovementSystem;
 @class EnemyBehaviorSystem;
 @class ProjectileSystem;
-@class SceneSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
@@ -37,7 +36,6 @@ const static int   MAX_STEPS         = 5;
   MovementSystem        *movementSystem_;
   EnemyBehaviorSystem   *enemyBehaviorSystem_;
   ProjectileSystem      *projectileSystem_;
-  SceneSystem           *sceneSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;

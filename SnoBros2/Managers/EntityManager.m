@@ -18,14 +18,11 @@
 
 @implementation EntityManager
 
-@synthesize entitiesInViewPort = entitiesInViewPort_;
-
 - (id)init {
   self = [super init];
   if (self) {
     entities_    = [[NSMutableDictionary alloc] init];
     entityTypes_ = [[NSMutableDictionary alloc] init];
-    entitiesInViewPort_ = [[NSMutableArray alloc] init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -195,8 +192,8 @@
 
 
 - (NSArray *)findAllWithComponent:(NSString *)component {
-  NSMutableArray *found = [[NSMutableArray alloc] init];
-
+  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:150];
+  
   for (Entity *e in [entities_ allValues]) {
     if ([e hasComponent:component]) {
       [found addObject:e];
