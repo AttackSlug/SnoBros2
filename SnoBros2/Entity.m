@@ -35,20 +35,20 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 }
 
 @synthesize uuid        = uuid_;
-@synthesize tag         = tag_;
+@synthesize type         = type_;
 
 @synthesize components  = components_;
 
 - (id)init {
-  return [self initWithTag:@"untagged"];
+  return [self initWithType:@"untagged"];
 }
 
 
 
-- (id)initWithTag:(NSString *)tag {
+- (id)initWithType:(NSString *)type {
   self = [super init];
   if (self) {
-    tag_ = tag;
+    type_ = type;
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     uuid_ = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
@@ -60,7 +60,7 @@ NSArray *COMPONENT_LOAD_ORDER = nil;
 
 
 - (id)initWithDictionary:(NSDictionary *)data {
-  self = [self initWithTag:[data valueForKey:@"Tag"]];
+  self = [self initWithType:[data valueForKey:@"Type"]];
   if (self) {
     NSDictionary *components = data[@"Components"];
     for (NSString *componentName in COMPONENT_LOAD_ORDER) {

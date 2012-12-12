@@ -136,7 +136,7 @@
     NSDictionary *d = mapData[@"Objects"];
     for (id key in d) {
       Entity *e = [entityManager_ buildAndAddEntity:d[key]];
-      if ([e.tag isEqualToString:@"maindude"]) {
+      if ([e.type isEqualToString:@"MainDude"]) {
         [selectionSystem_ selectEntity:e];
       }
       Transform *transform = [e getComponentByString:@"Transform"];

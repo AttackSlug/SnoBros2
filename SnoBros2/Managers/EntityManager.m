@@ -68,12 +68,12 @@
 
   if ([entityData isKindOfClass:[NSArray class]]) {
     for (NSDictionary *d in entityData) {
-      NSString *name = [d valueForKey:@"Name"];
-      [entityTypes_ setValue:d forKey:name];
+      NSString *type = [d valueForKey:@"Type"];
+      [entityTypes_ setValue:d forKey:type];
     }
   } else {
-    NSString *name = [entityData valueForKey:@"Name"];
-    [entityTypes_ setValue:entityData forKey:name];
+    NSString *type = [entityData valueForKey:@"Type"];
+    [entityTypes_ setValue:entityData forKey:type];
   }
 }
 
@@ -133,26 +133,6 @@
 
 
 
-//FIXME: I dont' like that this couples the EntityManager to the Renderer.
-- (NSArray *)allSortedByLayer {
-  NSArray *all = [entities_ allValues];
-  NSArray *sorted = [all sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
-    SceneGraph *sceneGraph2 = [obj2 getComponentByString:@"SceneGraph"];
-    if (sceneGraph1.layer < sceneGraph2.layer) {
-      return (NSComparisonResult)NSOrderedAscending;
-    } else if (sceneGraph1.layer > sceneGraph2.layer) {
-      return (NSComparisonResult)NSOrderedDescending;
-    } else {
-      return (NSComparisonResult)NSOrderedSame;
-    }
-  }];
-
-  return sorted;
-}
-
-
-
 - (NSArray *)sortByLayer:(NSArray *)entities {
   NSArray *sorted = [entities sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
@@ -173,20 +153,6 @@
 
 - (Entity *)findById:(NSString *)entityId {
   return [entities_ objectForKey:entityId];
-}
-
-
-
-- (NSArray *)findByTag:(NSString *)tag {
-  NSMutableArray *found = [[NSMutableArray alloc] init];
-
-  for (Entity *e in [entities_ allValues]) {
-    if ([e.tag isEqualToString:tag]) {
-      [found addObject:e];
-    }
-  }
-
-  return found;
 }
 
 
