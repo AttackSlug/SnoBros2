@@ -14,7 +14,7 @@
   self = [super init];
   if (self) {
     rectangle_ = CGRectMake(origin.x - (size.width / 2.f),
-                            origin.y - (size.width / 2.f),
+                            origin.y - (size.height / 2.f),
                             size.width,
                             size.height);
   }

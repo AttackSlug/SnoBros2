@@ -11,6 +11,7 @@
 #import "Camera.h"
 
 #import "EntityManager.h"
+#import "SpriteManager.h"
 #import "InputSystem.h"
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
@@ -36,18 +37,23 @@
     timestepAccumulatorRatio_ = 1.f;
 
     camera_          = [[Camera alloc] init];
+    
     entityManager_   = [[EntityManager alloc] init];
+    [entityManager_ loadEntityTypesFromFile:@"entities"];
+    [entityManager_ buildAndAddEntity:@"Map"];
+    [self loadMapFromFile:@"map"];
+    
+    spriteManager_   = [[SpriteManager alloc] init];
+    [spriteManager_ loadEntityTypesFromFile:@"sprites"];
+    
     selectionSystem_ = [[SelectionSystem alloc]
                         initWithEntityManager:entityManager_];
     collisionSystem_ = [[CollisionSystem alloc]
                         initWithEntityManager:entityManager_];
     renderSystem_    = [[RenderSystem alloc]
-                        initWithEntityManager:entityManager_ camera:camera_];
-
-    [entityManager_ loadEntityTypesFromFile:@"entities"];
-    [entityManager_ buildAndAddEntity:@"Map"];
-    
-    [self loadMapFromFile:@"map"];
+                          initWithEntityManager:entityManager_
+                                  spriteManager:spriteManager_
+                                         camera:camera_];
     
     pathfindingSystem_   = [[PathfindingSystem alloc]
                             initWithEntityManager:entityManager_];
@@ -57,7 +63,7 @@
                             initWithEntityManager:entityManager_];
     projectileSystem_    = [[ProjectileSystem alloc] init];
 
-    GLKVector2    target  = GLKVector2Make(192.f, 128.f);
+    GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
                                            withObjCType:@encode(GLKVector2)]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"
@@ -91,9 +97,10 @@
     [e update];
   }
 
-  [collisionSystem_     update];
+  //[collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];
+  [renderSystem_ update];
 
   [camera_            update];
   [entityManager_ processQueue];

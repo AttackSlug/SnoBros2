@@ -10,6 +10,7 @@
 
 @class Camera;
 @class EntityManager;
+@class SpriteManager;
 @class CollisionSystem;
 @class InputSystem;
 @class RenderSystem;
@@ -24,6 +25,7 @@ const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
   EntityManager         *entityManager_;
+  SpriteManager         *spriteManager_;
 
   Camera                *camera_;
   CollisionSystem       *collisionSystem_;

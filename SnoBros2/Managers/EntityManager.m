@@ -18,7 +18,6 @@
 
 @implementation EntityManager
 
-
 - (id)init {
   self = [super init];
   if (self) {
@@ -154,6 +153,24 @@
 
 
 
+- (NSArray *)sortByLayer:(NSArray *)entities {
+  NSArray *sorted = [entities sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];
+    SceneGraph *sceneGraph2 = [obj2 getComponentByString:@"SceneGraph"];
+    if (sceneGraph1.layer < sceneGraph2.layer) {
+      return (NSComparisonResult)NSOrderedAscending;
+    } else if (sceneGraph1.layer > sceneGraph2.layer) {
+      return (NSComparisonResult)NSOrderedDescending;
+    } else {
+      return (NSComparisonResult)NSOrderedSame;
+    }
+  }];
+  
+  return sorted;
+}
+
+
+
 - (Entity *)findById:(NSString *)entityId {
   return [entities_ objectForKey:entityId];
 }
@@ -175,8 +192,8 @@
 
 
 - (NSArray *)findAllWithComponent:(NSString *)component {
-  NSMutableArray *found = [[NSMutableArray alloc] init];
-
+  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:150];
+  
   for (Entity *e in [entities_ allValues]) {
     if ([e hasComponent:component]) {
       [found addObject:e];

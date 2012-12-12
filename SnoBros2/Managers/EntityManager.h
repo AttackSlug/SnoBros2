@@ -33,6 +33,7 @@
 
 - (NSArray *)allEntities;
 - (NSArray *)allSortedByLayer;
+- (NSArray *)sortByLayer:(NSArray *)entities;
 - (NSArray *)findByTag:(NSString *)tag;
 - (Entity  *)findById:(NSString *)entityId;
 - (NSArray *)findByTeamName:(NSString *)name;
