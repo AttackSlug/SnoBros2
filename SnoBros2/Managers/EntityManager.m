@@ -161,27 +161,9 @@
 
 
 
-- (Entity *)findById:(NSString *)entityId {
-  return [entities_ objectForKey:entityId];
-}
-
-
-
 - (NSArray *)findAllWithComponent:(NSString *)component {
-  /*
-  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:150];
-  
-  for (Entity *e in [entities_ allValues]) {
-    if ([e hasComponent:component]) {
-      [found addObject:e];
-    }
-  }
-
-  return found;
-  */
   NSMutableArray *found = [[NSMutableArray alloc] initWithArray:entitiesByComponent_[component]];
   return found;
-  
 }
 
 
@@ -252,17 +234,6 @@
   [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
     [object update];
   }];
-}
-
-
-
-- (void)logState {
-  int ct = 0;
-  for (NSArray *array in [entitiesByComponent_ allValues]) {
-    ct += [array count];
-  }
-  NSLog(@"count: %d", ct);
-  //NSLog(@"%@", entitiesByComponent_);
 }
 
 @end

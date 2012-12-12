@@ -51,13 +51,6 @@
 
 
 
-- (void)selectById:(NSString *)entityId {
-  Entity *entity = [entityManager_ findById:entityId];
-  [self selectEntity:entity];
-}
-
-
-
 - (void)selectEntity:(Entity *)entity {
   Selectable *selectable  = [entity getComponentByString:@"Selectable"];
   Health *health          = [entity getComponentByString:@"Health"];

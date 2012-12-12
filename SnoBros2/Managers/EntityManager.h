@@ -35,12 +35,9 @@
 
 - (NSArray *)allEntities;
 - (NSArray *)sortByLayer:(NSArray *)entities;
-- (Entity  *)findById:(NSString *)entityId;
 - (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllWithComponent:(NSString *)component;
 - (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
-
-- (void)logState;
 
 @end
