@@ -132,18 +132,6 @@
 
 
 
-- (void)queueForDeletion:(Entity *)entity {
-  [toBeDeleted_ addObject:entity];
-}
-
-
-
-- (void)queueForCreation:(Entity *)entity {
-  [toBeCreated_ addObject:entity];
-}
-
-
-
 - (NSArray *)allEntities {
   return [entities_ allValues];
 }

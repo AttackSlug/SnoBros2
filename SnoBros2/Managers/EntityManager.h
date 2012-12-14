@@ -26,8 +26,6 @@
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
-- (void)queueForDeletion:(Entity *)entity;
-- (void)queueForCreation:(Entity *)entity;
 - (void)processQueue;
 - (void)update;
 
