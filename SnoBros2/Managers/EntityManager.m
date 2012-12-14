@@ -15,6 +15,7 @@
 #import "SceneGraph.h"
 #import "Transform.h"
 #import "Collision.h"
+#import "JSONLoader.h"
 
 @implementation EntityManager
 
@@ -62,29 +63,8 @@
 
 
 - (void)loadEntityTypesFromFile:(NSString *)filename {
-  NSError  *error;
-  NSString *path = [[NSBundle mainBundle]
-                     pathForResource:filename ofType:@"json"];
-  NSString *json = [[NSString alloc] initWithContentsOfFile:path
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
-
-  NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
-  NSDictionary *entityData = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
-
-  if ([entityData isKindOfClass:[NSArray class]]) {
-    for (NSDictionary *d in entityData) {
-      NSString *type = [d valueForKey:@"Type"];
-      [entityTypes_ setValue:d forKey:type];
-    }
-  } else {
-    NSString *type = [entityData valueForKey:@"Type"];
-    [entityTypes_ setValue:entityData forKey:type];
-  }
+  JSONLoader *loader = [[JSONLoader alloc] init];
+  entityTypes_ = [loader loadDictionaryFromFile:filename keyField:@"Type"];
 }
 
 
