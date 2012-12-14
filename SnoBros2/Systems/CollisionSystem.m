@@ -44,25 +44,28 @@
     [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
   }
 
-  for (Entity *entity in entities) {
-    [self checkCollisionsFor:entity];
-  }
-}
+  NSArray *collisionGroups = [quadtree_ retrieveCollisionGroups];
+  for (NSArray *group in collisionGroups) {
+    for (int i = 0; i < group.count; i++) {
+      for (int j = i; j < group.count; j++) {
+        Entity *entity = group[i];
+        Entity *other  = group[j];
 
+        if ([self didEntity:entity collideWith:other]) {
 
+          NSString *name = [entity.uuid stringByAppendingString:@"|collidedWith"];
+          NSDictionary *data = @{@"otherEntity": other};
+          [[NSNotificationCenter defaultCenter] postNotificationName:name
+                                                              object:self
+                                                            userInfo:data];
 
-- (void)checkCollisionsFor:(Entity *)entity {
-  Collision *collision   = [entity getComponentByString:@"Collision"];
-
-  NSArray *otherEntities = [quadtree_ retrieveObjectsNear:collision.boundingBox];
-
-  for (Entity *other in otherEntities) {
-    if ([self didEntity:entity collideWith:other]) {
-      NSString *name = [entity.uuid stringByAppendingString:@"|collidedWith"];
-      NSDictionary *data = @{@"otherEntity": other};
-      [[NSNotificationCenter defaultCenter] postNotificationName:name
-                                                          object:self
-                                                        userInfo:data];
+          NSString *otherName = [other.uuid stringByAppendingString:@"|collidedWith"];
+          NSDictionary *otherData = @{@"otherEntity": entity};
+          [[NSNotificationCenter defaultCenter] postNotificationName:otherName
+                                                              object:self
+                                                            userInfo:otherData];
+        }
+      }
     }
   }
 }

@@ -26,8 +26,6 @@
     maxObjects_ = maxObjects;
     maxLevels_  = maxLevels;
     objects_    = [[NSMutableArray alloc] init];
-
-    [self subdivideRectangle];
   }
   return self;
 }
@@ -43,7 +41,17 @@
 
 
 
-- (void)subdivideRectangle {
+- (void)clear {
+  [objects_ removeAllObjects];
+  for (int i = 0; i < NUM_NODES; i++) {
+    [nodes_[i] clear];
+    nodes_[i] = NULL;
+  }
+}
+
+
+
+- (void)split {
   float  x = bounds_.x;
   float  y = bounds_.y;
 
@@ -68,21 +76,7 @@
                                               Y:y - quarterHeight
                                           width:halfWidth
                                          height:halfHeight];
-}
 
-
-
-- (void)clear {
-  [objects_ removeAllObjects];
-  for (int i = 0; i < NUM_NODES; i++) {
-    [nodes_[i] clear];
-    nodes_[i] = NULL;
-  }
-}
-
-
-
-- (void)split {
   nodes_[TOP_LEFT]     = [[Quadtree alloc] initWithBounds:topLeft_
                                                     level:level_ + 1
                                                maxObjects:maxObjects_
@@ -158,6 +152,28 @@
     }
   }
   [objects_ removeAllObjects];
+}
+
+
+
+- (NSArray *)retrieveCollisionGroups {
+  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:1024];
+
+  if ([self isLeafNode]) {
+    NSMutableArray *group = [[NSMutableArray alloc] initWithCapacity:15];
+    for (NSDictionary *entry in objects_) {
+      [group addObject:entry[@"object"]];
+    }
+    [found addObject:group];
+    return found;
+  }
+
+
+  for (int i = 0; i < NUM_NODES; i++) {
+    [found addObjectsFromArray:[nodes_[i] retrieveCollisionGroups]];
+  }
+
+  return found;
 }
 
 
