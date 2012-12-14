@@ -10,6 +10,7 @@
 
 #import "Shader.h"
 #import "ShaderProgram.h"
+#import "JSONLoader.h"
 
 @implementation ShaderManager
 
@@ -26,30 +27,11 @@
 
 
 - (void)loadShadersFromFile:(NSString *)fileName {
-  NSError  *error;
-  NSString *path = [[NSBundle mainBundle]
-                    pathForResource:fileName ofType:@"json"];
-  NSString *json = [[NSString alloc] initWithContentsOfFile:path
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
+  JSONLoader *loader = [[JSONLoader alloc] init];
+  shaders_ = [loader loadDictionaryFromFile:fileName keyField:@"Name"];
   
-  NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
-  NSDictionary *shaderData = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
-  
-  if ([shaderData isKindOfClass:[NSArray class]]) {
-    for (NSDictionary *d in shaderData) {
-      NSString *name = [d valueForKey:@"Name"];
-      Shader *add = [self loadShaderWithDictionary:d];
-      [shaders_ setValue:add forKey:name];
-    }
-  } else {
-    NSString *name = [shaderData valueForKey:@"Name"];
-    Shader *add = [self loadShaderWithDictionary:shaderData];
-    [shaders_ setValue:add forKey:name];
+  for (id key in [shaders_ allKeys]) {
+    [shaders_ setValue:[self loadShaderWithDictionary:shaders_[key]] forKey:key];
   }
 }
 
@@ -62,28 +44,11 @@
 
 
 - (void)loadProgramsFromFile:(NSString *)fileName {
-  NSError  *error;
-  NSString *path = [[NSBundle mainBundle]
-                    pathForResource:fileName ofType:@"json"];
-  NSString *json = [[NSString alloc] initWithContentsOfFile:path
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
+  JSONLoader *loader = [[JSONLoader alloc] init];
+  programs_ = [loader loadDictionaryFromFile:fileName keyField:@"Name"];
   
-  NSData *data             = [json dataUsingEncoding:NSUTF8StringEncoding];
-  NSDictionary *programData = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:&error];
-  if (error) { NSLog(@"Error: %@", error); return; }
-  
-  if ([programData isKindOfClass:[NSArray class]]) {
-    for (NSDictionary *d in programData) {
-      ShaderProgram *add = [self loadProgramWithDictionary:d];
-      [programs_ setValue:add forKey:add.name];
-    }
-  } else {
-    ShaderProgram *add = [self loadProgramWithDictionary:programData];
-    [programs_ setValue:add forKey:add.name];
+  for (id key in [programs_ allKeys]) {
+    [programs_ setValue:[self loadProgramWithDictionary:programs_[key]] forKey:key];
   }
 }
 
