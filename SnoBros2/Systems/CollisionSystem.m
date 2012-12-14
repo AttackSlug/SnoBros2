@@ -73,12 +73,15 @@
 
 
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
-  Collision *myCollision    = [entity getComponentByString:@"Collision"];
-  Collision *otherCollision = [other  getComponentByString:@"Collision"];
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
   Transform *otherTransform = [other  getComponentByString:@"Transform"];
   
-  if (entity == other || !otherCollision) { return false; }
+  if (myTransform.hasMoved == FALSE && otherTransform.hasMoved == FALSE) {
+    return FALSE;
+  }
+  
+  Collision *myCollision    = [entity getComponentByString:@"Collision"];
+  Collision *otherCollision = [other  getComponentByString:@"Collision"];
 
   float radius          = myCollision.radius;
   float otherRadius     = otherCollision.radius;
