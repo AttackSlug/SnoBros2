@@ -143,6 +143,51 @@
 
 
 
+- (BOOL)removeObject:(id)object {
+
+  if (![self isLeafNode]) {
+
+    for (int i = 0; i < NUM_NODES; i++) {
+      if([nodes_[i] removeObject:object]) {
+        return YES;
+      }
+    }
+
+  } else {
+
+    for (NSDictionary *entry in objects_) {
+      if (object == entry[@"object"]) {
+        [objects_ removeObject:entry];
+        return YES;
+      }
+    }
+
+  }
+
+  return NO;
+}
+
+
+
+/*
+- (void)updateObject:(id)object withBoundingBox:(BoundingBox *)boundingBox {
+  BOOL wasRemoved     = [self removeObject:object];
+  BOOL isWithinBounds = [bounds_ intersectsWith:boundingBox];
+
+
+  if (wasRemoved && isWithinBounds) {
+    [self addObject:object withBoundingBox:boundingBox];
+  } else if (!isWithingBounds) {
+
+  } else {
+    for (int i = 0; i < NUM_NODES; i++) {
+      [nodes_[i] updateObject:object withBoundingBox:boundingBox];
+    }
+  }
+}
+*/
+
+
 - (void)redistributeObjects {
   for (NSDictionary *entry in objects_) {
     id object                = entry[@"object"];

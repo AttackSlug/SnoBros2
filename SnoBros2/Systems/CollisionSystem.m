@@ -28,6 +28,16 @@
     BoundingBox *bounds     = [[BoundingBox alloc] initWithOrigin:boundsOrigin
                                                              size:boundsSize];
     quadtree_      = [[Quadtree alloc] initWithBounds:bounds];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleEntityCreated:)
+                                                 name:@"entityCreated"
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleEntityDestroyed:)
+                                                 name:@"entityDestroyed"
+                                               object:nil];
   }
   return self;
 }
@@ -36,12 +46,14 @@
 
 - (void)update {
   NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
-  
-  [quadtree_ clear];
 
   for (Entity *entity in entities) {
-    Collision *collision = [entity getComponentByString:@"Collision"];
-    [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
+    Transform *transform = [entity getComponentByString:@"Transform"];
+    if ([transform hasMoved]) {
+      Collision *collision = [entity getComponentByString:@"Collision"];
+      [quadtree_ removeObject:entity];
+      [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
+    }
   }
 
   NSArray *collisionGroups = [quadtree_ retrieveCollisionGroups];
@@ -72,14 +84,29 @@
 
 
 
+- (void)handleEntityCreated:(NSNotification *)notification {
+  Entity    *entity    = [notification userInfo][@"entity"];
+  Collision *collision = [entity getComponentByString:@"Collision"];
+  [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
+}
+
+
+
+- (void)handleEntityDestroyed:(NSNotification *)notification {
+  Entity *entity = [notification userInfo][@"entity"];
+  [quadtree_ removeObject:entity];
+}
+
+
+
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
   Transform *otherTransform = [other  getComponentByString:@"Transform"];
-  
+
   if (myTransform.hasMoved == FALSE && otherTransform.hasMoved == FALSE) {
     return FALSE;
   }
-  
+
   Collision *myCollision    = [entity getComponentByString:@"Collision"];
   Collision *otherCollision = [other  getComponentByString:@"Collision"];
 

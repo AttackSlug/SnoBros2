@@ -49,6 +49,10 @@
     }
     [entitiesByComponent_[key] addObject:entity];
   }
+
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"entityCreated"
+                                                      object:self
+                                                    userInfo:@{@"entity": entity}];
 }
 
 
@@ -58,6 +62,10 @@
   for (id key in entity.components) {
     [entitiesByComponent_[key] removeObject:entity];
   }
+
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"entityDestroyed"
+                                                      object:self
+                                                    userInfo:@{@"entity": entity}];
 }
 
 
