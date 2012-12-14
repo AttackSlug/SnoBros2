@@ -99,12 +99,12 @@
 
 
 
-- (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
+- (BOOL)didEntity:(Entity *)entity collideWith:(Entity *)other {
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
   Transform *otherTransform = [other  getComponentByString:@"Transform"];
 
-  if (myTransform.hasMoved == FALSE && otherTransform.hasMoved == FALSE) {
-    return FALSE;
+  if (myTransform.hasMoved == NO && otherTransform.hasMoved == NO) {
+    return NO;
   }
 
   Collision *myCollision    = [entity getComponentByString:@"Collision"];
@@ -116,11 +116,11 @@
   float distance        = GLKVector2Distance(myTransform.position,
                                              otherTransform.position);
 
-  if ([ASFloat is:distance lessThanOrEqualTo:centersDistance]) {
-    return true;
+  if (FLOAT_LESS_THAN_OR_EQUAL(distance, centersDistance)) {
+    return YES;
   }
 
-  return false;
+  return NO;
 }
 
 @end

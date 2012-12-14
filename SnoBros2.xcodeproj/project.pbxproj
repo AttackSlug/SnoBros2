@@ -39,7 +39,6 @@
 		A374CB3F166E6ABE00286090 /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A374CB3E166E6ABE00286090 /* libPods-KiwiUnitTest.a */; };
 		A3789880166E9F1F009C13EE /* MapGridSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A378987F166E9F1F009C13EE /* MapGridSpec.m */; };
 		A37E594216652BC90061E425 /* UnitCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E594116652BC90061E425 /* UnitCollider.m */; };
-		A37E59451665314C0061E425 /* ASFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E59441665314C0061E425 /* ASFloat.m */; };
 		A37E595C166550320061E425 /* SelectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37E595B166550320061E425 /* SelectionSystem.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
@@ -140,7 +139,6 @@
 		A37E594016652BC90061E425 /* UnitCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitCollider.h; sourceTree = "<group>"; };
 		A37E594116652BC90061E425 /* UnitCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitCollider.m; sourceTree = "<group>"; };
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
-		A37E59441665314C0061E425 /* ASFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFloat.m; sourceTree = "<group>"; };
 		A37E595A166550320061E425 /* SelectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSystem.h; sourceTree = "<group>"; };
 		A37E595B166550320061E425 /* SelectionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSystem.m; sourceTree = "<group>"; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -492,7 +490,6 @@
 				87E4195D16652E7600336F3A /* SceneNode.h */,
 				87E4195E16652E7600336F3A /* SceneNode.m */,
 				A37E59431665314C0061E425 /* ASFloat.h */,
-				A37E59441665314C0061E425 /* ASFloat.m */,
 				A3EE231A16680E0E00E4CB9D /* MapGrid.h */,
 				A3EE231B16680E0E00E4CB9D /* MapGrid.m */,
 				A3541B3816681116004531C1 /* MapNode.h */,
@@ -690,7 +687,6 @@
 				8787EC19166523A0000C07E1 /* SpriteManager.m in Sources */,
 				87E4195F16652E7600336F3A /* SceneNode.m in Sources */,
 				A37E594216652BC90061E425 /* UnitCollider.m in Sources */,
-				A37E59451665314C0061E425 /* ASFloat.m in Sources */,
 				A37E595C166550320061E425 /* SelectionSystem.m in Sources */,
 				A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */,
 				A3541B3A16681116004531C1 /* MapNode.m in Sources */,

@@ -44,7 +44,7 @@
   float      distance       = GLKVector2Distance(position, target);
   float      futureDistance = GLKVector2Distance(futurePosition, target);
 
-  return [ASFloat is:futureDistance greaterThan:distance];
+  return FLOAT_GREATER_THAN(futureDistance, distance);
 }
 
 
@@ -56,7 +56,7 @@
   float      distance       = GLKVector2Distance(position, target);
   float      futureDistance = GLKVector2Distance(futurePosition, target);
 
-  return [ASFloat is:distance lessThan:futureDistance];
+  return FLOAT_LESS_THAN(distance, futureDistance);
 }
 
 

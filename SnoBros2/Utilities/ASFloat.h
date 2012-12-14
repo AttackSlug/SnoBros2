@@ -6,16 +6,23 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#define FLOAT_K 0.000001f
 
-@interface ASFloat : NSObject
+#define FLOAT_COMPARE(XX, YY) \
+  ((fabs(XX - YY) < FLOAT_K * FLT_EPSILON * fabs(XX + YY) ||  \
+      fabs(XX - YY) < FLT_MIN) ? 0 : ((XX < YY) ? -1 : 1))
 
-+ (int)compare:(float)value1 to:(float)value2;
+#define FLOAT_LESS_THAN(XX, YY) \
+  ((FLOAT_COMPARE(XX, YY) < 0) ? YES : NO)
 
-+ (bool)is:(float)value1 equalTo:(float)value2;
-+ (bool)is:(float)value1 lessThan:(float)value2;
-+ (bool)is:(float)value1 greaterThan:(float)value2;
-+ (bool)is:(float)value1 lessThanOrEqualTo:(float)value2;
-+ (bool)is:(float)value1 greaterThanOrEqualTo:(float)value2;
+#define FLOAT_LESS_THAN_OR_EQUAL(XX, YY) \
+  ((FLOAT_COMPARE(XX, YY) <= 0) ? YES : NO)
 
-@end
+#define FLOAT_GREATER_THAN(XX, YY) \
+  ((FLOAT_COMPARE(XX, YY) > 0) ? YES : NO)
+
+#define FLOAT_GREATER_THAN_OR_EQUAL(XX, YY) \
+  ((FLOAT_COMPARE(XX, YY) >= 0) ? YES : NO)
+
+#define FLOAT_EQUAL(XX, YY) \
+  ((FLOAT_COMPARE(XX, YY) == 0) ? YES : NO)

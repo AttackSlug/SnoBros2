@@ -19,7 +19,10 @@
 
 - (id)initWithEntityManager:(EntityManager *)entityManager;
 
+- (void)handleEntityCreated:(NSNotification *)notification;
+- (void)handleEntityDestroyed:(NSNotification *)notification;
+
 - (void)update;
-- (bool)didEntity:(Entity *)entity collideWith:(Entity *)other;
+- (BOOL)didEntity:(Entity *)entity collideWith:(Entity *)other;
 
 @end
