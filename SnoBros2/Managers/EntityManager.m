@@ -211,6 +211,7 @@
 
 
 
+
 - (NSArray *)findCollisionGroups {
   return [quadtree_ retrieveCollisionGroups];
 }
@@ -219,20 +220,6 @@
 
 - (NSArray *)findAllNear:(BoundingBox *)boundingBox {
   return [quadtree_ retrieveObjectsNear:boundingBox];
-}
-
-
-
-- (void)processQueue {
-  for (Entity *e in toBeCreated_) {
-    [entities_ setObject:e forKey:e.uuid];
-  }
-  [toBeCreated_ removeAllObjects];
-
-  for (Entity *e in toBeDeleted_) {
-    [entities_ removeObjectForKey:e.uuid];
-  }
-  [toBeDeleted_ removeAllObjects];
 }
 
 

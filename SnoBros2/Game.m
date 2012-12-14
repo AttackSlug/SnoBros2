@@ -100,7 +100,6 @@
   [renderSystem_ update];
 
   [camera_            update];
-  [entityManager_ processQueue];
 }
 
 

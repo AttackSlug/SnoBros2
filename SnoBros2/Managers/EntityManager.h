@@ -16,8 +16,6 @@
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
   NSMutableDictionary *entitiesByComponent_;
-  NSMutableArray      *toBeDeleted_;
-  NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
   Quadtree            *quadtree_;
 }
@@ -26,7 +24,6 @@
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
-- (void)processQueue;
 - (void)update;
 
 - (Entity *)buildEntity:(NSString *)type;
