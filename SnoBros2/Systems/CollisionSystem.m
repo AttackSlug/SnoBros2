@@ -47,8 +47,8 @@
   NSArray *collisionGroups = [quadtree_ retrieveCollisionGroups];
   for (NSArray *group in collisionGroups) {
     for (int i = 0; i < group.count; i++) {
-      for (int j = i; j < group.count; j++) {
-        Entity *entity = group[i];
+      Entity *entity = group[i];
+      for (int j = i + 1; j < group.count; j++) {
         Entity *other  = group[j];
 
         if ([self didEntity:entity collideWith:other]) {
