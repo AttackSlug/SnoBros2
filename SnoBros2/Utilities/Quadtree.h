@@ -44,10 +44,10 @@ enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 - (void)split;
 - (bool)isLeafNode;
 - (bool)isNotLeafNode;
-- (void)subdivideRectangle;
 - (void)redistributeObjects;
 - (void)addObject:(id)object withBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)nodesContainingBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)retrieveObjectsNear:(BoundingBox *)boundingBox;
+- (NSArray *)retrieveCollisionGroups;
 
 @end

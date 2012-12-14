@@ -94,7 +94,7 @@
 - (void)step {
   [entityManager_ update];
   
-  //[collisionSystem_     update];
+  [collisionSystem_     update];
   [movementSystem_      update];
   [enemyBehaviorSystem_ update];
   [renderSystem_ update];

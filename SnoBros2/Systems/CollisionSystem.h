@@ -20,7 +20,6 @@
 - (id)initWithEntityManager:(EntityManager *)entityManager;
 
 - (void)update;
-- (void)checkCollisionsFor:(Entity *)entity;
 - (bool)didEntity:(Entity *)entity collideWith:(Entity *)other;
 
 @end
