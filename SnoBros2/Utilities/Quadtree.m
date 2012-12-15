@@ -188,24 +188,14 @@
 
 
 
-- (NSArray *)retrieveCollisionGroups {
-  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:1024];
-
+- (void)retrieveCollisionGroups:(NSMutableArray *)groups {
   if ([self isLeafNode]) {
-    NSMutableArray *group = [[NSMutableArray alloc] initWithCapacity:15];
-    for (NSDictionary *entry in objects_) {
-      [group addObject:entry[@"object"]];
+    [groups addObject:objects_];
+  } else {
+    for (int i = 0; i < NUM_NODES; i++) {
+      [nodes_[i] retrieveCollisionGroups:groups];
     }
-
-    [found addObject:group];
-    return found;
   }
-
-  for (int i = 0; i < NUM_NODES; i++) {
-    [found addObjectsFromArray:[nodes_[i] retrieveCollisionGroups]];
-  }
-
-  return found;
 }
 
 

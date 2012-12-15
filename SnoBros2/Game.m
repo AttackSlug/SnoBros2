@@ -20,6 +20,7 @@
 #import "MovementSystem.h"
 #import "EnemyBehaviorSystem.h"
 #import "ProjectileSystem.h"
+#import "DamageSystem.h"
 
 #import "Transform.h"
 #import "Physics.h"
@@ -39,7 +40,8 @@
     
     entityManager_   = [[EntityManager alloc] init];
     [entityManager_ loadEntityTypesFromFile:@"entities"];
-    [entityManager_ buildAndAddEntity:@"Map"];
+    Entity *e = [entityManager_ buildEntity:@"Map"];
+    [entityManager_ add:e];
     [self loadMapFromFile:@"map"];
     
     spriteManager_   = [[SpriteManager alloc] init];
@@ -61,6 +63,8 @@
     enemyBehaviorSystem_ = [[EnemyBehaviorSystem alloc]
                             initWithEntityManager:entityManager_];
     projectileSystem_    = [[ProjectileSystem alloc] init];
+    damageSystem_        = [[DamageSystem alloc]
+                            initWithEntityManager:entityManager_];
 
     GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -100,7 +104,6 @@
   [renderSystem_ update];
 
   [camera_            update];
-  [entityManager_ processQueue];
 }
 
 
@@ -132,7 +135,8 @@
   } else {
     NSDictionary *d = mapData[@"Objects"];
     for (id key in d) {
-      Entity *e = [entityManager_ buildAndAddEntity:d[key]];
+      Entity *e = [entityManager_ buildEntity:d[key]];
+      [entityManager_ add:e];
       if ([e.type isEqualToString:@"MainDude"]) {
         [selectionSystem_ selectEntity:e];
       }

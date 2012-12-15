@@ -16,8 +16,6 @@
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
   NSMutableDictionary *entitiesByComponent_;
-  NSMutableArray      *toBeDeleted_;
-  NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
   Quadtree            *quadtree_;
 }
@@ -26,16 +24,11 @@
 
 - (void)add:(Entity *)entity;
 - (void)remove:(Entity *)entity;
-- (void)queueForDeletion:(Entity *)entity;
-- (void)queueForCreation:(Entity *)entity;
-- (void)processQueue;
 - (void)update;
 
 - (Entity *)buildEntity:(NSString *)type;
-- (Entity *)buildAndAddEntity:(NSString *)type;
 - (void)loadEntityTypesFromFile:(NSString *)filename;
 
-- (NSArray *)allEntities;
 - (NSArray *)sortByLayer:(NSArray *)entities;
 - (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllWithComponent:(NSString *)component;
