@@ -25,7 +25,7 @@
     level_      = level;
     maxObjects_ = maxObjects;
     maxLevels_  = maxLevels;
-    objects_    = [[NSMutableArray alloc] init];
+    objects_    = [[NSMutableArray alloc] initWithCapacity:200];
   }
   return self;
 }
@@ -144,48 +144,35 @@
 
 
 - (BOOL)removeObject:(id)object {
+  BOOL didRemoveObject = NO;
 
   if (![self isLeafNode]) {
 
     for (int i = 0; i < NUM_NODES; i++) {
       if([nodes_[i] removeObject:object]) {
-        return YES;
+        didRemoveObject = YES;
       }
     }
 
   } else {
 
+    NSMutableArray *toRemove = [[NSMutableArray alloc] initWithCapacity:4];
     for (NSDictionary *entry in objects_) {
       if (object == entry[@"object"]) {
-        [objects_ removeObject:entry];
-        return YES;
+        didRemoveObject = YES;
+        [toRemove addObject:entry];
       }
     }
 
-  }
-
-  return NO;
-}
-
-
-
-/*
-- (void)updateObject:(id)object withBoundingBox:(BoundingBox *)boundingBox {
-  BOOL wasRemoved     = [self removeObject:object];
-  BOOL isWithinBounds = [bounds_ intersectsWith:boundingBox];
-
-
-  if (wasRemoved && isWithinBounds) {
-    [self addObject:object withBoundingBox:boundingBox];
-  } else if (!isWithingBounds) {
-
-  } else {
-    for (int i = 0; i < NUM_NODES; i++) {
-      [nodes_[i] updateObject:object withBoundingBox:boundingBox];
+    for (NSDictionary *entry in toRemove) {
+      [objects_ removeObject:entry];
+      didRemoveObject = YES;
     }
   }
+
+  return didRemoveObject;
 }
-*/
+
 
 
 - (void)redistributeObjects {
