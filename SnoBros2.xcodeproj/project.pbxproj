@@ -48,6 +48,7 @@
 		A3BD0CF1164614B7007AEB08 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0CF0164614B7007AEB08 /* GLKit.framework */; };
 		A3CBFF8B1672D1180026BC14 /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8A1672D1180026BC14 /* MovementSystem.m */; };
 		A3CBFF8F1672D2060026BC14 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CBFF8E1672D2060026BC14 /* Movement.m */; };
+		A3E7989E167D2F5C0080634A /* CollisionResolutionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7989D167D2F5C0080634A /* CollisionResolutionSystem.m */; };
 		A3EE231C16680E0E00E4CB9D /* MapGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE231B16680E0E00E4CB9D /* MapGrid.m */; };
 		A3F41EE2166D2B7500C966AD /* PathfindingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE1166D2B7500C966AD /* PathfindingSystem.m */; };
 		A3F41EE9166D547300C966AD /* Pathfinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F41EE8166D547300C966AD /* Pathfinding.m */; };
@@ -154,6 +155,8 @@
 		A3CBFF8A1672D1180026BC14 /* MovementSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovementSystem.m; sourceTree = "<group>"; };
 		A3CBFF8D1672D2060026BC14 /* Movement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movement.h; sourceTree = "<group>"; };
 		A3CBFF8E1672D2060026BC14 /* Movement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
+		A3E7989C167D2F5B0080634A /* CollisionResolutionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionResolutionSystem.h; sourceTree = "<group>"; };
+		A3E7989D167D2F5C0080634A /* CollisionResolutionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionResolutionSystem.m; sourceTree = "<group>"; };
 		A3EE231A16680E0E00E4CB9D /* MapGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGrid.h; sourceTree = "<group>"; };
 		A3EE231B16680E0E00E4CB9D /* MapGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGrid.m; sourceTree = "<group>"; };
 		A3F41EE0166D2B7500C966AD /* PathfindingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingSystem.h; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				A32388D51676742D00D4A020 /* ProjectileSystem.m */,
 				87595BF6167C0161008D4DF0 /* DamageSystem.h */,
 				87595BF7167C0162008D4DF0 /* DamageSystem.m */,
+				A3E7989C167D2F5B0080634A /* CollisionResolutionSystem.h */,
+				A3E7989D167D2F5C0080634A /* CollisionResolutionSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				A32388E51676A35F00D4A020 /* BoundingBox.m in Sources */,
 				87595BF4167BEA12008D4DF0 /* JSONLoader.m in Sources */,
 				87595BF8167C0162008D4DF0 /* DamageSystem.m in Sources */,
+				A3E7989E167D2F5C0080634A /* CollisionResolutionSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

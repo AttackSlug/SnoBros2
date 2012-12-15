@@ -10,4 +10,7 @@
 
 @interface UnitCollider : Component
 
+- (id)initWithEntity:(Entity *)entity;
+- (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
+
 @end
