@@ -22,11 +22,7 @@
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
   if (self) {
-    NSString *takeDamage = [entity_.uuid stringByAppendingString:@"|takeDamage"];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(takeDamage:)
-                                                 name:takeDamage
-                                               object:nil];
+
   }
   return self;
 }
@@ -44,14 +40,6 @@
     [self hideHealthBar];
   }
   return self;
-}
-
-
-
-- (void)takeDamage:(NSNotification *)notification {
-  int amount;
-  [[notification userInfo][@"amount"] getValue:&amount];
-  [self damage:amount];
 }
 
 
