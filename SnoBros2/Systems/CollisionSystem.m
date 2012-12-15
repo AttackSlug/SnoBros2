@@ -38,15 +38,13 @@
 
         if ([self didEntity:entity collideWith:other]) {
 
-          NSString *name = [entity.uuid stringByAppendingString:@"|collidedWith"];
-          NSDictionary *data = @{@"otherEntity": other};
-          [[NSNotificationCenter defaultCenter] postNotificationName:name
+          NSDictionary *data = @{@"entity": entity, @"otherEntity": other};
+          [[NSNotificationCenter defaultCenter] postNotificationName:@"collidedWith"
                                                               object:self
                                                             userInfo:data];
 
-          NSString *otherName = [other.uuid stringByAppendingString:@"|collidedWith"];
-          NSDictionary *otherData = @{@"otherEntity": entity};
-          [[NSNotificationCenter defaultCenter] postNotificationName:otherName
+          NSDictionary *otherData = @{@"entity": other, @"otherEntity": entity};
+          [[NSNotificationCenter defaultCenter] postNotificationName:@"collidedWith"
                                                               object:self
                                                             userInfo:otherData];
         }

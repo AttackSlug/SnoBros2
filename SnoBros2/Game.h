@@ -20,24 +20,26 @@
 @class EnemyBehaviorSystem;
 @class ProjectileSystem;
 @class DamageSystem;
+@class CollisionResolutionSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
 
 @interface Game : NSObject {
-  EntityManager         *entityManager_;
-  SpriteManager         *spriteManager_;
+  EntityManager *entityManager_;
+  SpriteManager *spriteManager_;
 
-  Camera                *camera_;
-  CollisionSystem       *collisionSystem_;
-  InputSystem           *inputSystem_;
-  RenderSystem          *renderSystem_;
-  SelectionSystem       *selectionSystem_;
-  PathfindingSystem     *pathfindingSystem_;
-  MovementSystem        *movementSystem_;
-  EnemyBehaviorSystem   *enemyBehaviorSystem_;
-  ProjectileSystem      *projectileSystem_;
-  DamageSystem          *damageSystem_;
+  Camera                    *camera_;
+  CollisionSystem           *collisionSystem_;
+  InputSystem               *inputSystem_;
+  RenderSystem              *renderSystem_;
+  SelectionSystem           *selectionSystem_;
+  PathfindingSystem         *pathfindingSystem_;
+  MovementSystem            *movementSystem_;
+  EnemyBehaviorSystem       *enemyBehaviorSystem_;
+  ProjectileSystem          *projectileSystem_;
+  DamageSystem              *damageSystem_;
+  CollisionResolutionSystem *collisionResolutionSystem_;
 
   NSTimeInterval        timestepAccumulator_;
   NSTimeInterval        timestepAccumulatorRatio_;

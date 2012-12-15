@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic) GLKVector2 target;
+@property (nonatomic) int        damage;
 
 - (id)initWithEntity:(Entity *)entity;
 - (id)initWithEntity:(Entity *)entity dictionary:(NSDictionary *)data;
