@@ -193,7 +193,7 @@
     [groups addObject:objects_];
   } else {
     for (int i = 0; i < NUM_NODES; i++) {
-      [nodes_[i] retrieveCollisionGroups2:groups];
+      [nodes_[i] retrieveCollisionGroups:groups];
     }
   }
 }
