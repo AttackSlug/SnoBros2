@@ -123,7 +123,7 @@
 
 - (void)addObject:(id)object withBoundingBox:(BoundingBox *)boundingBox {
 
-  if ([self isNotLeafNode]) {
+  if (![self isLeafNode]) {
     for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
       [node addObject:object withBoundingBox:boundingBox];
     }
@@ -209,10 +209,10 @@
     for (NSDictionary *entry in objects_) {
       [group addObject:entry[@"object"]];
     }
+
     [found addObject:group];
     return found;
   }
-
 
   for (int i = 0; i < NUM_NODES; i++) {
     [found addObjectsFromArray:[nodes_[i] retrieveCollisionGroups]];
@@ -240,19 +240,13 @@
 
 
 
-- (bool)isLeafNode {
+- (BOOL)isLeafNode {
   for (int i = 0; i < NUM_NODES; i++) {
     if (nodes_[i]) {
-      return false;
+      return NO;
     }
   }
-  return true;
-}
-
-
-
-- (bool)isNotLeafNode {
-  return ![self isLeafNode];
+  return YES;
 }
 
 @end
