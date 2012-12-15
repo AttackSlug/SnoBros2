@@ -57,9 +57,8 @@
   Entity *otherEntity  = [notification userInfo][@"otherEntity"];
 
   NSValue  *damageVal  = [NSValue value:&damage_ withObjCType:@encode(int *)];
-  NSString *takeDamage = [otherEntity.uuid stringByAppendingString:@"|takeDamage"];
-  NSDictionary *damageData = @{@"amount": damageVal};
-  [[NSNotificationCenter defaultCenter] postNotificationName:takeDamage
+  NSDictionary *damageData = @{@"amount": damageVal, @"entity": otherEntity};
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"takeDamage"
                                                       object:self
                                                     userInfo:damageData];
 

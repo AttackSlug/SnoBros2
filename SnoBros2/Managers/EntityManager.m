@@ -108,7 +108,7 @@
 
 
 - (void)destroyEntity:(NSNotification *)notification {
-  Entity *entity           = [notification userInfo][@"entity"];
+  Entity *entity            = [notification userInfo][@"entity"];
   void (^callback)(Entity *) = [notification userInfo][@"callback"];
 
   [self remove:entity];
@@ -120,32 +120,6 @@
 - (Entity *)buildEntity:(NSString *)type {
   NSDictionary * entityData = [entityTypes_ valueForKey:type];
   return [[Entity alloc] initWithDictionary:entityData];
-}
-
-
-
-- (Entity *)buildAndAddEntity:(NSString *)type {
-  Entity *entity = [self buildEntity:type];
-  [self add:entity];
-  return entity;
-}
-
-
-
-- (void)queueForDeletion:(Entity *)entity {
-  [toBeDeleted_ addObject:entity];
-}
-
-
-
-- (void)queueForCreation:(Entity *)entity {
-  [toBeCreated_ addObject:entity];
-}
-
-
-
-- (NSArray *)allEntities {
-  return [entities_ allValues];
 }
 
 
@@ -223,28 +197,17 @@
 
 
 
+
 - (NSArray *)findCollisionGroups {
-  return [quadtree_ retrieveCollisionGroups];
+  NSMutableArray *groups = [[NSMutableArray alloc] initWithCapacity:20];
+  [quadtree_ retrieveCollisionGroups:groups];
+  return groups;
 }
 
 
 
 - (NSArray *)findAllNear:(BoundingBox *)boundingBox {
   return [quadtree_ retrieveObjectsNear:boundingBox];
-}
-
-
-
-- (void)processQueue {
-  for (Entity *e in toBeCreated_) {
-    [entities_ setObject:e forKey:e.uuid];
-  }
-  [toBeCreated_ removeAllObjects];
-
-  for (Entity *e in toBeDeleted_) {
-    [entities_ removeObjectForKey:e.uuid];
-  }
-  [toBeDeleted_ removeAllObjects];
 }
 
 

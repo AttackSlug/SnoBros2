@@ -32,9 +32,9 @@
 
   for (NSArray *group in collisionGroups) {
     for (int i = 0; i < group.count; i++) {
-      Entity *entity = group[i];
+      Entity *entity = group[i][@"object"];
       for (int j = i + 1; j < group.count; j++) {
-        Entity *other  = group[j];
+        Entity *other  = group[j][@"object"];
 
         if ([self didEntity:entity collideWith:other]) {
 

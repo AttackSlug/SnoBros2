@@ -49,6 +49,6 @@ enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 //- (void)updateObject:(id)object withBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)nodesContainingBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)retrieveObjectsNear:(BoundingBox *)boundingBox;
-- (NSArray *)retrieveCollisionGroups;
+- (void)retrieveCollisionGroups:(NSMutableArray *)groups;
 
 @end
