@@ -25,7 +25,7 @@
     level_      = level;
     maxObjects_ = maxObjects;
     maxLevels_  = maxLevels;
-    objects_    = [[NSMutableArray alloc] init];
+    objects_    = [[NSMutableArray alloc] initWithCapacity:200];
   }
   return self;
 }
@@ -123,7 +123,7 @@
 
 - (void)addObject:(id)object withBoundingBox:(BoundingBox *)boundingBox {
 
-  if ([self isNotLeafNode]) {
+  if (![self isLeafNode]) {
     for (Quadtree *node in [self nodesContainingBoundingBox:boundingBox]) {
       [node addObject:object withBoundingBox:boundingBox];
     }
@@ -139,6 +139,38 @@
 
     [self redistributeObjects];
   }
+}
+
+
+
+- (BOOL)removeObject:(id)object {
+  BOOL didRemoveObject = NO;
+
+  if (![self isLeafNode]) {
+
+    for (int i = 0; i < NUM_NODES; i++) {
+      if([nodes_[i] removeObject:object]) {
+        didRemoveObject = YES;
+      }
+    }
+
+  } else {
+
+    NSMutableArray *toRemove = [[NSMutableArray alloc] initWithCapacity:4];
+    for (NSDictionary *entry in objects_) {
+      if (object == entry[@"object"]) {
+        didRemoveObject = YES;
+        [toRemove addObject:entry];
+      }
+    }
+
+    for (NSDictionary *entry in toRemove) {
+      [objects_ removeObject:entry];
+      didRemoveObject = YES;
+    }
+  }
+
+  return didRemoveObject;
 }
 
 
@@ -164,10 +196,10 @@
     for (NSDictionary *entry in objects_) {
       [group addObject:entry[@"object"]];
     }
+
     [found addObject:group];
     return found;
   }
-
 
   for (int i = 0; i < NUM_NODES; i++) {
     [found addObjectsFromArray:[nodes_[i] retrieveCollisionGroups]];
@@ -195,19 +227,13 @@
 
 
 
-- (bool)isLeafNode {
+- (BOOL)isLeafNode {
   for (int i = 0; i < NUM_NODES; i++) {
     if (nodes_[i]) {
-      return false;
+      return NO;
     }
   }
-  return true;
-}
-
-
-
-- (bool)isNotLeafNode {
-  return ![self isLeafNode];
+  return YES;
 }
 
 @end

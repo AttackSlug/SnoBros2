@@ -11,6 +11,7 @@
 
 @class Entity;
 @class BoundingBox;
+@class Quadtree;
 
 @interface EntityManager : NSObject {
   NSMutableDictionary *entities_;
@@ -18,6 +19,7 @@
   NSMutableArray      *toBeDeleted_;
   NSMutableArray      *toBeCreated_;
   NSMutableDictionary *entityTypes_;
+  Quadtree            *quadtree_;
 }
 
 - (id)init;
@@ -39,5 +41,7 @@
 - (NSArray *)findAllWithComponent:(NSString *)component;
 - (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
+- (NSArray *)findAllNear:(BoundingBox *)boundingBox;
+- (NSArray *)findCollisionGroups;
 
 @end

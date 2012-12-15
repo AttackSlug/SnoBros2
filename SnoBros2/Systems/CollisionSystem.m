@@ -7,13 +7,12 @@
 //
 
 #import "CollisionSystem.h"
+
 #import "EntityManager.h"
 #import "Entity.h"
 #import "Transform.h"
 #import "Collision.h"
 
-#import "Quadtree.h"
-#import "BoundingBox.h"
 #import "ASFloat.h"
 
 @implementation CollisionSystem
@@ -22,12 +21,6 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-
-    GLKVector2 boundsOrigin = GLKVector2Make(512.f, 512.f);
-    CGSize     boundsSize   = CGSizeMake(1024.f, 1024.f);
-    BoundingBox *bounds     = [[BoundingBox alloc] initWithOrigin:boundsOrigin
-                                                             size:boundsSize];
-    quadtree_      = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
 }
@@ -35,20 +28,12 @@
 
 
 - (void)update {
-  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
-  
-  [quadtree_ clear];
+  NSArray *collisionGroups = [entityManager_ findCollisionGroups];
 
-  for (Entity *entity in entities) {
-    Collision *collision = [entity getComponentByString:@"Collision"];
-    [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
-  }
-
-  NSArray *collisionGroups = [quadtree_ retrieveCollisionGroups];
   for (NSArray *group in collisionGroups) {
     for (int i = 0; i < group.count; i++) {
-      for (int j = i; j < group.count; j++) {
-        Entity *entity = group[i];
+      Entity *entity = group[i];
+      for (int j = i + 1; j < group.count; j++) {
         Entity *other  = group[j];
 
         if ([self didEntity:entity collideWith:other]) {
@@ -72,13 +57,16 @@
 
 
 
-- (bool)didEntity:(Entity *)entity collideWith:(Entity *)other {
-  Collision *myCollision    = [entity getComponentByString:@"Collision"];
-  Collision *otherCollision = [other  getComponentByString:@"Collision"];
+- (BOOL)didEntity:(Entity *)entity collideWith:(Entity *)other {
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
   Transform *otherTransform = [other  getComponentByString:@"Transform"];
-  
-  if (entity == other || !otherCollision) { return false; }
+
+  if (myTransform.hasMoved == NO && otherTransform.hasMoved == NO) {
+    return NO;
+  }
+
+  Collision *myCollision    = [entity getComponentByString:@"Collision"];
+  Collision *otherCollision = [other  getComponentByString:@"Collision"];
 
   float radius          = myCollision.radius;
   float otherRadius     = otherCollision.radius;
@@ -86,11 +74,11 @@
   float distance        = GLKVector2Distance(myTransform.position,
                                              otherTransform.position);
 
-  if ([ASFloat is:distance lessThanOrEqualTo:centersDistance]) {
-    return true;
+  if (FLOAT_LESS_THAN_OR_EQUAL(distance, centersDistance)) {
+    return YES;
   }
 
-  return false;
+  return NO;
 }
 
 @end
