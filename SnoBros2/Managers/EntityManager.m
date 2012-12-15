@@ -124,20 +124,6 @@
 
 
 
-- (Entity *)buildAndAddEntity:(NSString *)type {
-  Entity *entity = [self buildEntity:type];
-  [self add:entity];
-  return entity;
-}
-
-
-
-- (NSArray *)allEntities {
-  return [entities_ allValues];
-}
-
-
-
 - (NSArray *)sortByLayer:(NSArray *)entities {
   NSArray *sorted = [entities sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     SceneGraph *sceneGraph1 = [obj1 getComponentByString:@"SceneGraph"];

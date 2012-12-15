@@ -27,10 +27,8 @@
 - (void)update;
 
 - (Entity *)buildEntity:(NSString *)type;
-- (Entity *)buildAndAddEntity:(NSString *)type;
 - (void)loadEntityTypesFromFile:(NSString *)filename;
 
-- (NSArray *)allEntities;
 - (NSArray *)sortByLayer:(NSArray *)entities;
 - (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllWithComponent:(NSString *)component;

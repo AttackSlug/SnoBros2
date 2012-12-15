@@ -39,7 +39,8 @@
     
     entityManager_   = [[EntityManager alloc] init];
     [entityManager_ loadEntityTypesFromFile:@"entities"];
-    [entityManager_ buildAndAddEntity:@"Map"];
+    Entity *e = [entityManager_ buildEntity:@"Map"];
+    [entityManager_ add:e];
     [self loadMapFromFile:@"map"];
     
     spriteManager_   = [[SpriteManager alloc] init];
@@ -131,7 +132,8 @@
   } else {
     NSDictionary *d = mapData[@"Objects"];
     for (id key in d) {
-      Entity *e = [entityManager_ buildAndAddEntity:d[key]];
+      Entity *e = [entityManager_ buildEntity:d[key]];
+      [entityManager_ add:e];
       if ([e.type isEqualToString:@"MainDude"]) {
         [selectionSystem_ selectEntity:e];
       }

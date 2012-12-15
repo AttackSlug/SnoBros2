@@ -57,7 +57,8 @@ describe(@"Pathfinder", ^{
     __block Entity *obstacle;
 
     beforeEach(^{
-      obstacle             = [entityManager buildAndAddEntity:@"Obstacle"];
+      obstacle             = [entityManager buildEntity:@"Obstacle"];
+      [entityManager add:obstacle];
       Transform *transform = [obstacle getComponentByString:@"Transform"];
       Collision *collision = [obstacle getComponentByString:@"Collision"];
       transform.position   = GLKVector2Make(1.5f, 1.5f);
