@@ -7,13 +7,12 @@
 //
 
 #import "CollisionSystem.h"
+
 #import "EntityManager.h"
 #import "Entity.h"
 #import "Transform.h"
 #import "Collision.h"
 
-#import "Quadtree.h"
-#import "BoundingBox.h"
 #import "ASFloat.h"
 
 @implementation CollisionSystem
@@ -22,22 +21,6 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-
-    GLKVector2 boundsOrigin = GLKVector2Make(512.f, 512.f);
-    CGSize     boundsSize   = CGSizeMake(1024.f, 1024.f);
-    BoundingBox *bounds     = [[BoundingBox alloc] initWithOrigin:boundsOrigin
-                                                             size:boundsSize];
-    quadtree_      = [[Quadtree alloc] initWithBounds:bounds];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleEntityCreated:)
-                                                 name:@"entityCreated"
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleEntityDestroyed:)
-                                                 name:@"entityDestroyed"
-                                               object:nil];
   }
   return self;
 }
@@ -45,18 +28,8 @@
 
 
 - (void)update {
-  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
+  NSArray *collisionGroups = [entityManager_ findCollisionGroups];
 
-  for (Entity *entity in entities) {
-    Transform *transform = [entity getComponentByString:@"Transform"];
-    if ([transform hasMoved]) {
-      Collision *collision = [entity getComponentByString:@"Collision"];
-      [quadtree_ removeObject:entity];
-      [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
-    }
-  }
-
-  NSArray *collisionGroups = [quadtree_ retrieveCollisionGroups];
   for (NSArray *group in collisionGroups) {
     for (int i = 0; i < group.count; i++) {
       Entity *entity = group[i];
@@ -80,21 +53,6 @@
       }
     }
   }
-}
-
-
-
-- (void)handleEntityCreated:(NSNotification *)notification {
-  Entity    *entity    = [notification userInfo][@"entity"];
-  Collision *collision = [entity getComponentByString:@"Collision"];
-  [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
-}
-
-
-
-- (void)handleEntityDestroyed:(NSNotification *)notification {
-  Entity *entity = [notification userInfo][@"entity"];
-  [quadtree_ removeObject:entity];
 }
 
 

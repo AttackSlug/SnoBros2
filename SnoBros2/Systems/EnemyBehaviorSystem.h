@@ -13,7 +13,6 @@
 
 @interface EnemyBehaviorSystem : NSObject {
   EntityManager *entityManager_;
-  Quadtree      *quadtree_;
 }
 
 - (id)initWithEntityManager:(EntityManager *)entityManager;

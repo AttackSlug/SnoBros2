@@ -10,17 +10,12 @@
 
 @class Entity;
 @class EntityManager;
-@class Quadtree;
 
 @interface CollisionSystem : NSObject {
-  Quadtree      *quadtree_;
   EntityManager *entityManager_;
 }
 
 - (id)initWithEntityManager:(EntityManager *)entityManager;
-
-- (void)handleEntityCreated:(NSNotification *)notification;
-- (void)handleEntityDestroyed:(NSNotification *)notification;
 
 - (void)update;
 - (BOOL)didEntity:(Entity *)entity collideWith:(Entity *)other;

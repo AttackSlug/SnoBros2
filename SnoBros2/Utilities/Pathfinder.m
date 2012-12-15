@@ -24,12 +24,6 @@
   if (self) {
     heuristic_     = heuristic;
     entityManager_ = entityManager;
-
-    //FIXME: Temporarily hardcoded bounds
-    GLKVector2   origin = GLKVector2Make(512.f, 512.f);
-    CGSize       size   = CGSizeMake(1024.f, 1024.f);
-    BoundingBox *bounds = [[BoundingBox alloc] initWithOrigin:origin size:size];
-    obstacleTree_  = [[Quadtree alloc] initWithBounds:bounds];
   }
   return self;
 }
@@ -91,8 +85,6 @@
   MapNode        *current = start;
   [open addObject:start];
 
-  [self updateObstacleTree];
-
   start.parent = nil;
 
   while (open.count > 0) {
@@ -148,21 +140,8 @@
 
 
 
-- (void)updateObstacleTree {
-  [obstacleTree_ clear];
-
-  NSArray *entities = [entityManager_ findAllWithComponent:@"Collision"];
-  for (Entity *entity in entities) {
-    Collision   *collision   = [entity getComponentByString:@"Collision"];
-    BoundingBox *boundingBox = [collision boundingBox];
-    [obstacleTree_ addObject:entity withBoundingBox:boundingBox];
-  }
-}
-
-
-
 - (bool)isNodeTraversable:(MapNode *)node forEntity:(Entity *)entity {
-  NSArray *obstacles = [obstacleTree_ retrieveObjectsNear:node.boundingBox];
+  NSArray *obstacles = [entityManager_ findAllNear:node.boundingBox];
 
   for (Entity *obstacle in obstacles) {
     if (obstacle == entity) {

@@ -17,6 +17,9 @@
 #import "Collision.h"
 #import "JSONLoader.h"
 
+#import "Quadtree.h"
+#import "BoundingBox.h"
+
 @implementation EntityManager
 
 - (id)init {
@@ -25,6 +28,12 @@
     entities_             = [[NSMutableDictionary alloc] init];
     entityTypes_          = [[NSMutableDictionary alloc] init];
     entitiesByComponent_  = [[NSMutableDictionary alloc] init];
+
+    BoundingBox *bounds   = [[BoundingBox alloc] initWithX:512.f
+                                                         Y:512.f
+                                                     width:1024.f
+                                                    height:1024.f];
+    quadtree_             = [[Quadtree alloc] initWithBounds:bounds];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(createEntity:)
@@ -50,6 +59,11 @@
     [entitiesByComponent_[key] addObject:entity];
   }
 
+  Collision *collision = [entity getComponentByString:@"Collision"];
+  if (collision) {
+    [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
+  }
+
   [[NSNotificationCenter defaultCenter] postNotificationName:@"entityCreated"
                                                       object:self
                                                     userInfo:@{@"entity": entity}];
@@ -60,7 +74,12 @@
 - (void)remove:(Entity *)entity {
   [entities_ removeObjectForKey:entity.uuid];
   for (id key in entity.components) {
-    [entitiesByComponent_[key] removeObject:entity];
+    NSMutableArray *entitiesForComponent = entitiesByComponent_[key];
+    [entitiesForComponent removeObject:entity];
+  }
+
+  if ([entity hasComponent:@"Collision"]) {
+    [quadtree_ removeObject:entity];
   }
 
   [[NSNotificationCenter defaultCenter] postNotificationName:@"entityDestroyed"
@@ -204,6 +223,18 @@
 
 
 
+- (NSArray *)findCollisionGroups {
+  return [quadtree_ retrieveCollisionGroups];
+}
+
+
+
+- (NSArray *)findAllNear:(BoundingBox *)boundingBox {
+  return [quadtree_ retrieveObjectsNear:boundingBox];
+}
+
+
+
 - (void)processQueue {
   for (Entity *e in toBeCreated_) {
     [entities_ setObject:e forKey:e.uuid];
@@ -219,9 +250,26 @@
 
 
 - (void)update {
+  [self updateQuadtree];
+
   [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
     [object update];
   }];
+}
+
+
+
+- (void)updateQuadtree {
+  NSArray *entities = [self findAllWithComponent:@"Collision"];
+
+  for (Entity *entity in entities) {
+    Transform *transform = [entity getComponentByString:@"Transform"];
+    if ([transform hasMoved]) {
+      Collision *collision = [entity getComponentByString:@"Collision"];
+      [quadtree_ removeObject:entity];
+      [quadtree_ addObject:entity withBoundingBox:collision.boundingBox];
+    }
+  }
 }
 
 @end
