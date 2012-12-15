@@ -108,7 +108,7 @@
 
 
 - (void)destroyEntity:(NSNotification *)notification {
-  Entity *entity           = [notification userInfo][@"entity"];
+  Entity *entity            = [notification userInfo][@"entity"];
   void (^callback)(Entity *) = [notification userInfo][@"callback"];
 
   [self remove:entity];
@@ -199,7 +199,9 @@
 
 
 - (NSArray *)findCollisionGroups {
-  return [quadtree_ retrieveCollisionGroups];
+  NSMutableArray *groups = [[NSMutableArray alloc] initWithCapacity:20];
+  [quadtree_ retrieveCollisionGroups:groups];
+  return groups;
 }
 
 
