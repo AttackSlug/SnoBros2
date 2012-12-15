@@ -43,7 +43,7 @@
 
     float distance = GLKVector2Distance(transform.position, movement.target);
 
-    if ([ASFloat is:distance lessThan:DISTANCE_MARGIN]) {
+    if (FLOAT_LESS_THAN(distance, DISTANCE_MARGIN)) {
 
       physics.velocity = GLKVector2Make(0.f, 0.f);
       movement.target  = transform.position;

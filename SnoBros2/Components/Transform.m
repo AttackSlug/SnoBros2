@@ -15,6 +15,7 @@
 @synthesize position = position_;
 @synthesize previousPosition = previousPosition_;
 @synthesize scale = scale_;
+@synthesize hasMoved = hasMoved_;
 
 - (id)initWithEntity:(Entity *)entity {
   self = [super initWithEntity:entity];
@@ -39,6 +40,8 @@
       scale_    = GLKVector2Make([s[@"X"] floatValue],
                                  [s[@"Y"] floatValue]);
     }
+    
+    hasMoved_ = FALSE;
   }
   return self;
 }
@@ -58,6 +61,11 @@
 
 
 - (void)update {
+  if (fabs(GLKVector2Distance(previousPosition_, position_)) > 0) {
+    hasMoved_ = TRUE;
+  } else {
+    hasMoved_ = FALSE;
+  }
   previousPosition_ = position_;
 }
 

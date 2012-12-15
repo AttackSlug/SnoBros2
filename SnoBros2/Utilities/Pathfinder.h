@@ -19,7 +19,6 @@ typedef float(^Heuristic)(MapNode *, MapNode *, int);
 @interface Pathfinder : NSObject {
   EntityManager *entityManager_;
   Heuristic      heuristic_;
-  Quadtree      *obstacleTree_;
 }
 
 + (Heuristic)manhattanDistance;
