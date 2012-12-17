@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface UIManager : NSObject {
-  UIView *view_;
+  NSMutableDictionary *subViews_;
+  UIView *rootView_;
+  int viewCount_;
 }
 
 - (id)initWithView:(UIView *)view;
+- (void)addUIElement:(UIView *)view withName:(NSString *)name;
+- (UIView *)subViewWithName:(NSString *)name;
 - (void)updateFPSWithTime:(NSTimeInterval)timeSinceLastUpdate;
 
 

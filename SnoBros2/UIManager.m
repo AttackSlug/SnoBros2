@@ -14,24 +14,40 @@
 - (id)initWithView:(UIView *)view {
   self = [super init];
   if (self) {
-    view_ = view;
+    rootView_ = view;
+    subViews_ = [[NSMutableDictionary alloc] init];
+    viewCount_ = 0;
+    
     FPSMeter *fpsMeter = [[FPSMeter alloc] initWithFrame:CGRectMake(2, 2, 20, 20) refreshRate:6];
-    fpsMeter.tag = 1;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(22, 2, 20, 20)];
-    button.tag = 2;
-
-    [view_ addSubview:fpsMeter];
-    [view_ addSubview:button];
+    
+    [self addUIElement:fpsMeter withName:@"FPSMeter"];
+    [self addUIElement:button withName:@"button"];
   }
   return self;
 }
 
 
 
+- (void)addUIElement:(UIView *)view withName:(NSString *)name {
+  viewCount_++;
+  view.tag = viewCount_;
+  subViews_[name] = [NSNumber numberWithInt:viewCount_];
+  [rootView_ addSubview:view];
+}
+
+
+
+- (UIView *)subViewWithName:(NSString *)name {
+  return [rootView_ viewWithTag:[subViews_[name] intValue]];
+}
+
+
+
 - (void)updateFPSWithTime:(NSTimeInterval)timeSinceLastUpdate {
-  [((FPSMeter *)[view_ viewWithTag:1]) updateWithElaspedTime:timeSinceLastUpdate];
+  [((FPSMeter *)[self subViewWithName:@"FPSMeter"]) updateWithElaspedTime:timeSinceLastUpdate];
 }
 
 @end
