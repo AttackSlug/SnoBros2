@@ -19,7 +19,12 @@
                                              selector:@selector(togglePause)
                                                  name:@"togglePause"
                                                object:nil];
-    state_ = @"Unpaused";
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(nextPhase)
+                                                 name:@"nextPhase"
+                                               object:nil];
+    state_ = @"Adjusting";
+    prePauseState_ = nil;
   }
   return self;
 }
@@ -27,7 +32,19 @@
 
 
 - (void)togglePause {
-  state_ = [state_ isEqualToString:@"Paused"] ? @"Unpaused" : @"Paused";
+  if ([state_ isEqualToString:@"Paused"]) {
+    state_ = prePauseState_;
+    prePauseState_ = nil;
+  } else {
+    prePauseState_ = state_;
+    state_ = @"Paused";
+  }
+}
+
+
+
+- (void)nextPhase {
+  state_ = @"Playing";
 }
 
 @end

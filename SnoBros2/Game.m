@@ -26,6 +26,7 @@
 #import "GameStateSystem.h"
 #import "InputSystem.h"
 #import "UISystem.h"
+#import "GameLogicSystem.h"
 
 #import "Transform.h"
 #import "Physics.h"
@@ -80,6 +81,8 @@
                             camera:camera_];
     UISystem_            = [[UISystem alloc]
                             initWithUIManager:UIManager_];
+    gameLogicSystem_     = [[GameLogicSystem alloc] init];
+    
     
     GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -166,17 +169,27 @@
 - (void)createStateDictionary {
   stateDictionary_ = [[NSMutableDictionary alloc] init];
   stateDictionary_[@"Paused"] = [[NSMutableArray alloc] init];
-  stateDictionary_[@"Unpaused"] = [[NSMutableArray alloc] init];
+  stateDictionary_[@"Adjusting"] = [[NSMutableArray alloc] init];
+  stateDictionary_[@"Playing"] = [[NSMutableArray alloc] init];
   
-  NSMutableArray *unpaused = [[NSMutableArray alloc] init];
-  [unpaused addObject:entityManager_];
-  [unpaused addObject:collisionSystem_];
-  [unpaused addObject:movementSystem_];
-  [unpaused addObject:enemyBehaviorSystem_];
-  [unpaused addObject:renderSystem_];
-  [unpaused addObject:camera_];
+  NSMutableArray *adjusting = [[NSMutableArray alloc] init];
+  [adjusting addObject:entityManager_];
+  [adjusting addObject:gameLogicSystem_];
+  [adjusting addObject:movementSystem_];
+  [adjusting addObject:renderSystem_];
+  [adjusting addObject:camera_];
   
-  stateDictionary_[@"Unpaused"] = unpaused;
+  NSMutableArray *playing = [[NSMutableArray alloc] init];
+  [playing addObject:entityManager_];
+  [playing addObject:gameLogicSystem_];
+  [playing addObject:collisionSystem_];
+  [playing addObject:movementSystem_];
+  [playing addObject:enemyBehaviorSystem_];
+  [playing addObject:renderSystem_];
+  [playing addObject:camera_];
+  
+  stateDictionary_[@"Adjusting"] = adjusting;
+  stateDictionary_[@"Playing"] = playing;
 }
 
 @end

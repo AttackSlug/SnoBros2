@@ -10,11 +10,13 @@
 
 @interface GameStateSystem : NSObject {
   NSString *state_;
+  NSString *prePauseState_;
 }
 
 @property (nonatomic, readonly) NSString *state;
 
 - (id)init;
 - (void)togglePause;
+- (void)nextPhase;
 
 @end
