@@ -19,6 +19,14 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selectEntityDisplayedAtPosition:)
+                                                 name:@"selectUnitAtPosition"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selectAllWithinBoundingBox:)
+                                                 name:@"selectAllWithinBoundingBox"
+                                               object:nil];
   }
   return self;
 }
@@ -65,7 +73,8 @@
 
 
 
-- (void)selectAllWithinBoundingBox:(BoundingBox *)boundingBox {
+- (void)selectAllWithinBoundingBox:(NSNotification *)notification {
+  BoundingBox *boundingBox = [notification userInfo][@"boundingBox"];
   for (Entity *entity in [entityManager_ findAllWithinBoundingBox:boundingBox]) {
     [self selectEntity:entity];
   }
@@ -73,10 +82,11 @@
 
 
 
-- (Entity *)selectEntityDisplayedAtPosition:(GLKVector2)target {
+- (void)selectEntityDisplayedAtPosition:(NSNotification *)notification {
+  GLKVector2 target;
+  [[notification userInfo][@"position"] getValue:&target];
   Entity *entity = [entityManager_ findEntityDisplayedAtPosition:target];
   [self selectEntity:entity];
-  return entity;
 }
 
 

@@ -29,6 +29,8 @@
 - (Entity *)buildEntity:(NSString *)type;
 - (void)loadEntityTypesFromFile:(NSString *)filename;
 
+- (BOOL)isEntitySelected;
+
 - (NSArray *)sortByLayer:(NSArray *)entities;
 - (NSArray *)findByTeamName:(NSString *)name;
 - (NSArray *)findAllWithComponent:(NSString *)component;
@@ -36,5 +38,6 @@
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)findAllNear:(BoundingBox *)boundingBox;
 - (NSArray *)findCollisionGroups;
+- (NSArray *)findAllSelected;
 
 @end

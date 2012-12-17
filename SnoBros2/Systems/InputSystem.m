@@ -13,7 +13,6 @@
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
-#import "SelectionSystem.h"
 #import "Attack.h"
 #import "Transform.h"
 
@@ -23,12 +22,10 @@
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
-   selectionSystem:(SelectionSystem *)selectionSystem
             camera:(Camera *)camera {
   self = [super init];
   if (self) {
     entityManager_   = entityManager;
-    selectionSystem_ = selectionSystem;
     camera_        = camera;
 
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
@@ -68,8 +65,8 @@
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
 
-  if ([selectionSystem_ isEntitySelected] == TRUE) {
-    NSArray *selectedEntities = [selectionSystem_ findAllSelected];
+  if ([entityManager_ isEntitySelected] == TRUE) {
+    NSArray *selectedEntities = [entityManager_ findAllSelected];
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
@@ -86,7 +83,11 @@
                                                         userInfo:panData];
     }
   } else {
-    [selectionSystem_ selectEntityDisplayedAtPosition:pos];
+    NSDictionary *selectData = @{@"position": [NSValue value:&pos withObjCType:@encode(GLKVector2)]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"selectUnitAtPosition"
+                                                        object:self
+                                                      userInfo:selectData];
   }
 }
 
@@ -131,7 +132,11 @@
     BoundingBox *selectionBox = [[BoundingBox alloc] initWithOrigin:origin
                                                                size:size];
 
-    [selectionSystem_ selectAllWithinBoundingBox:selectionBox];
+    NSDictionary *selectData = @{@"boundingBox" : selectionBox};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"selectAllWithinBoundingBox"
+                                                        object:self
+                                                      userInfo:selectData];
   }
 }
 
