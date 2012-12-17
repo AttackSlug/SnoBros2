@@ -13,6 +13,7 @@
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
+#import "UIManager.h"
 #import "Attack.h"
 #import "Transform.h"
 
@@ -22,11 +23,13 @@
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
+         UIManager:(UIManager *)UIManager 
             camera:(Camera *)camera {
   self = [super init];
   if (self) {
-    entityManager_   = entityManager;
-    camera_        = camera;
+    entityManager_  = entityManager;
+    UIManager_      = UIManager;
+    camera_         = camera;
 
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
@@ -47,7 +50,7 @@
                              action:@selector(addButtonTapEvent:)];
     buttonTap_.numberOfTapsRequired = 1;
     buttonTap_.numberOfTouchesRequired = 1;
-    [[view viewWithTag:2] addGestureRecognizer:buttonTap_];
+    [[UIManager_ subViewWithName:@"button"] addGestureRecognizer:buttonTap_];
     
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class EntityManager;
+@class UIManager;
 @class Camera;
 
 @interface InputSystem : NSObject {
   EntityManager             *entityManager_;
+  UIManager                 *UIManager_;
   Camera                    *camera_;
 
   UITapGestureRecognizer    *oneFingerTap_;
@@ -24,5 +26,6 @@
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
+         UIManager:(UIManager *)UIManager
             camera:(Camera *)camera;
 @end

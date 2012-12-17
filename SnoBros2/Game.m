@@ -77,6 +77,7 @@
     inputSystem_         = [[InputSystem alloc]
                             initWithView:view_
                             entityManager:entityManager_
+                            UIManager:UIManager_
                             camera:camera_];
     UISystem_            = [[UISystem alloc]
                             initWithUIManager:UIManager_];
