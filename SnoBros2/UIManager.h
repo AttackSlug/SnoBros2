@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface UIManager : NSObject {
-  NSMutableArray *UIElements_;
+  UIView *view_;
 }
 
 - (id)initWithView:(UIView *)view;
-- (void)update;
+- (void)updateFPSWithTime:(NSTimeInterval)timeSinceLastUpdate;
 
 
 @end

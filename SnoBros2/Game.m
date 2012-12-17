@@ -108,6 +108,7 @@
   for (int i = 0; i < numSteps; i++) {
     [self step];
   }
+  [UIManager_ updateFPSWithTime:elapsedTime];
 }
 
 
