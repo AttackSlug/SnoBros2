@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 
-#import "InputSystem.h"
 #import "Game.h"
 #import "FPSMeter.h"
 
@@ -16,14 +15,11 @@
 
 - (void)viewDidLoad {
   [self setupGL];
-
-  game_         = [[Game alloc] init];
-  inputSystem_  = [[InputSystem alloc] initWithView:self.view
-                                      entityManager:game_.entityManager
-                                    selectionSystem:game_.selectionSystem
-                                             camera:game_.camera];
+  
   fpsMeter_     = [[FPSMeter alloc] initWithFrame:CGRectMake(2, 2, 20, 20) refreshRate:6];
   [self.view addSubview:fpsMeter_];
+  
+  game_         = [[Game alloc] initWithView:self.view];
 }
 
 

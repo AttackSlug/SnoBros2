@@ -19,6 +19,7 @@
 
   UITapGestureRecognizer    *oneFingerTap_;
   UITapGestureRecognizer    *twoFingerTap_;
+  UITapGestureRecognizer    *buttonTap_;
   UIPanGestureRecognizer    *boxSelector_;
 }
 

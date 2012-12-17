@@ -45,6 +45,13 @@
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
 
+    buttonTap_    = [[UITapGestureRecognizer alloc]
+                     initWithTarget:self
+                             action:@selector(addButtonTapEvent:)];
+    buttonTap_.numberOfTapsRequired = 1;
+    buttonTap_.numberOfTouchesRequired = 1;
+    [[view viewWithTag:2] addGestureRecognizer:buttonTap_];
+    
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
@@ -98,6 +105,14 @@
       [attack fireAt:targetTransform.position];
     }
   }
+}
+
+
+
+- (void)addButtonTapEvent:(UITapGestureRecognizer *)gr {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"togglePause"
+                                                      object:self
+                                                    userInfo:nil];
 }
 
 

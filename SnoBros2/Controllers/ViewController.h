@@ -9,12 +9,10 @@
 #import <GLKit/GLKit.h>
 
 @class Game;
-@class InputSystem;
 @class FPSMeter;
 
 @interface ViewController : GLKViewController {
   Game        *game_;
-  InputSystem *inputSystem_;
   FPSMeter    *fpsMeter_;
 }
 

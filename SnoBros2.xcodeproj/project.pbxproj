@@ -17,6 +17,9 @@
 		8742582516778E1200ABF997 /* FPSMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742582416778E1200ABF997 /* FPSMeter.m */; };
 		87595BF4167BEA12008D4DF0 /* JSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595BF3167BEA12008D4DF0 /* JSONLoader.m */; };
 		87595BF8167C0162008D4DF0 /* DamageSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595BF7167C0162008D4DF0 /* DamageSystem.m */; };
+		87595C73167F906E008D4DF0 /* GameStateSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595C72167F906E008D4DF0 /* GameStateSystem.m */; };
+		87595C77167F98EB008D4DF0 /* UIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595C76167F98EB008D4DF0 /* UIManager.m */; };
+		87595C7A167FA360008D4DF0 /* UISystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87595C79167FA35E008D4DF0 /* UISystem.m */; };
 		8782C7271676592900C24790 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7261676592800C24790 /* enemy.png */; };
 		8782C72A16765AF700C24790 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8782C72916765AF700C24790 /* obstacle.png */; };
 		8782C7341676672900C24790 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 8782C7331676672900C24790 /* map.json */; };
@@ -109,6 +112,12 @@
 		87595BF3167BEA12008D4DF0 /* JSONLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLoader.m; sourceTree = "<group>"; };
 		87595BF6167C0161008D4DF0 /* DamageSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DamageSystem.h; sourceTree = "<group>"; };
 		87595BF7167C0162008D4DF0 /* DamageSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DamageSystem.m; sourceTree = "<group>"; };
+		87595C71167F906E008D4DF0 /* GameStateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateSystem.h; sourceTree = "<group>"; };
+		87595C72167F906E008D4DF0 /* GameStateSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateSystem.m; sourceTree = "<group>"; };
+		87595C75167F98EA008D4DF0 /* UIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIManager.h; sourceTree = "<group>"; };
+		87595C76167F98EB008D4DF0 /* UIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIManager.m; sourceTree = "<group>"; };
+		87595C78167FA35D008D4DF0 /* UISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystem.h; sourceTree = "<group>"; };
+		87595C79167FA35E008D4DF0 /* UISystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISystem.m; sourceTree = "<group>"; };
 		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8782C7331676672900C24790 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
@@ -289,6 +298,8 @@
 			children = (
 				A3F8B060166465A700334E9E /* EntityManager.h */,
 				A3F8B061166465A700334E9E /* EntityManager.m */,
+				87595C75167F98EA008D4DF0 /* UIManager.h */,
+				87595C76167F98EB008D4DF0 /* UIManager.m */,
 				8787EC17166523A0000C07E1 /* SpriteManager.h */,
 				8787EC18166523A0000C07E1 /* SpriteManager.m */,
 			);
@@ -483,6 +494,10 @@
 				A32388D51676742D00D4A020 /* ProjectileSystem.m */,
 				87595BF6167C0161008D4DF0 /* DamageSystem.h */,
 				87595BF7167C0162008D4DF0 /* DamageSystem.m */,
+				87595C71167F906E008D4DF0 /* GameStateSystem.h */,
+				87595C72167F906E008D4DF0 /* GameStateSystem.m */,
+				87595C78167FA35D008D4DF0 /* UISystem.h */,
+				87595C79167FA35E008D4DF0 /* UISystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -709,6 +724,9 @@
 				A32388E51676A35F00D4A020 /* BoundingBox.m in Sources */,
 				87595BF4167BEA12008D4DF0 /* JSONLoader.m in Sources */,
 				87595BF8167C0162008D4DF0 /* DamageSystem.m in Sources */,
+				87595C73167F906E008D4DF0 /* GameStateSystem.m in Sources */,
+				87595C77167F98EB008D4DF0 /* UIManager.m in Sources */,
+				87595C7A167FA360008D4DF0 /* UISystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
