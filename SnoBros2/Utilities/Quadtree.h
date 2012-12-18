@@ -31,8 +31,9 @@ enum quadrant { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
   NSMutableArray *objects_;
 }
 
-@property (nonatomic, readonly) int maxObjects;
-@property (nonatomic, readonly) int maxLevels;
+@property (nonatomic, readonly) int          maxObjects;
+@property (nonatomic, readonly) int          maxLevels;
+@property (nonatomic, readonly) BoundingBox *bounds;
 
 - (id)initWithBounds:(BoundingBox *)bounds
                level:(int)level
