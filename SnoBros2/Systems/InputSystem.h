@@ -9,22 +9,23 @@
 #import <UIKit/UIKit.h>
 
 @class EntityManager;
-@class SelectionSystem;
+@class UIManager;
 @class Camera;
 
 @interface InputSystem : NSObject {
   EntityManager             *entityManager_;
-  SelectionSystem           *selectionSystem_;
+  UIManager                 *UIManager_;
   Camera                    *camera_;
 
   UITapGestureRecognizer    *oneFingerTap_;
   UITapGestureRecognizer    *twoFingerTap_;
+  UITapGestureRecognizer    *buttonTap_;
   UIPanGestureRecognizer    *boxSelector_;
 }
 
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
-   selectionSystem:(SelectionSystem *)selectionSystem
+         UIManager:(UIManager *)UIManager
             camera:(Camera *)camera;
 @end

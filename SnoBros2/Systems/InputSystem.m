@@ -13,7 +13,7 @@
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
-#import "SelectionSystem.h"
+#import "UIManager.h"
 #import "Attack.h"
 #import "Transform.h"
 
@@ -23,13 +23,13 @@
 
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
-   selectionSystem:(SelectionSystem *)selectionSystem
+         UIManager:(UIManager *)UIManager 
             camera:(Camera *)camera {
   self = [super init];
   if (self) {
-    entityManager_   = entityManager;
-    selectionSystem_ = selectionSystem;
-    camera_        = camera;
+    entityManager_  = entityManager;
+    UIManager_      = UIManager;
+    camera_         = camera;
 
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
@@ -45,6 +45,13 @@
     twoFingerTap_.numberOfTouchesRequired = 2;
     [view addGestureRecognizer:twoFingerTap_];
 
+    buttonTap_    = [[UITapGestureRecognizer alloc]
+                     initWithTarget:self
+                             action:@selector(addButtonTapEvent:)];
+    buttonTap_.numberOfTapsRequired = 1;
+    buttonTap_.numberOfTouchesRequired = 1;
+    [[UIManager_ subViewWithName:@"button"] addGestureRecognizer:buttonTap_];
+    
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
@@ -61,8 +68,8 @@
   CGPoint p = [gr locationInView:gr.view];
   GLKVector2 pos = GLKVector2Add(GLKVector2Make(p.x, p.y), camera_.position);
 
-  if ([selectionSystem_ isEntitySelected] == TRUE) {
-    NSArray *selectedEntities = [selectionSystem_ findAllSelected];
+  if ([entityManager_ isEntitySelected] == TRUE) {
+    NSArray *selectedEntities = [entityManager_ findAllSelected];
 
     for (Entity *e in selectedEntities) {
       NSValue *target    = [NSValue value:&pos withObjCType:@encode(GLKVector2)];
@@ -79,7 +86,11 @@
                                                         userInfo:panData];
     }
   } else {
-    [selectionSystem_ selectEntityDisplayedAtPosition:pos];
+    NSDictionary *selectData = @{@"position": [NSValue value:&pos withObjCType:@encode(GLKVector2)]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"selectUnitAtPosition"
+                                                        object:self
+                                                      userInfo:selectData];
   }
 }
 
@@ -102,6 +113,14 @@
 
 
 
+- (void)addButtonTapEvent:(UITapGestureRecognizer *)gr {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"togglePause"
+                                                      object:self
+                                                    userInfo:nil];
+}
+
+
+
 - (void)addBoxSelectorEvent:(UIPanGestureRecognizer *)gr {
   if (gr.state == UIGestureRecognizerStateEnded) {
     CGPoint  e, t;
@@ -116,7 +135,11 @@
     BoundingBox *selectionBox = [[BoundingBox alloc] initWithOrigin:origin
                                                                size:size];
 
-    [selectionSystem_ selectAllWithinBoundingBox:selectionBox];
+    NSDictionary *selectData = @{@"boundingBox" : selectionBox};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"selectAllWithinBoundingBox"
+                                                        object:self
+                                                      userInfo:selectData];
   }
 }
 

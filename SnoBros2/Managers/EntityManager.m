@@ -96,6 +96,18 @@
 
 
 
+- (BOOL)isEntitySelected {
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    Selectable *selectable = [e getComponentByString:@"Selectable"];
+    if (selectable.selected == TRUE) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+
+
 - (void)createEntity:(NSNotification *)notification {
   NSString *type             = [notification userInfo][@"type"];
   void (^callback)(Entity *) = [notification userInfo][@"callback"];
@@ -202,6 +214,20 @@
   NSMutableArray *groups = [[NSMutableArray alloc] initWithCapacity:20];
   [quadtree_ retrieveCollisionGroups:groups];
   return groups;
+}
+
+
+
+- (NSArray *)findAllSelected {
+  NSMutableArray *found = [[NSMutableArray alloc] init];
+  
+  for (Entity *e in [self findAllWithComponent:@"Selectable"]) {
+    Selectable *selectable = [e getComponentByString:@"Selectable"];
+    if (selectable.selected == TRUE) {
+      [found addObject:e];
+    }
+  }
+  return found;
 }
 
 

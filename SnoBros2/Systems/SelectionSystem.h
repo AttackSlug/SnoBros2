@@ -23,8 +23,8 @@
 - (NSArray *)findAllSelected;
 - (BOOL)isEntitySelected;
 - (void)selectEntity:(Entity *)entity;
-- (Entity *)selectEntityDisplayedAtPosition:(GLKVector2)target;
-- (void)selectAllWithinBoundingBox:(BoundingBox *)boundingBox;
+- (void)selectEntityDisplayedAtPosition:(NSNotification *)notification;
+- (void)selectAllWithinBoundingBox:(NSNotification *)notification;
 - (void)deselectAll;
 
 @end
