@@ -14,6 +14,7 @@
 
 @synthesize maxObjects = maxObjects_;
 @synthesize maxLevels  = maxLevels_;
+@synthesize bounds     = bounds_;
 
 - (id)initWithBounds:(BoundingBox *)bounds
                level:(int)level
@@ -25,7 +26,7 @@
     level_      = level;
     maxObjects_ = maxObjects;
     maxLevels_  = maxLevels;
-    objects_    = [[NSMutableArray alloc] initWithCapacity:200];
+    objects_    = [[NSMutableArray alloc] initWithCapacity:maxObjects + 5];
   }
   return self;
 }
@@ -52,6 +53,8 @@
 
 
 - (void)split {
+  BoundingBox *quads[NUM_NODES];
+
   float  x = bounds_.x;
   float  y = bounds_.y;
 
@@ -60,60 +63,41 @@
   float  quarterWidth  = halfWidth  / 2;
   float  quarterHeight = halfHeight / 2;
 
-  topLeft_ = [[BoundingBox alloc] initWithX:x - quarterWidth
-                                          Y:y + quarterHeight
-                                      width:halfWidth
-                                     height:halfHeight];
-  topRight_ = [[BoundingBox alloc] initWithX:x + quarterWidth
-                                           Y:y + quarterHeight
-                                       width:halfWidth
-                                      height:halfHeight];
-  bottomLeft_ = [[BoundingBox alloc] initWithX:x - quarterWidth
-                                             Y:y - quarterHeight
-                                         width:halfWidth
-                                        height:halfHeight];
-  bottomRight_ = [[BoundingBox alloc] initWithX:x + quarterWidth
-                                              Y:y - quarterHeight
-                                          width:halfWidth
-                                         height:halfHeight];
+  quads[TOP_LEFT]     = [[BoundingBox alloc] initWithX:x - quarterWidth
+                                                     Y:y + quarterHeight
+                                                 width:halfWidth
+                                                height:halfHeight];
+  quads[TOP_RIGHT]    = [[BoundingBox alloc] initWithX:x + quarterWidth
+                                                     Y:y + quarterHeight
+                                                 width:halfWidth
+                                                height:halfHeight];
+  quads[BOTTOM_LEFT]  = [[BoundingBox alloc] initWithX:x - quarterWidth
+                                                     Y:y - quarterHeight
+                                                 width:halfWidth
+                                                height:halfHeight];
+  quads[BOTTOM_RIGHT] = [[BoundingBox alloc] initWithX:x + quarterWidth
+                                                     Y:y - quarterHeight
+                                                 width:halfWidth
+                                                height:halfHeight];
 
-  nodes_[TOP_LEFT]     = [[Quadtree alloc] initWithBounds:topLeft_
-                                                    level:level_ + 1
-                                               maxObjects:maxObjects_
-                                                maxLevels:maxLevels_];
-  nodes_[TOP_RIGHT]    = [[Quadtree alloc] initWithBounds:topRight_
-                                                    level:level_ + 1
-                                               maxObjects:maxObjects_
-                                                maxLevels:maxLevels_];
-  nodes_[BOTTOM_LEFT]  = [[Quadtree alloc] initWithBounds:bottomLeft_
-                                                    level:level_ + 1
-                                               maxObjects:maxObjects_
-                                                maxLevels:maxLevels_];
-  nodes_[BOTTOM_RIGHT] = [[Quadtree alloc] initWithBounds:bottomRight_
-                                                    level:level_ + 1
-                                               maxObjects:maxObjects_
-                                                maxLevels:maxLevels_];
+  for (int i = 0; i < NUM_NODES; i++) {
+    nodes_[i] = [[Quadtree alloc] initWithBounds:quads[i]
+                                           level:level_ + 1
+                                      maxObjects:maxObjects_
+                                       maxLevels:maxLevels_];
+  }
 }
 
 
 
 - (NSArray *)nodesContainingBoundingBox:(BoundingBox *)boundingBox {
-  NSMutableArray *found = [[NSMutableArray alloc] init];
+  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:NUM_NODES];
 
-  if (nodes_[TOP_LEFT] && [topLeft_ intersectsWith:boundingBox]) {
-    [found addObject:nodes_[TOP_LEFT]];
-  }
-
-  if (nodes_[TOP_RIGHT] && [topRight_ intersectsWith:boundingBox]) {
-    [found addObject:nodes_[TOP_RIGHT]];
-  }
-
-  if (nodes_[BOTTOM_LEFT] && [bottomLeft_ intersectsWith:boundingBox]) {
-    [found addObject:nodes_[BOTTOM_LEFT]];
-  }
-
-  if (nodes_[BOTTOM_RIGHT] && [bottomRight_ intersectsWith:boundingBox]) {
-    [found addObject:nodes_[BOTTOM_RIGHT]];
+  for (int i = 0; i < NUM_NODES; i++) {
+    Quadtree *child = nodes_[i];
+    if ([child.bounds intersectsWith:boundingBox]) {
+      [found addObject:child];
+    }
   }
 
   return found;
@@ -133,10 +117,7 @@
   [objects_ addObject:@{@"boundingBox": boundingBox, @"object": object}];
 
   if (objects_.count > maxObjects_ && level_ < maxLevels_) {
-    if ([self isLeafNode]) {
-      [self split];
-    }
-
+    [self split];
     [self redistributeObjects];
   }
 }
@@ -156,18 +137,15 @@
 
   } else {
 
-    NSMutableArray *toRemove = [[NSMutableArray alloc] initWithCapacity:4];
-    for (NSDictionary *entry in objects_) {
+    for (int i = 0; i < objects_.count; i++) {
+      NSDictionary *entry = objects_[i];
       if (object == entry[@"object"]) {
+        [objects_ removeObject:entry];
         didRemoveObject = YES;
-        [toRemove addObject:entry];
+        i -= 1;
       }
     }
 
-    for (NSDictionary *entry in toRemove) {
-      [objects_ removeObject:entry];
-      didRemoveObject = YES;
-    }
   }
 
   return didRemoveObject;
