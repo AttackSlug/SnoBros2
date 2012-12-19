@@ -34,7 +34,7 @@ const static int   MAX_STEPS         = 5;
   SpriteManager         *spriteManager_;
   UIManager             *UIManager_;
 
-  CameraSystem                *cameraSystem_;
+  CameraSystem          *cameraSystem_;
   CollisionSystem       *collisionSystem_;
   InputSystem           *inputSystem_;
   RenderSystem          *renderSystem_;
@@ -56,9 +56,6 @@ const static int   MAX_STEPS         = 5;
   NSTimeInterval        timestepAccumulatorRatio_;
   NSTimeInterval const  timestepInterval_;
 }
-
-@property (nonatomic) CameraSystem          *camera;
-
 
 - (id)initWithView:(UIView *)view;
 

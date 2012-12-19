@@ -21,15 +21,6 @@
     target_ = GLKVector2Make(-240, -160);
     viewport_ = GLKVector2Make(480, 320);
     maxspeed_ = 4;
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(panCameraToTarget:)
-                                                 name:@"panCameraToTarget"
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(panCameraWithHeading:)
-                                                 name:@"panCameraWithHeading"
-                                               object:nil];
   }
   return self;
 }
@@ -51,13 +42,25 @@
 
 
 - (void)activate {
-  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(panCameraToTarget:)
+                                               name:@"panCameraToTarget"
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(panCameraWithHeading:)
+                                               name:@"panCameraWithHeading"
+                                             object:nil];
 }
 
 
 
 - (void)deactivate {
-  
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"panCameraToTarget"
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"panCameraWithHeading"
+                                                object:nil];
 }
 
 

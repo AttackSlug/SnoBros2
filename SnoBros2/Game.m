@@ -34,16 +34,12 @@
 
 @implementation Game
 
-@synthesize camera = cameraSystem_;
-
 - (id)initWithView:(UIView *)view {
   self = [super init];
   if (self) {
     timestepAccumulatorRatio_ = 1.f;
     
     view_            = view;
-    
-    cameraSystem_          = [[CameraSystem alloc] init];
     
     entityManager_   = [[EntityManager alloc] init];
     [entityManager_ loadEntityTypesFromFile:@"entities"];
@@ -56,6 +52,7 @@
     
     UIManager_       = [[UIManager alloc] initWithView:view_];
     
+    cameraSystem_    = [[CameraSystem alloc] init];
     selectionSystem_ = [[SelectionSystem alloc]
                         initWithEntityManager:entityManager_];
     collisionSystem_ = [[CollisionSystem alloc]
@@ -84,6 +81,12 @@
                             initWithUIManager:UIManager_];
     gameLogicSystem_     = [[GameLogicSystem alloc] init];
     
+    [self createStateDictionary];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(manageStateChange:)
+                                                 name:@"stateChange"
+                                               object:nil];
     
     GLKVector2    target  = GLKVector2Make(192.f, 416.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
@@ -91,15 +94,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"
                                                         object:self
                                                       userInfo:panData];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(manageStateChange:)
-                                                 name:@"stateChange"
-                                               object:nil];
-
-    
-    [self createStateDictionary];
-    int p =1;
   }
   return self;
 }
@@ -213,8 +207,13 @@
   
   [playing addObject:entityManager_];
   
+  NSMutableArray *paused = [[NSMutableArray alloc] init];
+  [paused addObject:inputSystem_];
+  [paused addObject:gameStateSystem_];
+  
   stateDictionary_[@"Adjusting"] = adjusting;
   stateDictionary_[@"Playing"] = playing;
+  stateDictionary_[@"Paused"] = paused;
   
   for (id object in stateDictionary_[gameStateSystem_.state]) {
     if ([object conformsToProtocol:@protocol(GameSystem)]) {
@@ -230,6 +229,7 @@
   NSString *currentState  = [notification userInfo][@"currentState"];
   
   for (id object in stateDictionary_[previousState]) {
+    //only need conforms to protocol because entitymanager has an update
     if ([object conformsToProtocol:@protocol(GameSystem)]) {
       [object deactivate];
     }
