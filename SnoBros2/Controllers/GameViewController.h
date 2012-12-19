@@ -10,7 +10,7 @@
 
 @class Game;
 
-@interface ViewController : GLKViewController {
+@interface GameViewController : GLKViewController {
   Game        *game_;
 }
 

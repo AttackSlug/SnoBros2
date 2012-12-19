@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 
 #import "Game.h"
 #import "FPSMeter.h"
 
-@implementation ViewController
+@implementation GameViewController
 
 - (void)viewDidLoad {
   [self setupGL];
