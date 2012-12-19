@@ -9,8 +9,11 @@
 #import <GLKit/GLKit.h>
 #import <UIKit/UIKit.h>
 
+@class GameViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) GameViewController *gameViewController;
 
 @end
