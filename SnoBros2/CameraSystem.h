@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface Camera : NSObject {
+#import "GameSystem.h"
+
+@interface CameraSystem : NSObject <GameSystem> {
   GLKVector2  position_;
   GLKVector2  target_;
   GLKVector2  viewport_;

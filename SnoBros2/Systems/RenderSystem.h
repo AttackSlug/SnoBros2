@@ -9,28 +9,30 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 @class ShaderManager;
 @class Entity;
-@class Camera;
+@class CameraSystem;
 @class Sprite;
 @class SpriteManager;
 @class SceneGraph;
 @class SceneNode;
 @class Health;
 
-@interface RenderSystem : NSObject {
+@interface RenderSystem : NSObject <GameSystem> {
   EntityManager *entityManager_;
   ShaderManager *shaderManager_;
   SpriteManager *spriteManager_;
-  Camera        *camera_;
+  CameraSystem        *camera_;
   
   NSMutableArray *entitiesToDraw_;
 }
 
 - (id)initWithEntityManager:(EntityManager *)entityManager
               spriteManager:(SpriteManager *)spriteManager
-                     camera:(Camera *)camera;
+                     camera:(CameraSystem *)camera;
 
 - (void)renderEntitieswithInterpolationRatio:(double)ratio;
 - (void)renderEntity:(Entity *)entity withInterpolationRatio:(double)ratio;

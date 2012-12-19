@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 
-@interface DamageSystem : NSObject {
+@interface DamageSystem : NSObject <GameSystem> {
   EntityManager *entityManager_;
 }
 

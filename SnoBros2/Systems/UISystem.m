@@ -19,4 +19,22 @@
   return self;
 }
 
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  
+}
+
+
+
+- (void)deactivate {
+  
+}
+
 @end

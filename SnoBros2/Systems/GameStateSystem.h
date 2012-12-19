@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameStateSystem : NSObject {
+#import "GameSystem.h"
+
+@interface GameStateSystem : NSObject <GameSystem> {
   NSString *state_;
-  NSString *prePauseState_;
+  NSString *previousState_;
 }
 
 @property (nonatomic, readonly) NSString *state;
@@ -18,5 +20,6 @@
 - (id)init;
 - (void)togglePause;
 - (void)nextPhase;
+- (void)throwStateChangeEvent;
 
 @end

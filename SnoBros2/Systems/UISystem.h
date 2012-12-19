@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GameSystem.h"
+
 @class UIManager;
 
-@interface UISystem : NSObject {
+@interface UISystem : NSObject <GameSystem> {
   UIManager *UIManager_;
 }
 

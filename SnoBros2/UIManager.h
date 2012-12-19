@@ -16,7 +16,7 @@
 
 - (id)initWithView:(UIView *)view;
 - (void)addUIElement:(UIView *)view withName:(NSString *)name;
-- (UIView *)subViewWithName:(NSString *)name;
+- (UIView *)viewWithName:(NSString *)name;
 - (void)updateFPSWithTime:(NSTimeInterval)timeSinceLastUpdate;
 
 

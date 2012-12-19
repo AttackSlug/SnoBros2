@@ -23,10 +23,6 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleWalkTo:)
-                                                 name:@"walkTo"
-                                               object:nil];
   }
   return self;
 }
@@ -90,6 +86,23 @@
   }
 
   physics.velocity = GLKVector2MultiplyScalar(direction, movement.speed);
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(handleWalkTo:)
+                                               name:@"walkTo"
+                                             object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"walkTo"
+                                                object:nil];
 }
 
 @end

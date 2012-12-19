@@ -57,6 +57,18 @@
 
 
 
+- (void)activate {
+  
+}
+
+
+
+- (void)deactivate {
+  
+}
+
+
+
 - (BOOL)didEntity:(Entity *)entity collideWith:(Entity *)other {
   Transform *myTransform    = [entity getComponentByString:@"Transform"];
   Transform *otherTransform = [other  getComponentByString:@"Transform"];

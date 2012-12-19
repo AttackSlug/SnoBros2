@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 @class Entity;
 
 #define DISTANCE_MARGIN 4.f
 
-@interface MovementSystem : NSObject {
+@interface MovementSystem : NSObject <GameSystem> {
   EntityManager *entityManager_;
 }
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Camera;
+@class CameraSystem;
 
 @class Component;
 

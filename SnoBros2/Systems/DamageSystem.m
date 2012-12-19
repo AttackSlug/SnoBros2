@@ -16,10 +16,6 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(takeDamage:)
-                                                 name:@"takeDamage"
-                                               object:nil];
   }
   return self;
 }
@@ -32,6 +28,29 @@
   Entity *entity = [notification userInfo][@"entity"];
   Health *health = [entity getComponentByString:@"Health"];
   [health damage:amount];
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(takeDamage:)
+                                               name:@"takeDamage"
+                                             object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"takeDamage"
+                                                object:nil];
 }
 
 @end

@@ -32,14 +32,6 @@
                                                          size:boundsSize];
     CGSize size    = CGSizeMake(32.f, 32.f);
     map_           = [[MapGrid alloc] initWithBounds:bounds nodeSize:size];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleFindPath:)
-                                                 name:@"findPath"
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleArrivedAtTarget:)
-                                                 name:@"arrivedAtTarget" object:nil];
   }
   return self;
 }
@@ -123,6 +115,35 @@
                                                         object:self
                                                       userInfo:data];
   }
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(handleFindPath:)
+                                               name:@"findPath"
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(handleArrivedAtTarget:)
+                                               name:@"arrivedAtTarget" object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"findPath"
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"arrivedAtTarget"
+                                                object:nil];
 }
 
 @end

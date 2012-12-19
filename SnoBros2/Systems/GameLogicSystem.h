@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameLogicSystem : NSObject {
+#import "GameSystem.h"
+
+@interface GameLogicSystem : NSObject <GameSystem> {
   float elapsedTime_;
 }
 
