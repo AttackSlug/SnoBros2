@@ -398,7 +398,7 @@
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3789879166E9ECE009C13EE /* SnoBros2.app */,
-				87754AA4168223F500842677 /* KiwiUnitTest.octest */,
+				87595BE01678F398008D4DF0 /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
