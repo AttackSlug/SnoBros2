@@ -15,16 +15,8 @@
 - (id)init {
   self = [super init];
   if (self) {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(togglePause)
-                                                 name:@"togglePause"
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(nextPhase)
-                                                 name:@"nextPhase"
-                                               object:nil];
     state_ = @"Adjusting";
-    prePauseState_ = nil;
+    previousState_ = nil;
   }
   return self;
 }
@@ -33,18 +25,61 @@
 
 - (void)togglePause {
   if ([state_ isEqualToString:@"Paused"]) {
-    state_ = prePauseState_;
-    prePauseState_ = nil;
+    NSString *temp = state_;
+    state_ = previousState_;
+    previousState_ = temp;
   } else {
-    prePauseState_ = state_;
+    previousState_ = state_;
     state_ = @"Paused";
   }
+  [self throwStateChangeEvent];
 }
 
 
 
 - (void)nextPhase {
+  previousState_ = state_;
   state_ = @"Playing";
+  [self throwStateChangeEvent];
+}
+
+
+
+- (void)throwStateChangeEvent {
+  NSDictionary *stateData = @{@"previousState": previousState_, @"currentState": state_};
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"stateChange"
+                                                      object:self
+                                                    userInfo:stateData];
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(togglePause)
+                                               name:@"togglePause"
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(nextPhase)
+                                               name:@"nextPhase"
+                                             object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"togglePause"
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"nextPhase"
+                                                object:nil];
 }
 
 @end

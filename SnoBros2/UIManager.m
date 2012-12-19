@@ -40,14 +40,17 @@
 
 
 
-- (UIView *)subViewWithName:(NSString *)name {
+- (UIView *)viewWithName:(NSString *)name {
+  if ([name isEqualToString:@"Root"]) {
+    return rootView_;
+  }
   return [rootView_ viewWithTag:[subViews_[name] intValue]];
 }
 
 
 
 - (void)updateFPSWithTime:(NSTimeInterval)timeSinceLastUpdate {
-  [((FPSMeter *)[self subViewWithName:@"FPSMeter"]) updateWithElaspedTime:timeSinceLastUpdate];
+  [((FPSMeter *)[self viewWithName:@"FPSMeter"]) updateWithElaspedTime:timeSinceLastUpdate];
 }
 
 @end

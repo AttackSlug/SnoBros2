@@ -74,7 +74,7 @@
 		A3F8B082166465A700334E9E /* wpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3F8B03A166465A700334E9E /* wpaper.jpg */; };
 		A3F8B083166465A700334E9E /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B03D166465A700334E9E /* Behavior.m */; };
 		A3F8B085166465A700334E9E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B041166465A700334E9E /* Sphere.m */; };
-		A3F8B086166465A700334E9E /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B043166465A700334E9E /* Camera.m */; };
+		A3F8B086166465A700334E9E /* CameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B043166465A700334E9E /* CameraSystem.m */; };
 		A3F8B087166465A700334E9E /* Attack.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B046166465A700334E9E /* Attack.m */; };
 		A3F8B088166465A700334E9E /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B048166465A700334E9E /* Collision.m */; };
 		A3F8B089166465A700334E9E /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B04A166465A700334E9E /* Component.m */; };
@@ -112,7 +112,6 @@
 		87149EED166FB9B900D92227 /* programs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programs.json; sourceTree = "<group>"; };
 		8742582316778E1200ABF997 /* FPSMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSMeter.h; sourceTree = "<group>"; };
 		8742582416778E1200ABF997 /* FPSMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSMeter.m; sourceTree = "<group>"; };
-		87595BE01678F398008D4DF0 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87595BF2167BEA12008D4DF0 /* JSONLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONLoader.h; sourceTree = "<group>"; };
 		87595BF3167BEA12008D4DF0 /* JSONLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLoader.m; sourceTree = "<group>"; };
 		87595BF6167C0161008D4DF0 /* DamageSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DamageSystem.h; sourceTree = "<group>"; };
@@ -125,12 +124,14 @@
 		87595C79167FA35E008D4DF0 /* UISystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISystem.m; sourceTree = "<group>"; };
 		87595C7B167FB914008D4DF0 /* GameLogicSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogicSystem.h; sourceTree = "<group>"; };
 		87595C7C167FB915008D4DF0 /* GameLogicSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogicSystem.m; sourceTree = "<group>"; };
+		87754AA4168223F500842677 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8782C7331676672900C24790 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
 		8787EC17166523A0000C07E1 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		8787EC18166523A0000C07E1 /* SpriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteManager.m; path = Managers/SpriteManager.m; sourceTree = "<group>"; };
 		8787EC1A16652664000C07E1 /* sprites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sprites.json; sourceTree = "<group>"; };
+		87C0F6B116821BCF00E6294E /* GameSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameSystem.h; sourceTree = "<group>"; };
 		87E4195D16652E7600336F3A /* SceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
 		87E4195E16652E7600336F3A /* SceneNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneNode.m; sourceTree = "<group>"; };
 		87E41980166677DE00336F3A /* healthgradient2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthgradient2.png; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		A32388E61676A76500D4A020 /* BoundingBoxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoundingBoxSpec.m; sourceTree = "<group>"; };
 		A341CDBC168176DF00D455E8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		A341CDBF168176DF00D455E8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		A341CE201681785800D455E8 /* SnoBros2 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SnoBros2 copy-Info.plist"; path = "/Users/cjab/Desktop/Component/SnoBros2 copy-Info.plist"; sourceTree = "<absolute>"; };
 		A341CE211681793B00D455E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A3518E38167303E000D47310 /* QuadtreeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadtreeSpec.m; sourceTree = "<group>"; };
 		A3541B3816681116004531C1 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 		A3F8B03D166465A700334E9E /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
 		A3F8B040166465A700334E9E /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		A3F8B041166465A700334E9E /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
-		A3F8B042166465A700334E9E /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
-		A3F8B043166465A700334E9E /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		A3F8B042166465A700334E9E /* CameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraSystem.h; path = ../CameraSystem.h; sourceTree = "<group>"; };
+		A3F8B043166465A700334E9E /* CameraSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraSystem.m; path = ../CameraSystem.m; sourceTree = "<group>"; };
 		A3F8B045166465A700334E9E /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
 		A3F8B046166465A700334E9E /* Attack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attack.m; sourceTree = "<group>"; };
 		A3F8B047166465A700334E9E /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
@@ -339,8 +339,6 @@
 				A3F8B063166465A700334E9E /* Game.m */,
 				A3F8B05E166465A700334E9E /* Entity.h */,
 				A3F8B05F166465A700334E9E /* Entity.m */,
-				A3F8B042166465A700334E9E /* Camera.h */,
-				A3F8B043166465A700334E9E /* Camera.m */,
 				A3F8B065166465A700334E9E /* Sprite.h */,
 				A3F8B066166465A700334E9E /* Sprite.m */,
 				A3F8B02C166465A700334E9E /* AppDelegate.h */,
@@ -400,8 +398,7 @@
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3789879166E9ECE009C13EE /* SnoBros2.app */,
-				87595BE01678F398008D4DF0 /* KiwiUnitTest.octest */,
-				A341CE201681785800D455E8 /* SnoBros2 copy-Info.plist */,
+				87754AA4168223F500842677 /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -515,6 +512,9 @@
 		A3F8B06C166465A700334E9E /* Systems */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8B042166465A700334E9E /* CameraSystem.h */,
+				A3F8B043166465A700334E9E /* CameraSystem.m */,
+				87C0F6B116821BCF00E6294E /* GameSystem.h */,
 				A3F8B06D166465A700334E9E /* CollisionSystem.h */,
 				A3F8B06E166465A700334E9E /* CollisionSystem.m */,
 				A3F8B06F166465A700334E9E /* InputSystem.h */,
@@ -586,7 +586,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = 87595BE01678F398008D4DF0 /* KiwiUnitTest.octest */;
+			productReference = 87754AA4168223F500842677 /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -724,7 +724,7 @@
 				A3F8B076166465A700334E9E /* AppDelegate.m in Sources */,
 				A3F8B083166465A700334E9E /* Behavior.m in Sources */,
 				A3F8B085166465A700334E9E /* Sphere.m in Sources */,
-				A3F8B086166465A700334E9E /* Camera.m in Sources */,
+				A3F8B086166465A700334E9E /* CameraSystem.m in Sources */,
 				A3F8B087166465A700334E9E /* Attack.m in Sources */,
 				A3F8B088166465A700334E9E /* Collision.m in Sources */,
 				A3F8B089166465A700334E9E /* Component.m in Sources */,
