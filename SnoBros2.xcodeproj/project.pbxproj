@@ -892,6 +892,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"TESTFLIGHT_TOKEN=\"\\\"$(TESTFLIGHT_TOKEN)\\\"\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/SnoBros2/Support/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -909,6 +913,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "TESTFLIGHT_TOKEN=\"$(TESTFLIGHT_TOKEN)\"";
 				INFOPLIST_FILE = "$(SRCROOT)/SnoBros2/Support/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
