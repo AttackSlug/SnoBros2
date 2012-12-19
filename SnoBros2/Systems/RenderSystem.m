@@ -11,7 +11,7 @@
 #import "ShaderManager.h"
 #import "Entity.h"
 #import "EntityManager.h"
-#import "Camera.h"
+#import "CameraSystem.h"
 #import "Transform.h"
 #import "Sprite.h"
 #import "SpriteManager.h"
@@ -24,7 +24,7 @@
 
 - (id)initWithEntityManager:(EntityManager *)entityManager
               spriteManager:(SpriteManager *)spriteManager
-                     camera:(Camera *)camera {
+                     camera:(CameraSystem *)camera {
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
@@ -156,6 +156,18 @@
 
 - (void)update {
   [self updateViewableEntities];
+}
+
+
+
+- (void)activate {
+  
+}
+
+
+
+- (void)deactivate {
+  
 }
 
 

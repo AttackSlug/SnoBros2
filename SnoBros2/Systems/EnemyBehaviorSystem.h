@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 @class Quadtree;
 
-@interface EnemyBehaviorSystem : NSObject {
+@interface EnemyBehaviorSystem : NSObject <GameSystem> {
   EntityManager *entityManager_;
 }
 

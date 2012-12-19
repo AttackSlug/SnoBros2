@@ -8,7 +8,7 @@
 
 #import "Game.h"
 #import "Entity.h"
-#import "Camera.h"
+#import "CameraSystem.h"
 
 #import "EntityManager.h"
 #import "SpriteManager.h"
@@ -28,12 +28,13 @@
 #import "UISystem.h"
 #import "GameLogicSystem.h"
 
+#import "GameSystem.h"
 #import "Transform.h"
 #import "Physics.h"
 
 @implementation Game
 
-@synthesize camera = camera_;
+@synthesize camera = cameraSystem_;
 
 - (id)initWithView:(UIView *)view {
   self = [super init];
@@ -42,7 +43,7 @@
     
     view_            = view;
     
-    camera_          = [[Camera alloc] init];
+    cameraSystem_          = [[CameraSystem alloc] init];
     
     entityManager_   = [[EntityManager alloc] init];
     [entityManager_ loadEntityTypesFromFile:@"entities"];
@@ -53,7 +54,7 @@
     spriteManager_   = [[SpriteManager alloc] init];
     [spriteManager_ loadEntityTypesFromFile:@"sprites"];
     
-    UIManager_       = [[UIManager alloc] initWithView:view];
+    UIManager_       = [[UIManager alloc] initWithView:view_];
     
     selectionSystem_ = [[SelectionSystem alloc]
                         initWithEntityManager:entityManager_];
@@ -62,7 +63,7 @@
     renderSystem_    = [[RenderSystem alloc]
                         initWithEntityManager:entityManager_
                         spriteManager:spriteManager_
-                        camera:camera_];
+                        camera:cameraSystem_];
     
     pathfindingSystem_   = [[PathfindingSystem alloc]
                             initWithEntityManager:entityManager_];
@@ -78,7 +79,7 @@
                             initWithView:view_
                             entityManager:entityManager_
                             UIManager:UIManager_
-                            camera:camera_];
+                            camera:cameraSystem_];
     UISystem_            = [[UISystem alloc]
                             initWithUIManager:UIManager_];
     gameLogicSystem_     = [[GameLogicSystem alloc] init];
@@ -91,7 +92,14 @@
                                                         object:self
                                                       userInfo:panData];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(manageStateChange:)
+                                                 name:@"stateChange"
+                                               object:nil];
+
+    
     [self createStateDictionary];
+    int p =1;
   }
   return self;
 }
@@ -173,23 +181,65 @@
   stateDictionary_[@"Playing"] = [[NSMutableArray alloc] init];
   
   NSMutableArray *adjusting = [[NSMutableArray alloc] init];
-  [adjusting addObject:entityManager_];
-  [adjusting addObject:gameLogicSystem_];
-  [adjusting addObject:movementSystem_];
+  [adjusting addObject:selectionSystem_];
+  [adjusting addObject:collisionSystem_];
   [adjusting addObject:renderSystem_];
-  [adjusting addObject:camera_];
+  [adjusting addObject:pathfindingSystem_];
+  [adjusting addObject:movementSystem_];
+  [adjusting addObject:projectileSystem_];
+  [adjusting addObject:gameStateSystem_];
+  [adjusting addObject:inputSystem_];
+  [adjusting addObject:UISystem_];
+  [adjusting addObject:gameLogicSystem_];
+  [adjusting addObject:cameraSystem_];
+  
+  [adjusting addObject:entityManager_];
   
   NSMutableArray *playing = [[NSMutableArray alloc] init];
-  [playing addObject:entityManager_];
-  [playing addObject:gameLogicSystem_];
+  [playing addObject:selectionSystem_];
   [playing addObject:collisionSystem_];
-  [playing addObject:movementSystem_];
-  [playing addObject:enemyBehaviorSystem_];
   [playing addObject:renderSystem_];
-  [playing addObject:camera_];
+  [playing addObject:pathfindingSystem_];
+  [playing addObject:movementSystem_];
+  [playing addObject:projectileSystem_];
+  [playing addObject:gameStateSystem_];
+  [playing addObject:inputSystem_];
+  [playing addObject:UISystem_];
+  [playing addObject:gameLogicSystem_];
+  [playing addObject:cameraSystem_];
+  
+  [playing addObject:enemyBehaviorSystem_];
+  [playing addObject:damageSystem_];
+  
+  [playing addObject:entityManager_];
   
   stateDictionary_[@"Adjusting"] = adjusting;
   stateDictionary_[@"Playing"] = playing;
+  
+  for (id object in stateDictionary_[gameStateSystem_.state]) {
+    if ([object conformsToProtocol:@protocol(GameSystem)]) {
+      [object activate];
+    }
+  }
+}
+
+
+
+- (void)manageStateChange:(NSNotification *)notification {
+  NSString *previousState = [notification userInfo][@"previousState"];
+  NSString *currentState  = [notification userInfo][@"currentState"];
+  
+  for (id object in stateDictionary_[previousState]) {
+    if ([object conformsToProtocol:@protocol(GameSystem)]) {
+      [object deactivate];
+    }
+  }
+  
+  for (id object in stateDictionary_[currentState]) {
+    if ([object conformsToProtocol:@protocol(GameSystem)]) {
+      [object activate];
+    }
+  }
 }
 
 @end

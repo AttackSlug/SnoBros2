@@ -9,7 +9,7 @@
 #import "InputSystem.h"
 
 #import "Entity.h"
-#import "Camera.h"
+#import "CameraSystem.h"
 #import "Selectable.h"
 #import "Health.h"
 #import "EntityManager.h"
@@ -24,7 +24,7 @@
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
          UIManager:(UIManager *)UIManager 
-            camera:(Camera *)camera {
+            camera:(CameraSystem *)camera {
   self = [super init];
   if (self) {
     entityManager_  = entityManager;
@@ -43,21 +43,18 @@
                              action:@selector(addTwoFingerTapEvent:)];
     twoFingerTap_.numberOfTapsRequired = 1;
     twoFingerTap_.numberOfTouchesRequired = 2;
-    [view addGestureRecognizer:twoFingerTap_];
 
     buttonTap_    = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
                              action:@selector(addButtonTapEvent:)];
     buttonTap_.numberOfTapsRequired = 1;
     buttonTap_.numberOfTouchesRequired = 1;
-    [[UIManager_ subViewWithName:@"button"] addGestureRecognizer:buttonTap_];
     
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
     boxSelector_.minimumNumberOfTouches = 1;
     boxSelector_.maximumNumberOfTouches = 1;
-    [view addGestureRecognizer:boxSelector_];
   }
   return self;
 }
@@ -141,6 +138,30 @@
                                                         object:self
                                                       userInfo:selectData];
   }
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:oneFingerTap_];
+  [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:twoFingerTap_];
+  [[UIManager_ viewWithName:@"button"] addGestureRecognizer:buttonTap_];
+  [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:boxSelector_];
+}
+
+
+
+- (void)deactivate {
+  [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:oneFingerTap_];
+  [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:twoFingerTap_];
+  [[UIManager_ viewWithName:@"button"] removeGestureRecognizer:buttonTap_];
+  [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:boxSelector_];
 }
 
 @end

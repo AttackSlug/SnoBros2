@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ProjectileSystem : NSObject
+#import "GameSystem.h"
+
+@interface ProjectileSystem : NSObject <GameSystem>
 
 - (id)init;
 

@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 @class UIManager;
-@class Camera;
+@class CameraSystem;
 
-@interface InputSystem : NSObject {
+@interface InputSystem : NSObject <GameSystem> {
   EntityManager             *entityManager_;
   UIManager                 *UIManager_;
-  Camera                    *camera_;
+  CameraSystem                    *camera_;
 
   UITapGestureRecognizer    *oneFingerTap_;
   UITapGestureRecognizer    *twoFingerTap_;
@@ -27,5 +29,5 @@
 - (id)initWithView:(UIView *)view
      entityManager:(EntityManager *)entityManager
          UIManager:(UIManager *)UIManager
-            camera:(Camera *)camera;
+            camera:(CameraSystem *)camera;
 @end

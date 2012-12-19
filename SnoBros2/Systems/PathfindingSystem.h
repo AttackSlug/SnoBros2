@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+#import "GameSystem.h"
+
 @class MapGrid;
 @class EntityManager;
 @class Entity;
 
-@interface PathfindingSystem : NSObject {
+@interface PathfindingSystem : NSObject <GameSystem> {
   MapGrid       *map_;
   EntityManager *entityManager_;
 }

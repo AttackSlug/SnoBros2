@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Camera;
+@class CameraSystem;
 @class EntityManager;
 @class SpriteManager;
 @class UIManager;
@@ -34,7 +34,7 @@ const static int   MAX_STEPS         = 5;
   SpriteManager         *spriteManager_;
   UIManager             *UIManager_;
 
-  Camera                *camera_;
+  CameraSystem                *cameraSystem_;
   CollisionSystem       *collisionSystem_;
   InputSystem           *inputSystem_;
   RenderSystem          *renderSystem_;
@@ -57,7 +57,7 @@ const static int   MAX_STEPS         = 5;
   NSTimeInterval const  timestepInterval_;
 }
 
-@property (nonatomic) Camera          *camera;
+@property (nonatomic) CameraSystem          *camera;
 
 
 - (id)initWithView:(UIView *)view;
@@ -67,5 +67,6 @@ const static int   MAX_STEPS         = 5;
 - (void)render;
 - (void)loadMapFromFile:(NSString *)fileName;
 - (void)createStateDictionary;
+- (void)manageStateChange:(NSNotification *)notification;
 
 @end

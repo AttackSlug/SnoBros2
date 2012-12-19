@@ -9,11 +9,13 @@
 #import <GLKit/GLKit.h>
 #import <Foundation/Foundation.h>
 
+#import "GameSystem.h"
+
 @class EntityManager;
 @class Entity;
 @class BoundingBox;
 
-@interface SelectionSystem : NSObject {
+@interface SelectionSystem : NSObject <GameSystem> {
   EntityManager *entityManager_;
   Entity        *leader_;
 }

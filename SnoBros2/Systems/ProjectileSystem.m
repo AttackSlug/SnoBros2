@@ -15,10 +15,6 @@
 - (id)init {
   self = [super init];
   if (self) {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleArrivedAtTarget:)
-                                                 name:@"arrivedAtTarget"
-                                               object:nil];
   }
   return self;
 }
@@ -32,6 +28,29 @@
                                                         object:self
                                                       userInfo:@{@"entity": entity}];
   }
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(handleArrivedAtTarget:)
+                                               name:@"arrivedAtTarget"
+                                             object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"arrivedAtTarget"
+                                                object:nil];
 }
 
 @end

@@ -19,14 +19,6 @@
   self = [super init];
   if (self) {
     entityManager_ = entityManager;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(selectEntityDisplayedAtPosition:)
-                                                 name:@"selectUnitAtPosition"
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(selectAllWithinBoundingBox:)
-                                                 name:@"selectAllWithinBoundingBox"
-                                               object:nil];
   }
   return self;
 }
@@ -101,6 +93,36 @@
       [health hideHealthBar];
     }
   }
+}
+
+
+
+- (void)update {
+  
+}
+
+
+
+- (void)activate {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(selectEntityDisplayedAtPosition:)
+                                               name:@"selectUnitAtPosition"
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(selectAllWithinBoundingBox:)
+                                               name:@"selectAllWithinBoundingBox"
+                                             object:nil];
+}
+
+
+
+- (void)deactivate {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"selectUnitAtPosition"
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:@"selectAllWithinBoundingBox"
+                                                object:nil];
 }
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
-#import "Camera.h"
+#import "CameraSystem.h"
 
-@implementation Camera
+@implementation CameraSystem
 
 @synthesize position = position_;
 @synthesize target   = target_;
@@ -46,6 +46,18 @@
                                                         object:self
                                                       userInfo:data];
   }
+}
+
+
+
+- (void)activate {
+  
+}
+
+
+
+- (void)deactivate {
+  
 }
 
 
