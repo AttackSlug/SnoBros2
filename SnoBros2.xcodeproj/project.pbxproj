@@ -124,7 +124,6 @@
 		87595C79167FA35E008D4DF0 /* UISystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISystem.m; sourceTree = "<group>"; };
 		87595C7B167FB914008D4DF0 /* GameLogicSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogicSystem.h; sourceTree = "<group>"; };
 		87595C7C167FB915008D4DF0 /* GameLogicSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogicSystem.m; sourceTree = "<group>"; };
-		87754AA4168223F500842677 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8782C7261676592800C24790 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		8782C72916765AF700C24790 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
 		8782C7331676672900C24790 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		A37E59431665314C0061E425 /* ASFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFloat.h; sourceTree = "<group>"; };
 		A37E595A166550320061E425 /* SelectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSystem.h; sourceTree = "<group>"; };
 		A37E595B166550320061E425 /* SelectionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSystem.m; sourceTree = "<group>"; };
+		A3A799DE16823CD600F47F44 /* KiwiUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -398,7 +398,7 @@
 				A374CB20166E64DB00286090 /* KiwiUnitTest */,
 				A3BD0C961642EC8B007AEB08 /* Frameworks */,
 				A3789879166E9ECE009C13EE /* SnoBros2.app */,
-				87595BE01678F398008D4DF0 /* KiwiUnitTest.octest */,
+				A3A799DE16823CD600F47F44 /* KiwiUnitTest.octest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -586,7 +586,7 @@
 			);
 			name = KiwiUnitTest;
 			productName = KiwiUnitTest;
-			productReference = 87754AA4168223F500842677 /* KiwiUnitTest.octest */;
+			productReference = A3A799DE16823CD600F47F44 /* KiwiUnitTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3BD0C921642EC8B007AEB08 /* SnoBros2 */ = {
@@ -911,9 +911,10 @@
 		A3BD0CC81642EC8B007AEB08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnoBros2/Support/SnoBros2-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "TESTFLIGHT_TOKEN=\"$(TESTFLIGHT_TOKEN)\"";
+				GCC_PREPROCESSOR_DEFINITIONS = "TESTFLIGHT_TOKEN=\"\\\"$(TESTFLIGHT_TOKEN)\\\"\"";
 				INFOPLIST_FILE = "$(SRCROOT)/SnoBros2/Support/SnoBros2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -921,6 +922,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = SnoBros2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

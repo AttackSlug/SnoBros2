@@ -2,11 +2,13 @@
 //  MainMenuViewController.m
 //  SnoBros2
 //
-//  Created by Cjab on 12/18/12.
+//  Created by Chad Jablonski on 12/18/12.
 //  Copyright (c) 2012 Attack Slug. All rights reserved.
 //
 
 #import "MainMenuViewController.h"
+
+#import "TestFlight.h"
 
 @interface MainMenuViewController ()
 
@@ -45,6 +47,12 @@
 - (IBAction)touchStartGame:(id)sender {
   [[NSNotificationCenter defaultCenter] postNotificationName:@"showGameView"
                                                       object:self];
+}
+
+
+
+- (IBAction)launchFeedback {
+  [TestFlight openFeedbackView];
 }
 
 @end
