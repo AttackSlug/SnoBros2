@@ -14,7 +14,6 @@
 #import "SpriteManager.h"
 #import "UIManager.h"
 
-#import "InputSystem.h"
 #import "CollisionSystem.h"
 #import "RenderSystem.h"
 #import "SelectionSystem.h"
