@@ -11,6 +11,8 @@
 
 #import "MainMenuViewController.h"
 
+#import "TestFlight.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
@@ -19,6 +21,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   #if DEBUG
   if (getenv("RUNNING_TESTS")) { return YES; }
   #endif
+
+  [self setupTestflight];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(showGameView)
@@ -40,9 +44,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 }
 
 
+- (void)setupTestflight {
+  [TestFlight takeOff:[NSString stringWithUTF8String:TESTFLIGHT_TOKEN]];
+  #define TESTING 1
+  #ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+  #endif
+}
+
 
 - (void)showGameView {
   self.window.rootViewController = [[GameViewController alloc] init];
+  [TestFlight passCheckpoint:@"Start Game"];
 }
 
 
